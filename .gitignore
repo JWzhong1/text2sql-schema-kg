@@ -1,0 +1,27 @@
+# Python 编译文件
+__pycache__/
+*.py[cod]
+*.so
+
+# 环境变量 (包含敏感信息，绝对不要上传)
+.env
+
+# 构建产物
+*.egg-info/
+dist/
+build/
+
+# 运行时日志
+logs/
+*.log
+
+# 本地缓存数据
+cache/
+
+# IDE 配置 (可选)
+.vscode/
+.idea/
+
+# 数据文件 (根据需要决定是否上传，通常不上传大型数据集)
+# 如果 bird_data 包含大量数据，建议忽略具体的数据子目录
+bird_data/
