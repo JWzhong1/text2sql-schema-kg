@@ -322,7 +322,7 @@ class GraphRAGRetriever:
     def _llm_pruning(self, query: Dict, candidate_nodes: Dict[str, NodeItem]) -> Dict[str, NodeItem]:
         """
         Step 2: 节点剪枝。
-        构建子图文本描述，让 LLM 选择最终相关的 Table 和 Column。
+        构建子图文本描述,让 LLM 选择最终相关的 Table 和 Column。
         """
         candidate_ids = list(candidate_nodes.keys())
         if not candidate_ids:
@@ -384,7 +384,7 @@ class GraphRAGRetriever:
             if not is_sufficient:
                 logger.warning(f"Schema deemed insufficient: {missing_info}. Attempting recovery with full schema...")
                 selected_schema_map = self._recover_schema_with_full_context(query, selected_schema_map, missing_info)
-
+                
             # 6. 将 Map 转换为 NodeItem 字典 (Map -> IDs)
             if selected_schema_map:
                 final_result = {}

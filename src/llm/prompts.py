@@ -323,8 +323,9 @@ def get_recover_schema_with_full_context_prompt(query: Dict, current_selection: 
             "CRITICAL: When adding new tables, you MUST also include the foreign key columns and intermediate tables required to join the new tables with the existing selected schema."
         )
     user_prompt = f"""
-        Original Question: {query.get('question', '')}
-        Evidence: {query.get('evidence', '')}
+        Original Question: {query.get('original_question', '')}
+        reasoning_trace: {query.get('reasoning_trace', [])}
+        rewritten_question: {query.get('rewritten_question', '')}
         
         Currently Selected Schema (Insufficient):
         {json.dumps(current_selection, ensure_ascii=False, indent=2)}
@@ -336,7 +337,7 @@ def get_recover_schema_with_full_context_prompt(query: Dict, current_selection: 
         {schema_str}
         
         Task:
-        1. Locate the missing tables/columns in the FULL Schema that address the missing info.
+        1. Locate the missing tables/columns in the FULL Schema that address the missing info, attention to the join paths between tables.
         2. Identify any foreign key columns or intermediate tables needed to join these new tables with the Currently Selected Schema.
         3. Merge all found tables and columns into the Selected Schema.
         4. Return the FINAL complete schema map.
