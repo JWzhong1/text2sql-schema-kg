@@ -419,6 +419,9 @@ class GraphRAGRetriever:
                     fetched_nodes = self._fetch_nodes_by_names(missing_nodes_map)
                     final_result.update(fetched_nodes)
                 
+                # *** 新增：补充外键列 ***
+                final_result = self._ensure_foreign_key_columns(final_result)
+                
                 # 可视化最终结果
                 self._visualize_final_result(final_result, edges_info)
                 return final_result
@@ -723,3 +726,95 @@ class GraphRAGRetriever:
         plt.tight_layout()
         plt.savefig(filename)
         plt.close()
+
+    def _ensure_foreign_key_columns(self, nodes: Dict[str, NodeItem]) -> Dict[str, NodeItem]:
+        """
+        确保所有选中的表都包含必要的外键列,以支持表间连接。
+        
+        策略:
+        1. 找出所有已选中的表
+        2. 查询这些表之间的外键关系
+        3. 将缺失的外键列添加到结果中
+        """
+        # 1. 收集已选中的表名
+        selected_tables = set()
+        for node in nodes.values():
+            if node.is_table:
+                selected_tables.add(node.name)
+            elif node.is_column and node.table_name:
+                selected_tables.add(node.table_name)
+        
+        if len(selected_tables) < 2:
+            return nodes  # 单表或无表,无需处理
+        
+        logger.info(f"Ensuring foreign key columns for tables: {selected_tables}")
+        
+        # 2. 查询这些表之间的外键关系
+        with self.driver.session() as session:
+            res = session.run("""
+                MATCH (t1:Table)-[:REFERENCES]->(t2:Table)
+                WHERE (t1.name IN $tables OR t1.original_name IN $tables)
+                  AND (t2.name IN $tables OR t2.original_name IN $tables)
+                MATCH (c1:Column)-[:FK_TO]->(c2:Column)
+                WHERE (c1.table_name = t1.name OR c1.table_name = t1.original_name)
+                  AND (c2.table_name = t2.name OR c2.table_name = t2.original_name)
+                OPTIONAL MATCH (t_parent:Table {name: c1.table_name})
+                OPTIONAL MATCH (t_ref:Table {name: c2.table_name})
+                RETURN DISTINCT
+                    elementId(c1) as fk_col_id,
+                    c1.name as fk_col_name,
+                    c1.original_name as fk_col_original,
+                    c1.table_name as fk_table_name,
+                    t_parent.original_name as fk_table_original,
+                    c1.description as fk_col_desc,
+                    labels(c1) as fk_col_labels,
+                    elementId(c2) as ref_col_id,
+                    c2.name as ref_col_name,
+                    c2.original_name as ref_col_original,
+                    c2.table_name as ref_table_name,
+                    t_ref.original_name as ref_table_original,
+                    c2.description as ref_col_desc,
+                    labels(c2) as ref_col_labels
+            """, tables=list(selected_tables))
+            
+            fk_info = list(res)
+        
+        if not fk_info:
+            logger.info("No foreign key relationships found between selected tables")
+            return nodes
+        
+        # 3. 将缺失的外键列添加到结果中
+        added_count = 0
+        for fk in fk_info:
+            # 添加外键列
+            fk_col_id = fk["fk_col_id"]
+            if fk_col_id not in nodes:
+                nodes[fk_col_id] = NodeItem(
+                    id=fk_col_id,
+                    name=fk["fk_col_name"],
+                    labels=fk["fk_col_labels"],
+                    table_name=fk["fk_table_name"],
+                    original_name=fk["fk_col_original"],
+                    table_original_name=fk["fk_table_original"],
+                    description=fk.get("fk_col_desc", "")
+                )
+                added_count += 1
+                logger.debug(f"Added FK column: {fk['fk_table_name']}.{fk['fk_col_name']}")
+            
+            # 添加被引用列
+            ref_col_id = fk["ref_col_id"]
+            if ref_col_id not in nodes:
+                nodes[ref_col_id] = NodeItem(
+                    id=ref_col_id,
+                    name=fk["ref_col_name"],
+                    labels=fk["ref_col_labels"],
+                    table_name=fk["ref_table_name"],
+                    original_name=fk["ref_col_original"],
+                    table_original_name=fk["ref_table_original"],
+                    description=fk.get("ref_col_desc", "")
+                )
+                added_count += 1
+                logger.debug(f"Added referenced column: {fk['ref_table_name']}.{fk['ref_col_name']}")
+        
+        logger.info(f"Added {added_count} foreign key columns to ensure connectivity")
+        return nodes
