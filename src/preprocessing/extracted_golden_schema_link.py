@@ -45,9 +45,9 @@ SQL: {sql} \n\n
         print(f"Error during extraction: {e}")
         return {}
 
-def process_single_item(item, schema_dir):
+def process_single_item(item, db_schema):
     """
-    处理单个条目的辅助函数，用于多线程调用。
+    处理单个条目（已限定到某一个 db）。
     """
     question_id = item.get("question_id")
     question = item.get("question")
@@ -56,65 +56,61 @@ def process_single_item(item, schema_dir):
     evidence = item.get("evidence", "")
     difficulty = item.get("difficulty", "")
     
-    schema_file_path = schema_dir / f"{db_id}.json"
-
-    if not schema_file_path.exists():
-        print(f"警告: 数据库ID {db_id} 的schema文件未在 {schema_file_path} 找到，跳过该条目。")
+    if not sql:
         return None
-    
-    with open(schema_file_path, 'r', encoding='utf-8') as f:
-        try:
-            db_schema = json.load(f)
-        except json.JSONDecodeError:
-            print(f"警告: schema文件 {schema_file_path} 解析失败，跳过。")
-            return None
 
-    if sql:
-        extracted = extract_tables_and_fields(sql, db_schema)
-        try:
-            # extract_tables_and_fields 返回的可能是字符串形式的 JSON，也可能是字典（取决于 get_competition_json 的实现）
-            # 这里假设它返回的是字符串，如果已经是字典则不需要 json.loads
-            golden_link = json.loads(extracted) if isinstance(extracted, str) else extracted
-            return {
-                "question_id": question_id,
-                "db_id": db_id,
-                "question": question,
-                "evidence": evidence,
-                "SQL": sql,
-                "difficulty": difficulty,
-                "golden_schema_link": golden_link
-            }
-        except Exception as e:
-            print(f"解析提取结果失败 question_id {question_id}: {e}")
-            return None
-    return None
+    extracted = extract_tables_and_fields(sql, db_schema)
+    try:
+        golden_link = json.loads(extracted) if isinstance(extracted, str) else extracted
+        return {
+            "question_id": question_id,
+            "db_id": db_id,
+            "question": question,
+            "evidence": evidence,
+            "SQL": sql,
+            "difficulty": difficulty,
+            "golden_schema_link": golden_link
+        }
+    except Exception as e:
+        print(f"解析提取结果失败 question_id {question_id}: {e}")
+        return None
 
-def process_dev_file(dev_file_path, schema_json_path, output_file_path):
+def process_dev_file(dev_file_path, schema_file_path: Path, output_file_path):
     """
-    处理dev.json文件，提取SQL中使用到的表及字段，并保存到JSON文件。
+    仅处理与 schema_file_path 对应 db 的条目。
     """
     with open(dev_file_path, 'r', encoding='utf-8') as dev_file:
         dev_data = json.load(dev_file)
     
+    if not schema_file_path.exists():
+        print(f"schema 文件不存在: {schema_file_path}")
+        return
+    
+    try:
+        with open(schema_file_path, 'r', encoding='utf-8') as f:
+            db_schema = json.load(f)
+    except json.JSONDecodeError:
+        print(f"schema 文件解析失败: {schema_file_path}")
+        return
+
+    # 从文件名推断 db_id（去除扩展名）
+    target_db_id = schema_file_path.stem
+
+    items_to_process = [item for item in dev_data if item.get("db_id") == target_db_id]
+    if not items_to_process:
+        print(f"dev.json 中没有匹配 db_id={target_db_id} 的条目。")
+        return
+
     results = []
-    schema_dir = Path("data/schemas")
-    
-    # 设置最大线程数，例如 10
-    max_workers = 10
-    
-    items_to_process = dev_data 
+    max_workers = 8
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        # 提交所有任务
-        future_to_item = {executor.submit(process_single_item, item, schema_dir): item for item in items_to_process}
-        
-        # 使用 tqdm 显示进度
-        for future in tqdm(as_completed(future_to_item), total=len(items_to_process), desc="Processing"):
+        future_to_item = {executor.submit(process_single_item, item, db_schema): item for item in items_to_process}
+        for future in tqdm(as_completed(future_to_item), total=len(items_to_process), desc=f"Processing {target_db_id}"):
             result = future.result()
             if result:
                 results.append(result)
-    
-    # 按 question_id 排序以保持顺序（可选）
+
     results.sort(key=lambda x: x.get("question_id", 0))
 
     with open(output_file_path, 'w', encoding='utf-8') as output_file:
@@ -122,7 +118,9 @@ def process_dev_file(dev_file_path, schema_json_path, output_file_path):
     print(f"提取结果已保存到 {output_file_path}")
 
 if __name__ == "__main__":
-    dev_file = "data/bird/llm/data/dev_tied_append.json"
-    output_file = "data/golden_schema_link.json"
-    schema_json  = "data/converted_schema.json"
-    process_dev_file(dev_file, schema_json, output_file)
+    # 仅处理单个 db
+    dev_file = "bird_data/bird/llm/data/dev.json"
+    # 改为具体 schema 文件
+    schema_file = Path("bird_data/converted_schemas/financial.json")
+    output_file = "bird_data/golden_link/golden_schema_link_financial.json"
+    process_dev_file(dev_file, schema_file, output_file)

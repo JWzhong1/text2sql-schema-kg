@@ -354,7 +354,6 @@ class GenericSchemaGraphBuilder:
             # 利用缓存获取清洗后的外键信息
             analysis = self._call_llm_for_table_analysis(t1_name, table_data)
             fks = analysis.get("foreign_keys", [])
-            
             for fk in fks:
                 if not isinstance(fk, dict):
                     continue
@@ -368,21 +367,59 @@ class GenericSchemaGraphBuilder:
                     connected_pairs.add(pair)
                     
                     description = f"Foreign Key: {t1_name}.{c1_name} -> {t2_name}.{c2_name}"
-
                     # 执行 Cypher 创建关系
-                    session.run("""
-                        MATCH (t1:Table {name: $t1_name})
-                        MATCH (c1:Column {name: $c1_name, table_name: $t1_name})
-                        MATCH (t2:Table {name: $t2_name})
-                        MATCH (c2:Column {name: $c2_name, table_name: $t2_name})
+                    try:
+                        with session.begin_transaction() as tx:
+                            # Define the query string
+                            cypher_query = """
+                                MATCH (t1:Table)
+                                    WHERE t1.name = $t1_name OR t1.original_name = $t1_name
+                                MATCH (c1:Column)
+                                    WHERE (c1.table_name = t1.name OR c1.table_name = t1.original_name)
+                                        AND (c1.name = $c1_name OR c1.original_name = $c1_name)
+                                MATCH (t2:Table) 
+                                    WHERE t2.name = $t2_name OR t2.original_name = $t2_name      
+                                MATCH (c2:Column)
+                                    WHERE (c2.table_name = t2.name OR c2.table_name = t2.original_name)
+                                        AND (c2.name = $c2_name OR c2.original_name = $c2_name)
+
+                                WITH t1, c1, t2, c2        
+                                MERGE (c1)-[:FK_TO]->(c2)
+                                MERGE (t1)-[r:REFERENCES]->(t2)
+                                MERGE (c1)-[:REFERENCES_TABLE]->(t2)
+                                            
+                                SET c1.is_foreign_key = true,
+                                    r.description = $description
+                                RETURN count(r) as cnt
+                                """
+                            
+                            # Define parameters
+                            params = {
+                                "t1_name": t1_name,
+                                "c1_name": c1_name,
+                                "t2_name": t2_name,
+                                "c2_name": c2_name,
+                                "description": description
+                            }
+
+                            # Print the query and parameters to the terminal
+                            # debug_query = cypher_query
+                            # for k, v in params.items():
+                            #     val_repr = f"'{v}'" if isinstance(v, str) else str(v)
+                            #     debug_query = debug_query.replace(f"${k}", val_repr)
+                            # print(f"Executing Cypher:\n{debug_query}")
+
+                            # Execute the query
+                            result = tx.run(cypher_query, **params)
+                            
+                            record = result.single()
+                            if record is None or record["cnt"] == 0:
+                                logger.warning(f"Relationship creation skipped (nodes missing): {t1_name}.{c1_name} -> {t2_name}.{c2_name}")
+                                connected_pairs.discard(pair)  # 出错则移除该对
+                    except Exception as e:
+                        logger.error(f"Error creating explicit relationship between {t1_name}.{c1_name} and {t2_name}.{c2_name}: {e}")
+                    
                         
-                        MERGE (c1)-[:FK_TO]->(c2)
-                        MERGE (t1)-[r:REFERENCES]->(t2)
-                        MERGE (c1)-[:REFERENCES_TABLE]->(t2)
-                        SET c1.is_foreign_key = true,
-                            r.description = $description
-                    """, t1_name=t1_name, c1_name=c1_name, t2_name=t2_name, c2_name=c2_name, description=description)
-        
         logger.info(f"Created explicit relationships for {len(connected_pairs)} pairs.")
         return connected_pairs
 

@@ -31,14 +31,16 @@ if __name__ == "__main__":
     neo4j_uri = os.getenv("NEO4J_URI", "bolt://localhost:7687")
     neo4j_user = os.getenv("NEO4J_USER", "neo4j")
     neo4j_password = os.getenv("NEO4J_PASSWORD", "your_password")
-    schema_json_path="bird_data/converted_schemas/california_schools.json"
+    schema_json_path="bird_data/converted_schemas/financial.json"
     retriever = GraphRAGRetriever(neo4j_uri, neo4j_user, neo4j_password, schema_json_path)
 
-    golden_link_path = "bird_data/golden_link/golden_schema_link_test.json"
+    golden_link_path = "bird_data/golden_link/golden_schema_link_financial.json"
     with open(golden_link_path, 'r', encoding='utf-8') as f:
         golden_links = json.load(f)
     logger.info(f"Loaded {len(golden_links)} golden links from {golden_link_path}") 
-    for link in golden_links[:1]:  # 仅测试第一个链接
+    for link in golden_links:  
+        if link.get("question_id") !=192:
+            continue
         nl_query = link['question']
         back_knowledge = link['evidence']
         query = {

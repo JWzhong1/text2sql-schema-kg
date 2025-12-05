@@ -1,4 +1,5 @@
 import json
+from typing import List, Dict, Set, Tuple, Optional, Any
 
 def get_schema_conversion_prompt(file_type_description: str, target_format_example) -> tuple[str, str]:
     sys_prompt = (
@@ -175,6 +176,92 @@ def get_query_rewrite_prompt(nl_query: str, evidence: str, schema: dict) -> tupl
 
     return sys_prompt, user_prompt
 
+def get_cot_query_rewrite_prompt(nl_query: str, evidence: str) -> tuple[str, str]:
+    sys_prompt = """你是一个 Text2SQL 任务中的**高级逻辑解析与推理专家**。你的核心任务是将用户的自然语言查询（NL）转化为结构化、无歧义的逻辑表达，以便后续模型生成准确的 SQL。
+### 核心原则
+1. **语义守恒（Semantic Preservation）**：绝对禁止添加用户未提及的过滤条件、时间范围或业务逻辑。你的推理必须严格基于用户输入和提供的 Evidence。
+2. **基于证据消歧（Evidence-Based Disambiguation）**：利用提供的 `Evidence`（包含Schema定义、外键关系、数据字典）来解析模糊术语。
+   - 例如：用户说“高价值客户”，Evidence 定义为“订单总额 > 1w”，则你需要显式转换逻辑；若无定义，则保留原词。
+3. **显性化隐式逻辑（Explicate Implicit Logic）**：挖掘查询中的多跳关系（Multi-hop）和聚合操作（Aggregation）。
+
+### 任务步骤
+你需要进行“思维链（Chain of Thought）”推理，并按以下步骤输出：
+
+1. **Analysis & Decomposition (分析与拆解)**：
+   - 识别查询涉及的实体（Entities）和属性（Attributes）。
+   - 识别隐含的逻辑操作（如：排序、分组、比较、逻辑与/或/非）。
+   - 识别多跳路径：如果查询涉及 A 和 C，且 A 与 C 不直接关联，需指出通过 B 进行连接的路径。
+
+2. **Schema Linking & Clarification (模式链接与澄清)**：
+   - 根据 Evidence，将自然语言术语映射到可能的数据库概念（表名/列名逻辑，无需精确匹配列名，但需明确意图）。
+   - 明确消除歧义的依据。
+
+3. **Structured Rewriting (结构化重写)**：
+   - 将查询重写为“中间语言（Intermediate Representation）”。
+   - 格式应接近 SQL 的逻辑结构，但保持自然语言的可读性。
+   - **关键**：将“最...”转化为“按...排序取第一”；将“...的总和”转化为“Sum(...)”。
+
+### Few-Shot Examples (少样本示例)
+
+**Example 1: 隐式聚合与排序**
+**User Input:**
+Original Query: "列出上个月销售额最高的产品名称"
+Evidence: "订单表包含 order_date 和 amount；产品表包含 product_name；'销售额'指 amount 的总和。"
+
+**Model Output:**
+```json
+{
+  "oringinal_question": "列出上个月销售额最高的产品名称",
+  "reasoning_trace": [
+    "1. 时间约束识别：'上个月'需要基于当前时间计算日期范围。",
+    "2. 语义映射：根据 Evidence，'销售额' = SUM(amount)。",
+    "3. 逻辑操作：'最高' imply ORDER BY SUM(amount) DESC LIMIT 1。",
+    "4. 关联路径：需按 '产品' 分组计算总销售额。"
+  ],
+  "rewritten_question": "Find the product_name where the SUM of amount is the maximum, filtered by order_date in (Last Month)",
+  "keywords": ["product_name", "SUM(amount)", "MAX", "order_date", "Last Month"]
+}
+
+## Example 2: 多跳推理 (Multi-hop Reasoning) 
+**User Input:**
+ Original Query: "哪个经理管理的员工参与了'阿波罗'项目？" 
+ Evidence: "表结构：Employees (id, name, manager_id), Projects (id, name), Project_Assignments (emp_id, proj_id)。"
+ **Model Output:**
+ ```json
+ {
+  "reasoning_trace": [
+    "1. 目标识别：查询目标是 '经理' 的信息。",
+    "2. 路径分析 (多跳)：'阿波罗'项目 -> Project_Assignments (找到员工ID) -> Employees (找到员工及 manager_id) -> Employees (自连接/查找经理信息)。",
+    "3. 约束条件：Project.name = '阿波罗'。"
+  ],
+  "rewritten_question": "Find the name of the manager for employees who are assigned to the project where project_name is '阿波罗'",
+  "keywords": ["manager_name", "project_name = '阿波罗'", "JOIN: Projects -> Assignments -> Employees -> Managers"]
+}
+
+### 输出格式要求
+你必须仅返回一个合法的 JSON 对象，不要包含 markdown 标记（如 json ... ）,使用英文返回内容
+格式如下： 
+```json
+{ 
+    "original_question": "用户的原始查询 string",
+    "reasoning_trace": ["步骤1...", "步骤2..."], 
+    "rewritten_question": "结构化重写后的查询 string", 
+    "keywords": ["关键实体", "操作符", "值"] 
+} 
+"""
+    
+    user_prompt = f"""请根据以下信息分析并重写查询：
+原始查询 (Original Query): {nl_query}
+背景知识 (Evidence): {evidence}
+注意：
+1. 严格遵循 System Prompt 中的 JSON 格式。
+2. 不要改变原始查询的意图（Intent）。
+3. 如果 Evidence 不足以完全澄清，请在 implicit_assumptions 中注明。 
+
+"""
+
+    return sys_prompt, user_prompt
+
 def get_graph_traversal_prompt(question: str, evidence: str, subgraph_context: str, neighbors_context: str) -> tuple[str, str]:
     sys_prompt = (
         "You are a Schema Graph Traversal Agent. Your task is to navigate a database schema graph to find the minimal set of tables and columns needed to answer a user's question. "
@@ -197,24 +284,68 @@ def get_graph_traversal_prompt(question: str, evidence: str, subgraph_context: s
 
 def get_subgraph_pruning_prompt(query:dict, subgraph_context: str) -> tuple[str, str]:
     sys_prompt = (
-        "You are a Schema Graph Finalizer. Given the final traversed subgraph and the original question, identify the final set of relevant table and column nodes.ALWAYS prioritize preserving join paths between tables over keyword matching.ALWAYS prioritize preserving join paths between tables over keyword matching.ALWAYS prioritize preserving join paths between tables over keyword matching.ALWAYS prioritize preserving join paths between tables over keyword matching."
+        "You are a Schema Graph Finalizer. Given the final traversed subgraph and the original question, identify the final set of relevant table and column nodes.\n"
+        "You must also evaluate if the retained schema information is sufficient to answer the user's question.\n"
         "ALWAYS prioritize preserving join paths between tables over keyword matching."
     )
     user_prompt = f"""
-    Question: {query.get('question', '')}\n Evidence: {query.get('evidence', '')}\n\n
-    Evidence Context: {query.get('evidence_context', '')}\n\n
+    ## original_question:{query.get('original_question', '')}
+    reasoning_trace:{query.get('reasoning_trace', [])}
+    rewritten_question:{query.get('rewritten_question', '')}
+
+    {json.dumps(query, ensure_ascii=False, indent=2)}
     Subgraph:\n{subgraph_context}\n\n
     Task:
     - Review the subgraph in the context of the question and evidence.
-    - Identify and list the relevant table and column nodes needed to answer the question, .
-    - If multiple tables are needed to answer the question, MUST retain at least one complete join path between them
-    - respond with a JSON object containing:
+    - Identify and list the relevant table and column nodes needed to answer the question.
+    - If multiple tables are needed to answer the question, MUST retain at least one complete join path between them.
+    - **Critical**: Evaluate if the selected tables and columns are sufficient to fully answer the original question.
+    - Respond with a JSON object containing the selected schema, sufficiency status, and missing info description.
 
     Output Format:
     {{
-      "tablel_name1": [column_name1, column_name2, ...],
-      "tablel_name2": [column_name1, column_name2, ...],
-      ...
+      "selected_schema": {{
+        "table_name1": ["column_name1", "column_name2", ...],
+        "table_name2": ["column_name1", "column_name2", ...],
+        ...
+      }},
+      "is_sufficient": true,  // boolean, true if the selected schema is sufficient to answer the question
+      "missing_info": "..."   // string, describe what is missing if is_sufficient is false, otherwise empty string
     }}
 """
+    return sys_prompt, user_prompt
+
+def get_recover_schema_with_full_context_prompt(query: Dict, current_selection: Dict, missing_info: str, schema_str: str) -> tuple[str, str]:
+    sys_prompt = (
+            "You are a Schema Recovery Expert. The previous schema retrieval was insufficient. "
+            "You have access to the FULL database schema. "
+            "Your task is to identify the missing tables and columns based on the missing info description and merge them with the currently selected schema."
+            "CRITICAL: When adding new tables, you MUST also include the foreign key columns and intermediate tables required to join the new tables with the existing selected schema."
+        )
+    user_prompt = f"""
+        Original Question: {query.get('question', '')}
+        Evidence: {query.get('evidence', '')}
+        
+        Currently Selected Schema (Insufficient):
+        {json.dumps(current_selection, ensure_ascii=False, indent=2)}
+        
+        Missing Information Analysis:
+        {missing_info}
+        
+        FULL Database Schema:
+        {schema_str}
+        
+        Task:
+        1. Locate the missing tables/columns in the FULL Schema that address the missing info.
+        2. Identify any foreign key columns or intermediate tables needed to join these new tables with the Currently Selected Schema.
+        3. Merge all found tables and columns into the Selected Schema.
+        4. Return the FINAL complete schema map.
+
+        
+        Output Format (JSON only):
+        {{
+            "table_name1": ["col1", "col2"],
+            "table_name2": ["col1", "col2"]
+        }}
+        """
     return sys_prompt, user_prompt

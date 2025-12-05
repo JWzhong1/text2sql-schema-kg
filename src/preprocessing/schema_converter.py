@@ -284,9 +284,9 @@ class SchemaConverter:
 if __name__ == "__main__":
     converter = SchemaConverter()
 
-    input_file = "bird_data/origin_schemas/california_schools.json"
-    sqlite_db_path = "bird_data/sqlite_db/california_schools.sqlite"
-    output_file = "bird_data/converted_schemas/california_schools.json"
+    input_file = "bird_data/origin_schemas/financial.json"
+    sqlite_db_path = "bird_data/bird/llm/data/dev_databases/financial/financial.sqlite"
+    output_file = "bird_data/converted_schemas/financial.json"
 
     try:
         result = converter.generate_enhanced_schema(

@@ -1,0 +1,31 @@
+========================================
+RETRIEVAL EVALUATION REPORT
+========================================
+Total Questions Evaluated: 106
+--------------------
+TABLE LEVEL:
+  Precision : 0.8491
+  Recall    : 0.8824
+  F1 Score  : 0.8654
+--------------------
+COLUMN LEVEL:
+  Precision : 0.7993
+  Recall    : 0.8051
+  F1 Score  : 0.8022
+
+
+========================================
+DIN-SQL RETRIEVAL EVALUATION REPORT
+========================================
+Total Questions Evaluated: 106
+--------------------
+TABLE LEVEL:
+  Precision : 0.6327
+  Recall    : 0.9254
+  F1 Score  : 0.7515
+--------------------
+COLUMN LEVEL:
+  Precision : 0.8803
+  Recall    : 0.8910
+  F1 Score  : 0.8856
+========================================

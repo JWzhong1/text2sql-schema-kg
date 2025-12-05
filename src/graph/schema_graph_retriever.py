@@ -81,9 +81,17 @@ class GraphRAGRetriever:
         执行检索全流程。
         返回: (最终保留的节点字典 {id: NodeItem}, 候选阶段的Map)
         """
+
+        # 1. Phase 0: Query Rewrite
+        rewrite_query = self._rewrite_query_for_schema_linking({"question": query}, self.schema)
+        rewritten_question = rewrite_query.get("rewritten_question", query.get("question", ""))
+        keywords = list(set([k.strip().lower() for k in rewrite_query.get("keywords", [])]))
+        logger.info(f"Rewritten Query: {rewritten_question}, Keywords: {keywords}")
+        
         # Phase 1: Embedding & PPR (获取种子并扩展)
         # 这里返回的是已经包含元数据的 NodeItem 字典，Key 是 elementId
-        candidate_nodes, candidate_map = self._embeddings_retrieve(query.get("question", ""))
+        
+        candidate_nodes, candidate_map = self._embeddings_retrieve(rewrite_query)
         logger.info(f"Phase 1: Retrieved {len(candidate_nodes)} candidate nodes.")
         logger.info(f"Candidate Map: {json.dumps(candidate_map, ensure_ascii=False)}")
 
@@ -92,19 +100,8 @@ class GraphRAGRetriever:
 
         # Phase 2: ToG (Graph Traversal)
         if os.getenv("TOG_ENABLED", "1") == "1":
-            final_node_ids = self._tog_traversal(query, candidate_nodes)
-            
-            # 根据最终 ID 过滤节点，如果是新发现的节点(ToG过程中)，需要确保它们在 candidate_nodes 中
-            # _tog_traversal 会返回所有相关的 ID，我们需要确保这些 ID 对应的 NodeItem 存在
-            # (ToG 内部已经维护了所有访问过的节点信息，我们需要让它返回完整信息或者利用缓存)
-            # 为简化，修改 _tog_traversal 让其返回最终的 NodeItem 字典
-             
-            # 这里的 final_node_ids 其实是包含在 _tog 逻辑里维护的全局缓存中的
-            # 实际上 _tog_traversal 我们让它返回 最终选定的 ID 集合，
-            # 且我们需要一个机制获取 ToG 过程中新加载的节点信息。
-            
             # 为了代码清晰，我们在 _tog_traversal 中不仅返回 ID，还返回新发现节点的 NodeItem
-            final_nodes_map = self._tog_traversal(query, candidate_nodes)
+            final_nodes_map = self._tog_traversal(rewrite_query, candidate_nodes)
             return final_nodes_map, candidate_map
         else:
             logger.info("ToG Traversal disabled.")
@@ -113,20 +110,21 @@ class GraphRAGRetriever:
     # -------------------------
     # Phase 1: Seeds Retrieval & PPR
     # -------------------------
-
     def _embeddings_retrieve(self, query: str) -> Tuple[Dict[str, NodeItem], Dict[str, List[str]]]:
         """
         向量检索 + PPR。
         优化：直接返回 NodeItem 对象，包含 elementId，避免后续名字查ID的开销。
         """
-        # 1. Query Rewrite
-        rewrite_result = self._rewrite_query_for_schema_linking({"question": query}, self.schema)
-        rewritten_query = rewrite_result.get("rewritten_question", query)
-        keywords = list(set([k.strip().lower() for k in rewrite_result.get("keywords", [])]))
-        logger.info(f"Rewritten Query: {rewritten_query}, Keywords: {keywords}")
+        # # 1. Query Rewrite
+        # rewrite_result = self._rewrite_query_for_schema_linking({"question": query}, self.schema)
+        # rewritten_query = rewrite_result.get("rewritten_question", query)
+        # keywords = list(set([k.strip().lower() for k in rewrite_result.get("keywords", [])]))
+        # logger.info(f"Rewritten Query: {rewritten_query}, Keywords: {keywords}")
+        keywords = query.get("keywords", [])
+        rewritten_question = query.get("rewritten_question")
 
         # 2. Parallel Embedding
-        target_items = keywords + [rewritten_query]
+        target_items = keywords + [rewritten_question]
         embeddings_map = self._parallel_get_embeddings(target_items)
         
         if not embeddings_map:
@@ -143,7 +141,7 @@ class GraphRAGRetriever:
 
         with self.driver.session() as session:
             for text, emb in embeddings_map.items():
-                threshold = threshold_query if text == rewritten_query else threshold_kw
+                threshold = threshold_query if text == rewritten_question else threshold_kw
                 # 同时查询 Table 和 Column，减少 session 交互次数 (可以使用 UNION 或两次 run)
                 # 这里为了清晰還是分開寫，但關鍵是直接提取所有屬性
                 
@@ -184,8 +182,6 @@ class GraphRAGRetriever:
             """, ids=seed_ids)
             edges = [(r["src"], r["dst"]) for r in res]
             G.add_edges_from(edges)
-
-        self._visualize_graph(G, seed_nodes_map, "Retrieved_seeds", "retrieved_seeds.png")
 
         # PPR Calculation
         max_score = max((n.score for n in seed_nodes_map.values()), default=1.0)
@@ -266,6 +262,10 @@ class GraphRAGRetriever:
         logger.info(f"ToG Step 1: Structural Expansion on {len(initial_nodes)} seed nodes...")
         expanded_nodes = self._structural_expansion(initial_nodes)
         logger.info(f"ToG Step 1 Done. Expanded to {len(expanded_nodes)} nodes.")
+        
+        # 打印扩展后的 Map
+        expanded_map = self._build_map_from_nodes(expanded_nodes)
+        logger.info(f"Expanded Map: {json.dumps(expanded_map, ensure_ascii=False)}")
 
         logger.info("ToG Step 2: LLM Pruning...")
         final_nodes = self._llm_pruning(query, expanded_nodes)
@@ -362,6 +362,68 @@ class GraphRAGRetriever:
             ])
             decision = json.loads(resp)
             
+            selected_schema_map = {}
+            is_sufficient = True
+            missing_info = ""
+            
+            # 解析 LLM 返回
+            if isinstance(decision, dict):
+                if "selected_schema" in decision:
+                    selected_schema_map = decision["selected_schema"]
+                    is_sufficient = decision.get("is_sufficient", True)
+                    missing_info = decision.get("missing_info", "")
+                else:
+                    # 兼容旧格式，尝试将其转换为 map
+                    if "table_ids" in decision or "column_ids" in decision or "selected_nodes" in decision:
+                        pass # Fall through to old ID parsing logic
+                    else:
+                        # 假设是 {"t1": ["c1"], ...}
+                        selected_schema_map = decision
+
+            # 5. 恢复逻辑 (Recovery)
+            if not is_sufficient:
+                logger.warning(f"Schema deemed insufficient: {missing_info}. Attempting recovery with full schema...")
+                selected_schema_map = self._recover_schema_with_full_context(query, selected_schema_map, missing_info)
+
+            # 6. 将 Map 转换为 NodeItem 字典 (Map -> IDs)
+            if selected_schema_map:
+                final_result = {}
+                missing_nodes_map = {} # table -> cols that are not in candidate_nodes
+
+                # 建立查找表
+                table_lookup = {n.name: n for n in candidate_nodes.values() if n.is_table}
+                col_lookup = {(n.table_name, n.name): n for n in candidate_nodes.values() if n.is_column and n.table_name}
+
+                for t_name, cols in selected_schema_map.items():
+                    # Resolve Table
+                    if t_name in table_lookup:
+                        t_node = table_lookup[t_name]
+                        final_result[t_node.id] = t_node
+                    else:
+                        if t_name not in missing_nodes_map: missing_nodes_map[t_name] = []
+                    
+                    # Resolve Columns
+                    if isinstance(cols, list):
+                        for c_name in cols:
+                            if (t_name, c_name) in col_lookup:
+                                c_node = col_lookup[(t_name, c_name)]
+                                final_result[c_node.id] = c_node
+                            else:
+                                if t_name not in missing_nodes_map: missing_nodes_map[t_name] = []
+                                if c_name not in missing_nodes_map[t_name]:
+                                    missing_nodes_map[t_name].append(c_name)
+                
+                # Fetch missing nodes from DB
+                if missing_nodes_map:
+                    logger.info(f"Fetching missing nodes from DB: {missing_nodes_map.keys()}")
+                    fetched_nodes = self._fetch_nodes_by_names(missing_nodes_map)
+                    final_result.update(fetched_nodes)
+                
+                # 可视化最终结果
+                self._visualize_final_result(final_result, edges_info)
+                return final_result
+
+            # --- 旧的 ID 解析逻辑 (Fallback) ---
             # 解析 LLM 返回的 ID
             # 假设返回格式为 {"table_ids": [], "column_ids": []} 或直接是 ID 列表
             selected_ids = set()
@@ -409,14 +471,7 @@ class GraphRAGRetriever:
                 final_result = {nid: node for nid, node in candidate_nodes.items() if node.is_table}
             
             # 可视化剪枝后的结果
-            final_ids = list(final_result.keys())
-            if final_ids:
-                G_final = nx.Graph()
-                G_final.add_nodes_from(final_ids)
-                # 复用 edges_info，只保留两端都在 final_result 中的边
-                final_edges = [(e[0], e[1]) for e in edges_info if e[0] in final_result and e[1] in final_result]
-                G_final.add_edges_from(final_edges)
-                self._visualize_graph(G_final, final_result, "Pruning_Output_Graph", "tog_pruning_output.png")
+            self._visualize_final_result(final_result, edges_info)
 
             return final_result
 
@@ -424,6 +479,24 @@ class GraphRAGRetriever:
             logger.error(f"LLM Pruning failed: {e}")
             # 出错时返回原候选集
             return candidate_nodes
+
+    def _recover_schema_with_full_context(self, query: Dict, current_selection: Dict, missing_info: str) -> Dict[str, List[str]]:
+        """
+        当剪枝结果不充分时，使用全量 Schema 进行补全。
+        """
+        
+        schema_str = json.dumps(self.schema, ensure_ascii=False)
+        sys_prompt, user_prompt = prompts.get_recover_schema_with_full_context_prompt(query, current_selection, missing_info, schema_str)
+    
+        try:
+            resp = get_competition_json([
+                {"role": "system", "content": sys_prompt},
+                {"role": "user", "content": user_prompt}
+            ])
+            return json.loads(resp)
+        except Exception as e:
+            logger.error(f"Recovery failed: {e}")
+            return current_selection
 
     # -------------------------
     # Helpers
@@ -446,7 +519,8 @@ class GraphRAGRetriever:
     def _rewrite_query_for_schema_linking(self, query: Dict, schema: dict) -> Dict:
         """Query Rewrite Wrapper"""
         try:
-            p_sys, p_user = prompts.get_query_rewrite_prompt(query.get("question"), query.get("evidence", ""), schema)
+            # p_sys, p_user = prompts.get_query_rewrite_prompt(query.get("question"), query.get("evidence", ""), schema)
+            p_sys, p_user = prompts.get_cot_query_rewrite_prompt(query.get("question"), query.get("evidence", ""))
             resp = get_competition_json([{"role": "system", "content": p_sys}, {"role": "user", "content": p_user}])
             return json.loads(resp)
         except Exception as e:
@@ -553,6 +627,63 @@ class GraphRAGRetriever:
             result[t] = columns_map.get(t, [])
         return result
 
+    def _visualize_final_result(self, final_result, edges_info):
+        """Helper to visualize final graph"""
+        final_ids = list(final_result.keys())
+        if final_ids:
+            G_final = nx.Graph()
+            G_final.add_nodes_from(final_ids)
+            # 复用 edges_info，只保留两端都在 final_result 中的边
+            final_edges = [(e[0], e[1]) for e in edges_info if e[0] in final_result and e[1] in final_result]
+            G_final.add_edges_from(final_edges)
+            self._visualize_graph(G_final, final_result, "Pruning_Output_Graph", "tog_pruning_output.png")
+
+    def _fetch_nodes_by_names(self, schema_map: Dict[str, List[str]]) -> Dict[str, NodeItem]:
+        """根据表名和列名从 Neo4j 获取节点信息"""
+        fetched_nodes = {}
+        table_names = list(schema_map.keys())
+        if not table_names:
+            return {}
+
+        with self.driver.session() as session:
+            # Fetch Tables
+            res = session.run("""
+                MATCH (t:Table)
+                WHERE t.name IN $names
+                RETURN elementId(t) as id, t.name as name, labels(t) as labels, t.original_name as original_name, t.description as description
+            """, names=table_names)
+            
+            for r in res:
+                fetched_nodes[r["id"]] = NodeItem(
+                    id=r["id"], name=r["name"], labels=r["labels"], 
+                    table_name=r["name"], # Table node's table_name is itself
+                    original_name=r["original_name"], description=r.get("description", "")
+                )
+
+            # Fetch Columns
+            col_params = []
+            for t_name, cols in schema_map.items():
+                for c_name in cols:
+                    col_params.append({"t": t_name, "c": c_name})
+            
+            if col_params:
+                # 批量查询列
+                res = session.run("""
+                    UNWIND $params as p
+                    MATCH (c:Column {name: p.c, table_name: p.t})
+                    OPTIONAL MATCH (t:Table {name: p.t})
+                    RETURN elementId(c) as id, c.name as name, labels(c) as labels, c.table_name as table_name, t.original_name as table_original_name, c.original_name as original_name, c.description as description
+                """, params=col_params)
+                
+                for r in res:
+                    fetched_nodes[r["id"]] = NodeItem(
+                        id=r["id"], name=r["name"], labels=r["labels"],
+                        table_name=r["table_name"], table_original_name=r["table_original_name"],
+                        original_name=r["original_name"], description=r.get("description", "")
+                    )
+                    
+        return fetched_nodes
+
     def _visualize_graph(self, G: nx.Graph, node_map: Dict[str, NodeItem], title: str, filename: str):
         """
         可视化：直接使用 node_map 中的数据，不查库。
@@ -592,21 +723,3 @@ class GraphRAGRetriever:
         plt.tight_layout()
         plt.savefig(filename)
         plt.close()
-
-
-if __name__ == "__main__":
-    nl_query = "Consider the average difference between K-12 enrollment and 15-17 enrollment of schools that are locally funded, list the names and DOC type of schools which has a difference above this average."
-    back_knowledge = "Difference between K-12 enrollment and 15-17 enrollment can be computed by `Enrollment (K-12)` - `Enrollment (Ages 5-17)`"
-    query = {
-        "question": nl_query,
-        "evidence": back_knowledge
-    }
-    neo4j_uri = os.getenv("NEO4J_URI", "bolt://localhost:7687")
-    neo4j_user = os.getenv("NEO4J_USER", "neo4j")
-    neo4j_password = os.getenv("NEO4J_PASSWORD", "your_password")
-    schema_json_path="data/enhanced_schema.json"
-    retriever = GraphRAGRetriever(neo4j_uri, neo4j_user, neo4j_password, schema_json_path)
-
-    logger.info(f"Query: {nl_query}")
-    table_column_map = retriever.retrieve_schema_subgraph(query)
-    logger.info(f"Table-Column Map: {json.dumps(table_column_map, ensure_ascii=False)}")

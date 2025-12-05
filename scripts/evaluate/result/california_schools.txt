@@ -1,0 +1,15 @@
+========================================
+RETRIEVAL EVALUATION REPORT
+========================================
+Total Questions Evaluated: 89
+--------------------
+TABLE LEVEL:
+  Precision : 0.9286
+  Recall    : 0.9533
+  F1 Score  : 0.9408
+--------------------
+COLUMN LEVEL:
+  Precision : 0.7495
+  Recall    : 0.8698
+  F1 Score  : 0.8052
+========================================

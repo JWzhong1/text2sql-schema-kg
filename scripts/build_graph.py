@@ -24,16 +24,27 @@ def load_schema_from_file(filepath: str) -> List[Dict[str, Any]]:
         raise ValueError("Schema file must contain a JSON array.")
     return data
 
+def clear_neo4j_database(uri: str, user: str, password: str) -> None:
+    logger.info("Clearing Neo4j database before rebuilding graph.")
+    driver = GraphDatabase.driver(uri, auth=basic_auth(user, password))
+    with driver.session() as session:
+        session.run("MATCH (n) DETACH DELETE n")
+    driver.close()
+    logger.info("Neo4j database cleared successfully.")
+
 def main():
     neo4j_uri = os.getenv("NEO4J_URI", "bolt://localhost:7687")
     neo4j_user = os.getenv("NEO4J_USER", "neo4j")
+    db_name = "financial"
     neo4j_password = os.getenv("NEO4J_PASSWORD", "your_password")
-    schema_file_path = "bird_data/converted_schemas/california_schools.json"
+    schema_file_path = f"bird_data/converted_schemas/{db_name}.json"
     logger.info(f"Loading schema from {schema_file_path}")
     schema_data = load_schema_from_file(schema_file_path)
-    builder = GenericSchemaGraphBuilder(neo4j_uri, neo4j_user, neo4j_password)
+    cache_dir = os.getenv("SCHEMA_KG_CACHE_DIR", "cache")
+    cache_dir = os.path.join(cache_dir, db_name)
+    builder = GenericSchemaGraphBuilder(neo4j_uri, neo4j_user, neo4j_password, cache_dir=cache_dir)
     try:
-        # 修改：先创建索引，确保即使后续数据导入失败，索引也存在
+        clear_neo4j_database(neo4j_uri, neo4j_user, neo4j_password)
         builder.create_indexes() 
         builder.build_graph(schema_data)
         logger.info("Pipeline completed successfully.")
