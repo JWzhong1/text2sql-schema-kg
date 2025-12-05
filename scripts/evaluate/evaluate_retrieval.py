@@ -7,6 +7,7 @@ import dotenv
 import concurrent.futures
 import threading
 from tqdm import tqdm
+import time
 
 # Add project root to sys.path to allow importing src
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -298,7 +299,7 @@ if __name__ == "__main__":
     db_name = "financial"
     test_file = "bird_data/golden_link/golden_schema_link_financial.json"
     retrieval_cache_dir = f"scripts/evaluate/cache/retrieval_results_{db_name}.json"
-    report_file = f"scripts/evaluate/result/evaluation_report_{db_name}.json"
+    report_file = f"scripts/evaluate/result/eval_report_{db_name}_{time.strftime('%Y%m%d_%H%M%S')}.json"
     if len(sys.argv) > 1:
         test_file = sys.argv[1]
 
