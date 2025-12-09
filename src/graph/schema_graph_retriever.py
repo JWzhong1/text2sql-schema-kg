@@ -339,11 +339,11 @@ class GraphRAGRetriever:
                 """, ids=candidate_ids)
                 edges_info = [(r["src"], r["dst"], r["type"], r["description"]) for r in res]
 
-        # 2. 可视化（可选，用于调试）
-        G = nx.Graph()
-        G.add_nodes_from(candidate_ids)
-        G.add_edges_from([(e[0], e[1]) for e in edges_info])
-        self._visualize_graph(G, candidate_nodes, "Pruning_Input_Graph", "tog_pruning_input.png")
+        # # 2. 可视化（可选，用于调试）
+        # G = nx.Graph()
+        # G.add_nodes_from(candidate_ids)
+        # G.add_edges_from([(e[0], e[1]) for e in edges_info])
+        # self._visualize_graph(G, candidate_nodes, "Pruning_Input_Graph", "tog_pruning_input.png")
 
         # 3. 构建 Prompt
         subgraph_txt = self._format_subgraph(candidate_nodes, edges_info)
@@ -423,7 +423,7 @@ class GraphRAGRetriever:
                 final_result = self._ensure_foreign_key_columns(final_result)
                 
                 # 可视化最终结果
-                self._visualize_final_result(final_result, edges_info)
+                # self._visualize_final_result(final_result, edges_info)
                 return final_result
 
             # --- 旧的 ID 解析逻辑 (Fallback) ---
@@ -474,7 +474,7 @@ class GraphRAGRetriever:
                 final_result = {nid: node for nid, node in candidate_nodes.items() if node.is_table}
             
             # 可视化剪枝后的结果
-            self._visualize_final_result(final_result, edges_info)
+            # self._visualize_final_result(final_result, edges_info)
 
             return final_result
 

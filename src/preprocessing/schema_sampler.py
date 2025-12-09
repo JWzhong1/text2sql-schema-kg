@@ -100,9 +100,10 @@ def convert_to_hippo_format(schema_data: List[Dict[str, Any]]) -> List[Dict[str,
     return hippo_format
 
 def main():
-    schema_json_path = "data/converted_schema.json"
-    sqlite_file_path = "data/bird/llm/data/dev_databases/california_schools/california_schools.sqlite"  # 使用 .sqlite 文件
-    output_path = "data/enhanced_schema.json"
+    task_name = "california_schools"
+    schema_json_path = f"data/converted_schemas/{task_name}.json"
+    sqlite_file_path = f"data/bird/llm/data/dev_databases/{task_name}/{task_name}.sqlite"  # 使用 .sqlite 文件
+    output_path = f"data/enhanced_schemas/{task_name}.json"
 
     print("从 .sqlite 文件采样生成增强 schema ...")
 

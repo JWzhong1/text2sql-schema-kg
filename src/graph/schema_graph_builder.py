@@ -1,6 +1,6 @@
 import json
 import os
-from neo4j import GraphDatabase
+from neo4j import GraphDatabase, basic_auth
 from typing import List, Dict, Any, Optional
 import logging
 import time
@@ -8,6 +8,8 @@ from src.llm import prompts
 from src.llm.client import get_competition_json, get_competition_embedding  # 新增导入
 from dotenv import load_dotenv
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import argparse
+from threading import Lock  # 新增
 
 load_dotenv()
 
@@ -32,7 +34,6 @@ class GenericSchemaGraphBuilder:
     """
     通用 Schema Graph 构建器
     """
-
     def __init__(self, neo4j_uri: str, neo4j_user: str, neo4j_password: str, batch_size: int = 50, cache_dir: Optional[str] = None, column_embedding_workers: Optional[int] = None):
         self.driver = GraphDatabase.driver(neo4j_uri, auth=(neo4j_user, neo4j_password))
         logger.info(f"Connected to Neo4j at {neo4j_uri}")
@@ -41,10 +42,15 @@ class GenericSchemaGraphBuilder:
         self.columns_batch_cache = {}
         self.relationship_analysis_cache = {}
         self.embedding_cache = {}
+        self._emb_lock: Lock = Lock()  # 新增：保护嵌入缓存的锁
 
+        # 新增：统一的嵌入维度配置，默认 1024，可由环境变量覆盖
+        self.embedding_dim: int = int(os.getenv("EMBEDDING_DIM", "1024"))
+
+        # 修复：环境变量键名，应为 EMBEDDING_WORKERS，默认 8
         self.column_embedding_workers = max(
             1,
-            column_embedding_workers or int(os.getenv("EMBEDDING_WORKERS=8", "4"))
+            column_embedding_workers or int(os.getenv("EMBEDDING_WORKERS", "8"))
         )
 
         # 可选：缓存持久化
@@ -54,8 +60,27 @@ class GenericSchemaGraphBuilder:
             self.table_analysis_cache = self._load_cache_file("table_analysis_cache")
             self.columns_batch_cache = self._load_cache_file("columns_batch_cache")
             self.relationship_analysis_cache = self._load_cache_file("relationship_analysis_cache")
-            # 新增：加载 embedding 缓存
+            # 新增：加载 embedding 缓存并做校验
             self.embedding_cache = self._load_cache_file("embedding_cache")
+            if not isinstance(self.embedding_cache, dict):
+                logger.warning("Embedding cache file is not a dict, resetting to empty.")
+                self.embedding_cache = {}
+            else:
+                # 过滤无效项（非 str->list[float] 或维度不匹配）
+                valid = {}
+                dropped = 0
+                for k, v in self.embedding_cache.items():
+                    if isinstance(k, str) and isinstance(v, list) and all(isinstance(x, (int, float)) for x in v):
+                        if self.embedding_dim <= 0 or len(v) == self.embedding_dim:
+                            valid[k] = [float(x) for x in v]
+                        else:
+                            dropped += 1
+                    else:
+                        dropped += 1
+                if dropped:
+                    logger.warning(f"Filtered {dropped} invalid embeddings from cache due to type/dimension mismatch.")
+                self.embedding_cache = valid
+            logger.info(f"Embedding cache loaded: {len(self.embedding_cache)} entries.")
 
     def close(self):
         # 退出时再保险保存一次
@@ -106,11 +131,11 @@ class GenericSchemaGraphBuilder:
             logger.warning(f"LLM table analysis failed: {table_name} - {e}")
             return {
                 "table_name": table_name,
-                "original_table_name": "",
-                "description": table_data.get("table_description", ""),
-                "columns": [],
+                "original_table_name": table_data.get("original_table_name", ""),
+                "description": table_data.get("table_description", "") or table_name,
+                "columns": table_data.get("columns", []),
                 "primary_keys": table_data.get("primary_keys", []),
-                "foreign_keys": []
+                "foreign_keys": table_data.get("foreign_keys", [])
             }
 
     def _call_llm_for_columns_batch(self, table_name: str, table_desc: str, columns_info: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
@@ -494,24 +519,24 @@ class GenericSchemaGraphBuilder:
             session.run("CREATE INDEX IF NOT EXISTS FOR (c:Column) ON (c.table_name)")
             session.run("CREATE INDEX IF NOT EXISTS FOR (t:Table) ON (t.concepts)")
             
-            # 修改：指定向量索引名称，并设置维度和相似度函数
-            # 注意：请将 1024 替换为你实际使用的 Embedding 模型维度 (如 OpenAI text-embedding-3-small 为 1536, BGE-m3 为 1024 等)
-            session.run("""
+            # 修改：使用实例的 embedding_dim，保持与嵌入维度一致
+            dim = int(self.embedding_dim) if self.embedding_dim > 0 else 1024
+            session.run(f"""
                 CREATE VECTOR INDEX table_embedding IF NOT EXISTS 
                 FOR (t:Table) ON (t.embedding)
-                OPTIONS {indexConfig: {
-                    `vector.dimensions`: 1024,
+                OPTIONS {{indexConfig: {{
+                    `vector.dimensions`: {dim},
                     `vector.similarity_function`: 'cosine'
-                }}
+                }}}}
             """)
             
-            session.run("""
+            session.run(f"""
                 CREATE VECTOR INDEX column_embedding IF NOT EXISTS 
                 FOR (c:Column) ON (c.embedding)
-                OPTIONS {indexConfig: {
-                    `vector.dimensions`: 1024,
+                OPTIONS {{indexConfig: {{
+                    `vector.dimensions`: {dim},
                     `vector.similarity_function`: 'cosine'
-                }}
+                }}}}
             """)
         logger.info("Indexes created.")
 
@@ -538,21 +563,36 @@ class GenericSchemaGraphBuilder:
         if not self._cache_enabled():
             return
         try:
-            with open(self._cache_path(name), "w", encoding="utf-8") as f:
+            # 原子写入，避免半文件
+            tmp_path = self._cache_path(name) + ".tmp"
+            final_path = self._cache_path(name)
+            with open(tmp_path, "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
+            os.replace(tmp_path, final_path)
         except Exception as e:
             logger.warning(f"Save cache '{name}' failed: {e}")
 
     def _embed_text(self, text: str) -> List[float]:
         if not text:
             return []
-        
-        if text in self.embedding_cache:
-            return self.embedding_cache[text]
+        # 先尝试读取缓存（加锁）
+        with self._emb_lock:
+            cached = self.embedding_cache.get(text)
+        if isinstance(cached, list) and cached:
+            return cached
 
+        # 无缓存则请求嵌入
         try:
             emb = get_competition_embedding(text)
-            self.embedding_cache[text] = emb
+            if not isinstance(emb, list) or not all(isinstance(x, (int, float)) for x in emb):
+                logger.warning("Embedding provider returned invalid vector; skipping cache store.")
+                return []
+            # 可选：维度检查
+            if self.embedding_dim > 0 and len(emb) != self.embedding_dim:
+                logger.warning(f"Embedding dimension mismatch: got {len(emb)}, expected {self.embedding_dim}.")
+            # 回写缓存（加锁）
+            with self._emb_lock:
+                self.embedding_cache[text] = [float(x) for x in emb]
             return emb
         except Exception as e:
             logger.warning(f"Embedding failed: {e}")
@@ -588,15 +628,42 @@ def load_schema_from_file(filepath: str) -> List[Dict[str, Any]]:
         raise ValueError("Schema file must contain a JSON array.")
     return data
 
+
+def clear_neo4j_database(uri: str, user: str, password: str) -> None:
+    logger.info("Clearing Neo4j database before rebuilding graph.")
+    driver = GraphDatabase.driver(uri, auth=basic_auth(user, password))
+    with driver.session() as session:
+        session.run("MATCH (n) DETACH DELETE n")
+    driver.close()
+    logger.info("Neo4j database cleared successfully.")
+
+
 def main():
+    parser = argparse.ArgumentParser(description="Build Schema Graph")
+    parser.add_argument("--db_name", type=str, default="financial", help="Target database name")
+    args = parser.parse_args()
+    db_name = args.db_name
+
+
     neo4j_uri = os.getenv("NEO4J_URI", "bolt://localhost:7687")
     neo4j_user = os.getenv("NEO4J_USER", "neo4j")
     neo4j_password = os.getenv("NEO4J_PASSWORD", "your_password")
-    schema_file_path = "data/converted_schema.json"
+    
+    schema_file_path = f"bird_data/converted_schemas/{db_name}.json"
+    cache_dir = f"cache/{db_name}"
+    
     logger.info(f"Loading schema from {schema_file_path}")
+    logger.info(f"Using cache dir: {cache_dir}")
+    
+    # 确保缓存目录存在
+    os.makedirs(cache_dir, exist_ok=True)
+    
     schema_data = load_schema_from_file(schema_file_path)
-    builder = GenericSchemaGraphBuilder(neo4j_uri, neo4j_user, neo4j_password)
+    
+    # 传入 cache_dir
+    builder = GenericSchemaGraphBuilder(neo4j_uri, neo4j_user, neo4j_password, cache_dir=cache_dir)
     try:
+        clear_neo4j_database(neo4j_uri, neo4j_user, neo4j_password)
         # 修改：先创建索引，确保即使后续数据导入失败，索引也存在
         builder.create_indexes() 
         builder.build_graph(schema_data)
@@ -606,5 +673,6 @@ def main():
     finally:
         builder.close()
 
+        
 if __name__ == "__main__":
     main()

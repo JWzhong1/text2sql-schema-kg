@@ -118,9 +118,23 @@ def process_dev_file(dev_file_path, schema_file_path: Path, output_file_path):
     print(f"提取结果已保存到 {output_file_path}")
 
 if __name__ == "__main__":
+    import argparse
+    import os
+    
+    parser = argparse.ArgumentParser(description="Extract Golden Schema Links")
+    parser.add_argument("--db_name", type=str, default="financial", help="Target database name")
+    args = parser.parse_args()
+    
+    db_name = args.db_name
+    
     # 仅处理单个 db
     dev_file = "bird_data/bird/llm/data/dev.json"
     # 改为具体 schema 文件
-    schema_file = Path("bird_data/converted_schemas/financial.json")
-    output_file = "bird_data/golden_link/golden_schema_link_financial.json"
+    schema_file = Path(f"bird_data/converted_schemas/{db_name}.json")
+    output_file = f"bird_data/golden_link/golden_schema_link_{db_name}.json"
+    
+    # 确保输出目录存在
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+    
+    print(f"Extracting golden links for {db_name}...")
     process_dev_file(dev_file, schema_file, output_file)

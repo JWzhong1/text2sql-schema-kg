@@ -65,10 +65,22 @@ def get_table_analysis_prompt(table_name: str, table_data) -> tuple[str, str]:
     - foreign_keys：从输入 foreign_keys 转换键名（ref_table->referenced_table, ref_column->referenced_column），未知则 []。
     - 仅返回上述格式的json文件
     """
+    pruned_data = {
+        "table_name": table_data.get("table_name"),
+        "original_table_name": table_data.get("original_table_name"),
+        # 仅提取列名用于语义理解，忽略类型和样本值
+        "columns": [
+            col.get("col", col.get("name", col.get("column_name"))) 
+            if isinstance(col, dict) else col 
+            for col in table_data.get("columns", [])
+        ],
+        "primary_keys": table_data.get("primary_keys", []),
+        "foreign_keys": table_data.get("foreign_keys", [])
+    }
 
     user_prompt = (
         f"Input full table object for analysis (use it as the ONLY source of truth):\n"
-        f"{json.dumps(table_data, ensure_ascii=False, indent=2)}\n\n"
+        f"{json.dumps(pruned_data, ensure_ascii=False, indent=2)}\n\n"
         "Task:\n"
         "- Set table_name,original_table_name from input.\n"
         "- description: prefer input's table_description; otherwise a concise summary.\n"

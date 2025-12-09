@@ -282,11 +282,23 @@ class SchemaConverter:
 
 
 if __name__ == "__main__":
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Schema Converter")
+    parser.add_argument("--db_name", type=str, default="financial", help="Target database name")
+    args = parser.parse_args()
+    
+    db_name = args.db_name
     converter = SchemaConverter()
 
-    input_file = "bird_data/origin_schemas/financial.json"
-    sqlite_db_path = "bird_data/bird/llm/data/dev_databases/financial/financial.sqlite"
-    output_file = "bird_data/converted_schemas/financial.json"
+    # 根据 db_name 动态生成路径
+    input_file = f"bird_data/origin_schemas/{db_name}.json"
+    sqlite_db_path = f"bird_data/bird/llm/data/dev_databases/{db_name}/{db_name}.sqlite"
+    output_file = f"bird_data/converted_schemas/{db_name}.json"
+
+    logger.info(f"Processing DB: {db_name}")
+    logger.info(f"Input: {input_file}")
+    logger.info(f"SQLite: {sqlite_db_path}")
 
     try:
         result = converter.generate_enhanced_schema(

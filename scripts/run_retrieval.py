@@ -39,7 +39,7 @@ if __name__ == "__main__":
         golden_links = json.load(f)
     logger.info(f"Loaded {len(golden_links)} golden links from {golden_link_path}") 
     for link in golden_links:  
-        if link.get("question_id") !=192:
+        if link.get("question_id") !=92:
             continue
         nl_query = link['question']
         back_knowledge = link['evidence']

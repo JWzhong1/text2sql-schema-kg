@@ -19,7 +19,7 @@ dotenv.load_dotenv()
 
 # Configure logging
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.ERROR,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
@@ -157,7 +157,7 @@ def process_single_db(db_id, cases, saved_results, output_file, eval_results, ev
             if has_mismatch:
                 match_info = {
                     "question": question,
-                    "db_id": db_id,
+                    "question_id": question_id,
                     "golden": golden_link,
                     "retrieved": retrieved_link,
                     "metrics": metrics,
@@ -173,6 +173,7 @@ def process_single_db(db_id, cases, saved_results, output_file, eval_results, ev
                 with print_lock:
                     print(f"\n[MISMATCH] DB: {db_id}")
                     print(f"  Question: {question}")
+                    print(f"  Question ID: {question_id}")
                     if differences["missing_tables"]:
                         print(f"  Missing Tables: {differences['missing_tables']}")
                     if differences["extra_tables"]:
@@ -297,7 +298,7 @@ def evaluate(db_name, test_file_path, retrieval_cache_dir, eval_report_path, max
 if __name__ == "__main__":
     # Default path, can be overridden or passed as arg if needed
     db_name = "financial"
-    test_file = "bird_data/golden_link/golden_schema_link_financial.json"
+    test_file = f"bird_data/golden_link/golden_schema_link_{db_name}.json"
     retrieval_cache_dir = f"scripts/evaluate/cache/retrieval_results_{db_name}.json"
     report_file = f"scripts/evaluate/result/eval_report_{db_name}_{time.strftime('%Y%m%d_%H%M%S')}.json"
     if len(sys.argv) > 1:
