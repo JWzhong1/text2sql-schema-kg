@@ -27,18 +27,18 @@ class Text2SQLAgent:
         schema_path = f"bird_data/converted_schemas/{db_name}.json"
         self.retriever = GraphRAGRetriever(*neo4j_config, schema_json_path=schema_path)
 
-    def retrieve_schema(self, question: str, evidence: str) -> Dict[str, List[str]]:
+    def retrieve_schema(self, question: str, evidence: str) -> Dict[str, Any]:
         """
-        步骤 1: 调用 GraphRAG 获取 Schema Link 结果
+        步骤 1: 调用 GraphRAG 获取 Schema Link 结果及推理信息
         """
         logger.info(f"Retrieving schema for: {question}")
         query = {
             "question": question,
             "evidence": evidence
         }
-        # 调用现有的检索逻辑
-        schema_map = self.retriever.retrieve_schema_subgraph(query)
-        return schema_map
+        # 调用检索逻辑,获取完整信息
+        result = self.retriever.retrieve_schema_subgraph(query, return_reasoning=True)
+        return result
 
     def _format_schema_for_prompt(self, schema_map: Dict[str, List[str]]) -> str:
         """
@@ -50,18 +50,31 @@ class Text2SQLAgent:
             lines.append(f"Table: {table}\nColumns: {col_str}")
         return "\n\n".join(lines)
 
-    def generate_sql(self, question: str, evidence: str, schema_context: str, error_msg: str = None, previous_sql: str = None) -> str:
+    def generate_sql(self, question: str, evidence: str, retrieval_result: Dict[str, Any], error_msg: str = None, previous_sql: str = None) -> str:
         """
-        步骤 2 & 4: 生成 SQL (包含错误修正逻辑)
+        步骤 2 & 4: 生成 SQL (包含推理上下文)
         """
+        schema_map = retrieval_result.get("schema_map", {})
+        reasoning_ctx = retrieval_result.get("reasoning_context", {})
+        
+        # 格式化 Schema
+        schema_context = self._format_schema_for_prompt(schema_map)
+        
+        # 格式化推理上下文
+        reasoning_context = self._format_reasoning_context(reasoning_ctx)
         
         system_prompt = (
-            "You are an expert SQL Data Analyst. Your goal is to write a correct SQLite-compatible SQL query to answer the user's question.\n"
+            "You are an expert SQL Data Analyst. Your goal is to write a correct SQLite-compatible SQL query.\n"
+            "You have access to the reasoning process used to select the schema, which will help you understand:\n"
+            "- How the question was interpreted and rewritten for clarity\n"
+            "- What tables and columns were selected and why\n"
+            "- What normalization rules were applied\n"
             "Strictly follow these rules:\n"
             "1. Only use the tables and columns provided in the 'Retrieved Schema'.\n"
-            "2. The output must be a valid JSON object with a single key 'sql'.\n"
-            "3. Do not wrap the JSON in markdown code blocks.\n"
-            "4. Ensure the SQL is compatible with SQLite (e.g., use `strftime` for dates, avoid MySQL specific functions like `YEAR()`)."
+            "2. Follow the JOIN paths suggested by the normalization rules.\n"
+            "3. The output must be a valid JSON object with a single key 'sql'.\n"
+            "4. Do not wrap the JSON in markdown code blocks.\n"
+            "5. Ensure the SQL is compatible with SQLite."
         )
 
         user_content = f"""
@@ -71,7 +84,10 @@ class Text2SQLAgent:
 ### Evidence / Hint
 {evidence}
 
-### Retrieved Schema (Relevant Tables and Columns)
+### Schema Retrieval Reasoning Process
+{reasoning_context}
+
+### Retrieved Schema (Final Selected Tables and Columns)
 {schema_context}
 """
 
@@ -82,7 +98,7 @@ SQL: {previous_sql}
 Error: {error_msg}
 
 ### Instruction
-The previous SQL failed to execute. Please analyze the error and correct the SQL.
+The previous SQL failed. Analyze the error and the reasoning context to correct the SQL.
 """
 
         messages = [
@@ -91,7 +107,6 @@ The previous SQL failed to execute. Please analyze the error and correct the SQL
         ]
 
         try:
-            # 使用 get_competition_json 确保返回 JSON 格式
             response = get_competition_json(messages)
             result = json.loads(response)
             return result.get("sql", "")
@@ -107,7 +122,50 @@ The previous SQL failed to execute. Please analyze the error and correct the SQL
                 return j.get("sql", clean_sql)
             except:
                 return clean_sql
-
+    
+    def _format_reasoning_context(self, reasoning_ctx: Dict[str, Any]) -> str:
+        """
+        格式化推理上下文为 Prompt 友好的字符串
+        """
+        lines = []
+        
+        # 1. Query Rewrite
+        rewrite = reasoning_ctx.get("rewrite_result", {})
+        if rewrite:
+            lines.append("#### Query Understanding & Rewriting")
+            lines.append(f"**Original Question**: {reasoning_ctx.get('original_question', '')}")
+            lines.append(f"**Rewritten Question**: {rewrite.get('rewritten_question', '')}")
+            lines.append(f"**Keywords Extracted**: {', '.join(rewrite.get('keywords', []))}")
+            
+            reasoning_trace = rewrite.get("reasoning_trace", [])
+            if reasoning_trace:
+                lines.append("**Reasoning Trace**:")
+                for i, step in enumerate(reasoning_trace, 1):
+                    lines.append(f"  {i}. {step}")
+        
+        # 2. Candidate Schema
+        candidate = reasoning_ctx.get("candidate_schema", {})
+        if candidate:
+            lines.append("\n#### Initial Candidate Schema (Before Pruning)")
+            lines.append(json.dumps(candidate, ensure_ascii=False, indent=2))
+        
+        # 3. Pruning Decision
+        pruning = reasoning_ctx.get("pruning_decision", {})
+        if pruning:
+            lines.append("\n#### Schema Selection Decision")
+            llm_dec = pruning.get("llm_decision", {})
+            
+            norm_rules = llm_dec.get("applied_normalization_rules", [])
+            if norm_rules:
+                lines.append("**Applied Normalization Rules**:")
+                for rule in norm_rules:
+                    lines.append(f"  - {rule}")
+            
+            if not llm_dec.get("is_sufficient", True):
+                lines.append(f"**Schema Recovery Applied**: {llm_dec.get('missing_info', '')}")
+        
+        return "\n".join(lines)
+    
     def execute_sql(self, sql: str) -> Tuple[List[Any], Optional[str]]:
         """
         步骤 3: 在 SQLite 中执行 SQL
@@ -130,19 +188,25 @@ The previous SQL failed to execute. Please analyze the error and correct the SQL
         """
         Agent 主流程
         """
-        # 1. Retrieve
-        schema_map = self.retrieve_schema(question, evidence)
+        # 1. Retrieve (获取完整推理信息)
+        retrieval_result = self.retrieve_schema(question, evidence)
+        schema_map = retrieval_result.get("schema_map", {})
+        reasoning_ctx = retrieval_result.get("reasoning_context", {})
+        
         schema_context = self._format_schema_for_prompt(schema_map)
+        reasoning_context = self._format_reasoning_context(reasoning_ctx)
+        
         logger.info(f"Retrieved Schema Context:\n{schema_context}")
+        logger.info(f"Reasoning Context:\n{reasoning_context}")
 
         current_sql = ""
         error_msg = None
         
-        # 2. Generate & Execute Loop (Agentic)
+        # 2. Generate & Execute Loop
         for attempt in range(self.max_retries + 1):
             logger.info(f"Generating SQL (Attempt {attempt + 1})...")
             
-            current_sql = self.generate_sql(question, evidence, schema_context, error_msg, current_sql)
+            current_sql = self.generate_sql(question, evidence, retrieval_result, error_msg, current_sql)
             logger.info(f"Generated SQL: {current_sql}")
 
             if not current_sql:
@@ -151,18 +215,17 @@ The previous SQL failed to execute. Please analyze the error and correct the SQL
             results, error_msg = self.execute_sql(current_sql)
 
             if error_msg is None:
-                # Success
                 logger.info("Execution Successful.")
                 return {
                     "question": question,
                     "sql": current_sql,
                     "result": results,
                     "retrieved_schema": schema_map,
+                    "reasoning_context": reasoning_ctx,
                     "status": "success"
                 }
             else:
                 logger.warning(f"Execution Failed: {error_msg}")
-                # Continue to next iteration to fix
 
         return {
             "question": question,

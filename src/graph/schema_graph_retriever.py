@@ -69,16 +69,24 @@ class GraphRAGRetriever:
     def close(self):
         self.driver.close()
 
-    def retrieve_schema_subgraph(self, query: Dict, return_candidate_map: bool = False) -> Dict[str, Any]:
+    def retrieve_schema_subgraph(self, query: Dict, return_candidate_map: bool = False, return_reasoning: bool = True) -> Dict[str, Any]:
         """
         入口函数
+        :param return_reasoning: 是否返回推理过程信息
         """
         # 1. 神经符号检索 (Embedding + PPR + ToG)
-        final_nodes, candidate_map = self._neuro_symbolic_retrieve(query)
+        final_nodes, candidate_map, reasoning_context = self._neuro_symbolic_retrieve(query)
         
-        # 2. 格式化输出 (将 NodeItem 对象转换为题目要求的 Map 格式)
+        # 2. 格式化输出
         final_map = self._build_map_from_nodes(final_nodes)
 
+        if return_reasoning:
+            return {
+                "schema_map": final_map,
+                "reasoning_context": reasoning_context,
+                "candidate_map": candidate_map if return_candidate_map else None
+            }
+        
         if return_candidate_map:
             return {"candidate": candidate_map, "final": final_map}
         return final_map
@@ -87,36 +95,53 @@ class GraphRAGRetriever:
     # Core Logic
     # -------------------------
 
-    def _neuro_symbolic_retrieve(self, query: Dict) -> Tuple[Dict[str, NodeItem], Dict[str, List[str]]]:
+    def _neuro_symbolic_retrieve(self, query: Dict) -> Tuple[Dict[str, NodeItem], Dict[str, List[str]], Dict[str, Any]]:
         """
-        执行检索全流程。
-        返回: (最终保留的节点字典 {id: NodeItem}, 候选阶段的Map)
+        执行检索全流程,返回推理上下文
+        返回: (最终节点, 候选Map, 推理上下文)
         """
+        reasoning_context = {
+            "original_question": query.get("question", ""),
+            "original_evidence": query.get("evidence", ""),
+            "rewrite_result": None,
+            "candidate_schema": None,
+            "pruning_decision": None,
+            "recovery_applied": False
+        }
 
-        # 1. Phase 0: Query Rewrite
+        # Phase 0: Query Rewrite
         rewrite_query = self._rewrite_query_for_schema_linking({"question": query}, self.schema)
         rewritten_question = rewrite_query.get("rewritten_question", query.get("question", ""))
         keywords = list(set([k.strip().lower() for k in rewrite_query.get("keywords", [])]))
-        logger.info(f"Rewritten Query: {rewritten_question} \n Keywords: {keywords} \n reasoning_trace: {rewrite_query.get('reasoning_trace', [])}")
+        reasoning_trace = rewrite_query.get("reasoning_trace", [])
         
-        # Phase 1: Embedding & PPR (获取种子并扩展)
-        # 这里返回的是已经包含元数据的 NodeItem 字典，Key 是 elementId
+        # 保存重写结果
+        reasoning_context["rewrite_result"] = {
+            "rewritten_question": rewritten_question,
+            "keywords": keywords,
+            "reasoning_trace": reasoning_trace
+        }
         
+        logger.info(f"Rewritten Query: {rewritten_question} \n Keywords: {keywords} \n reasoning_trace: {reasoning_trace}")
+        
+        # Phase 1: Embedding & PPR
         candidate_nodes, candidate_map = self._embeddings_retrieve(rewrite_query)
         logger.info(f"Phase 1: Retrieved {len(candidate_nodes)} candidate nodes.")
         logger.info(f"Candidate Map: {json.dumps(candidate_map, ensure_ascii=False)}")
+        
+        # 保存候选结果
+        reasoning_context["candidate_schema"] = candidate_map
 
         if not candidate_nodes:
-            return {}, candidate_map
+            return {}, candidate_map, reasoning_context
 
-        # Phase 2: ToG (Graph Traversal)
+        # Phase 2: ToG
         if os.getenv("TOG_ENABLED", "1") == "1":
-            # 为了代码清晰，我们在 _tog_traversal 中不仅返回 ID，还返回新发现节点的 NodeItem
-            final_nodes_map = self._tog_traversal(rewrite_query, candidate_nodes)
-            return final_nodes_map, candidate_map
+            final_nodes_map, pruning_info = self._tog_traversal(rewrite_query, candidate_nodes)
+            reasoning_context["pruning_decision"] = pruning_info
+            return final_nodes_map, candidate_map, reasoning_context
         else:
-            logger.info("ToG Traversal disabled.")
-            return candidate_nodes, candidate_map
+            return candidate_nodes, candidate_map, reasoning_context
 
     # -------------------------
     # Phase 1: Seeds Retrieval & PPR
@@ -261,28 +286,38 @@ class GraphRAGRetriever:
     # Phase 2: ToG Traversal (Refactored)
     # -------------------------
 
-    def _tog_traversal(self, query: Dict, initial_nodes: Dict[str, NodeItem]) -> Dict[str, NodeItem]:
+    def _tog_traversal(self, query: Dict, initial_nodes: Dict[str, NodeItem]) -> Tuple[Dict[str, NodeItem], Dict[str, Any]]:
         """
-        重构后的 ToG 流程：
-        Step 1: Structural Expansion - 在图谱上寻找路径连通种子节点，扩展上下文。
-        Step 2: Pruning - 利用 LLM 对扩展后的子图进行剪枝，确定最终节点。
+        重构后的 ToG 流程,返回决策信息
         """
+        pruning_info = {
+            "expanded_count": 0,
+            "final_count": 0,
+            "llm_decision": None,
+            "applied_normalization": [],
+            "recovery_info": None
+        }
+        
         if not initial_nodes:
-            return {}
+            return {}, pruning_info
 
         logger.info(f"ToG Step 1: Structural Expansion on {len(initial_nodes)} seed nodes...")
         expanded_nodes = self._structural_expansion(initial_nodes)
         logger.info(f"ToG Step 1 Done. Expanded to {len(expanded_nodes)} nodes.")
         
-        # 打印扩展后的 Map
+        pruning_info["expanded_count"] = len(expanded_nodes)
+        
         expanded_map = self._build_map_from_nodes(expanded_nodes)
         logger.info(f"Expanded Map: {json.dumps(expanded_map, ensure_ascii=False)}")
-
+        
         logger.info("ToG Step 2: LLM Pruning...")
-        final_nodes = self._llm_pruning(query, expanded_nodes)
+        final_nodes, llm_decision = self._llm_pruning(query, expanded_nodes)
         logger.info(f"ToG Step 2 Done. Final nodes: {len(final_nodes)}")
 
-        return final_nodes
+        pruning_info["final_count"] = len(final_nodes)
+        pruning_info["llm_decision"] = llm_decision
+
+        return final_nodes, pruning_info
 
     def _structural_expansion(self, initial_nodes: Dict[str, NodeItem]) -> Dict[str, NodeItem]:
         """
@@ -352,14 +387,21 @@ class GraphRAGRetriever:
         
         return expanded_pool
 
-    def _llm_pruning(self, query: Dict, candidate_nodes: Dict[str, NodeItem]) -> Dict[str, NodeItem]:
+    def _llm_pruning(self, query: Dict, candidate_nodes: Dict[str, NodeItem]) -> Tuple[Dict[str, NodeItem], Dict[str, Any]]:
         """
-        Step 2: 节点剪枝。
-        构建子图文本描述,让 LLM 选择最终相关的 Table 和 Column。
+        Step 2: 节点剪枝,返回决策详情
         """
+        decision_info = {
+            "selected_schema": {},
+            "is_sufficient": True,
+            "applied_normalization_rules": [],
+            "missing_info": "",
+            "recovery_applied": False
+        }
+        
         candidate_ids = list(candidate_nodes.keys())
         if not candidate_ids:
-            return {}
+            return {}, decision_info
 
         # 1. 获取子图边信息用于 Prompt
         edges_info = []
@@ -397,18 +439,19 @@ class GraphRAGRetriever:
             
             logger.info(f"LLM Pruning Decision: {json.dumps(decision, ensure_ascii=False)}")
             
-            selected_schema_map = {}
-            is_sufficient = True
-            missing_info = ""
-
-
+            # 保存 LLM 决策
+            if isinstance(decision, dict):
+                decision_info["selected_schema"] = decision.get("selected_schema", {})
+                decision_info["is_sufficient"] = decision.get("is_sufficient", True)
+                decision_info["applied_normalization_rules"] = decision.get("applied_normalization_rules", [])
+                decision_info["missing_info"] = decision.get("missing_info", "")
             
             # 解析 LLM 返回
             if isinstance(decision, dict):
                 if "selected_schema" in decision:
                     selected_schema_map = decision["selected_schema"]
-                    is_sufficient = decision.get("is_sufficient", True)
-                    missing_info = decision.get("missing_info", "")
+                    decision_info["is_sufficient"] = decision.get("is_sufficient", True)
+                    decision_info["missing_info"] = decision.get("missing_info", "")
                 else:
                     # 兼容旧格式，尝试将其转换为 map
                     if "table_ids" in decision or "column_ids" in decision or "selected_nodes" in decision:
@@ -417,11 +460,12 @@ class GraphRAGRetriever:
                         # 假设是 {"t1": ["c1"], ...}
                         selected_schema_map = decision
 
-            # 5. 恢复逻辑 (Recovery)
-            if not is_sufficient:
-                logger.warning(f"Schema deemed insufficient: {missing_info}. Attempting recovery with full schema...")
-                selected_schema_map = self._recover_schema_with_full_context(query, selected_schema_map, missing_info)
-                
+            # 如果需要恢复
+            if not decision_info["is_sufficient"]:
+                logger.warning(f"Schema deemed insufficient: {decision_info['missing_info']}. Attempting recovery...")
+                selected_schema_map = self._recover_schema_with_full_context(query, selected_schema_map, decision_info["missing_info"])
+                decision_info["recovery_applied"] = True
+            
             # 6. 将 Map 转换为 NodeItem 字典 (Map -> IDs)
             if selected_schema_map:
                 final_result = {}
@@ -461,7 +505,7 @@ class GraphRAGRetriever:
                 
                 # 可视化最终结果
                 # self._visualize_final_result(final_result, edges_info)
-                return final_result
+                return final_result, decision_info
 
             # --- 旧的 ID 解析逻辑 (Fallback) ---
             # 解析 LLM 返回的 ID
@@ -513,12 +557,12 @@ class GraphRAGRetriever:
             # 可视化剪枝后的结果
             # self._visualize_final_result(final_result, edges_info)
 
-            return final_result
+            return final_result, decision_info
 
         except Exception as e:
             logger.error(f"LLM Pruning failed: {e}")
-            # 出错时返回原候选集
-            return candidate_nodes
+            fallback_result = {nid: node for nid, node in candidate_nodes.items() if node.is_table}
+            return fallback_result, decision_info
 
     def _recover_schema_with_full_context(self, query: Dict, current_selection: Dict, missing_info: str) -> Dict[str, List[str]]:
         """
