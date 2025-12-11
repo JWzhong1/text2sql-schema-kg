@@ -51,6 +51,17 @@ class GraphRAGRetriever:
             logger.warning(f"Failed to load schema JSON: {e}")
             self.schema = {}
             
+        # 构建本地 Schema 查找表 (精确匹配)
+        self.schema_lookup = {}
+        if isinstance(self.schema, list):
+            for table in self.schema:
+                t_name = table.get("table_name")
+                t_orig = table.get("original_table_name")
+                if t_name:
+                    self.schema_lookup[t_name] = table
+                if t_orig:
+                    self.schema_lookup[t_orig] = table
+
         # 线程配置
         self.emb_threads = max(1, int(os.getenv("PPR_EMB_THREADS", "8")))
         self.tog_threads = int(os.getenv("TOG_MAX_THREADS", "4"))
@@ -86,7 +97,7 @@ class GraphRAGRetriever:
         rewrite_query = self._rewrite_query_for_schema_linking({"question": query}, self.schema)
         rewritten_question = rewrite_query.get("rewritten_question", query.get("question", ""))
         keywords = list(set([k.strip().lower() for k in rewrite_query.get("keywords", [])]))
-        logger.info(f"Rewritten Query: {rewritten_question}, Keywords: {keywords}")
+        logger.info(f"Rewritten Query: {rewritten_question} \n Keywords: {keywords} \n reasoning_trace: {rewrite_query.get('reasoning_trace', [])}")
         
         # Phase 1: Embedding & PPR (获取种子并扩展)
         # 这里返回的是已经包含元数据的 NodeItem 字典，Key 是 elementId
@@ -276,19 +287,41 @@ class GraphRAGRetriever:
     def _structural_expansion(self, initial_nodes: Dict[str, NodeItem]) -> Dict[str, NodeItem]:
         """
         Step 1: 拓扑扩展。
-        在 Neo4j 中寻找种子节点之间的最短路径，将路径上的节点加入候选集。
-        为了性能，主要针对 Table 节点和高分 Column 节点进行路径查找。
         """
         # 1. 确定用于寻路的锚点 (Anchors)
-        # 策略：包含所有 Table 节点，以及分数最高的 Top-K Column 节点
         anchors = [n for n in initial_nodes.values() if n.is_table]
-              
         anchor_ids = [n.id for n in anchors]
 
-        # 2. Neo4j 路径查询
-        # 查找表锚点之间的全部路径 (限制跳数，例如 max 4 hops)
+        # [新增] 策略：如果表在候选集中，强制将其所有列加入扩展池
+        # 这样可以保证 LLM 看到该表的所有列，从而提高列级召回率
         expanded_pool = initial_nodes.copy()
         
+        if anchor_ids:
+            with self.driver.session() as session:
+                # 1. 获取候选表的所有列
+                col_res = session.run("""
+                    MATCH (t:Table)-[:CONTAINS_COLUMN]->(c:Column)
+                    WHERE elementId(t) IN $ids
+                    RETURN elementId(c) as id, c.name as name, labels(c) as labels, 
+                           c.table_name as table_name, t.original_name as table_original_name, 
+                           c.original_name as original_name, c.description as description
+                """, ids=anchor_ids)
+                
+                for r in col_res:
+                    nid = r["id"]
+                    if nid not in expanded_pool:
+                        expanded_pool[nid] = NodeItem(
+                            id=nid,
+                            name=r["name"],
+                            labels=r["labels"],
+                            table_name=r.get("table_name"),
+                            original_name=r.get("original_name"),
+                            table_original_name=r.get("table_original_name"),
+                            score=0.5, # 给予一个默认的基础分，表示它是候选表的成员
+                            description=r.get("description", "")
+                        )
+
+        # 2. Neo4j 路径查询 (原有的路径扩展逻辑保持不变)
         with self.driver.session() as session:
             # 查询路径上的所有节点
             # 这里的逻辑是：在锚点集合内部寻找两两连通路径
@@ -306,14 +339,14 @@ class GraphRAGRetriever:
             for r in res:
                 nid = r["id"]
                 if nid not in expanded_pool:
-                    expanded_pool[nid] = NodeItem(
+                     expanded_pool[nid] = NodeItem(
                         id=nid,
                         name=r["name"],
                         labels=r["labels"],
                         table_name=r.get("table_name"),
                         original_name=r.get("original_name"),
                         table_original_name=r.get("table_original_name"),
-                        score=0.0, # 路径扩展出来的节点暂时没有分数
+                        score=0.0, 
                         description=r.get("description", "")
                     )
         
@@ -362,9 +395,13 @@ class GraphRAGRetriever:
             ])
             decision = json.loads(resp)
             
+            logger.info(f"LLM Pruning Decision: {json.dumps(decision, ensure_ascii=False)}")
+            
             selected_schema_map = {}
             is_sufficient = True
             missing_info = ""
+
+
             
             # 解析 LLM 返回
             if isinstance(decision, dict):
@@ -419,8 +456,8 @@ class GraphRAGRetriever:
                     fetched_nodes = self._fetch_nodes_by_names(missing_nodes_map)
                     final_result.update(fetched_nodes)
                 
-                # *** 新增：补充外键列 ***
-                final_result = self._ensure_foreign_key_columns(final_result)
+                # # *** 新增：补充外键列 ***
+                # final_result = self._ensure_foreign_key_columns(final_result)
                 
                 # 可视化最终结果
                 # self._visualize_final_result(final_result, edges_info)
@@ -642,49 +679,68 @@ class GraphRAGRetriever:
             self._visualize_graph(G_final, final_result, "Pruning_Output_Graph", "tog_pruning_output.png")
 
     def _fetch_nodes_by_names(self, schema_map: Dict[str, List[str]]) -> Dict[str, NodeItem]:
-        """根据表名和列名从 Neo4j 获取节点信息"""
+        """
+        根据表名和列名从本地 Schema JSON 获取节点信息。
+        直接在内存中查找，避免 Neo4j 查询，且支持原始名/清洗名匹配。
+        """
         fetched_nodes = {}
-        table_names = list(schema_map.keys())
-        if not table_names:
+        if not self.schema_lookup:
             return {}
 
-        with self.driver.session() as session:
-            # Fetch Tables
-            res = session.run("""
-                MATCH (t:Table)
-                WHERE t.name IN $names
-                RETURN elementId(t) as id, t.name as name, labels(t) as labels, t.original_name as original_name, t.description as description
-            """, names=table_names)
+        for t_name_input, cols in schema_map.items():
+            # 1. 查找表对象 (精确匹配)
+            table_obj = self.schema_lookup.get(t_name_input)
             
-            for r in res:
-                fetched_nodes[r["id"]] = NodeItem(
-                    id=r["id"], name=r["name"], labels=r["labels"], 
-                    table_name=r["name"], # Table node's table_name is itself
-                    original_name=r["original_name"], description=r.get("description", "")
+            if not table_obj:
+                logger.warning(f"Table '{t_name_input}' not found in local schema JSON.")
+                continue
+            
+            real_t_name = table_obj.get("table_name")
+            real_t_orig = table_obj.get("original_table_name")
+            
+            # 构造 Table NodeItem
+            # 使用合成 ID，前缀区分
+            t_id = f"json_tbl_{real_t_name}"
+            if t_id not in fetched_nodes:
+                fetched_nodes[t_id] = NodeItem(
+                    id=t_id,
+                    name=real_t_name,
+                    labels=["Table"],
+                    table_name=real_t_name,
+                    original_name=real_t_orig,
+                    description="" 
                 )
-
-            # Fetch Columns
-            col_params = []
-            for t_name, cols in schema_map.items():
-                for c_name in cols:
-                    col_params.append({"t": t_name, "c": c_name})
             
-            if col_params:
-                # 批量查询列
-                res = session.run("""
-                    UNWIND $params as p
-                    MATCH (c:Column {name: p.c, table_name: p.t})
-                    OPTIONAL MATCH (t:Table {name: p.t})
-                    RETURN elementId(c) as id, c.name as name, labels(c) as labels, c.table_name as table_name, t.original_name as table_original_name, c.original_name as original_name, c.description as description
-                """, params=col_params)
+            # 2. 查找列对象
+            col_lookup = {}
+            for c_obj in table_obj.get("columns", []):
+                c_name = c_obj.get("col")
+                c_orig = c_obj.get("original_column_name")
+                if c_name:
+                    col_lookup[c_name] = c_obj
+                if c_orig:
+                    col_lookup[c_orig] = c_obj
+            
+            for c_name_input in cols:
+                col_obj = col_lookup.get(c_name_input)
                 
-                for r in res:
-                    fetched_nodes[r["id"]] = NodeItem(
-                        id=r["id"], name=r["name"], labels=r["labels"],
-                        table_name=r["table_name"], table_original_name=r["table_original_name"],
-                        original_name=r["original_name"], description=r.get("description", "")
-                    )
+                if col_obj:
+                    real_c_name = col_obj.get("col")
+                    real_c_orig = col_obj.get("original_column_name")
+                    c_id = f"json_col_{real_t_name}_{real_c_name}"
                     
+                    fetched_nodes[c_id] = NodeItem(
+                        id=c_id,
+                        name=real_c_name,
+                        labels=["Column"],
+                        table_name=real_t_name,
+                        table_original_name=real_t_orig,
+                        original_name=real_c_orig,
+                        description=""
+                    )
+                else:
+                    logger.warning(f"Column '{c_name_input}' not found in table '{real_t_name}'")
+
         return fetched_nodes
 
     def _visualize_graph(self, G: nx.Graph, node_map: Dict[str, NodeItem], title: str, filename: str):

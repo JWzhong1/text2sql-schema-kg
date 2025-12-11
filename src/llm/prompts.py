@@ -295,37 +295,92 @@ def get_graph_traversal_prompt(question: str, evidence: str, subgraph_context: s
     return sys_prompt, user_prompt
 
 def get_subgraph_pruning_prompt(query:dict, subgraph_context: str) -> tuple[str, str]:
+    
     sys_prompt = (
-        "You are a Schema Graph Finalizer. Given the final traversed subgraph and the original question, identify the final set of relevant table and column nodes.\n"
-        "You must also evaluate if the retained schema information is sufficient to answer the user's question.\n"
-        "ALWAYS prioritize preserving join paths between tables over keyword matching."
+        "You are a Schema Graph Finalizer. STRICTLY enforce these rules:\n"
+        "1. ALWAYS prioritize normalized data: If a denormalized field (e.g., 'UserDisplayName' in 'comments') "
+        "and its normalized source table (e.g., 'users') BOTH exist in the subgraph, YOU MUST:\n"
+        "   - IGNORE the denormalized field\n"
+        "   - USE the normalized table + JOIN path\n"
+        "2. ONLY use denormalized fields when the normalized table is ABSENT from the subgraph.\n"
+        "3. NEVER sacrifice a JOIN path to avoid denormalized fields – stale data risks outweigh query simplicity."
     )
-    user_prompt = f"""
-    ## original_question:{query.get('original_question', '')}
-    reasoning_trace:{query.get('reasoning_trace', [])}
-    rewritten_question:{query.get('rewritten_question', '')}
+    
+    user_prompt = f"""## original_question: {query.get('original_question', '')}
+## rewritten_question: {query.get('rewritten_question', '')}
+## subgraph_nodes: {subgraph_context}
 
-    {json.dumps(query, ensure_ascii=False, indent=2)}
-    Subgraph:\n{subgraph_context}\n\n
-    Task:
-    - Review the subgraph in the context of the question and evidence.
-    - Identify and list the relevant table and column nodes needed to answer the question.
-    - If multiple tables are needed to answer the question, MUST retain at least one complete join path between them.
-    - **Critical**: Evaluate if the selected tables and columns are sufficient to fully answer the original question.
-    - Respond with a JSON object containing the selected schema, sufficiency status, and missing info description.
+### EXECUTION STEPS (MUST FOLLOW IN ORDER):
+1. **NORMALIZATION CHECK**  
+   For EVERY denormalized field in candidate tables (e.g., 'UserDisplayName' in 'comments'):  
+   - IF its normalized source table (e.g., 'users') EXISTS in subgraph_nodes:  
+        → IMMEDIATELY DISCARD the denormalized field  
+        → REQUIRE the normalized table + JOIN columns  
+   - ELSE:  
+        → Allow the denormalized field  
 
-    Output Format:
-    {{
-      "selected_schema": {{
-        "table_name1": ["column_name1", "column_name2", ...],
-        "table_name2": ["column_name1", "column_name2", ...],
-        ...
-      }},
-      "is_sufficient": true,  // boolean, true if the selected schema is sufficient to answer the question
-      "missing_info": "..."   // string, describe what is missing if is_sufficient is false, otherwise empty string
-    }}
+2. **JOIN PATH PRESERVATION**  
+   - If multiple tables are needed, retain ALL columns required for a complete join path (including foreign/primary keys).  
+   - Example: To join 'comments' and 'users', keep 'comments.UserId' and 'users.UserId'.  
+
+3. **SUFFICIENCY EVALUATION**  
+   - is_sufficient = true ONLY IF:  
+        (a) Normalization rules are fully satisfied, AND  
+        (b) All columns for filtering/joining/result-returning exist.  
+
+### OUTPUT FORMAT (STRICT JSON):
+{{
+  "selected_schema": {{
+    "table1": ["col1", "col2", ...],  // ONLY normalized fields + join keys
+    "table2": ["col1", ...]
+  }},
+  "is_sufficient": boolean,
+  "applied_normalization_rules": [  // REQUIRED FIELD: Prove rule compliance
+    "Rule 1: Discarded 'comments.UserDisplayName' because 'users' table exists",
+    "Rule 2: Kept 'comments.UserId' and 'users.UserId' for JOIN path"
+  ],
+  "missing_info": ""  // Non-empty ONLY if normalized tables are missing from subgraph
+}}
 """
     return sys_prompt, user_prompt
+
+# sys_prompt = (
+#         "You are a Schema Graph Finalizer. Given the final traversed subgraph and the original question, identify the final set of relevant table and column nodes.\n"
+#         "You must also evaluate if the retained schema information is sufficient to answer the user's question.\n"
+#         "ALWAYS prioritize preserving join paths between tables over keyword matching.\n"
+#         "**STRICT RULE FOR REDUNDANCY**: You MUST prefer normalized data sources over denormalized/redundant fields. "
+#         "For example, if a 'Comments' table has 'UserDisplayName' and 'UserId', and there is a 'Users' table, you MUST join 'Users' to get 'DisplayName'. "
+#         "Do NOT use the local 'UserDisplayName' just to avoid a join. Denormalized fields are often stale. "
+#         "Only use the denormalized field if the normalized table is NOT available in the subgraph.\n"
+#         "For each selected table, you MUST select the specific columns relevant to the question. Do not just select the table. If a column is used for filtering, joining, or returning results, it must be included."
+#     )
+
+#     user_prompt = f"""## original_question:{query.get('original_question', '')}
+#     ## reasoning_trace:{query.get('reasoning_trace', [])}
+#     ## rewritten_question:{query.get('rewritten_question', '')}
+#     ## keywords:{query.get('keywords', [])}
+
+#     Subgraph:\n{subgraph_context}\n\n
+#     Task:
+#     - Review the subgraph in the context of the question and evidence.
+#     - Identify and list the relevant table and column nodes needed to answer the question.
+#     - If multiple tables are needed to answer the question, MUST retain at least one complete join path between them.
+#     - **Critical**: Evaluate if the selected tables and columns are sufficient to fully answer the original question.
+#     - Respond with a JSON object containing the selected schema, sufficiency status, and missing info description.
+
+#     Output Format:
+#     {{
+#       "selected_schema": {{
+#         "table_name1": ["column_name1", "column_name2", ...],
+#         "table_name2": ["column_name1", "column_name2", ...],
+#         ...
+#       }},
+#       "is_sufficient": true,  // boolean, true if the selected schema is sufficient to answer the question
+#       "reasoning": "..." , // string, explain your reasoning for sufficiency evaluation
+#       "missing_info": "..."   // string, describe what is missing if is_sufficient is false, otherwise empty string
+#     }}
+# """
+#     return sys_prompt, user_prompt
 
 def get_recover_schema_with_full_context_prompt(query: Dict, current_selection: Dict, missing_info: str, schema_str: str) -> tuple[str, str]:
     sys_prompt = (

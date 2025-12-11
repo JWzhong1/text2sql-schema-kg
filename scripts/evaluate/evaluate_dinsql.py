@@ -41,6 +41,36 @@ print_lock = threading.Lock()
 eval_lock = threading.Lock()
 
 # ==========================================
+# Cleaning Helpers
+# ==========================================
+
+def clean_string(s):
+    """去除字符串两端的单引号和双引号"""
+    if isinstance(s, str):
+        # strip() 会移除字符串开头和结尾指定的字符集合
+        return s.strip('"\'')
+    return s
+
+def clean_data(data):
+    """递归清理字典和列表中的数据"""
+    if isinstance(data, dict):
+        new_dict = {}
+        for k, v in data.items():
+            # 清理键
+            clean_k = clean_string(k)
+            # 递归清理值
+            new_dict[clean_k] = clean_data(v)
+        return new_dict
+    elif isinstance(data, list):
+        # 递归清理列表中的每一项
+        return [clean_data(item) for item in data]
+    elif isinstance(data, str):
+        # 清理字符串值
+        return clean_string(data)
+    else:
+        return data
+
+# ==========================================
 # DIN-SQL Prompts & Helpers
 # ==========================================
 
@@ -431,6 +461,9 @@ def process_single_db(db_id, cases, saved_results, output_file, eval_results, ev
             try:
                 retrieved_link = retriever.retrieve_schema_links(db_id, question, evidence)
                 
+                # Clean data before saving
+                retrieved_link = clean_data(retrieved_link)
+
                 with file_lock:
                     saved_results[question_id] = retrieved_link
                     with open(output_file, 'w', encoding='utf-8') as f:
@@ -438,6 +471,9 @@ def process_single_db(db_id, cases, saved_results, output_file, eval_results, ev
             except Exception as e:
                 logger.error(f"Error processing query: {e}")
                 continue
+
+        # Clean data before evaluation (handles both cached and new results)
+        retrieved_link = clean_data(retrieved_link)
 
         try:
             metrics = calculate_metrics(retrieved_link, golden_link)
@@ -498,7 +534,7 @@ def evaluate(db_name, test_file_path, output_dir, db_root_path,report_save_dir, 
             )
             future_to_cases[future] = len(cases)
 
-        progress = tqdm(total=total_cases, desc="Evaluating", unit="q", mininterval=1.0, monitor_interval=0)
+        progress = tqdm(total=total_cases, desc="Evaluating", unit="q", mininterval=1.0)
         try:
             for future in concurrent.futures.as_completed(future_to_cases):
                 num_cases = future_to_cases[future]
@@ -540,16 +576,37 @@ def evaluate(db_name, test_file_path, output_dir, db_root_path,report_save_dir, 
     print("="*40)
     
 if __name__ == "__main__":
-    # Configuration
-    db_name = "california_schools" # Or pass as arg
-    test_file = f"bird_data/golden_link/golden_schema_link_{db_name}.json"
-    output_dir = "scripts/evaluate/cache"
-    db_root_path = "bird_data/bird/llm/data/dev_databases" # Path to where BIRD databases are stored (unzipped)
-    report_save_dir = "scripts/evaluate/result"
-    if len(sys.argv) > 1:
-        test_file = sys.argv[1]
+    import argparse
+    parser = argparse.ArgumentParser(description="Evaluate DIN-SQL Retrieval")
+    parser.add_argument("--db_root_path", default="bird_data/bird/llm/data/dev_databases", help="Path to BIRD databases")
+    parser.add_argument("--golden_link_dir", default="bird_data/golden_link", help="Path to golden link files")
+    parser.add_argument("--output_dir", default="scripts/evaluate/cache", help="Cache directory")
+    parser.add_argument("--report_dir", default="scripts/evaluate/dinsql_result", help="Report directory")
+    parser.add_argument("--max_workers", type=int, default=16, help="Number of workers")
+    parser.add_argument("--db_name", type=str, default=None, help="Specific database name to evaluate")
     
-    if os.path.exists(test_file):
-        evaluate(db_name, test_file, output_dir, db_root_path, report_save_dir)
+    args = parser.parse_args()
+    
+    if not os.path.exists(args.db_root_path):
+        logger.error(f"Database root path not found: {args.db_root_path}")
+        sys.exit(1)
+        
+    if args.db_name:
+        db_list = [args.db_name]
     else:
-        logger.error(f"Test file not found: {test_file}")
+        # Get all database directories
+        db_list = [d for d in os.listdir(args.db_root_path) if os.path.isdir(os.path.join(args.db_root_path, d))]
+        db_list.sort()
+    
+    logger.info(f"Found {len(db_list)} databases to evaluate")
+    
+    for db_name in db_list:
+        test_file = os.path.join(args.golden_link_dir, f"golden_schema_link_{db_name}.json")
+        if os.path.exists(test_file):
+            logger.info(f"Processing database: {db_name}")
+            try:
+                evaluate(db_name, test_file, args.output_dir, args.db_root_path, f"{args.report_dir}/{db_name}", args.max_workers)
+            except Exception as e:
+                logger.error(f"Failed to evaluate {db_name}: {e}")
+        else:
+            logger.warning(f"Golden link file not# filepath: /home/zjw/project/Text2SQL/schema_kg/scripts/evaluate/evaluate_dinsql.py found for {db_name}, skipping.")

@@ -24,7 +24,7 @@ def get_competition_json(messages: list) -> str:
     response = client.chat.completions.create(
         model=os.getenv("OPENAI_API_MODEL", "qwen-plus"),
         messages=messages,
-        temperature=0.1,
+        temperature=0.7,
         response_format={"type": "json_object"},
     )
     return response.choices[0].message.content

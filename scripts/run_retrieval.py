@@ -28,18 +28,20 @@ logging.getLogger("neo4j").setLevel(logging.WARNING)
 logger = logging.getLogger(__name__)
 
 if __name__ == "__main__":
+
+    db_name = "codebase_community"
     neo4j_uri = os.getenv("NEO4J_URI", "bolt://localhost:7687")
     neo4j_user = os.getenv("NEO4J_USER", "neo4j")
     neo4j_password = os.getenv("NEO4J_PASSWORD", "your_password")
-    schema_json_path="bird_data/converted_schemas/financial.json"
+    schema_json_path=f"bird_data/converted_schemas/{db_name}.json"
     retriever = GraphRAGRetriever(neo4j_uri, neo4j_user, neo4j_password, schema_json_path)
 
-    golden_link_path = "bird_data/golden_link/golden_schema_link_financial.json"
+    golden_link_path = f"bird_data/golden_link/golden_schema_link_{db_name}.json"
     with open(golden_link_path, 'r', encoding='utf-8') as f:
         golden_links = json.load(f)
     logger.info(f"Loaded {len(golden_links)} golden links from {golden_link_path}") 
     for link in golden_links:  
-        if link.get("question_id") !=92:
+        if link.get("question_id") !=594:
             continue
         nl_query = link['question']
         back_knowledge = link['evidence']

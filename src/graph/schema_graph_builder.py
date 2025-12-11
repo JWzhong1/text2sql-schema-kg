@@ -604,7 +604,11 @@ class GenericSchemaGraphBuilder:
             col_name = col["col"]
             detail = column_details_map.get(col_name, {})
             col_description = detail.get("description", col.get("description", ""))
-            texts[col_name] = f"{col_name} {col_description}".strip()
+            
+            # [修改] 关键点：将表名加入到列的 Embedding 文本中
+            # 原代码: texts[col_name] = f"{col_name} {col_description}".strip()
+            texts[col_name] = f"Table: {table_name}, Column: {col_name}, Description: {col_description}".strip()
+            
         non_empty = {k: v for k, v in texts.items() if v}
         embeddings = {k: [] for k in texts.keys()}
         if not non_empty:
