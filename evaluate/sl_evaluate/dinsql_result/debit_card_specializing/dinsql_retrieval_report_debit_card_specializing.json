@@ -1,0 +1,2686 @@
+{
+  "summary": {
+    "db_name": "debit_card_specializing",
+    "generated_at": "2025-12-10 13:06:41",
+    "total_questions": 64,
+    "table_metrics": {
+      "precision": 0.4818181818181818,
+      "recall": 0.8617886178861789,
+      "f1": 0.6180758017492711
+    },
+    "column_metrics": {
+      "precision": 0.8661971830985915,
+      "recall": 0.845360824742268,
+      "f1": 0.8556521739130434
+    }
+  },
+  "mismatches": {
+    "1470": {
+      "question": "How many gas stations in CZE has Premium gas?",
+      "question_id": "1470",
+      "golden": {
+        "gasstations": [
+          "GasStationID",
+          "Country",
+          "Segment"
+        ]
+      },
+      "retrieved": {
+        "gasstations": [
+          "Country",
+          "GasStationID",
+          "Segment"
+        ],
+        "'CZE'": [],
+        "'Premium'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'CZE'",
+          "'Premium'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1471": {
+      "question": "What is the ratio of customers who pay in EUR against customers who pay in CZK?",
+      "question_id": "1471",
+      "golden": {
+        "customers": [
+          "Currency"
+        ]
+      },
+      "retrieved": {
+        "customers": [
+          "Currency"
+        ],
+        "'EUR'": [],
+        "'CZK'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'CZK'",
+          "'EUR'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1472": {
+      "question": "In 2012, who had the least consumption in LAM?",
+      "question_id": "1472",
+      "golden": {
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "'LAM'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'LAM'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1473": {
+      "question": "What was the average monthly consumption of customers in SME for the year 2013?",
+      "question_id": "1473",
+      "golden": {
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "'SME'": [],
+        "'201301'": [],
+        "'201312'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'201301'",
+          "'201312'",
+          "'SME'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1474": {
+      "question": "Which customers, paying in CZK, consumed the most gas in 2011?",
+      "question_id": "1474",
+      "golden": {
+        "customers": [
+          "CustomerID",
+          "Currency"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "customers": [
+          "Currency",
+          "CustomerID"
+        ],
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "'CZK'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'CZK'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1475": {
+      "question": "How many customers in KAM had a consumption of less than 30,000 for the year 2012?",
+      "question_id": "1475",
+      "golden": {
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "'KAM'": [],
+        "'201201'": [],
+        "'201212'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'201201'",
+          "'201212'",
+          "'KAM'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1476": {
+      "question": "What was the difference in gas consumption between CZK-paying customers and EUR-paying customers in 2012?",
+      "question_id": "1476",
+      "golden": {
+        "customers": [
+          "CustomerID",
+          "Currency"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "customers": [
+          "Currency",
+          "CustomerID"
+        ],
+        "'CZK'": [],
+        "'EUR'": [],
+        "'201201'": [],
+        "'201212'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 4,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'201201'",
+          "'201212'",
+          "'CZK'",
+          "'EUR'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1477": {
+      "question": "Which year recorded the most gas use paid in EUR?",
+      "question_id": "1477",
+      "golden": {
+        "customers": [
+          "CustomerID",
+          "Currency"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "customers": [
+          "Currency",
+          "CustomerID"
+        ],
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "'EUR'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'EUR'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1479": {
+      "question": "Which year recorded the most consumption of gas paid in CZK?",
+      "question_id": "1479",
+      "golden": {
+        "customers": [
+          "CustomerID",
+          "Currency"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "customers": [
+          "Currency",
+          "CustomerID"
+        ],
+        "'CZK'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'CZK'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1480": {
+      "question": "What was the gas consumption peak month for SME customers in 2013?",
+      "question_id": "1480",
+      "golden": {
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "'SME'": [],
+        "'201301'": [],
+        "'201312'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'201301'",
+          "'201312'",
+          "'SME'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1481": {
+      "question": "What is the difference in the annual average consumption of the customers with the least amount of consumption paid in CZK for 2013 between SME and LAM, LAM and KAM, and KAM and SME?",
+      "question_id": "1481",
+      "golden": {
+        "customers": [
+          "CustomerID",
+          "Segment",
+          "Currency"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "customers": [
+          "Currency",
+          "CustomerID",
+          "Segment"
+        ],
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "'CZK'": [],
+        "'SME'": [],
+        "'LAM'": [],
+        "'KAM'": [],
+        "'201301'": [],
+        "'201312'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 6,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'201301'",
+          "'201312'",
+          "'CZK'",
+          "'KAM'",
+          "'LAM'",
+          "'SME'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1482": {
+      "question": "Which of the three segments—SME, LAM and KAM—has the biggest and lowest percentage increases in consumption paid in EUR between 2012 and 2013?",
+      "question_id": "1482",
+      "golden": {
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "customers": [
+          "Currency",
+          "CustomerID",
+          "Segment"
+        ],
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "'SME'": [],
+        "'LAM'": [],
+        "'KAM'": [],
+        "'EUR'": [],
+        "'2012'": [],
+        "'2013'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 6,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2012'",
+          "'2013'",
+          "'EUR'",
+          "'KAM'",
+          "'LAM'",
+          "'SME'"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "customers.Currency"
+        ]
+      }
+    },
+    "1483": {
+      "question": "How much did customer 6 consume in total between August and November 2013?",
+      "question_id": "1483",
+      "golden": {
+        "year and month": [
+          "Customer ID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "'201308'": [],
+        "'201311'": []
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 3,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 3,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "year and month"
+        ],
+        "extra_tables": [
+          "'201308'",
+          "'201311'",
+          "yearmonth"
+        ],
+        "missing_columns": [
+          "year and month.Consumption",
+          "year and month.Customer ID",
+          "year and month.Date"
+        ],
+        "extra_columns": [
+          "yearmonth.Consumption",
+          "yearmonth.CustomerID",
+          "yearmonth.Date"
+        ]
+      }
+    },
+    "1484": {
+      "question": "How many more \"discount\" gas stations does the Czech Republic have compared to Slovakia?",
+      "question_id": "1484",
+      "golden": {
+        "gasstations": [
+          "Country",
+          "Segment"
+        ]
+      },
+      "retrieved": {
+        "gasstations": [
+          "Country",
+          "Segment"
+        ],
+        "'CZE'": [],
+        "'SVK'": [],
+        "'Value for money'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'CZE'",
+          "'SVK'",
+          "'Value for money'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1485": {
+      "question": "How much more was customer 7 consuming in April 2013 than customer 5?",
+      "question_id": "1485",
+      "golden": {
+        "year and month": [
+          "Customer ID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "'201304'": []
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 3,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "year and month"
+        ],
+        "extra_tables": [
+          "'201304'",
+          "yearmonth"
+        ],
+        "missing_columns": [
+          "year and month.Consumption",
+          "year and month.Customer ID",
+          "year and month.Date"
+        ],
+        "extra_columns": [
+          "yearmonth.Consumption",
+          "yearmonth.CustomerID",
+          "yearmonth.Date"
+        ]
+      }
+    },
+    "1486": {
+      "question": "Is it true that more SMEs pay in Czech koruna than in euros? If so, how many more?",
+      "question_id": "1486",
+      "golden": {
+        "customers": [
+          "Segment",
+          "Currency"
+        ]
+      },
+      "retrieved": {
+        "customers": [
+          "Currency",
+          "Segment"
+        ],
+        "'SME'": [],
+        "'CZK'": [],
+        "'EUR'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'CZK'",
+          "'EUR'",
+          "'SME'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1487": {
+      "question": "Which LAM customer used the Euro as their currency and had the highest consumption in October 2013?",
+      "question_id": "1487",
+      "golden": {
+        "customers": [
+          "CustomerID",
+          "Segment",
+          "Currency"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "customers": [
+          "Currency",
+          "CustomerID",
+          "Segment"
+        ],
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "'LAM'": [],
+        "'EUR'": [],
+        "'201310'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'201310'",
+          "'EUR'",
+          "'LAM'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1488": {
+      "question": "Who among KAM's customers consumed the most? How much did it consume?",
+      "question_id": "1488",
+      "golden": {
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "yearmonth": [
+          "Consumption",
+          "CustomerID"
+        ],
+        "'KAM'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'KAM'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1489": {
+      "question": "How much did the KAM customers consume in total in May 2013?",
+      "question_id": "1489",
+      "golden": {
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "'KAM'": [],
+        "'201305'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'201305'",
+          "'KAM'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1490": {
+      "question": "How many percent of LAM customer consumed more than 46.73?",
+      "question_id": "1490",
+      "golden": {
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "yearmonth": [
+          "Consumption",
+          "CustomerID"
+        ],
+        "'LAM'": [],
+        "46": [
+          "73"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'LAM'",
+          "46"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "46.73"
+        ]
+      }
+    },
+    "1491": {
+      "question": "Which country has more \"value for money\" gas stations? Please give a total number of \"value for money\" gas stations in each country.",
+      "question_id": "1491",
+      "golden": {
+        "gasstations": [
+          "GasStationID",
+          "Country",
+          "Segment"
+        ]
+      },
+      "retrieved": {
+        "gasstations": [
+          "Country",
+          "Segment"
+        ],
+        "\"Value for money\"": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "\"Value for money\""
+        ],
+        "missing_columns": [
+          "gasstations.GasStationID"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1492": {
+      "question": "What percentage of KAM customers pay in euros?",
+      "question_id": "1492",
+      "golden": {
+        "customers": [
+          "CustomerID",
+          "Segment",
+          "Currency"
+        ]
+      },
+      "retrieved": {
+        "customers": [
+          "Currency",
+          "Segment"
+        ],
+        "'KAM'": [],
+        "'EUR'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'EUR'",
+          "'KAM'"
+        ],
+        "missing_columns": [
+          "customers.CustomerID"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1493": {
+      "question": "In February 2012, what percentage of customers consumed more than 528.3?",
+      "question_id": "1493",
+      "golden": {
+        "year and month": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "'201202'": [],
+        "528": [
+          "3"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 3,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 4,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "year and month"
+        ],
+        "extra_tables": [
+          "'201202'",
+          "528",
+          "yearmonth"
+        ],
+        "missing_columns": [
+          "year and month.Consumption",
+          "year and month.CustomerID",
+          "year and month.Date"
+        ],
+        "extra_columns": [
+          "528.3",
+          "yearmonth.Consumption",
+          "yearmonth.CustomerID",
+          "yearmonth.Date"
+        ]
+      }
+    },
+    "1494": {
+      "question": "What percentage of Slovakian gas stations are premium?",
+      "question_id": "1494",
+      "golden": {
+        "gasstations": [
+          "Segment",
+          "GasStationID",
+          "Country"
+        ]
+      },
+      "retrieved": {
+        "gasstations": [
+          "Country",
+          "Segment"
+        ],
+        "'Premium'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Premium'"
+        ],
+        "missing_columns": [
+          "gasstations.GasStationID"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1495": {
+      "question": "Which client ID consumed the most in September 2013?",
+      "question_id": "1495",
+      "golden": {
+        "customers": [
+          "CustomerID"
+        ],
+        "year and month": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "'201309'": []
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 2,
+        "tbl_fn": 2,
+        "col_tp": 0,
+        "col_fp": 3,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "customers",
+          "year and month"
+        ],
+        "extra_tables": [
+          "'201309'",
+          "yearmonth"
+        ],
+        "missing_columns": [
+          "customers.CustomerID",
+          "year and month.Consumption",
+          "year and month.CustomerID",
+          "year and month.Date"
+        ],
+        "extra_columns": [
+          "yearmonth.Consumption",
+          "yearmonth.CustomerID",
+          "yearmonth.Date"
+        ]
+      }
+    },
+    "1496": {
+      "question": "Which client segment consumed the least in September 2013?",
+      "question_id": "1496",
+      "golden": {
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "'201309'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'201309'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1497": {
+      "question": "Which SME customer consumed the least in June 2012?",
+      "question_id": "1497",
+      "golden": {
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "'SME'": [],
+        "'201206'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'201206'",
+          "'SME'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1498": {
+      "question": "What is the highest monthly consumption in the year 2012?",
+      "question_id": "1498",
+      "golden": {
+        "year and month": [
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "yearmonth": [
+          "Consumption",
+          "Date"
+        ],
+        "'2012'": []
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "year and month"
+        ],
+        "extra_tables": [
+          "'2012'",
+          "yearmonth"
+        ],
+        "missing_columns": [
+          "year and month.Consumption",
+          "year and month.Date"
+        ],
+        "extra_columns": [
+          "yearmonth.Consumption",
+          "yearmonth.Date"
+        ]
+      }
+    },
+    "1499": {
+      "question": "What is the biggest monthly consumption of the customers who use euro as their currency?",
+      "question_id": "1499",
+      "golden": {
+        "customers": [
+          "CustomerID",
+          "Currency"
+        ],
+        "year and month": [
+          "CustomerID",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "yearmonth": [
+          "Consumption",
+          "CustomerID"
+        ],
+        "customers": [
+          "Currency",
+          "CustomerID"
+        ],
+        "'EUR'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "year and month"
+        ],
+        "extra_tables": [
+          "'EUR'",
+          "yearmonth"
+        ],
+        "missing_columns": [
+          "year and month.Consumption",
+          "year and month.CustomerID"
+        ],
+        "extra_columns": [
+          "yearmonth.Consumption",
+          "yearmonth.CustomerID"
+        ]
+      }
+    },
+    "1500": {
+      "question": "Please list the product description of the products consumed in September, 2013.",
+      "question_id": "1500",
+      "golden": {
+        "transactions_1k": [
+          "CustomerID",
+          "ProductID"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Date"
+        ],
+        "products": [
+          "ProductID",
+          "Description"
+        ]
+      },
+      "retrieved": {
+        "products": [
+          "Description",
+          "ProductID"
+        ],
+        "transactions_1k": [
+          "Date",
+          "ProductID"
+        ],
+        "'2013-09'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "yearmonth"
+        ],
+        "extra_tables": [
+          "'2013-09'"
+        ],
+        "missing_columns": [
+          "transactions_1k.CustomerID",
+          "yearmonth.CustomerID",
+          "yearmonth.Date"
+        ],
+        "extra_columns": [
+          "transactions_1k.Date"
+        ]
+      }
+    },
+    "1501": {
+      "question": "Please list the countries of the gas stations with transactions taken place in June, 2013.",
+      "question_id": "1501",
+      "golden": {
+        "transactions_1k": [
+          "GasStationID",
+          "CustomerID"
+        ],
+        "gasstations": [
+          "GasStationID",
+          "Country"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Date"
+        ]
+      },
+      "retrieved": {
+        "gasstations": [
+          "Country",
+          "GasStationID"
+        ],
+        "transactions_1k": [
+          "Date",
+          "GasStationID"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "yearmonth"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "transactions_1k.CustomerID",
+          "yearmonth.CustomerID",
+          "yearmonth.Date"
+        ],
+        "extra_columns": [
+          "transactions_1k.Date"
+        ]
+      }
+    },
+    "1502": {
+      "question": "Please list the chains of the gas stations with transactions in euro.",
+      "question_id": "1502",
+      "golden": {
+        "transactions_1k": [
+          "CustomerID",
+          "GasStationID"
+        ],
+        "customers": [
+          "CustomerID",
+          "Currency"
+        ],
+        "gasstations": [
+          "GasStationID",
+          "ChainID"
+        ]
+      },
+      "retrieved": {
+        "gasstations": [
+          "ChainID",
+          "GasStationID"
+        ],
+        "transactions_1k": [
+          "CustomerID",
+          "GasStationID"
+        ],
+        "customers": [
+          "Currency",
+          "CustomerID"
+        ],
+        "'EUR'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'EUR'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1503": {
+      "question": "Please list the product description of the products bought in transactions in euro.",
+      "question_id": "1503",
+      "golden": {
+        "transactions_1k": [
+          "ProductID",
+          "CustomerID"
+        ],
+        "customers": [
+          "CustomerID",
+          "Currency"
+        ],
+        "products": [
+          "ProductID",
+          "Description"
+        ]
+      },
+      "retrieved": {
+        "products": [
+          "Description",
+          "ProductID"
+        ],
+        "transactions_1k": [
+          "CustomerID",
+          "ProductID"
+        ],
+        "customers": [
+          "Currency",
+          "CustomerID"
+        ],
+        "'EUR'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'EUR'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1504": {
+      "question": "What is the average total price of the transactions taken place in January, 2012?",
+      "question_id": "1504",
+      "golden": {
+        "transactions": [
+          "Date",
+          "Amount"
+        ]
+      },
+      "retrieved": {
+        "transactions_1k": [
+          "Amount",
+          "Date",
+          "Price"
+        ],
+        "'2012-01'": []
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 3,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "transactions"
+        ],
+        "extra_tables": [
+          "'2012-01'",
+          "transactions_1k"
+        ],
+        "missing_columns": [
+          "transactions.Amount",
+          "transactions.Date"
+        ],
+        "extra_columns": [
+          "transactions_1k.Amount",
+          "transactions_1k.Date",
+          "transactions_1k.Price"
+        ]
+      }
+    },
+    "1505": {
+      "question": "Among the customers who paid in euro, how many of them have a monthly consumption of over 1000?",
+      "question_id": "1505",
+      "golden": {
+        "yearmonth": [
+          "CustomerID",
+          "Consumption"
+        ],
+        "customers": [
+          "CustomerID",
+          "Currency"
+        ]
+      },
+      "retrieved": {
+        "customers": [
+          "Currency",
+          "CustomerID"
+        ],
+        "yearmonth": [
+          "Consumption",
+          "CustomerID"
+        ],
+        "'EUR'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'EUR'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1506": {
+      "question": "Please list the product descriptions of the transactions taken place in the gas stations in the Czech Republic.",
+      "question_id": "1506",
+      "golden": {
+        "transactions_1k": [
+          "GasStationID",
+          "ProductID"
+        ],
+        "gasstations": [
+          "GasStationID",
+          "Country"
+        ],
+        "products": [
+          "ProductID",
+          "Description"
+        ]
+      },
+      "retrieved": {
+        "products": [
+          "Description",
+          "ProductID"
+        ],
+        "gasstations": [
+          "Country",
+          "GasStationID"
+        ],
+        "transactions_1k": [
+          "GasStationID",
+          "ProductID"
+        ],
+        "'CZE'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'CZE'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1508": {
+      "question": "How many transactions taken place in the gas station in the Czech Republic are with a price of over 1000?",
+      "question_id": "1508",
+      "golden": {
+        "transactions_1k": [
+          "TransactionID",
+          "GasStationID",
+          "Price"
+        ],
+        "gasstations": [
+          "GasStationID",
+          "Country"
+        ]
+      },
+      "retrieved": {
+        "transactions_1k": [
+          "GasStationID",
+          "Price"
+        ],
+        "gasstations": [
+          "Country",
+          "GasStationID"
+        ],
+        "'CZE'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'CZE'"
+        ],
+        "missing_columns": [
+          "transactions_1k.TransactionID"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1509": {
+      "question": "Among the transactions made in the gas stations in the Czech Republic, how many of them are taken place after 2012/1/1?",
+      "question_id": "1509",
+      "golden": {
+        "transactions_1k": [
+          "TransactionID",
+          "Date",
+          "GasStationID"
+        ],
+        "gasstations": [
+          "GasStationID",
+          "Country"
+        ]
+      },
+      "retrieved": {
+        "transactions_1k": [
+          "Date",
+          "GasStationID",
+          "TransactionID"
+        ],
+        "gasstations": [
+          "Country",
+          "GasStationID"
+        ],
+        "'CZE'": [],
+        "'2012-01-01'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2012-01-01'",
+          "'CZE'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1510": {
+      "question": "What is the average total price of the transactions taken place in gas stations in the Czech Republic?",
+      "question_id": "1510",
+      "golden": {
+        "transactions_1k": [
+          "Price",
+          "GasStationID"
+        ],
+        "gasstations": [
+          "GasStationID",
+          "Country"
+        ]
+      },
+      "retrieved": {
+        "transactions_1k": [
+          "Amount",
+          "GasStationID",
+          "Price"
+        ],
+        "gasstations": [
+          "Country",
+          "GasStationID"
+        ],
+        "'CZE'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'CZE'"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "transactions_1k.Amount"
+        ]
+      }
+    },
+    "1511": {
+      "question": "For the customers who paid in the euro, what is their average total price of the transactions?",
+      "question_id": "1511",
+      "golden": {
+        "transactions_1k": [
+          "Price",
+          "GasStationID",
+          "CustomerID"
+        ],
+        "gasstations": [
+          "GasStationID"
+        ],
+        "customers": [
+          "CustomerID",
+          "Currency"
+        ]
+      },
+      "retrieved": {
+        "customers": [
+          "Currency",
+          "CustomerID"
+        ],
+        "transactions_1k": [
+          "Amount",
+          "CustomerID",
+          "Price"
+        ],
+        "'EUR'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "gasstations"
+        ],
+        "extra_tables": [
+          "'EUR'"
+        ],
+        "missing_columns": [
+          "gasstations.GasStationID",
+          "transactions_1k.GasStationID"
+        ],
+        "extra_columns": [
+          "transactions_1k.Amount"
+        ]
+      }
+    },
+    "1512": {
+      "question": "Which customer paid the most in 2012/8/25?",
+      "question_id": "1512",
+      "golden": {
+        "transactions": [
+          "CustomerID",
+          "Date",
+          "Price"
+        ]
+      },
+      "retrieved": {
+        "transactions_1k": [
+          "Amount",
+          "CustomerID",
+          "Date",
+          "Price"
+        ],
+        "'2012-08-25'": []
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 4,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "transactions"
+        ],
+        "extra_tables": [
+          "'2012-08-25'",
+          "transactions_1k"
+        ],
+        "missing_columns": [
+          "transactions.CustomerID",
+          "transactions.Date",
+          "transactions.Price"
+        ],
+        "extra_columns": [
+          "transactions_1k.Amount",
+          "transactions_1k.CustomerID",
+          "transactions_1k.Date",
+          "transactions_1k.Price"
+        ]
+      }
+    },
+    "1513": {
+      "question": "Which country's gas station had the first paid cusomer in 2012/8/25?",
+      "question_id": "1513",
+      "golden": {
+        "transactions_1k": [
+          "GasStationID",
+          "Date",
+          "Time"
+        ],
+        "gasstations": [
+          "GasStationID",
+          "Country"
+        ]
+      },
+      "retrieved": {
+        "gasstations": [
+          "Country",
+          "GasStationID"
+        ],
+        "transactions_1k": [
+          "Date",
+          "GasStationID",
+          "Time"
+        ],
+        "'2012-08-25'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2012-08-25'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1514": {
+      "question": "What kind of currency did the customer paid at 16:25:00 in 2012/8/24?",
+      "question_id": "1514",
+      "golden": {
+        "transactions_1k": [
+          "CustomerID",
+          "GasStationID",
+          "Date",
+          "Time"
+        ],
+        "gasstations": [
+          "GasStationID"
+        ],
+        "customers": [
+          "CustomerID",
+          "Currency"
+        ]
+      },
+      "retrieved": {
+        "customers": [
+          "Currency",
+          "CustomerID"
+        ],
+        "transactions_1k": [
+          "CustomerID",
+          "Date",
+          "Time"
+        ],
+        "'2012-08-24'": [],
+        "'16:25:00'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "gasstations"
+        ],
+        "extra_tables": [
+          "'16:25:00'",
+          "'2012-08-24'"
+        ],
+        "missing_columns": [
+          "gasstations.GasStationID",
+          "transactions_1k.GasStationID"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1515": {
+      "question": "What segment did the customer have at 2012/8/23 21:20:00?",
+      "question_id": "1515",
+      "golden": {
+        "transactions_1k": [
+          "CustomerID",
+          "Date",
+          "Time"
+        ],
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ]
+      },
+      "retrieved": {
+        "customers": [
+          "CustomerID",
+          "Segment"
+        ],
+        "transactions_1k": [
+          "CustomerID",
+          "Date",
+          "Time"
+        ],
+        "'2012-08-23'": [],
+        "'21:20:00'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2012-08-23'",
+          "'21:20:00'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1516": {
+      "question": "How many transactions were paid in CZK in the morning of 2012/8/26?",
+      "question_id": "1516",
+      "golden": {
+        "transactions_1k": [
+          "TransactionID",
+          "Date",
+          "Time",
+          "CustomerID"
+        ],
+        "customers": [
+          "CustomerID",
+          "Currency"
+        ]
+      },
+      "retrieved": {
+        "transactions_1k": [
+          "CustomerID",
+          "Date",
+          "Time",
+          "TransactionID"
+        ],
+        "customers": [
+          "Currency",
+          "CustomerID"
+        ],
+        "'2012-08-26'": [],
+        "'13:00:00'": [],
+        "'CZK'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'13:00:00'",
+          "'2012-08-26'",
+          "'CZK'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1518": {
+      "question": "For the deal happened at 2012/8/24 12:42:00, which country was it?",
+      "question_id": "1518",
+      "golden": {
+        "transactions_1k": [
+          "GasStationID",
+          "Date",
+          "Time"
+        ],
+        "gasstations": [
+          "GasStationID",
+          "Country"
+        ]
+      },
+      "retrieved": {
+        "gasstations": [
+          "Country",
+          "GasStationID"
+        ],
+        "transactions_1k": [
+          "Date",
+          "GasStationID",
+          "Time"
+        ],
+        "'2012-08-24'": [],
+        "'12:42:00'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'12:42:00'",
+          "'2012-08-24'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1519": {
+      "question": "What was the product id of the transaction happened at 2012/8/23 21:20:00?",
+      "question_id": "1519",
+      "golden": {
+        "transactions_1k": [
+          "ProductID",
+          "Date",
+          "Time",
+          "GasStationID"
+        ],
+        "gasstations": [
+          "GasStationID"
+        ]
+      },
+      "retrieved": {
+        "transactions_1k": [
+          "Date",
+          "ProductID",
+          "Time"
+        ],
+        "'2012-08-23'": [],
+        "'21:20:00'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "gasstations"
+        ],
+        "extra_tables": [
+          "'2012-08-23'",
+          "'21:20:00'"
+        ],
+        "missing_columns": [
+          "gasstations.GasStationID",
+          "transactions_1k.GasStationID"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1520": {
+      "question": "For the customer who paid 124.05 in 2012/8/24, how much did he/she spend during the January of 2012? And what is the date and expenses exactly?",
+      "question_id": "1520",
+      "golden": {
+        "transactions_1k": [
+          "CustomerID",
+          "Date",
+          "Price"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "transactions_1k": [
+          "CustomerID",
+          "Date",
+          "Price"
+        ],
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "'2012-08-24'": [],
+        "124": [
+          "05"
+        ],
+        "'201201'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2012-08-24'",
+          "'201201'",
+          "124"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "124.05"
+        ]
+      }
+    },
+    "1521": {
+      "question": "For all the transactions happened during 8:00-9:00 in 2012/8/26, how many happened in CZE?",
+      "question_id": "1521",
+      "golden": {
+        "transactions_1k": [
+          "TransactionID",
+          "Date",
+          "Time",
+          "GasStationID"
+        ],
+        "gasstations": [
+          "GasStationID",
+          "Country"
+        ]
+      },
+      "retrieved": {
+        "transactions_1k": [
+          "Date",
+          "GasStationID",
+          "Time"
+        ],
+        "gasstations": [
+          "Country",
+          "GasStationID"
+        ],
+        "'2012-08-26'": [],
+        "'CZE'": [],
+        "'08:00:00'": [],
+        "'09:00:00'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 4,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'08:00:00'",
+          "'09:00:00'",
+          "'2012-08-26'",
+          "'CZE'"
+        ],
+        "missing_columns": [
+          "transactions_1k.TransactionID"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1522": {
+      "question": "There's one customer spent 214582.17 in the June of 2013, which currency did he/she use?",
+      "question_id": "1522",
+      "golden": {
+        "yearmonth": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ],
+        "customers": [
+          "CustomerID",
+          "Currency"
+        ]
+      },
+      "retrieved": {
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "customers": [
+          "Currency",
+          "CustomerID"
+        ],
+        "214582": [
+          "17"
+        ],
+        "'201306'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'201306'",
+          "214582"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "214582.17"
+        ]
+      }
+    },
+    "1524": {
+      "question": "What's the nationality of the customer who spent 548.4 in 2012/8/24?",
+      "question_id": "1524",
+      "golden": {
+        "transactions_1k": [
+          "GasStationID",
+          "Date",
+          "Price"
+        ],
+        "gasstations": [
+          "GasStationID",
+          "Country"
+        ]
+      },
+      "retrieved": {
+        "transactions_1k": [
+          "Date",
+          "GasStationID",
+          "Price"
+        ],
+        "gasstations": [
+          "Country",
+          "GasStationID"
+        ],
+        "'2012-08-24'": [],
+        "548": [
+          "4"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2012-08-24'",
+          "548"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "548.4"
+        ]
+      }
+    },
+    "1525": {
+      "question": "What is the percentage of the customers who used EUR in 2012/8/25?",
+      "question_id": "1525",
+      "golden": {
+        "transactions_1k": [
+          "CustomerID",
+          "Date"
+        ],
+        "customers": [
+          "CustomerID",
+          "Currency"
+        ]
+      },
+      "retrieved": {
+        "customers": [
+          "Currency",
+          "CustomerID"
+        ],
+        "transactions_1k": [
+          "CustomerID",
+          "Date"
+        ],
+        "'EUR'": [],
+        "'2012-08-25'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2012-08-25'",
+          "'EUR'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1526": {
+      "question": "For the customer who paid 634.8 in 2012/8/25, what was the consumption decrease rate from Year 2012 to 2013?",
+      "question_id": "1526",
+      "golden": {
+        "yearmonth": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ],
+        "transactions_1k": [
+          "CustomerID",
+          "Date",
+          "Price",
+          "GasStationID"
+        ],
+        "gasstations": [
+          "GasStationID"
+        ]
+      },
+      "retrieved": {
+        "transactions_1k": [
+          "CustomerID",
+          "Date",
+          "Price"
+        ],
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "634": [
+          "8"
+        ],
+        "'2012-08-25'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "gasstations"
+        ],
+        "extra_tables": [
+          "'2012-08-25'",
+          "634"
+        ],
+        "missing_columns": [
+          "gasstations.GasStationID",
+          "transactions_1k.GasStationID"
+        ],
+        "extra_columns": [
+          "634.8"
+        ]
+      }
+    },
+    "1527": {
+      "question": "Which gas station has the highest amount of revenue?",
+      "question_id": "1527",
+      "golden": {
+        "transactions_1k": [
+          "GasStationID",
+          "Price"
+        ]
+      },
+      "retrieved": {
+        "transactions_1k": [
+          "Amount",
+          "GasStationID",
+          "Price"
+        ],
+        "gasstations": [
+          "GasStationID"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "gasstations"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "gasstations.GasStationID",
+          "transactions_1k.Amount"
+        ]
+      }
+    },
+    "1528": {
+      "question": "What is the percentage of \"premium\" against the overall segment in Country = \"SVK\"?",
+      "question_id": "1528",
+      "golden": {
+        "gasstations": [
+          "Country",
+          "Segment"
+        ]
+      },
+      "retrieved": {
+        "gasstations": [
+          "Country",
+          "Segment"
+        ],
+        "'Premium'": [],
+        "'SVK'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Premium'",
+          "'SVK'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1529": {
+      "question": "What is the amount spent by customer \"38508\" at the gas stations? How much had the customer spent in January 2012?",
+      "question_id": "1529",
+      "golden": {
+        "transactions_1k": [
+          "Price",
+          "CustomerID",
+          "GasStationID"
+        ],
+        "gasstations": [
+          "GasStationID"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Date"
+        ]
+      },
+      "retrieved": {
+        "transactions_1k": [
+          "Amount",
+          "CustomerID",
+          "Price"
+        ],
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "'201201'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "gasstations"
+        ],
+        "extra_tables": [
+          "'201201'"
+        ],
+        "missing_columns": [
+          "gasstations.GasStationID",
+          "transactions_1k.GasStationID"
+        ],
+        "extra_columns": [
+          "transactions_1k.Amount",
+          "yearmonth.Consumption"
+        ]
+      }
+    },
+    "1531": {
+      "question": "Who is the top spending customer and how much is the average price per single item purchased by this customer? What currency was being used?",
+      "question_id": "1531",
+      "golden": {
+        "customers": [
+          "CustomerID",
+          "Currency"
+        ],
+        "transactions_1k": [
+          "CustomerID",
+          "Price",
+          "Amount"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "transactions_1k": [
+          "Amount",
+          "CustomerID",
+          "Price"
+        ],
+        "customers": [
+          "Currency",
+          "CustomerID"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "yearmonth"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "yearmonth.Consumption",
+          "yearmonth.CustomerID"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1533": {
+      "question": "For all the people who paid more than 29.00 per unit of product id No.5. Give their consumption status in the August of 2012.",
+      "question_id": "1533",
+      "golden": {
+        "transactions_1k": [
+          "CustomerID",
+          "ProductID",
+          "Amount",
+          "Price"
+        ],
+        "yearmonth": [
+          "CustomerID",
+          "Date",
+          "Consumption"
+        ]
+      },
+      "retrieved": {
+        "transactions_1k": [
+          "Amount",
+          "CustomerID",
+          "Price",
+          "ProductID"
+        ],
+        "yearmonth": [
+          "Consumption",
+          "CustomerID",
+          "Date"
+        ],
+        "'201208'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'201208'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    }
+  }
+}

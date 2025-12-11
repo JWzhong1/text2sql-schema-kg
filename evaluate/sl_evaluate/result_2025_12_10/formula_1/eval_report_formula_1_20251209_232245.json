@@ -1,0 +1,5001 @@
+{
+  "summary": {
+    "db_name": "formula_1",
+    "generated_at": "2025-12-10 00:52:07",
+    "total_questions": 174,
+    "table_metrics": {
+      "precision": 0.8445040214477212,
+      "recall": 0.8923512747875354,
+      "f1": 0.8677685950413223
+    },
+    "column_metrics": {
+      "precision": 0.8041884816753927,
+      "recall": 0.8411829134720701,
+      "f1": 0.822269807280514
+    }
+  },
+  "mismatches": {
+    "846": {
+      "question": "Please list the reference names of the drivers who are eliminated in the first period in race number 20.",
+      "question_id": "846",
+      "golden": {
+        "qualifying": [
+          "raceId",
+          "driverId",
+          "q1"
+        ],
+        "drivers": [
+          "driverId",
+          "driverRef"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "driverRef"
+        ],
+        "qualifying": [
+          "q1",
+          "driverId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "qualifying.raceId"
+        ],
+        "extra_columns": []
+      }
+    },
+    "847": {
+      "question": "What is the surname of the driver with the best lap time in race number 19 in the second qualifying period?",
+      "question_id": "847",
+      "golden": {
+        "qualifying": [
+          "raceId",
+          "driverId",
+          "q2"
+        ],
+        "drivers": [
+          "driverId",
+          "surname"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "surname"
+        ],
+        "qualifying": [
+          "q2",
+          "driverId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "qualifying.raceId"
+        ],
+        "extra_columns": []
+      }
+    },
+    "849": {
+      "question": "Where can the introduction of the races held on Circuit de Barcelona-Catalunya be found?",
+      "question_id": "849",
+      "golden": {
+        "circuits": [
+          "circuitId",
+          "name",
+          "url"
+        ],
+        "races": [
+          "circuitId"
+        ]
+      },
+      "retrieved": {
+        "circuits": [
+          "name",
+          "circuitId"
+        ],
+        "races": [
+          "circuitId",
+          "url"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "circuits.url"
+        ],
+        "extra_columns": [
+          "races.url"
+        ]
+      }
+    },
+    "851": {
+      "question": "Please list the positions of the circuits built by the constructor Renault.",
+      "question_id": "851",
+      "golden": {
+        "constructorStandings": [
+          "position",
+          "constructorId"
+        ],
+        "constructors": [
+          "constructorId",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "constructorResults": [
+          "raceId",
+          "constructorId"
+        ],
+        "races": [
+          "circuitId",
+          "raceId"
+        ],
+        "constructors": [
+          "name",
+          "constructorRef",
+          "constructorId"
+        ],
+        "circuits": [
+          "location",
+          "country",
+          "lat",
+          "lng",
+          "circuitId"
+        ],
+        "results": [
+          "raceId",
+          "constructorId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 4,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 12,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "constructorStandings"
+        ],
+        "extra_tables": [
+          "circuits",
+          "constructorResults",
+          "races",
+          "results"
+        ],
+        "missing_columns": [
+          "constructorStandings.constructorId",
+          "constructorStandings.position"
+        ],
+        "extra_columns": [
+          "circuits.circuitId",
+          "circuits.country",
+          "circuits.lat",
+          "circuits.lng",
+          "circuits.location",
+          "constructorResults.constructorId",
+          "constructorResults.raceId",
+          "constructors.constructorRef",
+          "races.circuitId",
+          "races.raceId",
+          "results.constructorId",
+          "results.raceId"
+        ]
+      }
+    },
+    "852": {
+      "question": "How many races in the year 2010 are held on grand prixs outside Asia and Europe?",
+      "question_id": "852",
+      "golden": {
+        "circuits": [
+          "circuitId",
+          "country"
+        ],
+        "races": [
+          "raceId",
+          "circuitId",
+          "year"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "year",
+          "circuitId"
+        ],
+        "circuits": [
+          "country",
+          "circuitId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "races.raceId"
+        ],
+        "extra_columns": []
+      }
+    },
+    "855": {
+      "question": "Where can I find the information about the races held on Sepang International Circuit?",
+      "question_id": "855",
+      "golden": {
+        "circuits": [
+          "circuitId",
+          "name",
+          "url"
+        ],
+        "races": [
+          "circuitId"
+        ]
+      },
+      "retrieved": {
+        "circuits": [
+          "name",
+          "url",
+          "circuitId"
+        ],
+        "races": [
+          "circuitId",
+          "url"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "races.url"
+        ]
+      }
+    },
+    "860": {
+      "question": "For the driver who had the Q2 time as 0:01:40 in the qualifying race No. 355, what is his nationality?",
+      "question_id": "860",
+      "golden": {
+        "qualifying": [
+          "raceId",
+          "driverId",
+          "q2"
+        ],
+        "drivers": [
+          "driverId",
+          "nationality"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "nationality"
+        ],
+        "qualifying": [
+          "q2",
+          "driverId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "qualifying.raceId"
+        ],
+        "extra_columns": []
+      }
+    },
+    "861": {
+      "question": "What is his number of the driver who finished 0:01:54 in the Q3 of qualifying race No.903?",
+      "question_id": "861",
+      "golden": {
+        "qualifying": [
+          "raceId",
+          "driverId",
+          "q3"
+        ],
+        "drivers": [
+          "driverId",
+          "number"
+        ]
+      },
+      "retrieved": {
+        "qualifying": [
+          "number",
+          "raceId",
+          "q3"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "drivers"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "drivers.driverId",
+          "drivers.number",
+          "qualifying.driverId"
+        ],
+        "extra_columns": [
+          "qualifying.number"
+        ]
+      }
+    },
+    "862": {
+      "question": "For the Bahrain Grand Prix in 2007, how many drivers not finished the game?",
+      "question_id": "862",
+      "golden": {
+        "races": [
+          "raceId",
+          "year",
+          "name"
+        ],
+        "results": [
+          "raceId",
+          "driverId",
+          "time"
+        ],
+        "drivers": [
+          "driverId"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ],
+        "results": [
+          "raceId",
+          "driverId",
+          "time"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "drivers"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "drivers.driverId"
+        ],
+        "extra_columns": []
+      }
+    },
+    "863": {
+      "question": "Show me the season page of year when the race No. 901 took place.",
+      "question_id": "863",
+      "golden": {
+        "races": [
+          "raceId",
+          "year"
+        ],
+        "seasons": [
+          "year",
+          "url"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "raceId",
+          "year"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "seasons"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "seasons.url",
+          "seasons.year"
+        ],
+        "extra_columns": []
+      }
+    },
+    "865": {
+      "question": "For all the drivers who finished the game in race No. 592, who is the oldest?",
+      "question_id": "865",
+      "golden": {
+        "drivers": [
+          "forename",
+          "surname",
+          "dob",
+          "driverId"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "time"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "dob"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "time"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "drivers.forename",
+          "drivers.surname"
+        ],
+        "extra_columns": []
+      }
+    },
+    "866": {
+      "question": "Who was the player that got the lap time of 0:01:27 in the race No. 161? Show his introduction website.",
+      "question_id": "866",
+      "golden": {
+        "lapTimes": [
+          "raceId",
+          "driverId",
+          "time"
+        ],
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname",
+          "url"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "url"
+        ],
+        "lapTimes": [
+          "driverId",
+          "raceId",
+          "time"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "drivers.forename",
+          "drivers.surname"
+        ],
+        "extra_columns": []
+      }
+    },
+    "867": {
+      "question": "For the driver who set the fastest lap speed in race No.933, where does he come from?",
+      "question_id": "867",
+      "golden": {
+        "drivers": [
+          "driverId",
+          "nationality"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "fastestLapTime",
+          "fastestLapSpeed"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "nationality"
+        ],
+        "results": [
+          "raceId",
+          "driverId",
+          "fastestLapSpeed"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "results.fastestLapTime"
+        ],
+        "extra_columns": []
+      }
+    },
+    "870": {
+      "question": "What's Lucas di Grassi's Q1 result in the race No. 345?",
+      "question_id": "870",
+      "golden": {
+        "qualifying": [
+          "q1",
+          "raceId",
+          "driverId"
+        ],
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "surname",
+          "driverRef"
+        ],
+        "races": [
+          "raceId"
+        ],
+        "qualifying": [
+          "driverId",
+          "raceId",
+          "q1"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "races"
+        ],
+        "missing_columns": [
+          "drivers.forename"
+        ],
+        "extra_columns": [
+          "drivers.driverRef",
+          "races.raceId"
+        ]
+      }
+    },
+    "871": {
+      "question": "For the driver who had the Q2 time as 0:01:15 in race No. 347, where is he from?",
+      "question_id": "871",
+      "golden": {
+        "qualifying": [
+          "raceId",
+          "driverId",
+          "q2"
+        ],
+        "drivers": [
+          "driverId",
+          "nationality"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "nationality"
+        ],
+        "qualifying": [
+          "q2",
+          "driverId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "qualifying.raceId"
+        ],
+        "extra_columns": []
+      }
+    },
+    "873": {
+      "question": "What is the actual finish time for Bruce McLaren in the race No.743?",
+      "question_id": "873",
+      "golden": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ],
+        "results": [
+          "time",
+          "raceId",
+          "driverId"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ],
+        "races": [
+          "raceId"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "time"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "races"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "races.raceId"
+        ]
+      }
+    },
+    "874": {
+      "question": "Who finished second in the San Marino Grand Prix in 2006?",
+      "question_id": "874",
+      "golden": {
+        "races": [
+          "raceId",
+          "year",
+          "name"
+        ],
+        "results": [
+          "raceId",
+          "driverId",
+          "position"
+        ],
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId"
+        ],
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ],
+        "results": [
+          "raceId",
+          "driverId",
+          "position"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "drivers.forename",
+          "drivers.surname"
+        ],
+        "extra_columns": []
+      }
+    },
+    "876": {
+      "question": "For the race happened in 2015/11/29, how many drivers did not finish the game?",
+      "question_id": "876",
+      "golden": {
+        "races": [
+          "raceId",
+          "date"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "time"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "raceId",
+          "date"
+        ],
+        "results": [
+          "raceId",
+          "driverId",
+          "time",
+          "statusId"
+        ],
+        "status": [
+          "statusId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "status"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "results.statusId",
+          "status.statusId"
+        ]
+      }
+    },
+    "877": {
+      "question": "For all the drivers who finished the game in race No. 872, who is the youngest?",
+      "question_id": "877",
+      "golden": {
+        "drivers": [
+          "forename",
+          "surname",
+          "dob",
+          "driverId"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "time"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "dob",
+          "forename",
+          "code"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "time"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "drivers.surname"
+        ],
+        "extra_columns": [
+          "drivers.code"
+        ]
+      }
+    },
+    "888": {
+      "question": "In which country was the first European Grand Prix hosted? Name the circuit and location.",
+      "question_id": "888",
+      "golden": {
+        "circuits": [
+          "country",
+          "location",
+          "circuitId"
+        ],
+        "races": [
+          "circuitId",
+          "name",
+          "year"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "raceId",
+          "year",
+          "circuitId",
+          "name"
+        ],
+        "circuits": [
+          "circuitId",
+          "name",
+          "location",
+          "country"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "circuits.name",
+          "races.raceId"
+        ]
+      }
+    },
+    "889": {
+      "question": "When was the last f1 season whereby Brands Hatch hosted the British Grand Prix?",
+      "question_id": "889",
+      "golden": {
+        "circuits": [
+          "circuitId",
+          "name"
+        ],
+        "races": [
+          "circuitId",
+          "name",
+          "date",
+          "year"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "year",
+          "name",
+          "circuitId"
+        ],
+        "circuits": [
+          "circuitId",
+          "name"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "races.date"
+        ],
+        "extra_columns": []
+      }
+    },
+    "890": {
+      "question": "How many seasons has Silverstone Circuit hosted the United Kindom grand prix?",
+      "question_id": "890",
+      "golden": {
+        "circuits": [
+          "circuitId",
+          "name"
+        ],
+        "races": [
+          "circuitId",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "circuits": [
+          "circuitId",
+          "name"
+        ],
+        "races": [
+          "circuitId",
+          "name",
+          "year"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "races.year"
+        ]
+      }
+    },
+    "891": {
+      "question": "Name all drivers in the 2010 Singapore Grand Prix order by their position stands.",
+      "question_id": "891",
+      "golden": {
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ],
+        "driverStandings": [
+          "raceId",
+          "driverId",
+          "position"
+        ],
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ],
+        "races": [
+          "raceId",
+          "year",
+          "name"
+        ],
+        "results": [
+          "driverId",
+          "position",
+          "raceId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 6,
+        "col_fp": 3,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "driverStandings"
+        ],
+        "extra_tables": [
+          "results"
+        ],
+        "missing_columns": [
+          "driverStandings.driverId",
+          "driverStandings.position",
+          "driverStandings.raceId"
+        ],
+        "extra_columns": [
+          "results.driverId",
+          "results.position",
+          "results.raceId"
+        ]
+      }
+    },
+    "892": {
+      "question": "State the driver with the most points scored. Find his full name with that points.",
+      "question_id": "892",
+      "golden": {
+        "races": [
+          "raceId"
+        ],
+        "driverStandings": [
+          "raceId",
+          "driverId",
+          "points"
+        ],
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ],
+        "driverStandings": [
+          "driverId",
+          "points"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "races"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "driverStandings.raceId",
+          "races.raceId"
+        ],
+        "extra_columns": []
+      }
+    },
+    "893": {
+      "question": "Name the top 3 drivers and the points they scored in the 2017 Chinese Grand Prix.",
+      "question_id": "893",
+      "golden": {
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ],
+        "driverStandings": [
+          "raceId",
+          "driverId",
+          "points"
+        ],
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ],
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "points"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 6,
+        "col_fp": 3,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "driverStandings"
+        ],
+        "extra_tables": [
+          "results"
+        ],
+        "missing_columns": [
+          "driverStandings.driverId",
+          "driverStandings.points",
+          "driverStandings.raceId"
+        ],
+        "extra_columns": [
+          "results.driverId",
+          "results.points",
+          "results.raceId"
+        ]
+      }
+    },
+    "896": {
+      "question": "Calculate the percentage whereby Hamilton was not at the 1st track of the the f1 circuit since 2010.",
+      "question_id": "896",
+      "golden": {
+        "races": [
+          "raceId",
+          "year"
+        ],
+        "driverStandings": [
+          "driverStandingsId",
+          "raceId",
+          "driverId",
+          "position"
+        ],
+        "drivers": [
+          "driverId",
+          "surname"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "surname"
+        ],
+        "races": [
+          "raceId",
+          "year"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "position"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "driverStandings"
+        ],
+        "extra_tables": [
+          "results"
+        ],
+        "missing_columns": [
+          "driverStandings.driverId",
+          "driverStandings.driverStandingsId",
+          "driverStandings.position",
+          "driverStandings.raceId"
+        ],
+        "extra_columns": [
+          "results.driverId",
+          "results.position",
+          "results.raceId"
+        ]
+      }
+    },
+    "897": {
+      "question": "Name the driver with the most winning. Mention his nationality and what is his maximum point scores.",
+      "question_id": "897",
+      "golden": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname",
+          "nationality"
+        ],
+        "driverStandings": [
+          "driverId",
+          "points",
+          "wins"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname",
+          "nationality"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "positionText",
+          "points"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 4,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "driverStandings"
+        ],
+        "extra_tables": [
+          "results"
+        ],
+        "missing_columns": [
+          "driverStandings.driverId",
+          "driverStandings.points",
+          "driverStandings.wins"
+        ],
+        "extra_columns": [
+          "results.driverId",
+          "results.points",
+          "results.positionText",
+          "results.raceId"
+        ]
+      }
+    },
+    "899": {
+      "question": "List circuits which host 4 f1 races from year 1990 to 2000.",
+      "question_id": "899",
+      "golden": {
+        "circuits": [
+          "circuitId",
+          "name"
+        ],
+        "races": [
+          "circuitId",
+          "date",
+          "raceId"
+        ]
+      },
+      "retrieved": {
+        "circuits": [
+          "circuitId",
+          "name"
+        ],
+        "races": [
+          "circuitId",
+          "year"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "races.date",
+          "races.raceId"
+        ],
+        "extra_columns": [
+          "races.year"
+        ]
+      }
+    },
+    "901": {
+      "question": "Name the races along with its circuit name and location for f1 races hosted in September 2005.",
+      "question_id": "901",
+      "golden": {
+        "circuits": [
+          "name",
+          "location",
+          "circuitId"
+        ],
+        "races": [
+          "name",
+          "year",
+          "date",
+          "circuitId"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "name",
+          "date",
+          "circuitId"
+        ],
+        "circuits": [
+          "name",
+          "location",
+          "circuitId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "races.year"
+        ],
+        "extra_columns": []
+      }
+    },
+    "902": {
+      "question": "Which race was Alex Yoong in when he was in track number less than 20?",
+      "question_id": "902",
+      "golden": {
+        "races": [
+          "raceId",
+          "name"
+        ],
+        "driverStandings": [
+          "raceId",
+          "driverId",
+          "position"
+        ],
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ],
+        "races": [
+          "raceId",
+          "name"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "position"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 5,
+        "col_fp": 3,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "driverStandings"
+        ],
+        "extra_tables": [
+          "results"
+        ],
+        "missing_columns": [
+          "driverStandings.driverId",
+          "driverStandings.position",
+          "driverStandings.raceId"
+        ],
+        "extra_columns": [
+          "results.driverId",
+          "results.position",
+          "results.raceId"
+        ]
+      }
+    },
+    "903": {
+      "question": "How many times did Michael Schumacher won from races hosted in Sepang International Circuit?",
+      "question_id": "903",
+      "golden": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ],
+        "driverStandings": [
+          "driverId",
+          "raceId",
+          "wins"
+        ],
+        "races": [
+          "raceId",
+          "circuitId"
+        ],
+        "circuits": [
+          "circuitId",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "surname"
+        ],
+        "circuits": [
+          "circuitId",
+          "name"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "points"
+        ],
+        "races": [
+          "raceId",
+          "circuitId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 6,
+        "col_fp": 3,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "driverStandings"
+        ],
+        "extra_tables": [
+          "results"
+        ],
+        "missing_columns": [
+          "driverStandings.driverId",
+          "driverStandings.raceId",
+          "driverStandings.wins",
+          "drivers.forename"
+        ],
+        "extra_columns": [
+          "results.driverId",
+          "results.points",
+          "results.raceId"
+        ]
+      }
+    },
+    "904": {
+      "question": "State the race and year of race in which Michael Schumacher had his fastest lap.",
+      "question_id": "904",
+      "golden": {
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ],
+        "lapTimes": [
+          "raceId",
+          "driverId",
+          "milliseconds"
+        ],
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ],
+        "races": [
+          "raceId",
+          "year"
+        ],
+        "lapTimes": [
+          "driverId",
+          "raceId",
+          "milliseconds"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 8,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "races.name"
+        ],
+        "extra_columns": []
+      }
+    },
+    "905": {
+      "question": "What is Eddie Irvine's average points scored in year 2000?",
+      "question_id": "905",
+      "golden": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ],
+        "driverStandings": [
+          "driverId",
+          "raceId",
+          "points"
+        ],
+        "races": [
+          "raceId",
+          "year"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "surname"
+        ],
+        "races": [
+          "raceId",
+          "year"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "points"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "driverStandings"
+        ],
+        "extra_tables": [
+          "results"
+        ],
+        "missing_columns": [
+          "driverStandings.driverId",
+          "driverStandings.points",
+          "driverStandings.raceId",
+          "drivers.forename"
+        ],
+        "extra_columns": [
+          "results.driverId",
+          "results.points",
+          "results.raceId"
+        ]
+      }
+    },
+    "906": {
+      "question": "Which was Lewis Hamilton first race? What was his points recorded for his first race event?",
+      "question_id": "906",
+      "golden": {
+        "races": [
+          "name",
+          "raceId",
+          "year"
+        ],
+        "driverStandings": [
+          "points",
+          "raceId",
+          "driverId"
+        ],
+        "drivers": [
+          "forename",
+          "surname",
+          "driverId"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ],
+        "races": [
+          "raceId",
+          "year",
+          "name"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "points"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 6,
+        "col_fp": 3,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "driverStandings"
+        ],
+        "extra_tables": [
+          "results"
+        ],
+        "missing_columns": [
+          "driverStandings.driverId",
+          "driverStandings.points",
+          "driverStandings.raceId"
+        ],
+        "extra_columns": [
+          "results.driverId",
+          "results.points",
+          "results.raceId"
+        ]
+      }
+    },
+    "907": {
+      "question": "List all races in 2017 and the hosting country order by date of the event.",
+      "question_id": "907",
+      "golden": {
+        "circuits": [
+          "circuitId",
+          "country"
+        ],
+        "races": [
+          "circuitId",
+          "name",
+          "year",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "raceId",
+          "name",
+          "date",
+          "year",
+          "circuitId"
+        ],
+        "circuits": [
+          "circuitId",
+          "country"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "races.raceId"
+        ]
+      }
+    },
+    "908": {
+      "question": "What is the most laps f1 races had? Name the race, year and circuit location where the races with most laps was hosted.",
+      "question_id": "908",
+      "golden": {
+        "circuits": [
+          "circuitId",
+          "location"
+        ],
+        "races": [
+          "circuitId",
+          "raceId",
+          "name",
+          "year"
+        ],
+        "lapTimes": [
+          "raceId",
+          "lap"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "name",
+          "year",
+          "circuitId",
+          "raceId"
+        ],
+        "circuits": [
+          "location",
+          "circuitId"
+        ],
+        "results": [
+          "laps",
+          "raceId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 6,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "lapTimes"
+        ],
+        "extra_tables": [
+          "results"
+        ],
+        "missing_columns": [
+          "lapTimes.lap",
+          "lapTimes.raceId"
+        ],
+        "extra_columns": [
+          "results.laps",
+          "results.raceId"
+        ]
+      }
+    },
+    "914": {
+      "question": "How many drivers don't have a code?",
+      "question_id": "914",
+      "golden": {
+        "drivers": [
+          "driverId",
+          "code"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "code"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "drivers.driverId"
+        ],
+        "extra_columns": []
+      }
+    },
+    "921": {
+      "question": "Please give more information about the Formula_1 races that used the Silverstone Circuit.",
+      "question_id": "921",
+      "golden": {
+        "circuits": [
+          "circuitId",
+          "name",
+          "url"
+        ],
+        "races": [
+          "circuitId"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "raceId",
+          "circuitId",
+          "url"
+        ],
+        "circuits": [
+          "circuitId",
+          "name"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "circuits.url"
+        ],
+        "extra_columns": [
+          "races.raceId",
+          "races.url"
+        ]
+      }
+    },
+    "922": {
+      "question": "What time did the the 2010's Formula_1 race took place on the Abu Dhabi Circuit?",
+      "question_id": "922",
+      "golden": {
+        "circuits": [
+          "circuitId"
+        ],
+        "races": [
+          "date",
+          "time",
+          "year",
+          "name",
+          "circuitId"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "name",
+          "year",
+          "time",
+          "date",
+          "circuitId"
+        ],
+        "circuits": [
+          "circuitId",
+          "name"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "circuits.name"
+        ]
+      }
+    },
+    "923": {
+      "question": "How many Formula_1 races took place on the circuits in Italy?",
+      "question_id": "923",
+      "golden": {
+        "circuits": [
+          "circuitId",
+          "country"
+        ],
+        "races": [
+          "circuitId"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "circuitId",
+          "raceId"
+        ],
+        "circuits": [
+          "circuitId",
+          "country"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "races.raceId"
+        ]
+      }
+    },
+    "925": {
+      "question": "Please give the link of the website that shows more information about the circuits the Spanish Grand Prix used in 2009.",
+      "question_id": "925",
+      "golden": {
+        "circuits": [
+          "circuitId",
+          "url"
+        ],
+        "races": [
+          "circuitId",
+          "year",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "name",
+          "year",
+          "circuitId",
+          "url"
+        ],
+        "circuits": [
+          "circuitId",
+          "url"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "races.url"
+        ]
+      }
+    },
+    "926": {
+      "question": "What's the fastest lap time ever in a race for Lewis Hamilton?",
+      "question_id": "926",
+      "golden": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ],
+        "results": [
+          "driverId",
+          "fastestLapTime"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "surname"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "fastestLapTime"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "drivers.forename"
+        ],
+        "extra_columns": [
+          "results.raceId"
+        ]
+      }
+    },
+    "927": {
+      "question": "Which driver created the fastest lap speed in a Formula_1 race? Please give both his forename and surname.",
+      "question_id": "927",
+      "golden": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ],
+        "results": [
+          "driverId",
+          "fastestLapTime",
+          "fastestLapSpeed"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "forename",
+          "surname",
+          "driverId"
+        ],
+        "results": [
+          "driverId",
+          "fastestLapSpeed"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "results.fastestLapTime"
+        ],
+        "extra_columns": []
+      }
+    },
+    "928": {
+      "question": "Which driver ranked the first in the Canadian Grand Prix in 2007? Please give his reference name.",
+      "question_id": "928",
+      "golden": {
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ],
+        "results": [
+          "raceId",
+          "driverId",
+          "rank"
+        ],
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname",
+          "driverRef"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "driverRef"
+        ],
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "position"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 1,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "drivers.forename",
+          "drivers.surname",
+          "results.rank"
+        ],
+        "extra_columns": [
+          "results.position"
+        ]
+      }
+    },
+    "929": {
+      "question": "Please list the Formula_1 races that Lewis Hamilton participated.",
+      "question_id": "929",
+      "golden": {
+        "races": [
+          "raceId",
+          "name"
+        ],
+        "results": [
+          "raceId",
+          "driverId"
+        ],
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "surname"
+        ],
+        "races": [
+          "raceId",
+          "name"
+        ],
+        "results": [
+          "driverId",
+          "raceId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "drivers.forename"
+        ],
+        "extra_columns": []
+      }
+    },
+    "932": {
+      "question": "In which years did Lewis Hamilton participate in a Formula_1 race?",
+      "question_id": "932",
+      "golden": {
+        "races": [
+          "raceId",
+          "year"
+        ],
+        "results": [
+          "raceId",
+          "driverId"
+        ],
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "surname"
+        ],
+        "races": [
+          "raceId",
+          "year"
+        ],
+        "results": [
+          "driverId",
+          "raceId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "drivers.forename"
+        ],
+        "extra_columns": []
+      }
+    },
+    "936": {
+      "question": "Which was the fastest lap for Lewis Hamilton in the 2008 Australian Grand Prix?",
+      "question_id": "936",
+      "golden": {
+        "results": [
+          "fastestLap",
+          "raceId",
+          "driverId"
+        ],
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ],
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "surname"
+        ],
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ],
+        "lapTimes": [
+          "driverId",
+          "raceId",
+          "milliseconds",
+          "time"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 5,
+        "col_fp": 4,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "results"
+        ],
+        "extra_tables": [
+          "lapTimes"
+        ],
+        "missing_columns": [
+          "drivers.forename",
+          "results.driverId",
+          "results.fastestLap",
+          "results.raceId"
+        ],
+        "extra_columns": [
+          "lapTimes.driverId",
+          "lapTimes.milliseconds",
+          "lapTimes.raceId",
+          "lapTimes.time"
+        ]
+      }
+    },
+    "937": {
+      "question": "What's the finish time for the driver who ranked second in 2008's AustChineseralian Grand Prix?",
+      "question_id": "937",
+      "golden": {
+        "results": [
+          "time",
+          "raceId",
+          "rank"
+        ],
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ],
+        "results": [
+          "raceId",
+          "driverId",
+          "position",
+          "time"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "results.rank"
+        ],
+        "extra_columns": [
+          "results.driverId",
+          "results.position"
+        ]
+      }
+    },
+    "938": {
+      "question": "Who was the champion of 2008's Australian Grand Prix and where can I know more about him?",
+      "question_id": "938",
+      "golden": {
+        "drivers": [
+          "forename",
+          "surname",
+          "url",
+          "driverId"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "time"
+        ],
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "surname",
+          "url"
+        ],
+        "races": [
+          "raceId",
+          "year",
+          "name"
+        ],
+        "results": [
+          "raceId",
+          "driverId",
+          "position",
+          "time"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 9,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "drivers.forename"
+        ],
+        "extra_columns": [
+          "results.position"
+        ]
+      }
+    },
+    "940": {
+      "question": "Among the drivers that finished the race in the 2008 Chinese Grand Prix, how many of them have participated in Formula_1 races?",
+      "question_id": "940",
+      "golden": {
+        "results": [
+          "driverId",
+          "raceId",
+          "time"
+        ],
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId"
+        ],
+        "races": [
+          "raceId",
+          "year",
+          "name"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "time"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "drivers"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "drivers.driverId"
+        ]
+      }
+    },
+    "941": {
+      "question": "How many points did Lewis Hamilton get in total in all the Formula_1 races he participated?",
+      "question_id": "941",
+      "golden": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ],
+        "results": [
+          "driverId",
+          "points"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "surname"
+        ],
+        "results": [
+          "driverId",
+          "points",
+          "raceId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "drivers.forename"
+        ],
+        "extra_columns": [
+          "results.raceId"
+        ]
+      }
+    },
+    "942": {
+      "question": "What is the average fastest lap time in seconds for Lewis Hamilton in all the Formula_1 races?",
+      "question_id": "942",
+      "golden": {
+        "drivers": [
+          "driverId",
+          "surname",
+          "forename"
+        ],
+        "results": [
+          "driverId",
+          "fastestLapTime"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "surname"
+        ],
+        "races": [
+          "raceId"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "fastestLapTime"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "races"
+        ],
+        "missing_columns": [
+          "drivers.forename"
+        ],
+        "extra_columns": [
+          "races.raceId",
+          "results.raceId"
+        ]
+      }
+    },
+    "943": {
+      "question": "What is the rate of drivers completing all the laps in the 2008 Australian Grand Prix?",
+      "question_id": "943",
+      "golden": {
+        "results": [
+          "resultId",
+          "raceId",
+          "time"
+        ],
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ],
+        "results": [
+          "raceId",
+          "driverId",
+          "time"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "results.resultId"
+        ],
+        "extra_columns": [
+          "results.driverId"
+        ]
+      }
+    },
+    "944": {
+      "question": "How much faster in percentage is the champion than the driver who finished the race last in the 2008 Australian Grand Prix?",
+      "question_id": "944",
+      "golden": {
+        "results": [
+          "positionOrder",
+          "time",
+          "raceId"
+        ],
+        "races": [
+          "name",
+          "year",
+          "raceId"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "raceId",
+          "year",
+          "circuitId",
+          "name"
+        ],
+        "circuits": [
+          "circuitId",
+          "name"
+        ],
+        "results": [
+          "raceId",
+          "driverId",
+          "position",
+          "positionText",
+          "time",
+          "milliseconds",
+          "statusId"
+        ],
+        "status": [
+          "statusId",
+          "status"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 10,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "circuits",
+          "status"
+        ],
+        "missing_columns": [
+          "results.positionOrder"
+        ],
+        "extra_columns": [
+          "circuits.circuitId",
+          "circuits.name",
+          "races.circuitId",
+          "results.driverId",
+          "results.milliseconds",
+          "results.position",
+          "results.positionText",
+          "results.statusId",
+          "status.status",
+          "status.statusId"
+        ]
+      }
+    },
+    "945": {
+      "question": "How many circuits are there in Adelaide, Australia?",
+      "question_id": "945",
+      "golden": {
+        "circuits": [
+          "circuitId",
+          "location",
+          "country"
+        ]
+      },
+      "retrieved": {
+        "circuits": [
+          "location",
+          "country"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "circuits.circuitId"
+        ],
+        "extra_columns": []
+      }
+    },
+    "947": {
+      "question": "How many British drivers were born after 1980?",
+      "question_id": "947",
+      "golden": {
+        "drivers": [
+          "driverId",
+          "nationality",
+          "dob"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "nationality",
+          "dob"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "drivers.driverId"
+        ],
+        "extra_columns": []
+      }
+    },
+    "948": {
+      "question": "What are the maximum points of British constructors?",
+      "question_id": "948",
+      "golden": {
+        "constructorStandings": [
+          "constructorId",
+          "points"
+        ],
+        "constructors": [
+          "constructorId",
+          "nationality"
+        ]
+      },
+      "retrieved": {
+        "constructors": [
+          "constructorId",
+          "nationality"
+        ],
+        "constructorResults": [
+          "constructorId",
+          "points"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "constructorStandings"
+        ],
+        "extra_tables": [
+          "constructorResults"
+        ],
+        "missing_columns": [
+          "constructorStandings.constructorId",
+          "constructorStandings.points"
+        ],
+        "extra_columns": [
+          "constructorResults.constructorId",
+          "constructorResults.points"
+        ]
+      }
+    },
+    "950": {
+      "question": "Please list the constructor names with 0 points at race 291.",
+      "question_id": "950",
+      "golden": {
+        "constructorStandings": [
+          "constructorId",
+          "points",
+          "raceId"
+        ],
+        "constructors": [
+          "constructorId",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "constructors": [
+          "constructorId",
+          "name"
+        ],
+        "constructorResults": [
+          "constructorId",
+          "points",
+          "raceId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 3,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "constructorStandings"
+        ],
+        "extra_tables": [
+          "constructorResults"
+        ],
+        "missing_columns": [
+          "constructorStandings.constructorId",
+          "constructorStandings.points",
+          "constructorStandings.raceId"
+        ],
+        "extra_columns": [
+          "constructorResults.constructorId",
+          "constructorResults.points",
+          "constructorResults.raceId"
+        ]
+      }
+    },
+    "951": {
+      "question": "How many Japanese constructors have 0 points in 2 races?",
+      "question_id": "951",
+      "golden": {
+        "constructorStandings": [
+          "raceId",
+          "constructorId",
+          "points"
+        ],
+        "constructors": [
+          "constructorId",
+          "nationality"
+        ]
+      },
+      "retrieved": {
+        "constructors": [
+          "nationality",
+          "constructorId"
+        ],
+        "constructorResults": [
+          "points",
+          "constructorId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "constructorStandings"
+        ],
+        "extra_tables": [
+          "constructorResults"
+        ],
+        "missing_columns": [
+          "constructorStandings.constructorId",
+          "constructorStandings.points",
+          "constructorStandings.raceId"
+        ],
+        "extra_columns": [
+          "constructorResults.constructorId",
+          "constructorResults.points"
+        ]
+      }
+    },
+    "952": {
+      "question": "Which constructors have been ranked 1?",
+      "question_id": "952",
+      "golden": {
+        "results": [
+          "constructorId",
+          "rank"
+        ],
+        "constructors": [
+          "constructorId",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "constructorStandings": [
+          "constructorId",
+          "position"
+        ],
+        "constructors": [
+          "constructorId",
+          "name"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "results"
+        ],
+        "extra_tables": [
+          "constructorStandings"
+        ],
+        "missing_columns": [
+          "results.constructorId",
+          "results.rank"
+        ],
+        "extra_columns": [
+          "constructorStandings.constructorId",
+          "constructorStandings.position"
+        ]
+      }
+    },
+    "955": {
+      "question": "What is the average time in seconds of champion for each year, before year 1975?",
+      "question_id": "955",
+      "golden": {
+        "results": [
+          "raceId",
+          "positionOrder",
+          "time"
+        ],
+        "races": [
+          "raceId",
+          "year"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "year",
+          "raceId"
+        ],
+        "results": [
+          "raceId",
+          "positionText",
+          "time",
+          "milliseconds"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "results.positionOrder"
+        ],
+        "extra_columns": [
+          "results.milliseconds",
+          "results.positionText"
+        ]
+      }
+    },
+    "958": {
+      "question": "Which driver has the fastest lap time? Please give their forenames and surnames.",
+      "question_id": "958",
+      "golden": {
+        "results": [
+          "driverId",
+          "fastestLapTime"
+        ],
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ],
+        "lapTimes": [
+          "driverId",
+          "milliseconds"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "results"
+        ],
+        "extra_tables": [
+          "lapTimes"
+        ],
+        "missing_columns": [
+          "results.driverId",
+          "results.fastestLapTime"
+        ],
+        "extra_columns": [
+          "lapTimes.driverId",
+          "lapTimes.milliseconds"
+        ]
+      }
+    },
+    "959": {
+      "question": "What is the fastest lap number of the champion in 2009?",
+      "question_id": "959",
+      "golden": {
+        "results": [
+          "fastestLap",
+          "raceId",
+          "time"
+        ],
+        "races": [
+          "raceId",
+          "year"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId"
+        ],
+        "races": [
+          "raceId",
+          "year"
+        ],
+        "driverStandings": [
+          "driverId",
+          "position",
+          "raceId"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "fastestLap"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 5,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "driverStandings",
+          "drivers"
+        ],
+        "missing_columns": [
+          "results.time"
+        ],
+        "extra_columns": [
+          "driverStandings.driverId",
+          "driverStandings.position",
+          "driverStandings.raceId",
+          "drivers.driverId",
+          "results.driverId"
+        ]
+      }
+    },
+    "963": {
+      "question": "How many French drivers who obtain the laptime less than 02:00.00?",
+      "question_id": "963",
+      "golden": {
+        "drivers": [
+          "driverId",
+          "nationality"
+        ],
+        "lapTimes": [
+          "driverId",
+          "time"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "nationality"
+        ],
+        "lapTimes": [
+          "driverId",
+          "milliseconds"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "lapTimes.time"
+        ],
+        "extra_columns": [
+          "lapTimes.milliseconds"
+        ]
+      }
+    },
+    "966": {
+      "question": "How many driver participated in race ID number 18?",
+      "question_id": "966",
+      "golden": {
+        "driver standings": [
+          "raceId",
+          "driverId"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "raceId"
+        ],
+        "results": [
+          "driverId",
+          "raceId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 3,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "driver standings"
+        ],
+        "extra_tables": [
+          "races",
+          "results"
+        ],
+        "missing_columns": [
+          "driver standings.driverId",
+          "driver standings.raceId"
+        ],
+        "extra_columns": [
+          "races.raceId",
+          "results.driverId",
+          "results.raceId"
+        ]
+      }
+    },
+    "967": {
+      "question": "State code numbers of top 3 yougest drivers. How many Netherlandic drivers among them?",
+      "question_id": "967",
+      "golden": {
+        "drivers": [
+          "nationality",
+          "dob"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "dob",
+          "nationality",
+          "driverId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "drivers.driverId"
+        ]
+      }
+    },
+    "969": {
+      "question": "How many British drivers who were born in 1980?",
+      "question_id": "969",
+      "golden": {
+        "drivers": [
+          "driverId",
+          "nationality",
+          "dob"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "nationality",
+          "dob"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "drivers.driverId"
+        ],
+        "extra_columns": []
+      }
+    },
+    "970": {
+      "question": "List out top 3 German drivers who were born from 1980-1990 and have the earliest lap time.",
+      "question_id": "970",
+      "golden": {
+        "pitStops": [
+          "driverId",
+          "time"
+        ],
+        "drivers": [
+          "driverId",
+          "nationality",
+          "dob"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "nationality",
+          "dob"
+        ],
+        "lapTimes": [
+          "driverId",
+          "time",
+          "milliseconds"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 3,
+        "col_fp": 3,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "pitStops"
+        ],
+        "extra_tables": [
+          "lapTimes"
+        ],
+        "missing_columns": [
+          "pitStops.driverId",
+          "pitStops.time"
+        ],
+        "extra_columns": [
+          "lapTimes.driverId",
+          "lapTimes.milliseconds",
+          "lapTimes.time"
+        ]
+      }
+    },
+    "972": {
+      "question": "Which drivers who were born in 1971 and has the fastest lap time on the race? Give id and code of these drivers.",
+      "question_id": "972",
+      "golden": {
+        "results": [
+          "driverId",
+          "fastestLapTime"
+        ],
+        "drivers": [
+          "driverId",
+          "code",
+          "dob"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "code",
+          "dob"
+        ],
+        "results": [
+          "driverId",
+          "fastestLapTime",
+          "raceId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "results.raceId"
+        ]
+      }
+    },
+    "973": {
+      "question": "List out top 10 Spanish drivers who were born before 1982 and have the latest lap time.",
+      "question_id": "973",
+      "golden": {
+        "pitStops": [
+          "driverId",
+          "time"
+        ],
+        "drivers": [
+          "driverId",
+          "nationality",
+          "dob"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "nationality",
+          "dob"
+        ],
+        "lapTimes": [
+          "driverId",
+          "time"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "pitStops"
+        ],
+        "extra_tables": [
+          "lapTimes"
+        ],
+        "missing_columns": [
+          "pitStops.driverId",
+          "pitStops.time"
+        ],
+        "extra_columns": [
+          "lapTimes.driverId",
+          "lapTimes.time"
+        ]
+      }
+    },
+    "975": {
+      "question": "Which year has the lowest speed of lap time?",
+      "question_id": "975",
+      "golden": {
+        "lapTimes": [
+          "raceId",
+          "time"
+        ],
+        "races": [
+          "raceId",
+          "year"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "raceId",
+          "year"
+        ],
+        "lapTimes": [
+          "raceId",
+          "time",
+          "milliseconds"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "lapTimes.milliseconds"
+        ]
+      }
+    },
+    "976": {
+      "question": "List the driver's ID of the top five driver, by descending order, the fastest time during the first lap of the race.",
+      "question_id": "976",
+      "golden": {
+        "lap times": [
+          "driverId",
+          "lap",
+          "time"
+        ]
+      },
+      "retrieved": {
+        "lapTimes": [
+          "driverId",
+          "lap",
+          "time",
+          "milliseconds",
+          "raceId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 5,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "lap times"
+        ],
+        "extra_tables": [
+          "lapTimes"
+        ],
+        "missing_columns": [
+          "lap times.driverId",
+          "lap times.lap",
+          "lap times.time"
+        ],
+        "extra_columns": [
+          "lapTimes.driverId",
+          "lapTimes.lap",
+          "lapTimes.milliseconds",
+          "lapTimes.raceId",
+          "lapTimes.time"
+        ]
+      }
+    },
+    "977": {
+      "question": "From race no. 50 to 100, how many finishers have been disqualified?",
+      "question_id": "977",
+      "golden": {
+        "results": [
+          "time",
+          "statusId",
+          "raceId"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "raceId"
+        ],
+        "results": [
+          "raceId",
+          "time",
+          "statusId"
+        ],
+        "status": [
+          "statusId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "races",
+          "status"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "races.raceId",
+          "status.statusId"
+        ]
+      }
+    },
+    "980": {
+      "question": "List the reference name of the drivers who passed the second qualifying lap during race no. 23. Indicate their nationality and birthday.",
+      "question_id": "980",
+      "golden": {
+        "qualifying": [
+          "raceId",
+          "driverId",
+          "q2"
+        ],
+        "drivers": [
+          "driverRef",
+          "nationality",
+          "dob",
+          "driverId"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "driverRef",
+          "nationality",
+          "dob"
+        ],
+        "qualifying": [
+          "q2",
+          "driverId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "qualifying.raceId"
+        ],
+        "extra_columns": []
+      }
+    },
+    "983": {
+      "question": "Which of the Italian constructor got the highest point to date? Give its introduction website?",
+      "question_id": "983",
+      "golden": {
+        "constructors": [
+          "constructorId",
+          "nationality",
+          "url"
+        ],
+        "constructorStandings": [
+          "constructorId",
+          "points"
+        ]
+      },
+      "retrieved": {
+        "constructors": [
+          "nationality",
+          "url",
+          "constructorId"
+        ],
+        "constructorResults": [
+          "points",
+          "constructorId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "constructorStandings"
+        ],
+        "extra_tables": [
+          "constructorResults"
+        ],
+        "missing_columns": [
+          "constructorStandings.constructorId",
+          "constructorStandings.points"
+        ],
+        "extra_columns": [
+          "constructorResults.constructorId",
+          "constructorResults.points"
+        ]
+      }
+    },
+    "985": {
+      "question": "Among the drivers who participated in the French Grand Prix, who has the slowest time in the 3rd lap.",
+      "question_id": "985",
+      "golden": {
+        "lapTimes": [
+          "driverId",
+          "raceId",
+          "lap",
+          "time"
+        ],
+        "races": [
+          "raceId",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId"
+        ],
+        "races": [
+          "raceId",
+          "name"
+        ],
+        "lapTimes": [
+          "driverId",
+          "lap",
+          "time",
+          "raceId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "drivers"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "drivers.driverId"
+        ]
+      }
+    },
+    "986": {
+      "question": "In which race did the fastest 1st lap time was recorded? Please indicate the time in milliseconds.",
+      "question_id": "986",
+      "golden": {
+        "lapTimes": [
+          "raceId",
+          "lap",
+          "time",
+          "milliseconds"
+        ],
+        "races": [
+          "raceId"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "raceId"
+        ],
+        "lapTimes": [
+          "raceId",
+          "lap",
+          "milliseconds"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "lapTimes.time"
+        ],
+        "extra_columns": []
+      }
+    },
+    "987": {
+      "question": "What is the average fastest lap time of the top 10 drivers in the 2006 United States Grand Prix?",
+      "question_id": "987",
+      "golden": {
+        "results": [
+          "fastestLapTime",
+          "raceId",
+          "rank"
+        ],
+        "races": [
+          "raceId",
+          "year",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "raceId",
+          "year",
+          "name"
+        ],
+        "results": [
+          "raceId",
+          "driverId",
+          "fastestLapTime",
+          "rank"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "results.driverId"
+        ]
+      }
+    },
+    "989": {
+      "question": "Who is the champion of the Canadian Grand Prix in 2008? Indicate his finish time.",
+      "question_id": "989",
+      "golden": {
+        "results": [
+          "raceId",
+          "time"
+        ],
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ],
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ],
+        "results": [
+          "raceId",
+          "driverId",
+          "position",
+          "time"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 5,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "drivers"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "drivers.driverId",
+          "drivers.forename",
+          "drivers.surname",
+          "results.driverId",
+          "results.position"
+        ]
+      }
+    },
+    "990": {
+      "question": "What is the constructor reference name of the champion in the 2009 Singapore Grand Prix? Please give its website.",
+      "question_id": "990",
+      "golden": {
+        "results": [
+          "raceId",
+          "constructorId",
+          "time"
+        ],
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ],
+        "constructors": [
+          "constructorId",
+          "constructorRef",
+          "url"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "raceId",
+          "year",
+          "name"
+        ],
+        "results": [
+          "raceId",
+          "driverId",
+          "constructorId",
+          "position",
+          "positionText"
+        ],
+        "constructors": [
+          "constructorId",
+          "constructorRef",
+          "url"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 8,
+        "col_fp": 3,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "results.time"
+        ],
+        "extra_columns": [
+          "results.driverId",
+          "results.position",
+          "results.positionText"
+        ]
+      }
+    },
+    "993": {
+      "question": "In which location does the Hungaroring circuit located? Also, find the country and coordinates of this circuit?",
+      "question_id": "993",
+      "golden": {
+        "circuits": [
+          "name",
+          "country",
+          "lat",
+          "lng"
+        ]
+      },
+      "retrieved": {
+        "circuits": [
+          "name",
+          "location",
+          "country",
+          "lat",
+          "lng"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "circuits.location"
+        ]
+      }
+    },
+    "995": {
+      "question": "What is the average score of Lewis Hamilton among all the Turkish Grand Prix?",
+      "question_id": "995",
+      "golden": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ],
+        "driverStandings": [
+          "driverId",
+          "raceId",
+          "points"
+        ],
+        "races": [
+          "raceId",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "surname"
+        ],
+        "races": [
+          "raceId",
+          "circuitId",
+          "name"
+        ],
+        "circuits": [
+          "circuitId",
+          "country"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "points"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 6,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "driverStandings"
+        ],
+        "extra_tables": [
+          "circuits",
+          "results"
+        ],
+        "missing_columns": [
+          "driverStandings.driverId",
+          "driverStandings.points",
+          "driverStandings.raceId",
+          "drivers.forename"
+        ],
+        "extra_columns": [
+          "circuits.circuitId",
+          "circuits.country",
+          "races.circuitId",
+          "results.driverId",
+          "results.points",
+          "results.raceId"
+        ]
+      }
+    },
+    "997": {
+      "question": "Which citizenship do the vast majority of the drivers hold?",
+      "question_id": "997",
+      "golden": {
+        "drivers": [
+          "nationality",
+          "driverId"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "nationality"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "drivers.driverId"
+        ],
+        "extra_columns": []
+      }
+    },
+    "998": {
+      "question": "In terms of number of points acquired, how many victories did the driver who ranked 91st acquired?",
+      "question_id": "998",
+      "golden": {
+        "driver standings": [
+          "points",
+          "wins"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId"
+        ],
+        "driverStandings": [
+          "driverId",
+          "points",
+          "wins",
+          "position"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 5,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "driver standings"
+        ],
+        "extra_tables": [
+          "driverStandings",
+          "drivers"
+        ],
+        "missing_columns": [
+          "driver standings.points",
+          "driver standings.wins"
+        ],
+        "extra_columns": [
+          "driverStandings.driverId",
+          "driverStandings.points",
+          "driverStandings.position",
+          "driverStandings.wins",
+          "drivers.driverId"
+        ]
+      }
+    },
+    "1000": {
+      "question": "Which racetrack hosted the most recent race? Indicate the full location.",
+      "question_id": "1000",
+      "golden": {
+        "circuits": [
+          "circuitId",
+          "location"
+        ],
+        "races": [
+          "circuitId",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "raceId",
+          "date",
+          "circuitId"
+        ],
+        "circuits": [
+          "circuitId",
+          "location",
+          "country"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "circuits.country",
+          "races.raceId"
+        ]
+      }
+    },
+    "1002": {
+      "question": "As of the present, what is the full name of the youngest racer? Indicate her nationality and the name of the race to which he/she first joined.",
+      "question_id": "1002",
+      "golden": {
+        "drivers": [
+          "forename",
+          "surname",
+          "nationality",
+          "dob",
+          "driverId"
+        ],
+        "driverStandings": [
+          "driverId",
+          "raceId"
+        ],
+        "races": [
+          "raceId",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname",
+          "nationality",
+          "dob"
+        ],
+        "races": [
+          "raceId",
+          "name",
+          "date"
+        ],
+        "results": [
+          "driverId",
+          "raceId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 7,
+        "col_fp": 3,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "driverStandings"
+        ],
+        "extra_tables": [
+          "results"
+        ],
+        "missing_columns": [
+          "driverStandings.driverId",
+          "driverStandings.raceId"
+        ],
+        "extra_columns": [
+          "races.date",
+          "results.driverId",
+          "results.raceId"
+        ]
+      }
+    },
+    "1004": {
+      "question": "How many wins was achieved by the oldest racer? Indicate his/her full name.",
+      "question_id": "1004",
+      "golden": {
+        "driverStandings": [
+          "wins",
+          "driverId"
+        ],
+        "drivers": [
+          "forename",
+          "surname",
+          "dob",
+          "driverId"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "dob",
+          "forename",
+          "surname"
+        ],
+        "results": [
+          "driverId",
+          "position"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "driverStandings"
+        ],
+        "extra_tables": [
+          "results"
+        ],
+        "missing_columns": [
+          "driverStandings.driverId",
+          "driverStandings.wins"
+        ],
+        "extra_columns": [
+          "results.driverId",
+          "results.position"
+        ]
+      }
+    },
+    "1005": {
+      "question": "What was the longest time a driver had ever spent at a pit stop?",
+      "question_id": "1005",
+      "golden": {
+        "pit stops": [
+          "duration"
+        ]
+      },
+      "retrieved": {
+        "pitStops": [
+          "duration"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "pit stops"
+        ],
+        "extra_tables": [
+          "pitStops"
+        ],
+        "missing_columns": [
+          "pit stops.duration"
+        ],
+        "extra_columns": [
+          "pitStops.duration"
+        ]
+      }
+    },
+    "1006": {
+      "question": "Among all the lap records set on various circuits, what is the time for the fastest one?",
+      "question_id": "1006",
+      "golden": {
+        "lap times": [
+          "time"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "raceId",
+          "circuitId"
+        ],
+        "circuits": [
+          "circuitId"
+        ],
+        "lapTimes": [
+          "time",
+          "raceId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 3,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 5,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "lap times"
+        ],
+        "extra_tables": [
+          "circuits",
+          "lapTimes",
+          "races"
+        ],
+        "missing_columns": [
+          "lap times.time"
+        ],
+        "extra_columns": [
+          "circuits.circuitId",
+          "lapTimes.raceId",
+          "lapTimes.time",
+          "races.circuitId",
+          "races.raceId"
+        ]
+      }
+    },
+    "1008": {
+      "question": "During which lap did Lewis Hamilton take a pit stop during the 2011 Australian Grand Prix?",
+      "question_id": "1008",
+      "golden": {
+        "pitStops": [
+          "lap",
+          "driverId",
+          "raceId"
+        ],
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ],
+        "races": [
+          "raceId",
+          "year",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "surname"
+        ],
+        "races": [
+          "raceId",
+          "year",
+          "name"
+        ],
+        "pitStops": [
+          "driverId",
+          "raceId",
+          "lap"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 8,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "drivers.forename"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1009": {
+      "question": "Please list the time each driver spent at the pit stop during the 2011 Australian Grand Prix.",
+      "question_id": "1009",
+      "golden": {
+        "pitStops": [
+          "raceId",
+          "duration"
+        ],
+        "races": [
+          "raceId",
+          "year",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId"
+        ],
+        "races": [
+          "raceId",
+          "name",
+          "year"
+        ],
+        "pitStops": [
+          "driverId",
+          "duration",
+          "raceId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "drivers"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "drivers.driverId",
+          "pitStops.driverId"
+        ]
+      }
+    },
+    "1010": {
+      "question": "What is the lap record set by Lewis Hamilton in a Formula_1 race?",
+      "question_id": "1010",
+      "golden": {
+        "lapTimes": [
+          "driverId",
+          "time"
+        ],
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "surname"
+        ],
+        "races": [
+          "raceId"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "fastestLapTime"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 4,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "lapTimes"
+        ],
+        "extra_tables": [
+          "races",
+          "results"
+        ],
+        "missing_columns": [
+          "drivers.forename",
+          "lapTimes.driverId",
+          "lapTimes.time"
+        ],
+        "extra_columns": [
+          "races.raceId",
+          "results.driverId",
+          "results.fastestLapTime",
+          "results.raceId"
+        ]
+      }
+    },
+    "1011": {
+      "question": "Which top 20 driver created the shortest lap time ever record in a Formula_1 race? Please give them full names.",
+      "question_id": "1011",
+      "golden": {
+        "lapTimes": [
+          "driverId",
+          "time"
+        ],
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ],
+        "lapTimes": [
+          "driverId",
+          "time",
+          "milliseconds"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "lapTimes.milliseconds"
+        ]
+      }
+    },
+    "1012": {
+      "question": "What was the position of the circuits during Lewis Hamilton's fastest lap in a Formula_1 race?",
+      "question_id": "1012",
+      "golden": {
+        "lap times": [
+          "driverId",
+          "position",
+          "time"
+        ],
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "surname"
+        ],
+        "races": [
+          "raceId"
+        ],
+        "results": [
+          "driverId",
+          "raceId",
+          "position"
+        ],
+        "lapTimes": [
+          "driverId",
+          "raceId",
+          "milliseconds",
+          "time"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 3,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 8,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "lap times"
+        ],
+        "extra_tables": [
+          "lapTimes",
+          "races",
+          "results"
+        ],
+        "missing_columns": [
+          "drivers.forename",
+          "lap times.driverId",
+          "lap times.position",
+          "lap times.time"
+        ],
+        "extra_columns": [
+          "lapTimes.driverId",
+          "lapTimes.milliseconds",
+          "lapTimes.raceId",
+          "lapTimes.time",
+          "races.raceId",
+          "results.driverId",
+          "results.position",
+          "results.raceId"
+        ]
+      }
+    },
+    "1013": {
+      "question": "What is the lap record for the Austrian Grand Prix Circuit?",
+      "question_id": "1013",
+      "golden": {
+        "results": [
+          "raceId",
+          "fastestLapTime"
+        ],
+        "races": [
+          "raceId",
+          "circuitId",
+          "name"
+        ],
+        "circuits": [
+          "circuitId"
+        ]
+      },
+      "retrieved": {
+        "races": [
+          "raceId",
+          "circuitId",
+          "name"
+        ],
+        "lapTimes": [
+          "raceId",
+          "time",
+          "milliseconds"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 2,
+        "col_tp": 3,
+        "col_fp": 3,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "circuits",
+          "results"
+        ],
+        "extra_tables": [
+          "lapTimes"
+        ],
+        "missing_columns": [
+          "circuits.circuitId",
+          "results.fastestLapTime",
+          "results.raceId"
+        ],
+        "extra_columns": [
+          "lapTimes.milliseconds",
+          "lapTimes.raceId",
+          "lapTimes.time"
+        ]
+      }
+    },
+    "1014": {
+      "question": "Please list the lap records for the circuits in Italy.",
+      "question_id": "1014",
+      "golden": {
+        "results": [
+          "raceId",
+          "FastestLapTime"
+        ],
+        "races": [
+          "raceId",
+          "circuitId"
+        ],
+        "circuits": [
+          "circuitId",
+          "country"
+        ]
+      },
+      "retrieved": {
+        "circuits": [
+          "circuitId",
+          "country",
+          "name"
+        ],
+        "results": [
+          "raceId",
+          "fastestLapTime"
+        ],
+        "races": [
+          "raceId",
+          "circuitId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "results.FastestLapTime"
+        ],
+        "extra_columns": [
+          "circuits.name",
+          "results.fastestLapTime"
+        ]
+      }
+    },
+    "1015": {
+      "question": "In which Formula_1 race was the lap record for the Austrian Grand Prix Circuit set?",
+      "question_id": "1015",
+      "golden": {
+        "results": [
+          "raceId",
+          "FastestLapTime"
+        ],
+        "races": [
+          "raceId",
+          "circuitId",
+          "name"
+        ],
+        "circuits": [
+          "circuitId"
+        ]
+      },
+      "retrieved": {
+        "circuits": [
+          "circuitId",
+          "name"
+        ],
+        "lapTimes": [
+          "raceId",
+          "milliseconds"
+        ],
+        "races": [
+          "raceId",
+          "name",
+          "year",
+          "circuitId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 4,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "results"
+        ],
+        "extra_tables": [
+          "lapTimes"
+        ],
+        "missing_columns": [
+          "results.FastestLapTime",
+          "results.raceId"
+        ],
+        "extra_columns": [
+          "circuits.name",
+          "lapTimes.milliseconds",
+          "lapTimes.raceId",
+          "races.year"
+        ]
+      }
+    },
+    "1016": {
+      "question": "In the race a driver set the lap record for the Austrian Grand Prix Circuit, how long did he spent at the pit stop at that same race?",
+      "question_id": "1016",
+      "golden": {
+        "results": [
+          "raceId",
+          "driverId",
+          "FastestLapTime"
+        ],
+        "races": [
+          "raceId",
+          "circuitId",
+          "name"
+        ],
+        "circuits": [
+          "circuitId"
+        ],
+        "pitStops": [
+          "raceId",
+          "driverId",
+          "duration"
+        ]
+      },
+      "retrieved": {
+        "circuits": [
+          "circuitId",
+          "name"
+        ],
+        "lapTimes": [
+          "raceId",
+          "driverId",
+          "time"
+        ],
+        "pitStops": [
+          "raceId",
+          "driverId",
+          "duration",
+          "milliseconds"
+        ],
+        "races": [
+          "raceId",
+          "circuitId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 6,
+        "col_fp": 5,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "results"
+        ],
+        "extra_tables": [
+          "lapTimes"
+        ],
+        "missing_columns": [
+          "races.name",
+          "results.FastestLapTime",
+          "results.driverId",
+          "results.raceId"
+        ],
+        "extra_columns": [
+          "circuits.name",
+          "lapTimes.driverId",
+          "lapTimes.raceId",
+          "lapTimes.time",
+          "pitStops.milliseconds"
+        ]
+      }
+    },
+    "1017": {
+      "question": "Please list the location coordinates of the circuits whose lap record is 1:29.488.",
+      "question_id": "1017",
+      "golden": {
+        "lapTimes": [
+          "raceId",
+          "time"
+        ],
+        "races": [
+          "raceId",
+          "circuitId"
+        ],
+        "circuits": [
+          "circuitId",
+          "lat",
+          "lng"
+        ]
+      },
+      "retrieved": {
+        "circuits": [
+          "lat",
+          "lng",
+          "circuitId"
+        ],
+        "results": [
+          "raceId",
+          "fastestLapTime"
+        ],
+        "races": [
+          "circuitId",
+          "raceId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 5,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "lapTimes"
+        ],
+        "extra_tables": [
+          "results"
+        ],
+        "missing_columns": [
+          "lapTimes.raceId",
+          "lapTimes.time"
+        ],
+        "extra_columns": [
+          "results.fastestLapTime",
+          "results.raceId"
+        ]
+      }
+    },
+    "1018": {
+      "question": "What was the average time in milliseconds Lewis Hamilton spent at a pit stop during Formula_1 races?",
+      "question_id": "1018",
+      "golden": {
+        "pitStops": [
+          "driverId",
+          "milliseconds"
+        ],
+        "drivers": [
+          "driverId",
+          "forename",
+          "surname"
+        ]
+      },
+      "retrieved": {
+        "drivers": [
+          "driverId",
+          "surname"
+        ],
+        "pitStops": [
+          "driverId",
+          "milliseconds"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "drivers.forename"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1019": {
+      "question": "What is the average lap time in milliseconds of all the lap records set on the various circuits in Italy?",
+      "question_id": "1019",
+      "golden": {
+        "lapTimes": [
+          "raceId",
+          "lap",
+          "milliseconds"
+        ],
+        "races": [
+          "raceId",
+          "circuitId"
+        ],
+        "circuits": [
+          "circuitId",
+          "country"
+        ]
+      },
+      "retrieved": {
+        "circuits": [
+          "circuitId",
+          "country"
+        ],
+        "lapTimes": [
+          "raceId",
+          "milliseconds"
+        ],
+        "races": [
+          "raceId",
+          "circuitId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "lapTimes.lap"
+        ],
+        "extra_columns": []
+      }
+    }
+  }
+}

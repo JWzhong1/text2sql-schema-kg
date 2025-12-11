@@ -1,0 +1,5088 @@
+{
+  "summary": {
+    "db_name": "superhero",
+    "generated_at": "2025-12-10 15:22:42",
+    "total_questions": 129,
+    "table_metrics": {
+      "precision": 0.6980676328502415,
+      "recall": 0.9601328903654485,
+      "f1": 0.8083916083916084
+    },
+    "column_metrics": {
+      "precision": 0.9801652892561984,
+      "recall": 0.9265625,
+      "f1": 0.9526104417670683
+    }
+  },
+  "mismatches": {
+    "717": {
+      "question": "Please list all the superpowers of 3-D Man.",
+      "question_id": "717",
+      "golden": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "'3-D Man'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'3-D Man'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "718": {
+      "question": "How many superheroes have the super power of \"Super Strength\"?",
+      "question_id": "718",
+      "golden": {
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ]
+      },
+      "retrieved": {
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superhero": [
+          "id"
+        ],
+        "'Super Strength'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Super Strength'",
+          "superhero"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "superhero.id"
+        ]
+      }
+    },
+    "719": {
+      "question": "Among the superheroes with the super power of \"Super Strength\", how many of them have a height of over 200cm?",
+      "question_id": "719",
+      "golden": {
+        "superhero": [
+          "id",
+          "height_cm"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "height_cm",
+          "id"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "'Super Strength'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Super Strength'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "720": {
+      "question": "Please list the full names of all the superheroes with over 15 super powers.",
+      "question_id": "720",
+      "golden": {
+        "superhero": [
+          "id",
+          "full_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "full_name",
+          "id"
+        ],
+        "hero_power": [
+          "hero_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "hero_power.power_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "721": {
+      "question": "How many superheroes have blue eyes?",
+      "question_id": "721",
+      "golden": {
+        "superhero": [
+          "id",
+          "eye_colour_id"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "eye_colour_id"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "'Blue'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Blue'"
+        ],
+        "missing_columns": [
+          "superhero.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "722": {
+      "question": "What is the colour of Apocalypse's skin?",
+      "question_id": "722",
+      "golden": {
+        "superhero": [
+          "skin_colour_id",
+          "superhero_name"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "skin_colour_id",
+          "superhero_name"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "'Apocalypse'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Apocalypse'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "723": {
+      "question": "Among the superheroes with blue eyes, how many of them have the super power of \"Agility\"?",
+      "question_id": "723",
+      "golden": {
+        "superhero": [
+          "id",
+          "eye_colour_id"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "eye_colour_id",
+          "id"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "'Blue'": [],
+        "'Agility'": []
+      },
+      "metrics": {
+        "tbl_tp": 4,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 8,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Agility'",
+          "'Blue'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "724": {
+      "question": "Please list the superhero names of all the superheroes that have blue eyes and blond hair.",
+      "question_id": "724",
+      "golden": {
+        "superhero": [
+          "superhero_name",
+          "eye_colour_id",
+          "hair_colour_id"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "eye_colour_id",
+          "hair_colour_id",
+          "superhero_name"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "'Blue'": [],
+        "'Blond'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Blond'",
+          "'Blue'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "725": {
+      "question": "How many superheroes are published by Marvel Comics?",
+      "question_id": "725",
+      "golden": {
+        "superhero": [
+          "id",
+          "publisher_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "publisher_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "'Marvel Comics'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Marvel Comics'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "726": {
+      "question": "Rank heroes published by Marvel Comics by their height in descending order.",
+      "question_id": "726",
+      "golden": {
+        "superhero": [
+          "superhero_name",
+          "height_cm",
+          "publisher_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "height_cm",
+          "publisher_id",
+          "superhero_name"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "'Marvel Comics'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Marvel Comics'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "727": {
+      "question": "Who is the publisher of Sauron?",
+      "question_id": "727",
+      "golden": {
+        "superhero": [
+          "publisher_id",
+          "superhero_name"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "publisher_id",
+          "superhero_name"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "'Sauron'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Sauron'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "728": {
+      "question": "Rank superheroes from Marvel Comics by their eye color popularity, starting with the most common color.",
+      "question_id": "728",
+      "golden": {
+        "superhero": [
+          "id",
+          "eye_colour_id",
+          "publisher_id"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "eye_colour_id",
+          "id",
+          "publisher_id"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "'Marvel Comics'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Marvel Comics'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "729": {
+      "question": "What is the average height of the superheroes from Marvel Comics?",
+      "question_id": "729",
+      "golden": {
+        "superhero": [
+          "height_cm",
+          "publisher_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "height_cm",
+          "publisher_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "'Marvel Comics'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Marvel Comics'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "730": {
+      "question": "List the superheroes from Marvel Comics who have the super power of 'Super Strength'.",
+      "question_id": "730",
+      "golden": {
+        "superhero": [
+          "id",
+          "superhero_name",
+          "publisher_id"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "publisher_id",
+          "superhero_name"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "'Marvel Comics'": [],
+        "'Super Strength'": []
+      },
+      "metrics": {
+        "tbl_tp": 4,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 9,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Marvel Comics'",
+          "'Super Strength'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "731": {
+      "question": "How many superheroes did DC Comics publish?",
+      "question_id": "731",
+      "golden": {
+        "superhero": [
+          "id",
+          "publisher_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "publisher_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "'DC Comics'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'DC Comics'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "732": {
+      "question": "Which publisher published the slowest superhero?",
+      "question_id": "732",
+      "golden": {
+        "superhero": [
+          "id",
+          "publisher_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "hero_attribute": [
+          "hero_id",
+          "attribute_id",
+          "attribute_value"
+        ],
+        "attribute": [
+          "id",
+          "attribute_name"
+        ]
+      },
+      "retrieved": {
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "superhero": [
+          "id",
+          "publisher_id"
+        ],
+        "hero_attribute": [
+          "attribute_id",
+          "attribute_value",
+          "hero_id"
+        ],
+        "attribute": [
+          "attribute_name",
+          "id"
+        ],
+        "'Speed'": []
+      },
+      "metrics": {
+        "tbl_tp": 4,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 9,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Speed'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "733": {
+      "question": "How many gold-eyed superheroes did Marvel Comics publish?",
+      "question_id": "733",
+      "golden": {
+        "superhero": [
+          "id",
+          "publisher_id",
+          "eye_colour_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "eye_colour_id",
+          "publisher_id"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "'Gold'": [],
+        "'Marvel Comics'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Gold'",
+          "'Marvel Comics'"
+        ],
+        "missing_columns": [
+          "superhero.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "734": {
+      "question": "What is the publisher's name of Blue Beetle II?",
+      "question_id": "734",
+      "golden": {
+        "superhero": [
+          "publisher_id",
+          "superhero_name"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "publisher_id",
+          "superhero_name"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "'Blue Beetle II'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Blue Beetle II'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "735": {
+      "question": "How many superheroes with blonde hair are there?",
+      "question_id": "735",
+      "golden": {
+        "superhero": [
+          "id",
+          "hair_colour_id"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "hair_colour_id",
+          "id"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "'Blond'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Blond'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "736": {
+      "question": "Who is the dumbest superhero?",
+      "question_id": "736",
+      "golden": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "hero_attribute": [
+          "hero_id",
+          "attribute_id",
+          "attribute_value"
+        ],
+        "attribute": [
+          "id",
+          "attribute_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "attribute": [
+          "attribute_name",
+          "id"
+        ],
+        "hero_attribute": [
+          "attribute_id",
+          "attribute_value",
+          "hero_id"
+        ],
+        "'Intelligence'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Intelligence'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "737": {
+      "question": "What is Copycat's race?",
+      "question_id": "737",
+      "golden": {
+        "superhero": [
+          "race_id",
+          "superhero_name"
+        ],
+        "race": [
+          "id",
+          "race"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "race_id",
+          "superhero_name"
+        ],
+        "race": [
+          "id",
+          "race"
+        ],
+        "'Copycat'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Copycat'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "738": {
+      "question": "Which superheroes have a durability attribute value of less than 50?",
+      "question_id": "738",
+      "golden": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "hero_attribute": [
+          "hero_id",
+          "attribute_id",
+          "attribute_value"
+        ],
+        "attribute": [
+          "id",
+          "attribute_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "attribute": [
+          "attribute_name",
+          "id"
+        ],
+        "hero_attribute": [
+          "attribute_id",
+          "attribute_value",
+          "hero_id"
+        ],
+        "'Durability'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Durability'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "739": {
+      "question": "What are the names of the superheroes with the power of death touch?",
+      "question_id": "739",
+      "golden": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "'Death Touch'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Death Touch'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "740": {
+      "question": "How many female superheroes have a strength value of 100?",
+      "question_id": "740",
+      "golden": {
+        "superhero": [
+          "id",
+          "gender_id"
+        ],
+        "hero_attribute": [
+          "hero_id",
+          "attribute_id",
+          "attribute_value"
+        ],
+        "attribute": [
+          "id",
+          "attribute_name"
+        ],
+        "gender": [
+          "id",
+          "gender"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "gender_id",
+          "id"
+        ],
+        "gender": [
+          "gender",
+          "id"
+        ],
+        "hero_attribute": [
+          "attribute_id",
+          "attribute_value",
+          "hero_id"
+        ],
+        "attribute": [
+          "attribute_name",
+          "id"
+        ],
+        "'Female'": [],
+        "'Strength'": []
+      },
+      "metrics": {
+        "tbl_tp": 4,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 9,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Female'",
+          "'Strength'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "742": {
+      "question": "How many vampire superheroes are there?",
+      "question_id": "742",
+      "golden": {
+        "superhero": [
+          "superhero_name",
+          "race_id"
+        ],
+        "race": [
+          "id",
+          "race"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "race_id"
+        ],
+        "race": [
+          "id",
+          "race"
+        ],
+        "'Vampire'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Vampire'"
+        ],
+        "missing_columns": [
+          "superhero.superhero_name"
+        ],
+        "extra_columns": []
+      }
+    },
+    "743": {
+      "question": "What is the percentage of superheroes who act in their own self-interest or make decisions based on their own moral code? Indicate how many of the said superheroes were published by Marvel Comics.",
+      "question_id": "743",
+      "golden": {
+        "superhero": [
+          "publisher_id",
+          "alignment_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "alignment": [
+          "id",
+          "alignment"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "alignment_id",
+          "id",
+          "publisher_id"
+        ],
+        "alignment": [
+          "alignment",
+          "id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "'Neutral'": [],
+        "'Marvel Comics'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Marvel Comics'",
+          "'Neutral'"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "superhero.id"
+        ]
+      }
+    },
+    "744": {
+      "question": "Between DC and Marvel Comics, which publisher has published more superheroes? Find the difference in the number of superheroes they have published.",
+      "question_id": "744",
+      "golden": {
+        "superhero": [
+          "publisher_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ]
+      },
+      "retrieved": {
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "superhero": [
+          "id",
+          "publisher_id"
+        ],
+        "'DC Comics'": [],
+        "'Marvel Comics'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'DC Comics'",
+          "'Marvel Comics'"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "superhero.id"
+        ]
+      }
+    },
+    "745": {
+      "question": "Give the publisher ID of Star Trek.",
+      "question_id": "745",
+      "golden": {
+        "publisher": [
+          "id",
+          "publisher_name"
+        ]
+      },
+      "retrieved": {
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "'Star Trek'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Star Trek'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "747": {
+      "question": "What is the total number of superheroes without full name?",
+      "question_id": "747",
+      "golden": {
+        "superhero": [
+          "id",
+          "full_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "full_name"
+        ],
+        "NULL": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "NULL"
+        ],
+        "missing_columns": [
+          "superhero.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "749": {
+      "question": "Provide the superpowers of the superhero called Deathlok.",
+      "question_id": "749",
+      "golden": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ]
+      },
+      "retrieved": {
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "'Deathlok'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Deathlok'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "750": {
+      "question": "What is the average weight of all female superheroes?",
+      "question_id": "750",
+      "golden": {
+        "superhero": [
+          "weight_kg",
+          "gender_id"
+        ],
+        "gender": [
+          "id",
+          "gender"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "gender_id",
+          "weight_kg"
+        ],
+        "gender": [
+          "gender",
+          "id"
+        ],
+        "'Female'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Female'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "751": {
+      "question": "List down at least five superpowers of male superheroes.",
+      "question_id": "751",
+      "golden": {
+        "superhero": [
+          "id",
+          "gender_id"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "gender": [
+          "id",
+          "gender"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "gender_id",
+          "id"
+        ],
+        "gender": [
+          "gender",
+          "id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "'Male'": []
+      },
+      "metrics": {
+        "tbl_tp": 4,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 8,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Male'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "752": {
+      "question": "Give the name of the alien superheroes.",
+      "question_id": "752",
+      "golden": {
+        "superhero": [
+          "superhero_name",
+          "race_id"
+        ],
+        "race": [
+          "id",
+          "race"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "race_id",
+          "superhero_name"
+        ],
+        "race": [
+          "id",
+          "race"
+        ],
+        "'Alien'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Alien'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "753": {
+      "question": "Among the superheroes with height from 170 to 190, list the names of the superheroes with no eye color.",
+      "question_id": "753",
+      "golden": {
+        "superhero": [
+          "superhero_name",
+          "height_cm",
+          "eye_colour_id"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "eye_colour_id",
+          "height_cm",
+          "superhero_name"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "'No Colour'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'No Colour'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "755": {
+      "question": "List down at least five full name of Demi-God superheroes.",
+      "question_id": "755",
+      "golden": {
+        "superhero": [
+          "full_name",
+          "race_id"
+        ],
+        "race": [
+          "id",
+          "race"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "full_name",
+          "race_id"
+        ],
+        "race": [
+          "id",
+          "race"
+        ],
+        "'Demi-God'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Demi-God'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "756": {
+      "question": "How many bad superheroes are there?",
+      "question_id": "756",
+      "golden": {
+        "superhero": [
+          "id",
+          "alignment_id"
+        ],
+        "alignment": [
+          "id",
+          "alignment"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "alignment_id"
+        ],
+        "alignment": [
+          "alignment",
+          "id"
+        ],
+        "'Bad'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Bad'"
+        ],
+        "missing_columns": [
+          "superhero.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "758": {
+      "question": "Provide the hair colour of the human superhero who is 185 cm tall.",
+      "question_id": "758",
+      "golden": {
+        "superhero": [
+          "hair_colour_id",
+          "height_cm",
+          "race_id"
+        ],
+        "race": [
+          "id",
+          "race"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "hair_colour_id",
+          "height_cm",
+          "race_id"
+        ],
+        "race": [
+          "id",
+          "race"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "'Human'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Human'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "760": {
+      "question": "In superheroes with height between 150 to 180, what is the percentage of heroes published by Marvel Comics?",
+      "question_id": "760",
+      "golden": {
+        "superhero": [
+          "id",
+          "height_cm",
+          "publisher_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "height_cm",
+          "publisher_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "'Marvel Comics'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Marvel Comics'"
+        ],
+        "missing_columns": [
+          "superhero.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "761": {
+      "question": "Among the male superheroes, list the super hero names of superheroes with weight greater than the 79% average weight of all superheroes.",
+      "question_id": "761",
+      "golden": {
+        "superhero": [
+          "superhero_name",
+          "gender_id",
+          "weight_kg"
+        ],
+        "gender": [
+          "id",
+          "gender"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "gender_id",
+          "superhero_name",
+          "weight_kg"
+        ],
+        "gender": [
+          "gender",
+          "id"
+        ],
+        "'Male'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Male'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "762": {
+      "question": "Which power do superheroes have the most of?",
+      "question_id": "762",
+      "golden": {
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ]
+      },
+      "retrieved": {
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "hero_power": [
+          "power_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "hero_power.hero_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "763": {
+      "question": "Indicate the attribute value of superhero Abomination.",
+      "question_id": "763",
+      "golden": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "hero_attribute": [
+          "hero_id",
+          "attribute_value"
+        ]
+      },
+      "retrieved": {
+        "hero_attribute": [
+          "attribute_value",
+          "hero_id"
+        ],
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "'Abomination'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Abomination'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "765": {
+      "question": "How many heroes have stealth power?",
+      "question_id": "765",
+      "golden": {
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ]
+      },
+      "retrieved": {
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "'Stealth'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Stealth'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "766": {
+      "question": "What is the hero's full name with the highest attribute in strength?",
+      "question_id": "766",
+      "golden": {
+        "superhero": [
+          "id",
+          "full_name"
+        ],
+        "hero_attribute": [
+          "hero_id",
+          "attribute_id",
+          "attribute_value"
+        ],
+        "attribute": [
+          "id",
+          "attribute_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "full_name",
+          "id"
+        ],
+        "hero_attribute": [
+          "attribute_id",
+          "attribute_value",
+          "hero_id"
+        ],
+        "attribute": [
+          "attribute_name",
+          "id"
+        ],
+        "'Strength'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Strength'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "767": {
+      "question": "What is the average of superheroes with no skin colour?",
+      "question_id": "767",
+      "golden": {
+        "superhero": [
+          "skin_colour_id"
+        ],
+        "colour": [
+          "id"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "skin_colour_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "colour"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "colour.id"
+        ],
+        "extra_columns": [
+          "superhero.id"
+        ]
+      }
+    },
+    "768": {
+      "question": "How many superheroes were published by Dark Horse Comics?",
+      "question_id": "768",
+      "golden": {
+        "superhero": [
+          "id",
+          "publisher_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "publisher_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "'Dark Horse Comics'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Dark Horse Comics'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "769": {
+      "question": "Which superhero has the most durability published by Dark Horse Comics?",
+      "question_id": "769",
+      "golden": {
+        "superhero": [
+          "id",
+          "superhero_name",
+          "publisher_id"
+        ],
+        "hero_attribute": [
+          "hero_id",
+          "attribute_id",
+          "attribute_value"
+        ],
+        "attribute": [
+          "id",
+          "attribute_name"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "publisher_id",
+          "superhero_name"
+        ],
+        "hero_attribute": [
+          "attribute_id",
+          "attribute_value",
+          "hero_id"
+        ],
+        "attribute": [
+          "attribute_name",
+          "id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "'Dark Horse Comics'": [],
+        "'durability'": []
+      },
+      "metrics": {
+        "tbl_tp": 4,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 10,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Dark Horse Comics'",
+          "'durability'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "770": {
+      "question": "What is the eyes colour of Abraham Sapien?",
+      "question_id": "770",
+      "golden": {
+        "superhero": [
+          "full_name",
+          "eye_colour_id"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "eye_colour_id",
+          "full_name"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "'Abraham Sapien'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Abraham Sapien'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "771": {
+      "question": "List the name of superheroes with flight power.",
+      "question_id": "771",
+      "golden": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "'Flight'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Flight'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "772": {
+      "question": "List the eyes, hair and skin colour of all female superheroes published by Dark Horse Comics.",
+      "question_id": "772",
+      "golden": {
+        "superhero": [
+          "eye_colour_id",
+          "hair_colour_id",
+          "skin_colour_id",
+          "publisher_id",
+          "gender_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "gender": [
+          "id",
+          "gender"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "eye_colour_id",
+          "gender_id",
+          "hair_colour_id",
+          "publisher_id",
+          "skin_colour_id"
+        ],
+        "gender": [
+          "gender",
+          "id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "colour": [
+          "id"
+        ],
+        "'Female'": [],
+        "'Dark Horse Comics'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 9,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Dark Horse Comics'",
+          "'Female'",
+          "colour"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "colour.id"
+        ]
+      }
+    },
+    "774": {
+      "question": "Which group does superhero A-Bomb belong to?",
+      "question_id": "774",
+      "golden": {
+        "superhero": [
+          "race_id",
+          "superhero_name"
+        ],
+        "race": [
+          "id",
+          "race"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "race_id",
+          "superhero_name"
+        ],
+        "race": [
+          "id",
+          "race"
+        ],
+        "'A-Bomb'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'A-Bomb'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "775": {
+      "question": "What is the percentage of blue female superheroes among all female superheroes?",
+      "question_id": "775",
+      "golden": {
+        "superhero": [
+          "id",
+          "gender_id",
+          "skin_colour_id"
+        ],
+        "gender": [
+          "id",
+          "gender"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "gender_id",
+          "skin_colour_id"
+        ],
+        "gender": [
+          "gender",
+          "id"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "'Blue'": [],
+        "'Female'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Blue'",
+          "'Female'"
+        ],
+        "missing_columns": [
+          "superhero.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "776": {
+      "question": "Provide the hero name and race of Charles Chandler.",
+      "question_id": "776",
+      "golden": {
+        "superhero": [
+          "superhero_name",
+          "full_name",
+          "race_id"
+        ],
+        "race": [
+          "id",
+          "race"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "full_name",
+          "race_id",
+          "superhero_name"
+        ],
+        "race": [
+          "id",
+          "race"
+        ],
+        "Charles Chandler": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Charles Chandler"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "777": {
+      "question": "What is the gender of Agent 13 hero?",
+      "question_id": "777",
+      "golden": {
+        "superhero": [
+          "gender_id",
+          "superhero_name"
+        ],
+        "gender": [
+          "id",
+          "gender"
+        ]
+      },
+      "retrieved": {
+        "gender": [
+          "gender",
+          "id"
+        ],
+        "superhero": [
+          "gender_id",
+          "superhero_name"
+        ],
+        "'Agent 13'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Agent 13'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "778": {
+      "question": "Provide superheroes' names who have the adaptation power.",
+      "question_id": "778",
+      "golden": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "'Adaptation'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Adaptation'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "779": {
+      "question": "How many powers does Amazo hero have?",
+      "question_id": "779",
+      "golden": {
+        "hero_power": [
+          "power_id",
+          "hero_id"
+        ],
+        "superhero": [
+          "id",
+          "superhero_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "'Amazo'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Amazo'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "780": {
+      "question": "List the powers of Hunter Zolomon.",
+      "question_id": "780",
+      "golden": {
+        "superhero": [
+          "id",
+          "full_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "full_name",
+          "id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "Hunter Zolomon": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Hunter Zolomon"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "781": {
+      "question": "Provide the heights of the heroes whose eye colours are amber.",
+      "question_id": "781",
+      "golden": {
+        "superhero": [
+          "height_cm",
+          "eye_colour_id"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "eye_colour_id",
+          "height_cm"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "'Amber'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Amber'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "782": {
+      "question": "List the heroes' names whose eyes and hair colours are both black.",
+      "question_id": "782",
+      "golden": {
+        "superhero": [
+          "superhero_name",
+          "eye_colour_id",
+          "hair_colour_id"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "eye_colour_id",
+          "hair_colour_id",
+          "superhero_name"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "'Black'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Black'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "783": {
+      "question": "Provide the eye colours of the heroes whose skin colours are gold.",
+      "question_id": "783",
+      "golden": {
+        "superhero": [
+          "eye_colour_id",
+          "skin_colour_id"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "eye_colour_id",
+          "skin_colour_id"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "'Gold'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Gold'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "784": {
+      "question": "Provide the full names of vampire heroes.",
+      "question_id": "784",
+      "golden": {
+        "superhero": [
+          "full_name",
+          "race_id"
+        ],
+        "race": [
+          "id",
+          "race"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "full_name",
+          "race_id"
+        ],
+        "race": [
+          "id",
+          "race"
+        ],
+        "'Vampire'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Vampire'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "785": {
+      "question": "Describe the names of neutral alignment superheroes.",
+      "question_id": "785",
+      "golden": {
+        "superhero": [
+          "superhero_name",
+          "alignment_id"
+        ],
+        "alignment": [
+          "id",
+          "alignment"
+        ]
+      },
+      "retrieved": {},
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 0,
+        "tbl_fn": 2,
+        "col_tp": 0,
+        "col_fp": 0,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "alignment",
+          "superhero"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "alignment.alignment",
+          "alignment.id",
+          "superhero.alignment_id",
+          "superhero.superhero_name"
+        ],
+        "extra_columns": []
+      }
+    },
+    "786": {
+      "question": "How many heroes have the highest attribute value in strength?",
+      "question_id": "786",
+      "golden": {
+        "hero_attribute": [
+          "hero_id",
+          "attribute_id",
+          "attribute_value"
+        ],
+        "attribute": [
+          "id",
+          "attribute_name"
+        ]
+      },
+      "retrieved": {
+        "hero_attribute": [
+          "attribute_id",
+          "attribute_value",
+          "hero_id"
+        ],
+        "attribute": [
+          "attribute_name",
+          "id"
+        ],
+        "'Strength'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Strength'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "787": {
+      "question": "What are the race and alignment of Cameron Hicks?",
+      "question_id": "787",
+      "golden": {
+        "superhero": [
+          "race_id",
+          "alignment_id",
+          "superhero_name"
+        ],
+        "race": [
+          "id",
+          "race"
+        ],
+        "alignment": [
+          "id",
+          "alignment"
+        ]
+      },
+      "retrieved": {
+        "race": [
+          "id",
+          "race"
+        ],
+        "alignment": [
+          "alignment",
+          "id"
+        ],
+        "superhero": [
+          "alignment_id",
+          "race_id",
+          "superhero_name"
+        ],
+        "'Cameron Hicks'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Cameron Hicks'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "788": {
+      "question": "How many percent of female heroes were published by Marvel Comics?",
+      "question_id": "788",
+      "golden": {
+        "superhero": [
+          "id",
+          "publisher_id",
+          "gender_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "gender": [
+          "id",
+          "gender"
+        ]
+      },
+      "retrieved": {
+        "gender": [
+          "gender",
+          "id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "superhero": [
+          "gender_id",
+          "publisher_id"
+        ],
+        "'Female'": [],
+        "'Marvel Comics'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Female'",
+          "'Marvel Comics'"
+        ],
+        "missing_columns": [
+          "superhero.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "789": {
+      "question": "Find the average weight of the heroes who are aliens.",
+      "question_id": "789",
+      "golden": {
+        "superhero": [
+          "id",
+          "weight_kg",
+          "race_id"
+        ],
+        "race": [
+          "id",
+          "race"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "race_id",
+          "weight_kg"
+        ],
+        "race": [
+          "id",
+          "race"
+        ],
+        "'Alien'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Alien'"
+        ],
+        "missing_columns": [
+          "superhero.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "790": {
+      "question": "Calculate the difference between Emil Blonsky's weight and Charles Chandler's weight.",
+      "question_id": "790",
+      "golden": {
+        "superhero": [
+          "full_name",
+          "weight_kg"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "full_name",
+          "weight_kg"
+        ],
+        "'Emil Blonsky'": [],
+        "'Charles Chandler'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Charles Chandler'",
+          "'Emil Blonsky'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "791": {
+      "question": "Calculate the average height for each superhero.",
+      "question_id": "791",
+      "golden": {
+        "superhero": [
+          "height_cm",
+          "id"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "height_cm",
+          "superhero_name"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "superhero.id"
+        ],
+        "extra_columns": [
+          "superhero.superhero_name"
+        ]
+      }
+    },
+    "792": {
+      "question": "What is Abomination's superpower?",
+      "question_id": "792",
+      "golden": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "'Abomination'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Abomination'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "793": {
+      "question": "Among the superheroes with the race of god/eternal, how many of them are male",
+      "question_id": "793",
+      "golden": {
+        "superhero": [
+          "race_id",
+          "gender_id"
+        ],
+        "race": [
+          "id"
+        ],
+        "gender": [
+          "id"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "gender_id",
+          "race_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 2,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "gender",
+          "race"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "gender.id",
+          "race.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "794": {
+      "question": "Which hero was the fastest?",
+      "question_id": "794",
+      "golden": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "hero_attribute": [
+          "hero_id",
+          "attribute_id",
+          "attribute_value"
+        ],
+        "attribute": [
+          "id",
+          "attribute_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "hero_attribute": [
+          "attribute_id",
+          "attribute_value",
+          "hero_id"
+        ],
+        "attribute": [
+          "attribute_name",
+          "id"
+        ],
+        "'Speed'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Speed'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "795": {
+      "question": "How many superheroes have a neutral alignment?",
+      "question_id": "795",
+      "golden": {
+        "superhero": [
+          "id",
+          "alignment_id"
+        ],
+        "alignment": [
+          "id",
+          "alignment"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "alignment_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "alignment"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "alignment.alignment",
+          "alignment.id",
+          "superhero.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "796": {
+      "question": "State all of 3-D Man's attributes along with their values.",
+      "question_id": "796",
+      "golden": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "hero_attribute": [
+          "hero_id",
+          "attribute_id",
+          "attribute_value"
+        ],
+        "attribute": [
+          "id",
+          "attribute_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "attribute": [
+          "attribute_name",
+          "id"
+        ],
+        "hero_attribute": [
+          "attribute_id",
+          "attribute_value",
+          "hero_id"
+        ],
+        "'3-D Man'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'3-D Man'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "797": {
+      "question": "Which superheroes have blue eyes with brown hair?",
+      "question_id": "797",
+      "golden": {
+        "superhero": [
+          "superhero_name",
+          "eye_colour_id",
+          "hair_colour_id"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "eye_colour_id",
+          "hair_colour_id",
+          "superhero_name"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "'Blue'": [],
+        "'Brown'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Blue'",
+          "'Brown'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "798": {
+      "question": "What is the publisher for Hawkman, Karate Kid and Speedy?",
+      "question_id": "798",
+      "golden": {
+        "superhero": [
+          "publisher_id",
+          "superhero_name"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "publisher_id",
+          "superhero_name"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "'Hawkman'": [],
+        "'Karate Kid'": [],
+        "'Speedy'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Hawkman'",
+          "'Karate Kid'",
+          "'Speedy'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "799": {
+      "question": "How many superheroes didn't have any publisher?",
+      "question_id": "799",
+      "golden": {
+        "superhero": [
+          "id",
+          "publisher_id"
+        ],
+        "publisher": [
+          "id"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "publisher_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "publisher"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "publisher.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "800": {
+      "question": "Calculate the percentage of superheroes with blue eyes.",
+      "question_id": "800",
+      "golden": {
+        "superhero": [
+          "id",
+          "eye_colour_id"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "eye_colour_id",
+          "id"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "'Blue'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Blue'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "801": {
+      "question": "Find the ratio between male superheroes and female superheroes.",
+      "question_id": "801",
+      "golden": {
+        "superhero": [
+          "id",
+          "gender_id"
+        ],
+        "gender": [
+          "id",
+          "gender"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "gender_id"
+        ],
+        "gender": [
+          "id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "gender.gender",
+          "superhero.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "803": {
+      "question": "What is the power ID of cryokinesis?",
+      "question_id": "803",
+      "golden": {
+        "superpower": [
+          "id",
+          "power_name"
+        ]
+      },
+      "retrieved": {
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "'cryokinesis'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'cryokinesis'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "805": {
+      "question": "List the full names of superheroes with missing weight.",
+      "question_id": "805",
+      "golden": {
+        "superhero": [
+          "full_name",
+          "weight_kg"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "full_name",
+          "weight_kg"
+        ],
+        "NULL": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "NULL"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "806": {
+      "question": "Provide the eye colour of the superhero who has Karen Beecher-Duncan as their full name.",
+      "question_id": "806",
+      "golden": {
+        "superhero": [
+          "full_name",
+          "eye_colour_id"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "eye_colour_id",
+          "full_name"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "'Karen Beecher-Duncan'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Karen Beecher-Duncan'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "807": {
+      "question": "What is the superpowers of the superhero has Helen Parr as their full name?",
+      "question_id": "807",
+      "golden": {
+        "superhero": [
+          "id",
+          "full_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "full_name",
+          "id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "Helen Parr": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Helen Parr"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "811": {
+      "question": "Give the alignment and superpowers of the superhero named Atom IV.",
+      "question_id": "811",
+      "golden": {
+        "superhero": [
+          "id",
+          "superhero_name",
+          "alignment_id"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "alignment": [
+          "id",
+          "alignment"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "alignment_id",
+          "id",
+          "superhero_name"
+        ],
+        "alignment": [
+          "alignment",
+          "id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "'Atom IV'": []
+      },
+      "metrics": {
+        "tbl_tp": 4,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 9,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Atom IV'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "812": {
+      "question": "List down at least five full names of superheroes with blue eyes.",
+      "question_id": "812",
+      "golden": {
+        "superhero": [
+          "superhero_name",
+          "eye_colour_id"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "eye_colour_id",
+          "full_name"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "'Blue'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Blue'"
+        ],
+        "missing_columns": [
+          "superhero.superhero_name"
+        ],
+        "extra_columns": [
+          "superhero.full_name"
+        ]
+      }
+    },
+    "813": {
+      "question": "Calculate the average attribute value of all neutral superheroes.",
+      "question_id": "813",
+      "golden": {
+        "hero_attribute": [
+          "hero_id",
+          "attribute_value"
+        ],
+        "superhero": [
+          "id",
+          "alignment_id"
+        ],
+        "alignment": [
+          "id",
+          "alignment"
+        ]
+      },
+      "retrieved": {
+        "hero_attribute": [
+          "attribute_value",
+          "hero_id"
+        ],
+        "superhero": [
+          "alignment_id",
+          "id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "alignment"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "alignment.alignment",
+          "alignment.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "815": {
+      "question": "Count the good female superheroes.",
+      "question_id": "815",
+      "golden": {
+        "superhero": [
+          "id",
+          "alignment_id",
+          "gender_id"
+        ],
+        "alignment": [
+          "id",
+          "alignment"
+        ],
+        "gender": [
+          "id",
+          "gender"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "alignment_id",
+          "gender_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 2,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 5
+      },
+      "differences": {
+        "missing_tables": [
+          "alignment",
+          "gender"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "alignment.alignment",
+          "alignment.id",
+          "gender.gender",
+          "gender.id",
+          "superhero.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "817": {
+      "question": "Give the race of the blue-haired male superhero.",
+      "question_id": "817",
+      "golden": {
+        "superhero": [
+          "hair_colour_id",
+          "race_id",
+          "gender_id"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ],
+        "race": [
+          "id",
+          "race"
+        ],
+        "gender": [
+          "id",
+          "gender"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "gender_id",
+          "hair_colour_id",
+          "race_id"
+        ],
+        "race": [
+          "id",
+          "race"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "gender": [
+          "gender",
+          "id"
+        ],
+        "'Blue'": [],
+        "'Male'": []
+      },
+      "metrics": {
+        "tbl_tp": 4,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 9,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Blue'",
+          "'Male'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "818": {
+      "question": "Among the bad superheroes, what is the percentage of female superheroes?",
+      "question_id": "818",
+      "golden": {
+        "superhero": [
+          "id",
+          "gender_id",
+          "alignment_id"
+        ],
+        "alignment": [
+          "id",
+          "alignment"
+        ],
+        "gender": [
+          "id",
+          "gender"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "alignment_id",
+          "gender_id"
+        ],
+        "alignment": [
+          "id=2"
+        ],
+        "gender": [
+          "id=2"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 5
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "alignment.alignment",
+          "alignment.id",
+          "gender.gender",
+          "gender.id",
+          "superhero.id"
+        ],
+        "extra_columns": [
+          "alignment.id=2",
+          "gender.id=2"
+        ]
+      }
+    },
+    "819": {
+      "question": "In superheroes with missing weight data, calculate the difference between the number of superheroes with blue eyes and no eye color.",
+      "question_id": "819",
+      "golden": {
+        "superhero": [
+          "eye_colour_id",
+          "weight_kg"
+        ],
+        "colour": [
+          "id"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "eye_colour_id",
+          "weight_kg"
+        ],
+        "colour": [
+          "id"
+        ],
+        "NULL": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "NULL"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "820": {
+      "question": "How strong is the Hulk?",
+      "question_id": "820",
+      "golden": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "hero_attribute": [
+          "hero_id",
+          "attribute_id",
+          "attribute_value"
+        ],
+        "attribute": [
+          "id",
+          "attribute_name"
+        ]
+      },
+      "retrieved": {
+        "hero_attribute": [
+          "attribute_id",
+          "attribute_value",
+          "hero_id"
+        ],
+        "attribute": [
+          "attribute_name",
+          "id"
+        ],
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "'Strength'": [],
+        "'Hulk'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Hulk'",
+          "'Strength'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "821": {
+      "question": "List down Ajax's superpowers.",
+      "question_id": "821",
+      "golden": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "'Ajax'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Ajax'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "822": {
+      "question": "How many green-skinned villains are there in the superhero universe?",
+      "question_id": "822",
+      "golden": {
+        "superhero": [
+          "id",
+          "alignment_id",
+          "skin_colour_id"
+        ],
+        "alignment": [
+          "id",
+          "alignment"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "alignment_id",
+          "skin_colour_id"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "alignment": [
+          "alignment",
+          "id"
+        ],
+        "'Green'": [],
+        "'Bad'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Bad'",
+          "'Green'"
+        ],
+        "missing_columns": [
+          "superhero.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "823": {
+      "question": "How many female superheroes are in Marvel Comics?",
+      "question_id": "823",
+      "golden": {
+        "superhero": [
+          "id",
+          "gender_id",
+          "publisher_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "gender": [
+          "id",
+          "gender"
+        ]
+      },
+      "retrieved": {
+        "gender": [
+          "gender",
+          "id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "superhero": [
+          "gender_id",
+          "publisher_id"
+        ],
+        "'Female'": [],
+        "'Marvel Comics'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Female'",
+          "'Marvel Comics'"
+        ],
+        "missing_columns": [
+          "superhero.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "824": {
+      "question": "Identify superheroes who can control wind and list their names in alphabetical order.",
+      "question_id": "824",
+      "golden": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "'Wind Control'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Wind Control'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "825": {
+      "question": "Identify the gender of the superhero who has the ability of Phoenix Force.",
+      "question_id": "825",
+      "golden": {
+        "superhero": [
+          "id",
+          "gender_id"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "gender": [
+          "id",
+          "gender"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "gender_id",
+          "id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "'Phoenix Force'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "gender"
+        ],
+        "extra_tables": [
+          "'Phoenix Force'"
+        ],
+        "missing_columns": [
+          "gender.gender",
+          "gender.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "826": {
+      "question": "Identify the heaviest superhero in DC Comics.",
+      "question_id": "826",
+      "golden": {
+        "superhero": [
+          "superhero_name",
+          "publisher_id",
+          "weight_kg"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "publisher_id",
+          "superhero_name",
+          "weight_kg"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "'DC Comics'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'DC Comics'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "827": {
+      "question": "What is the average height of a non-human superhero in Dark Horse Comics?",
+      "question_id": "827",
+      "golden": {
+        "superhero": [
+          "height_cm",
+          "publisher_id",
+          "race_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "race": [
+          "id",
+          "race"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "height_cm",
+          "publisher_id",
+          "race_id"
+        ],
+        "race": [
+          "id",
+          "race"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "'Dark Horse Comics'": [],
+        "'Human'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Dark Horse Comics'",
+          "'Human'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "828": {
+      "question": "Count the fastest superheroes.",
+      "question_id": "828",
+      "golden": {
+        "hero_attribute": [
+          "hero_id",
+          "attribute_id",
+          "attribute_value"
+        ],
+        "attribute": [
+          "id",
+          "attribute_name"
+        ],
+        "superhero": [
+          "id",
+          "superhero_name"
+        ]
+      },
+      "retrieved": {
+        "attribute": [
+          "attribute_name",
+          "id"
+        ],
+        "hero_attribute": [
+          "attribute_id",
+          "attribute_value",
+          "hero_id"
+        ],
+        "'Speed'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "superhero"
+        ],
+        "extra_tables": [
+          "'Speed'"
+        ],
+        "missing_columns": [
+          "superhero.id",
+          "superhero.superhero_name"
+        ],
+        "extra_columns": []
+      }
+    },
+    "829": {
+      "question": "Which publisher created more superheroes: DC or Marvel Comics? Find the difference in the number of superheroes.",
+      "question_id": "829",
+      "golden": {
+        "superhero": [
+          "publisher_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id",
+          "publisher_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "'DC Comics'": [],
+        "'Marvel Comics'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'DC Comics'",
+          "'Marvel Comics'"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "superhero.id"
+        ]
+      }
+    },
+    "830": {
+      "question": "Identify the weakest attribute of the Black Panther.",
+      "question_id": "830",
+      "golden": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "hero_attribute": [
+          "hero_id",
+          "attribute_id",
+          "attribute_value"
+        ],
+        "attribute": [
+          "id",
+          "attribute_name"
+        ]
+      },
+      "retrieved": {
+        "attribute": [
+          "attribute_name",
+          "id"
+        ],
+        "hero_attribute": [
+          "attribute_id",
+          "attribute_value",
+          "hero_id"
+        ],
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "'Black Panther'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Black Panther'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "831": {
+      "question": "What is Abomination's eye colour?",
+      "question_id": "831",
+      "golden": {
+        "superhero": [
+          "eye_colour_id",
+          "superhero_name"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "eye_colour_id",
+          "superhero_name"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "'Abomination'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Abomination'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "833": {
+      "question": "Name the superhero, otherwise known as Charles Chandler.",
+      "question_id": "833",
+      "golden": {
+        "superhero": [
+          "superhero_name",
+          "full_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "full_name",
+          "superhero_name"
+        ],
+        "'Charles Chandler'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Charles Chandler'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "834": {
+      "question": "Among all superheroes created by George Lucas, identify the percentage of female superheroes.",
+      "question_id": "834",
+      "golden": {
+        "superhero": [
+          "id",
+          "gender_id",
+          "publisher_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "gender": [
+          "id",
+          "gender"
+        ]
+      },
+      "retrieved": {
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "gender": [
+          "gender",
+          "id"
+        ],
+        "superhero": [
+          "gender_id",
+          "publisher_id"
+        ],
+        "'George Lucas'": [],
+        "'Female'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Female'",
+          "'George Lucas'"
+        ],
+        "missing_columns": [
+          "superhero.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "835": {
+      "question": "Among all superheroes in Marvel Comics, identify the percentage of 'good' superheroes.",
+      "question_id": "835",
+      "golden": {
+        "superhero": [
+          "id",
+          "publisher_id",
+          "alignment_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "alignment": [
+          "id",
+          "alignment"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "alignment_id",
+          "publisher_id"
+        ],
+        "publisher": [
+          "id",
+          "publisher_name"
+        ],
+        "alignment": [
+          "alignment",
+          "id"
+        ],
+        "'Marvel Comics'": [],
+        "'Good'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Good'",
+          "'Marvel Comics'"
+        ],
+        "missing_columns": [
+          "superhero.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "836": {
+      "question": "What is the total number of superheroes that have John as their first name?",
+      "question_id": "836",
+      "golden": {
+        "superhero": [
+          "id",
+          "full_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "full_name"
+        ],
+        "'John'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'John'"
+        ],
+        "missing_columns": [
+          "superhero.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "838": {
+      "question": "Provide the full name of the superhero named Alien.",
+      "question_id": "838",
+      "golden": {
+        "superhero": [
+          "full_name",
+          "superhero_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "full_name",
+          "superhero_name"
+        ],
+        "'Alien'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Alien'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "839": {
+      "question": "In superheroes with weight less than 100, list the full name of the superheroes with brown eyes.",
+      "question_id": "839",
+      "golden": {
+        "superhero": [
+          "full_name",
+          "weight_kg",
+          "eye_colour_id"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "eye_colour_id",
+          "full_name",
+          "weight_kg"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "'Brown'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Brown'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "840": {
+      "question": "List the attribute value of the superhero named Aquababy.",
+      "question_id": "840",
+      "golden": {
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "hero_attribute": [
+          "hero_id",
+          "attribute_value"
+        ]
+      },
+      "retrieved": {
+        "hero_attribute": [
+          "attribute_value",
+          "hero_id"
+        ],
+        "superhero": [
+          "id",
+          "superhero_name"
+        ],
+        "'Aquababy'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Aquababy'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "842": {
+      "question": "Calculate the average height of all neutral superheroes.",
+      "question_id": "842",
+      "golden": {
+        "superhero": [
+          "height_cm",
+          "alignment_id"
+        ],
+        "alignment": [
+          "id",
+          "alignment"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "alignment_id",
+          "height_cm"
+        ],
+        "alignment": [
+          "alignment",
+          "id"
+        ],
+        "'Neutral'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Neutral'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "843": {
+      "question": "List the hero ID of superheroes have intellegence as their power.",
+      "question_id": "843",
+      "golden": {
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "'Intelligence'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Intelligence'",
+          "superhero"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "superhero.id"
+        ]
+      }
+    },
+    "844": {
+      "question": "Give the eye colour of Blackwulf.",
+      "question_id": "844",
+      "golden": {
+        "superhero": [
+          "eye_colour_id",
+          "superhero_name"
+        ],
+        "colour": [
+          "id",
+          "colour"
+        ]
+      },
+      "retrieved": {
+        "superhero": [
+          "eye_colour_id",
+          "superhero_name"
+        ],
+        "colour": [
+          "colour",
+          "id"
+        ],
+        "'Blackwulf'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Blackwulf'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "845": {
+      "question": "List the power of superheroes with height greater than 80% of the average height of all superheroes.",
+      "question_id": "845",
+      "golden": {
+        "superhero": [
+          "id",
+          "height_cm"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "superpower": [
+          "id",
+          "power_name"
+        ]
+      },
+      "retrieved": {
+        "superpower": [
+          "id",
+          "power_name"
+        ],
+        "superhero": [
+          "height_cm",
+          "id"
+        ],
+        "hero_power": [
+          "hero_id",
+          "power_id"
+        ],
+        "0": [
+          "8"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "0"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "0.8"
+        ]
+      }
+    }
+  }
+}

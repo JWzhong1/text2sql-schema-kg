@@ -1,0 +1,2629 @@
+{
+  "summary": {
+    "db_name": "california_schools",
+    "generated_at": "2025-12-09 18:35:50",
+    "total_questions": 89,
+    "table_metrics": {
+      "precision": 0.9477124183006536,
+      "recall": 0.9666666666666667,
+      "f1": 0.9570957095709571
+    },
+    "column_metrics": {
+      "precision": 0.7641325536062378,
+      "recall": 0.9116279069767442,
+      "f1": 0.831389183457052
+    }
+  },
+  "mismatches": {
+    "1": {
+      "question": "Please list the lowest three eligible free rates for students aged 5-17 in continuation schools.",
+      "question_id": "1",
+      "golden": {
+        "frpm": [
+          "Educational Option Type",
+          "Free Meal Count (Ages 5-17)",
+          "Enrollment (Ages 5-17)"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "Enrollment (Ages 5-17)",
+          "Free Meal Count (Ages 5-17)",
+          "Educational Option Type",
+          "School Type"
+        ],
+        "schools": [
+          "CDSCode",
+          "EdOpsName",
+          "School",
+          "SOCType",
+          "EdOpsCode"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 7,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "schools"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "frpm.CDSCode",
+          "frpm.School Type",
+          "schools.CDSCode",
+          "schools.EdOpsCode",
+          "schools.EdOpsName",
+          "schools.SOCType",
+          "schools.School"
+        ]
+      }
+    },
+    "2": {
+      "question": "Please list the zip code of all the charter schools in Fresno County Office of Education.",
+      "question_id": "2",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "District Name",
+          "Charter School (Y/N)"
+        ],
+        "schools": [
+          "CDSCode",
+          "Zip"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "Charter School (Y/N)",
+          "County Name",
+          "District Name"
+        ],
+        "schools": [
+          "CDSCode",
+          "County",
+          "Zip",
+          "District"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "frpm.County Name",
+          "schools.County",
+          "schools.District"
+        ]
+      }
+    },
+    "3": {
+      "question": "What is the unabbreviated mailing street address of the school with the highest FRPM count for K-12 students?",
+      "question_id": "3",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "FRPM Count (K-12)"
+        ],
+        "schools": [
+          "CDSCode",
+          "MailStreet"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "FRPM Count (K-12)"
+        ],
+        "schools": [
+          "CDSCode",
+          "MailStreet",
+          "MailStrAbr"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "schools.MailStrAbr"
+        ]
+      }
+    },
+    "4": {
+      "question": "Please list the phone numbers of the direct charter-funded schools that are opened after 2000/1/1.",
+      "question_id": "4",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "Charter Funding Type",
+          "Charter School (Y/N)"
+        ],
+        "schools": [
+          "CDSCode",
+          "Phone",
+          "OpenDate"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "Charter School (Y/N)"
+        ],
+        "schools": [
+          "CDSCode",
+          "Charter",
+          "OpenDate",
+          "Phone"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "frpm.Charter Funding Type"
+        ],
+        "extra_columns": [
+          "schools.Charter"
+        ]
+      }
+    },
+    "5": {
+      "question": "How many schools with an average score in Math greater than 400 in the SAT test are exclusively virtual?",
+      "question_id": "5",
+      "golden": {
+        "satscores": [
+          "cds",
+          "AvgScrMath"
+        ],
+        "schools": [
+          "CDSCode",
+          "School",
+          "Virtual"
+        ]
+      },
+      "retrieved": {
+        "satscores": [
+          "cds",
+          "AvgScrMath"
+        ],
+        "schools": [
+          "CDSCode",
+          "Virtual"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "schools.School"
+        ],
+        "extra_columns": []
+      }
+    },
+    "9": {
+      "question": "Among the schools with the average score in Math over 560 in the SAT test, how many schools are directly charter-funded?",
+      "question_id": "9",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "School Code",
+          "Charter Funding Type"
+        ],
+        "satscores": [
+          "cds",
+          "AvgScrMath"
+        ]
+      },
+      "retrieved": {
+        "satscores": [
+          "cds",
+          "AvgScrMath"
+        ],
+        "schools": [
+          "CDSCode",
+          "FundingType"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "frpm"
+        ],
+        "extra_tables": [
+          "schools"
+        ],
+        "missing_columns": [
+          "frpm.CDSCode",
+          "frpm.Charter Funding Type",
+          "frpm.School Code"
+        ],
+        "extra_columns": [
+          "schools.CDSCode",
+          "schools.FundingType"
+        ]
+      }
+    },
+    "11": {
+      "question": "Please list the codes of the schools with a total enrollment of over 500.",
+      "question_id": "11",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "Enrollment (K-12)",
+          "Enrollment (Ages 5-17)"
+        ],
+        "schools": [
+          "CDSCode"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "Enrollment (K-12)",
+          "Enrollment (Ages 5-17)"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "schools"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "schools.CDSCode"
+        ],
+        "extra_columns": []
+      }
+    },
+    "15": {
+      "question": "Which active district has the highest average score in Reading?",
+      "question_id": "15",
+      "golden": {
+        "schools": [
+          "CDSCode",
+          "District",
+          "StatusType"
+        ],
+        "satscores": [
+          "cds",
+          "AvgScrRead"
+        ]
+      },
+      "retrieved": {
+        "satscores": [
+          "cds",
+          "rtype",
+          "dname",
+          "AvgScrRead"
+        ],
+        "schools": [
+          "CDSCode",
+          "StatusType",
+          "District"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "satscores.dname",
+          "satscores.rtype"
+        ]
+      }
+    },
+    "16": {
+      "question": "How many schools in merged Alameda have number of test takers less than 100?",
+      "question_id": "16",
+      "golden": {
+        "schools": [
+          "CDSCode",
+          "StatusType",
+          "County"
+        ],
+        "satscores": [
+          "cds",
+          "NumTstTakr"
+        ]
+      },
+      "retrieved": {
+        "satscores": [
+          "NumTstTakr",
+          "cds",
+          "cname",
+          "dname"
+        ],
+        "schools": [
+          "CDSCode",
+          "County",
+          "StatusType",
+          "District"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "satscores.cname",
+          "satscores.dname",
+          "schools.District"
+        ]
+      }
+    },
+    "18": {
+      "question": "How many schools in Fresno (directly funded) have number of test takers not more than 250?",
+      "question_id": "18",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "Charter Funding Type",
+          "County Name"
+        ],
+        "satscores": [
+          "cds",
+          "NumTstTakr"
+        ]
+      },
+      "retrieved": {
+        "satscores": [
+          "cds",
+          "NumTstTakr"
+        ],
+        "schools": [
+          "CDSCode",
+          "City",
+          "FundingType"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 3,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "frpm"
+        ],
+        "extra_tables": [
+          "schools"
+        ],
+        "missing_columns": [
+          "frpm.CDSCode",
+          "frpm.Charter Funding Type",
+          "frpm.County Name"
+        ],
+        "extra_columns": [
+          "schools.CDSCode",
+          "schools.City",
+          "schools.FundingType"
+        ]
+      }
+    },
+    "20": {
+      "question": "How many schools in Amador which the Low Grade is 9 and the High Grade is 12?",
+      "question_id": "20",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "Low Grade",
+          "High Grade",
+          "School Name"
+        ],
+        "schools": [
+          "CDSCode",
+          "County"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "Low Grade",
+          "High Grade"
+        ],
+        "schools": [
+          "County",
+          "CDSCode"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "frpm.School Name"
+        ],
+        "extra_columns": []
+      }
+    },
+    "21": {
+      "question": "In Los Angeles how many schools have more than 500 free meals but less than 700 free or reduced price meals for K-12?",
+      "question_id": "21",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "County Name",
+          "Free Meal Count (K-12)",
+          "FRPM Count (K-12)"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "Free Meal Count (K-12)",
+          "FRPM Count (K-12)"
+        ],
+        "schools": [
+          "CDSCode",
+          "City"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "schools"
+        ],
+        "missing_columns": [
+          "frpm.County Name"
+        ],
+        "extra_columns": [
+          "schools.CDSCode",
+          "schools.City"
+        ]
+      }
+    },
+    "22": {
+      "question": "Which school in Contra Costa has the highest number of test takers?",
+      "question_id": "22",
+      "golden": {
+        "satscores": [
+          "sname",
+          "cname",
+          "NumTstTakr"
+        ]
+      },
+      "retrieved": {
+        "satscores": [
+          "sname",
+          "NumTstTakr",
+          "cname",
+          "cds"
+        ],
+        "schools": [
+          "CDSCode",
+          "County",
+          "School"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 4,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "schools"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "satscores.cds",
+          "schools.CDSCode",
+          "schools.County",
+          "schools.School"
+        ]
+      }
+    },
+    "23": {
+      "question": "List the names of schools with more than 30 difference in enrollements between K-12 and ages 5-17? Please also give the full street adress of the schools.",
+      "question_id": "23",
+      "golden": {
+        "schools": [
+          "CDSCode",
+          "School",
+          "Street"
+        ],
+        "frpm": [
+          "CDSCode",
+          "Enrollment (K-12)",
+          "Enrollment (Ages 5-17)"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "School Name",
+          "Enrollment (K-12)",
+          "Enrollment (Ages 5-17)",
+          "CDSCode"
+        ],
+        "schools": [
+          "School",
+          "Street",
+          "City",
+          "Zip",
+          "CDSCode"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "frpm.School Name",
+          "schools.City",
+          "schools.Zip"
+        ]
+      }
+    },
+    "25": {
+      "question": "Name schools in Riverside which the average of average math score for SAT is grater than 400, what is the funding type of these schools?",
+      "question_id": "25",
+      "golden": {
+        "satscores": [
+          "cds",
+          "sname",
+          "AvgScrMath"
+        ],
+        "frpm": [
+          "CDSCode",
+          "District Name",
+          "Charter Funding Type"
+        ]
+      },
+      "retrieved": {
+        "satscores": [
+          "cds",
+          "sname",
+          "AvgScrMath"
+        ],
+        "schools": [
+          "CDSCode",
+          "School",
+          "County",
+          "FundingType"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 3,
+        "col_fp": 4,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "frpm"
+        ],
+        "extra_tables": [
+          "schools"
+        ],
+        "missing_columns": [
+          "frpm.CDSCode",
+          "frpm.Charter Funding Type",
+          "frpm.District Name"
+        ],
+        "extra_columns": [
+          "schools.CDSCode",
+          "schools.County",
+          "schools.FundingType",
+          "schools.School"
+        ]
+      }
+    },
+    "26": {
+      "question": "State the names and full communication address of high schools in Monterey which has more than 800 free or reduced price meals for ages 15-17?",
+      "question_id": "26",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "School Name",
+          "Free Meal Count (Ages 5-17)",
+          "School Type"
+        ],
+        "schools": [
+          "CDSCode",
+          "Street",
+          "City",
+          "State",
+          "Zip",
+          "County"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "County Name",
+          "School Name",
+          "FRPM Count (Ages 5-17)",
+          "Low Grade",
+          "High Grade",
+          "School Type"
+        ],
+        "schools": [
+          "CDSCode",
+          "School",
+          "Street",
+          "City",
+          "State",
+          "Zip"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 8,
+        "col_fp": 5,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "frpm.Free Meal Count (Ages 5-17)",
+          "schools.County"
+        ],
+        "extra_columns": [
+          "frpm.County Name",
+          "frpm.FRPM Count (Ages 5-17)",
+          "frpm.High Grade",
+          "frpm.Low Grade",
+          "schools.School"
+        ]
+      }
+    },
+    "27": {
+      "question": "What is the average score in writing for the schools that were opened after 1991 or closed before 2000? List the school names along with the score. Also, list the communication number of the schools if there is any.",
+      "question_id": "27",
+      "golden": {
+        "schools": [
+          "CDSCode",
+          "School",
+          "Phone",
+          "OpenDate",
+          "ClosedDate"
+        ],
+        "satscores": [
+          "cds",
+          "AvgScrWrite"
+        ]
+      },
+      "retrieved": {
+        "satscores": [
+          "cds",
+          "sname",
+          "AvgScrWrite"
+        ],
+        "schools": [
+          "CDSCode",
+          "School",
+          "OpenDate",
+          "ClosedDate",
+          "Phone"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "satscores.sname"
+        ]
+      }
+    },
+    "28": {
+      "question": "Consider the average difference between K-12 enrollment and 15-17 enrollment of schools that are locally funded, list the names and DOC type of schools which has a difference above this average.",
+      "question_id": "28",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "Enrollment (K-12)",
+          "Enrollment (Ages 5-17)"
+        ],
+        "schools": [
+          "CDSCode",
+          "School",
+          "DOC",
+          "FundingType"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "School Name",
+          "Enrollment (K-12)",
+          "Enrollment (Ages 5-17)",
+          "CDSCode"
+        ],
+        "schools": [
+          "CDSCode",
+          "FundingType"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "schools.DOC",
+          "schools.School"
+        ],
+        "extra_columns": [
+          "frpm.School Name"
+        ]
+      }
+    },
+    "29": {
+      "question": "When did the first-through-twelfth-grade school with the largest enrollment open?",
+      "question_id": "29",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "Enrollment (K-12)"
+        ],
+        "schools": [
+          "CDSCode",
+          "OpenDate"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "Enrollment (K-12)",
+          "School Type"
+        ],
+        "schools": [
+          "CDSCode",
+          "OpenDate"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "frpm.School Type"
+        ]
+      }
+    },
+    "31": {
+      "question": "What is the eligible free rate of the 10th and 11th schools with the highest enrolment for students in grades 1 through 12?",
+      "question_id": "31",
+      "golden": {
+        "frpm": [
+          "Free Meal Count (K-12)",
+          "Enrollment (K-12)"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "Enrollment (K-12)",
+          "Free Meal Count (K-12)"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "frpm.CDSCode"
+        ]
+      }
+    },
+    "33": {
+      "question": "If there are any, what are the websites address of the schools with a free meal count of 1,900-2,000 to students aged 5-17? Include the name of the school.",
+      "question_id": "33",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "School Name",
+          "Free Meal Count (Ages 5-17)"
+        ],
+        "schools": [
+          "CDSCode",
+          "Website"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "Free Meal Count (Ages 5-17)",
+          "School Name"
+        ],
+        "schools": [
+          "CDSCode",
+          "School",
+          "Website"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "schools.School"
+        ]
+      }
+    },
+    "35": {
+      "question": "What is the administrator's email address of the chartered school with the fewest students enrolled in grades 1 through 12?",
+      "question_id": "35",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "Charter School (Y/N)",
+          "Enrollment (K-12)"
+        ],
+        "schools": [
+          "CDSCode",
+          "AdmEmail1"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "Charter School (Y/N)",
+          "Enrollment (K-12)"
+        ],
+        "schools": [
+          "CDSCode",
+          "AdmEmail1",
+          "AdmEmail2",
+          "AdmEmail3"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "schools.AdmEmail2",
+          "schools.AdmEmail3"
+        ]
+      }
+    },
+    "38": {
+      "question": "What are the webpages for the Los Angeles County school that has between 2,000 and 3,000 test takers?",
+      "question_id": "38",
+      "golden": {
+        "satscores": [
+          "cds",
+          "NumTstTakr"
+        ],
+        "schools": [
+          "CDSCode",
+          "County",
+          "Website"
+        ]
+      },
+      "retrieved": {
+        "satscores": [
+          "cds",
+          "NumTstTakr",
+          "cname"
+        ],
+        "schools": [
+          "CDSCode",
+          "County",
+          "Website"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "satscores.cname"
+        ]
+      }
+    },
+    "39": {
+      "question": "What is the average number of test takers from Fresno schools that opened between 1/1/1980 and 12/31/1980?",
+      "question_id": "39",
+      "golden": {
+        "satscores": [
+          "cds",
+          "NumTstTakr"
+        ],
+        "schools": [
+          "CDSCode",
+          "OpenDate",
+          "County"
+        ]
+      },
+      "retrieved": {
+        "satscores": [
+          "cds",
+          "NumTstTakr"
+        ],
+        "schools": [
+          "CDSCode",
+          "City",
+          "OpenDate"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "schools.County"
+        ],
+        "extra_columns": [
+          "schools.City"
+        ]
+      }
+    },
+    "40": {
+      "question": "What is the telephone number for the school with the lowest average score in reading in Fresno Unified?",
+      "question_id": "40",
+      "golden": {
+        "satscores": [
+          "cds",
+          "AvgScrRead"
+        ],
+        "schools": [
+          "CDSCode",
+          "District",
+          "Phone"
+        ]
+      },
+      "retrieved": {
+        "satscores": [
+          "cds",
+          "AvgScrRead",
+          "dname"
+        ],
+        "schools": [
+          "CDSCode",
+          "Phone"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "schools.District"
+        ],
+        "extra_columns": [
+          "satscores.dname"
+        ]
+      }
+    },
+    "41": {
+      "question": "List the names of virtual schools that are among the top 5 in their respective counties based on average reading scores.",
+      "question_id": "41",
+      "golden": {
+        "satscores": [
+          "cds",
+          "AvgScrRead"
+        ],
+        "schools": [
+          "CDSCode",
+          "School",
+          "County",
+          "Virtual"
+        ]
+      },
+      "retrieved": {
+        "satscores": [
+          "cds",
+          "sname",
+          "cname",
+          "AvgScrRead"
+        ],
+        "schools": [
+          "CDSCode",
+          "School",
+          "County",
+          "Virtual"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "satscores.cname",
+          "satscores.sname"
+        ]
+      }
+    },
+    "43": {
+      "question": "What is the average math score of the school with the lowest average score for all subjects, and in which county is it located?",
+      "question_id": "43",
+      "golden": {
+        "satscores": [
+          "cds",
+          "AvgScrMath",
+          "AvgScrRead",
+          "AvgScrWrite"
+        ],
+        "schools": [
+          "CDSCode",
+          "County"
+        ]
+      },
+      "retrieved": {
+        "satscores": [
+          "AvgScrMath",
+          "AvgScrRead",
+          "AvgScrWrite",
+          "cds",
+          "cname"
+        ],
+        "schools": [
+          "CDSCode",
+          "County"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "satscores.cname"
+        ]
+      }
+    },
+    "45": {
+      "question": "What is the average writing score of each of the schools managed by Ricci Ulrich? List the schools and the corresponding average writing scores.",
+      "question_id": "45",
+      "golden": {
+        "satscores": [
+          "cds",
+          "AvgScrWrite"
+        ],
+        "schools": [
+          "CDSCode",
+          "School",
+          "AdmFName1",
+          "AdmLName1"
+        ]
+      },
+      "retrieved": {
+        "satscores": [
+          "cds",
+          "sname",
+          "AvgScrWrite"
+        ],
+        "schools": [
+          "CDSCode",
+          "School",
+          "AdmFName1",
+          "AdmLName1",
+          "AdmFName2",
+          "AdmLName2",
+          "AdmFName3",
+          "AdmLName3"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 5,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "satscores.sname",
+          "schools.AdmFName2",
+          "schools.AdmFName3",
+          "schools.AdmLName2",
+          "schools.AdmLName3"
+        ]
+      }
+    },
+    "46": {
+      "question": "Which state special schools have the highest number of enrollees from grades 1 through 12?",
+      "question_id": "46",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "Enrollment (K-12)"
+        ],
+        "schools": [
+          "CDSCode",
+          "School",
+          "DOC"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "Enrollment (K-12)",
+          "School Name"
+        ],
+        "schools": [
+          "CDSCode",
+          "SOC",
+          "DOC",
+          "School"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "frpm.School Name",
+          "schools.SOC"
+        ]
+      }
+    },
+    "47": {
+      "question": "What is the monthly average number of schools that opened in Alameda County under the jurisdiction of the Elementary School District in 1980?",
+      "question_id": "47",
+      "golden": {
+        "schools": [
+          "School",
+          "DOC",
+          "County",
+          "OpenDate"
+        ]
+      },
+      "retrieved": {
+        "schools": [
+          "County",
+          "DOC",
+          "OpenDate"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "schools.School"
+        ],
+        "extra_columns": []
+      }
+    },
+    "48": {
+      "question": "What is the ratio of merged Unified School District schools in Orange County to merged Elementary School District schools?",
+      "question_id": "48",
+      "golden": {
+        "schools": [
+          "DOC",
+          "StatusType",
+          "County"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "County Name",
+          "District Type"
+        ],
+        "schools": [
+          "CDSCode",
+          "County",
+          "DOC",
+          "DOCType",
+          "StatusType"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 5,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "frpm"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "frpm.CDSCode",
+          "frpm.County Name",
+          "frpm.District Type",
+          "schools.CDSCode",
+          "schools.DOCType"
+        ]
+      }
+    },
+    "50": {
+      "question": "What is the postal street address for the school with the 7th highest Math average? Indicate the school's name.",
+      "question_id": "50",
+      "golden": {
+        "satscores": [
+          "cds",
+          "AvgScrMath"
+        ],
+        "schools": [
+          "CDSCode",
+          "MailStreet",
+          "School"
+        ]
+      },
+      "retrieved": {
+        "satscores": [
+          "cds",
+          "sname",
+          "AvgScrMath"
+        ],
+        "schools": [
+          "CDSCode",
+          "School",
+          "MailStreet",
+          "MailStrAbr"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "satscores.sname",
+          "schools.MailStrAbr"
+        ]
+      }
+    },
+    "51": {
+      "question": "In which mailing street address can you find the school that has the lowest average score in reading? Also give the school's name.",
+      "question_id": "51",
+      "golden": {
+        "satscores": [
+          "cds",
+          "AvgScrRead"
+        ],
+        "schools": [
+          "CDSCode",
+          "MailStreet",
+          "School"
+        ]
+      },
+      "retrieved": {
+        "satscores": [
+          "cds",
+          "AvgScrRead",
+          "sname"
+        ],
+        "schools": [
+          "CDSCode",
+          "School",
+          "MailStrAbr"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "schools.MailStreet"
+        ],
+        "extra_columns": [
+          "satscores.sname",
+          "schools.MailStrAbr"
+        ]
+      }
+    },
+    "54": {
+      "question": "Please specify all of the schools and their related mailing zip codes that are under Avetik Atoian's administration.",
+      "question_id": "54",
+      "golden": {
+        "schools": [
+          "School",
+          "MailZip",
+          "AdmFName1",
+          "AdmLName1"
+        ]
+      },
+      "retrieved": {
+        "schools": [
+          "School",
+          "MailZip",
+          "AdmFName1",
+          "AdmLName1",
+          "AdmFName2",
+          "AdmLName2",
+          "AdmFName3",
+          "AdmLName3"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 4,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "schools.AdmFName2",
+          "schools.AdmFName3",
+          "schools.AdmLName2",
+          "schools.AdmLName3"
+        ]
+      }
+    },
+    "56": {
+      "question": "Of all the schools with a mailing state address in California, how many are active in San Joaquin city?",
+      "question_id": "56",
+      "golden": {
+        "schools": [
+          "CDSCode",
+          "City",
+          "MailState",
+          "StatusType"
+        ]
+      },
+      "retrieved": {
+        "schools": [
+          "MailState",
+          "City",
+          "StatusType"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "schools.CDSCode"
+        ],
+        "extra_columns": []
+      }
+    },
+    "59": {
+      "question": "What is the website for the schools under the administrations of Mike Larson and Dante Alvarez?",
+      "question_id": "59",
+      "golden": {
+        "schools": [
+          "Website",
+          "AdmFName1",
+          "AdmLName1"
+        ]
+      },
+      "retrieved": {
+        "schools": [
+          "Website",
+          "AdmFName1",
+          "AdmLName1",
+          "AdmFName2",
+          "AdmLName2"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "schools.AdmFName2",
+          "schools.AdmLName2"
+        ]
+      }
+    },
+    "60": {
+      "question": "What are the websites for all the partially virtual chartered schools located in San Joaquin?",
+      "question_id": "60",
+      "golden": {
+        "schools": [
+          "Website",
+          "County",
+          "Virtual",
+          "Charter"
+        ]
+      },
+      "retrieved": {
+        "schools": [
+          "CDSCode",
+          "Charter",
+          "Virtual",
+          "Website",
+          "County"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "schools.CDSCode"
+        ]
+      }
+    },
+    "61": {
+      "question": "How many chartered schools located in the city of Hickman are owned by the Elementary School District?",
+      "question_id": "61",
+      "golden": {
+        "schools": [
+          "School",
+          "DOC",
+          "Charter",
+          "City"
+        ]
+      },
+      "retrieved": {
+        "schools": [
+          "Charter",
+          "DOC",
+          "County",
+          "School",
+          "City"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "schools.County"
+        ]
+      }
+    },
+    "62": {
+      "question": "What is the total number of non-chartered schools in the county of Los Angeles with a percent (%) of eligible free meals for grades 1 through 12 that is less than 0.18%?",
+      "question_id": "62",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "Free Meal Count (K-12)",
+          "Enrollment (K-12)"
+        ],
+        "schools": [
+          "CDSCode",
+          "County",
+          "Charter"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "Charter School (Y/N)",
+          "County Name",
+          "Free Meal Count (K-12)",
+          "Enrollment (K-12)"
+        ],
+        "schools": [
+          "CDSCode",
+          "Charter",
+          "County"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "frpm.Charter School (Y/N)",
+          "frpm.County Name"
+        ]
+      }
+    },
+    "63": {
+      "question": "In chartered schools with charter number 00D2, what are the names of all the administrators? Include the name of the school and the city to which it belongs",
+      "question_id": "63",
+      "golden": {
+        "schools": [
+          "AdmFName1",
+          "AdmLName1",
+          "School",
+          "City",
+          "Charter",
+          "CharterNum"
+        ]
+      },
+      "retrieved": {
+        "schools": [
+          "Charter",
+          "CharterNum",
+          "School",
+          "City",
+          "AdmFName1",
+          "AdmFName2",
+          "AdmFName3",
+          "AdmLName1",
+          "AdmLName2",
+          "AdmLName3"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 4,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "schools.AdmFName2",
+          "schools.AdmFName3",
+          "schools.AdmLName2",
+          "schools.AdmLName3"
+        ]
+      }
+    },
+    "65": {
+      "question": "What is the ratio in percentage of Santa Clara County schools that are locally funded compared to all other types of charter school funding?",
+      "question_id": "65",
+      "golden": {
+        "schools": [
+          "FundingType",
+          "County",
+          "Charter"
+        ]
+      },
+      "retrieved": {
+        "schools": [
+          "CDSCode",
+          "Charter",
+          "County",
+          "FundingType"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "schools.CDSCode"
+        ]
+      }
+    },
+    "66": {
+      "question": "Between 1/1/2000 to 12/31/2005, how many directly funded schools opened in the county of Stanislaus?",
+      "question_id": "66",
+      "golden": {
+        "schools": [
+          "School",
+          "OpenDate",
+          "County",
+          "FundingType"
+        ]
+      },
+      "retrieved": {
+        "schools": [
+          "CDSCode",
+          "County",
+          "FundingType",
+          "OpenDate"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "schools.School"
+        ],
+        "extra_columns": [
+          "schools.CDSCode"
+        ]
+      }
+    },
+    "67": {
+      "question": "What is the total amount of Community College District closure in 1989 in the city of San Francisco?",
+      "question_id": "67",
+      "golden": {
+        "schools": [
+          "School",
+          "ClosedDate",
+          "City",
+          "DOCType"
+        ]
+      },
+      "retrieved": {
+        "schools": [
+          "CDSCode",
+          "City",
+          "ClosedDate",
+          "District",
+          "DOC",
+          "DOCType",
+          "StatusType",
+          "County",
+          "SOCType",
+          "EdOpsName"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 7,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "schools.School"
+        ],
+        "extra_columns": [
+          "schools.CDSCode",
+          "schools.County",
+          "schools.DOC",
+          "schools.District",
+          "schools.EdOpsName",
+          "schools.SOCType",
+          "schools.StatusType"
+        ]
+      }
+    },
+    "68": {
+      "question": "Which county reported the most number of school closure in the 1980s with school wonership code belonging to Youth Authority Facilities (CEA)?",
+      "question_id": "68",
+      "golden": {
+        "schools": [
+          "County",
+          "ClosedDate",
+          "StatusType",
+          "SOC",
+          "School"
+        ]
+      },
+      "retrieved": {
+        "schools": [
+          "County",
+          "ClosedDate",
+          "SOC"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "schools.School",
+          "schools.StatusType"
+        ],
+        "extra_columns": []
+      }
+    },
+    "70": {
+      "question": "How many active and closed District Community Day Schools are there in the county of Alpine?",
+      "question_id": "70",
+      "golden": {
+        "schools": [
+          "School",
+          "StatusType",
+          "SOC",
+          "County"
+        ]
+      },
+      "retrieved": {
+        "schools": [
+          "CDSCode",
+          "County",
+          "School",
+          "StatusType",
+          "EdOpsName",
+          "SOCType"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 3,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "schools.SOC"
+        ],
+        "extra_columns": [
+          "schools.CDSCode",
+          "schools.EdOpsName",
+          "schools.SOCType"
+        ]
+      }
+    },
+    "71": {
+      "question": "What is the district code for the School that does not offer a magnet program in the city of Fresno?",
+      "question_id": "71",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "District Code"
+        ],
+        "schools": [
+          "CDSCode",
+          "City",
+          "Magnet"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "District Code"
+        ],
+        "schools": [
+          "CDSCode",
+          "City",
+          "Magnet",
+          "District"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "schools.District"
+        ]
+      }
+    },
+    "72": {
+      "question": "How many students from the ages of 5 to 17 are enrolled at the State Special School school in Fremont for the 2014-2015 academic year?",
+      "question_id": "72",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "Academic Year",
+          "Enrollment (Ages 5-17)"
+        ],
+        "schools": [
+          "CDSCode",
+          "EdOpsCode",
+          "City"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "Academic Year",
+          "Enrollment (Ages 5-17)"
+        ],
+        "schools": [
+          "CDSCode",
+          "City"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "schools.EdOpsCode"
+        ],
+        "extra_columns": []
+      }
+    },
+    "73": {
+      "question": "What is the free or reduced price meal count for ages 5 to 17 in the Youth Authority School with a mailing street address of PO Box 1040?",
+      "question_id": "73",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "FRPM Count (Ages 5-17)"
+        ],
+        "schools": [
+          "CDSCode",
+          "MailStreet",
+          "SOCType"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "FRPM Count (Ages 5-17)"
+        ],
+        "schools": [
+          "CDSCode",
+          "School",
+          "MailStrAbr"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "schools.MailStreet",
+          "schools.SOCType"
+        ],
+        "extra_columns": [
+          "schools.MailStrAbr",
+          "schools.School"
+        ]
+      }
+    },
+    "74": {
+      "question": "What is the lowest grade for the District Special Education Consortia School with National Center for Educational Statistics school district identification number of 0613360?",
+      "question_id": "74",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "Low Grade"
+        ],
+        "schools": [
+          "CDSCode",
+          "NCESDist",
+          "EdOpsCode"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "Low Grade",
+          "High Grade"
+        ],
+        "schools": [
+          "CDSCode",
+          "NCESDist",
+          "EdOpsCode",
+          "GSoffered",
+          "GSserved",
+          "EdOpsName"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 4,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "frpm.High Grade",
+          "schools.EdOpsName",
+          "schools.GSoffered",
+          "schools.GSserved"
+        ]
+      }
+    },
+    "75": {
+      "question": "What is the educational level name for the schools with Breakfast Provision 2 in county code 37? Indicate the name of the school.",
+      "question_id": "75",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "NSLP Provision Status",
+          "County Code"
+        ],
+        "schools": [
+          "CDSCode",
+          "EILName",
+          "School"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "County Code",
+          "NSLP Provision Status",
+          "School Name",
+          "CDSCode"
+        ],
+        "schools": [
+          "CDSCode",
+          "EILName",
+          "School"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "frpm.School Name"
+        ]
+      }
+    },
+    "76": {
+      "question": "What is the city location of the high school level school with Lunch Provision 2 whose lowest grade is 9 and the highest grade is 12 in the county of Merced?",
+      "question_id": "76",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "NSLP Provision Status",
+          "Low Grade",
+          "High Grade"
+        ],
+        "schools": [
+          "CDSCode",
+          "City",
+          "County",
+          "EILCode"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "County Name",
+          "Low Grade",
+          "High Grade",
+          "NSLP Provision Status"
+        ],
+        "schools": [
+          "CDSCode",
+          "City",
+          "County",
+          "EILCode"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 8,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "frpm.County Name"
+        ]
+      }
+    },
+    "77": {
+      "question": "Which schools served a grade span of Kindergarten to 9th grade in the county of Los Angeles and what is its Percent (%) Eligible FRPM (Ages 5-17)?",
+      "question_id": "77",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "FRPM Count (Ages 5-17)",
+          "Enrollment (Ages 5-17)"
+        ],
+        "schools": [
+          "CDSCode",
+          "School",
+          "County",
+          "GSserved"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "County Name",
+          "Low Grade",
+          "High Grade",
+          "FRPM Count (Ages 5-17)",
+          "Enrollment (Ages 5-17)",
+          "School Name"
+        ],
+        "schools": [
+          "CDSCode",
+          "County",
+          "GSserved"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 4,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "schools.School"
+        ],
+        "extra_columns": [
+          "frpm.County Name",
+          "frpm.High Grade",
+          "frpm.Low Grade",
+          "frpm.School Name"
+        ]
+      }
+    },
+    "80": {
+      "question": "What is the school type of the school with the highest latitude? Indicate the name of the school as well as the latitude coordinates.",
+      "question_id": "80",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "School Type",
+          "School Name"
+        ],
+        "schools": [
+          "CDSCode",
+          "Latitude"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "School Type"
+        ],
+        "schools": [
+          "CDSCode",
+          "School",
+          "Latitude"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "frpm.School Name"
+        ],
+        "extra_columns": [
+          "schools.School"
+        ]
+      }
+    },
+    "81": {
+      "question": "In which city can you find the school in the state of California with the lowest latitude coordinates and what is its lowest grade? Indicate the school name.",
+      "question_id": "81",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "Low Grade",
+          "School Name"
+        ],
+        "schools": [
+          "CDSCode",
+          "City",
+          "State",
+          "Latitude"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "Low Grade",
+          "CDSCode"
+        ],
+        "schools": [
+          "School",
+          "City",
+          "State",
+          "Latitude",
+          "CDSCode"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "frpm.School Name"
+        ],
+        "extra_columns": [
+          "schools.School"
+        ]
+      }
+    },
+    "83": {
+      "question": "Of the schools that offers a magnet program serving a grade span of Kindergarten to 8th grade, how many offers Multiple Provision Types? List the number of cities that offers a Kindergarten to 8th grade span and indicate how many schools are there serving such grade span for each city.",
+      "question_id": "83",
+      "golden": {
+        "frpm": [
+          "CDSCode",
+          "NSLP Provision Status"
+        ],
+        "schools": [
+          "CDSCode",
+          "City",
+          "Magnet",
+          "GSoffered"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "NSLP Provision Status"
+        ],
+        "schools": [
+          "CDSCode",
+          "Magnet",
+          "City",
+          "GSserved"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "schools.GSoffered"
+        ],
+        "extra_columns": [
+          "schools.GSserved"
+        ]
+      }
+    },
+    "84": {
+      "question": "What are the two most common first names among the school administrators? Indicate the district to which they administer.",
+      "question_id": "84",
+      "golden": {
+        "schools": [
+          "AdmFName1",
+          "District"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "District Name"
+        ],
+        "schools": [
+          "AdmFName1",
+          "AdmFName2",
+          "AdmFName3",
+          "CDSCode"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 5,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "frpm"
+        ],
+        "missing_columns": [
+          "schools.District"
+        ],
+        "extra_columns": [
+          "frpm.CDSCode",
+          "frpm.District Name",
+          "schools.AdmFName2",
+          "schools.AdmFName3",
+          "schools.CDSCode"
+        ]
+      }
+    },
+    "85": {
+      "question": "What is the Percent (%) Eligible Free (K-12) in the school administered by an administrator whose first name is Alusine. List the district code of the school.",
+      "question_id": "85",
+      "golden": {
+        "frpm": [
+          "Free Meal Count (K-12)",
+          "Enrollment (K-12)",
+          "District Code",
+          "CDSCode"
+        ],
+        "schools": [
+          "CDSCode",
+          "AdmFName1"
+        ]
+      },
+      "retrieved": {
+        "frpm": [
+          "CDSCode",
+          "Enrollment (K-12)",
+          "Free Meal Count (K-12)",
+          "District Code"
+        ],
+        "schools": [
+          "CDSCode",
+          "AdmFName1",
+          "AdmFName2",
+          "AdmFName3"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "schools.AdmFName2",
+          "schools.AdmFName3"
+        ]
+      }
+    },
+    "87": {
+      "question": "What are the valid e-mail addresses of the administrator of the school located in the San Bernardino county, City of San Bernardino City Unified that opened between 1/1/2009 to 12/31/2010 whose school types are public Intermediate/Middle Schools and Unified Schools?",
+      "question_id": "87",
+      "golden": {
+        "frpm": [
+          "CDSCode"
+        ],
+        "schools": [
+          "CDSCode",
+          "County",
+          "City",
+          "DOC",
+          "OpenDate",
+          "SOC",
+          "AdmEmail1",
+          "AdmEmail2"
+        ]
+      },
+      "retrieved": {
+        "schools": [
+          "CDSCode",
+          "County",
+          "District",
+          "OpenDate",
+          "SOCType",
+          "AdmEmail1",
+          "AdmEmail2",
+          "AdmEmail3",
+          "DOC",
+          "SOC"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 7,
+        "col_fp": 3,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "frpm"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "frpm.CDSCode",
+          "schools.City"
+        ],
+        "extra_columns": [
+          "schools.AdmEmail3",
+          "schools.District",
+          "schools.SOCType"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,7500 @@
+{
+  "summary": {
+    "db_name": "card_games",
+    "generated_at": "2025-12-10 12:17:05",
+    "total_questions": 191,
+    "table_metrics": {
+      "precision": 0.5270758122743683,
+      "recall": 0.926984126984127,
+      "f1": 0.6720368239355582
+    },
+    "column_metrics": {
+      "precision": 0.8956043956043956,
+      "recall": 0.8534031413612565,
+      "f1": 0.8739946380697051
+    }
+  },
+  "mismatches": {
+    "340": {
+      "question": "Which are the cards that have incredibly powerful foils.",
+      "question_id": "340",
+      "golden": {
+        "cards": [
+          "id",
+          "cardKingdomFoilId",
+          "cardKingdomId"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "cardKingdomFoilId",
+          "cardKingdomId",
+          "name"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": [
+          "cards.name"
+        ]
+      }
+    },
+    "341": {
+      "question": "What are the borderless cards available without powerful foils?",
+      "question_id": "341",
+      "golden": {
+        "cards": [
+          "id",
+          "borderColor",
+          "cardKingdomId"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "borderColor",
+          "cardKingdomFoilId",
+          "cardKingdomId"
+        ],
+        "'borderless'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'borderless'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": [
+          "cards.cardKingdomFoilId"
+        ]
+      }
+    },
+    "343": {
+      "question": "Name all cards with 2015 frame style ranking below 100 on EDHRec.",
+      "question_id": "343",
+      "golden": {
+        "cards": [
+          "id",
+          "edhrecRank",
+          "frameVersion"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "edhrecRank",
+          "frameVersion",
+          "name"
+        ],
+        "'2015'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2015'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": [
+          "cards.name"
+        ]
+      }
+    },
+    "344": {
+      "question": "List all the mythic rarity print cards banned in gladiator format.",
+      "question_id": "344",
+      "golden": {
+        "cards": [
+          "id",
+          "uuid",
+          "rarity"
+        ],
+        "legalities": [
+          "uuid",
+          "format",
+          "status"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "rarity",
+          "uuid"
+        ],
+        "legalities": [
+          "format",
+          "status",
+          "uuid"
+        ],
+        "'mythic'": [],
+        "'Banned'": [],
+        "'gladiator'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Banned'",
+          "'gladiator'",
+          "'mythic'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "345": {
+      "question": "For artifact type of cards that do not have multiple faces on the same card, state its legalities status for vintage play format.",
+      "question_id": "345",
+      "golden": {
+        "cards": [
+          "uuid",
+          "type",
+          "side"
+        ],
+        "legalities": [
+          "uuid",
+          "format",
+          "status"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "side",
+          "types",
+          "uuid"
+        ],
+        "legalities": [
+          "format",
+          "status",
+          "uuid"
+        ],
+        "'Artifact'": [],
+        "'vintage'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Artifact'",
+          "'vintage'"
+        ],
+        "missing_columns": [
+          "cards.type"
+        ],
+        "extra_columns": [
+          "cards.types"
+        ]
+      }
+    },
+    "346": {
+      "question": "List all the card id and artist with unknown power which are legal for commander play format.",
+      "question_id": "346",
+      "golden": {
+        "cards": [
+          "id",
+          "artist",
+          "power",
+          "uuid"
+        ],
+        "legalities": [
+          "status",
+          "format",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "id",
+          "power",
+          "uuid"
+        ],
+        "legalities": [
+          "format",
+          "status",
+          "uuid"
+        ],
+        "'*'": [],
+        "'commander'": [],
+        "'Legal'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'*'",
+          "'Legal'",
+          "'commander'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "347": {
+      "question": "Find all cards illustrated by Stephen Daniel and describe the text of the ruling of these cards. State if these cards have missing or degraded properties and values.",
+      "question_id": "347",
+      "golden": {
+        "cards": [
+          "id",
+          "artist",
+          "hasContentWarning",
+          "uuid"
+        ],
+        "rulings": [
+          "text",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "hasContentWarning",
+          "id",
+          "uuid"
+        ],
+        "rulings": [
+          "text",
+          "uuid"
+        ],
+        "\"Stephen Daniel\"": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "\"Stephen Daniel\""
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "348": {
+      "question": "Describe the information about rulings for card named 'Sublime Epiphany' with number 74s.",
+      "question_id": "348",
+      "golden": {
+        "cards": [
+          "uuid",
+          "name",
+          "number"
+        ],
+        "rulings": [
+          "text",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "rulings": [
+          "date",
+          "text",
+          "uuid"
+        ],
+        "cards": [
+          "name",
+          "number",
+          "uuid"
+        ],
+        "'Sublime Epiphany'": [],
+        "'74s'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'74s'",
+          "'Sublime Epiphany'"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "rulings.date"
+        ]
+      }
+    },
+    "350": {
+      "question": "State the alternative languages available for card named Annul numbered 29.",
+      "question_id": "350",
+      "golden": {
+        "cards": [
+          "uuid",
+          "name",
+          "number"
+        ],
+        "foreign_data": [
+          "uuid",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "cards": [
+          "name",
+          "number",
+          "uuid"
+        ],
+        "'Annul'": [],
+        "'29'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'29'",
+          "'Annul'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "351": {
+      "question": "Name all the cards which have alternative language in Japanese.",
+      "question_id": "351",
+      "golden": {
+        "cards": [
+          "name",
+          "uuid"
+        ],
+        "foreign_data": [
+          "uuid",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "Japanese": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Japanese"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "352": {
+      "question": "Calculate the percentage of the cards availabe in Chinese Simplified.",
+      "question_id": "352",
+      "golden": {
+        "cards": [
+          "id",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "foreign_data": [
+          "language"
+        ],
+        "'Chinese Simplified'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "cards"
+        ],
+        "extra_tables": [
+          "'Chinese Simplified'"
+        ],
+        "missing_columns": [
+          "cards.id",
+          "cards.uuid",
+          "foreign_data.uuid"
+        ],
+        "extra_columns": []
+      }
+    },
+    "353": {
+      "question": "List all the sets available in Italian translation. State the total number of cards per set.",
+      "question_id": "353",
+      "golden": {
+        "sets": [
+          "name",
+          "totalSetSize",
+          "code"
+        ],
+        "set_translations": [
+          "language",
+          "setCode"
+        ]
+      },
+      "retrieved": {
+        "set_translations": [
+          "language",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "totalSetSize"
+        ],
+        "'Italian'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Italian'"
+        ],
+        "missing_columns": [
+          "sets.name"
+        ],
+        "extra_columns": []
+      }
+    },
+    "354": {
+      "question": "How many types of cards does the artist Aaron Boyd illustrated about card art?",
+      "question_id": "354",
+      "golden": {
+        "cards": [
+          "type",
+          "artist"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "types"
+        ],
+        "'Aaron Boyd'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Aaron Boyd'"
+        ],
+        "missing_columns": [
+          "cards.type"
+        ],
+        "extra_columns": [
+          "cards.types"
+        ]
+      }
+    },
+    "355": {
+      "question": "What is the keyword found on card 'Angel of Mercy'?",
+      "question_id": "355",
+      "golden": {
+        "cards": [
+          "keywords",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "keywords",
+          "name"
+        ],
+        "'Angel of Mercy'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Angel of Mercy'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "356": {
+      "question": "How many cards have infinite power?",
+      "question_id": "356",
+      "golden": {
+        "cards": [
+          "power"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "power"
+        ],
+        "'*'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'*'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "357": {
+      "question": "What type of promotion is of card 'Duress'?",
+      "question_id": "357",
+      "golden": {
+        "cards": [
+          "promoTypes",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "promoTypes"
+        ],
+        "'Duress'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Duress'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "358": {
+      "question": "What is the border color of card \"Ancestor's Chosen\"?",
+      "question_id": "358",
+      "golden": {
+        "cards": [
+          "borderColor",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "borderColor",
+          "name"
+        ],
+        "'Ancestor''s Chosen'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Ancestor''s Chosen'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "359": {
+      "question": "What is the type of the card \"Ancestor's Chosen\" as originally printed?",
+      "question_id": "359",
+      "golden": {
+        "cards": [
+          "name",
+          "originalType"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "originalType"
+        ],
+        "\"Ancestor's Chosen\"": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "\"Ancestor's Chosen\""
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "360": {
+      "question": "cards are not directly linked to language but through table 'set'. you need to add set in covered table & rephrase your question\nWhat are the languages available for the set that card 'Angel of Mercy' is in?",
+      "question_id": "360",
+      "golden": {
+        "set_translations": [
+          "id",
+          "language"
+        ],
+        "cards": [
+          "id",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "setCode"
+        ],
+        "sets": [
+          "code"
+        ],
+        "set_translations": [
+          "language",
+          "setCode"
+        ],
+        "'Angel of Mercy'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 3,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Angel of Mercy'",
+          "sets"
+        ],
+        "missing_columns": [
+          "cards.id",
+          "set_translations.id"
+        ],
+        "extra_columns": [
+          "cards.setCode",
+          "set_translations.setCode",
+          "sets.code"
+        ]
+      }
+    },
+    "361": {
+      "question": "How many cards of legalities whose status is restricted have text boxes?",
+      "question_id": "361",
+      "golden": {
+        "cards": [
+          "id",
+          "uuid",
+          "isTextless"
+        ],
+        "legalities": [
+          "uuid",
+          "status"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "isTextless",
+          "uuid"
+        ],
+        "legalities": [
+          "status",
+          "uuid"
+        ],
+        "'restricted'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'restricted'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "362": {
+      "question": "What is the description about the ruling of card \"Condemn\"?",
+      "question_id": "362",
+      "golden": {
+        "cards": [
+          "uuid",
+          "name"
+        ],
+        "rulings": [
+          "text",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "uuid"
+        ],
+        "rulings": [
+          "text",
+          "uuid"
+        ],
+        "Condemn": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Condemn"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "363": {
+      "question": "How many cards of legalities whose status is restricted are found in a starter deck?",
+      "question_id": "363",
+      "golden": {
+        "cards": [
+          "id",
+          "uuid",
+          "isStarter"
+        ],
+        "legalities": [
+          "uuid",
+          "status"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "isStarter",
+          "uuid"
+        ],
+        "legalities": [
+          "status",
+          "uuid"
+        ],
+        "'restricted'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'restricted'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "365": {
+      "question": "What is the type of card \"Benalish Knight\"?",
+      "question_id": "365",
+      "golden": {
+        "cards": [
+          "type",
+          "uuid",
+          "name"
+        ],
+        "foreign_data": [
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "type"
+        ],
+        "\"Benalish Knight\"": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "foreign_data"
+        ],
+        "extra_tables": [
+          "\"Benalish Knight\""
+        ],
+        "missing_columns": [
+          "cards.uuid",
+          "foreign_data.uuid"
+        ],
+        "extra_columns": []
+      }
+    },
+    "366": {
+      "question": "What is the rule of playing card \"Benalish Knight\"?",
+      "question_id": "366",
+      "golden": {
+        "cards": [
+          "uuid",
+          "name"
+        ],
+        "legalities": [
+          "format",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "uuid"
+        ],
+        "legalities": [
+          "format",
+          "uuid"
+        ],
+        "\"Benalish Knight\"": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "\"Benalish Knight\""
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "367": {
+      "question": "Please provide the names of the artists who illustrated the card art in Phyrexian.",
+      "question_id": "367",
+      "golden": {
+        "cards": [
+          "artist",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "'Phyrexian'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Phyrexian'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "368": {
+      "question": "What is the percentage of borderless cards?",
+      "question_id": "368",
+      "golden": {
+        "cards": [
+          "borderColor",
+          "id"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "borderColor",
+          "id"
+        ],
+        "'borderless'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'borderless'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "369": {
+      "question": "How many cards that illusrtated in German have been reprinted?",
+      "question_id": "369",
+      "golden": {
+        "cards": [
+          "id",
+          "uuid",
+          "isReprint"
+        ],
+        "foreign_data": [
+          "uuid",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "cards": [
+          "isReprint",
+          "uuid"
+        ],
+        "'German'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'German'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "370": {
+      "question": "How many borderless cards are illustrated in Russian?",
+      "question_id": "370",
+      "golden": {
+        "cards": [
+          "id",
+          "uuid",
+          "borderColor"
+        ],
+        "foreign_data": [
+          "uuid",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "borderColor",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "'borderless'": [],
+        "'Russian'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Russian'",
+          "'borderless'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "371": {
+      "question": "What is the percentage of cards whose language is French among the Story Spotlight cards?",
+      "question_id": "371",
+      "golden": {
+        "cards": [
+          "id",
+          "uuid",
+          "isStorySpotlight"
+        ],
+        "foreign_data": [
+          "uuid",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "cards": [
+          "isStorySpotlight",
+          "uuid"
+        ],
+        "'French'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'French'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "372": {
+      "question": "How many cards are there with toughness of 99?",
+      "question_id": "372",
+      "golden": {
+        "cards": [
+          "id",
+          "toughness"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "toughness"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "373": {
+      "question": "Name the cards that were illustrated by Aaron Boyd.",
+      "question_id": "373",
+      "golden": {
+        "cards": [
+          "name",
+          "artist"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "name"
+        ],
+        "\"Aaron Boyd\"": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "\"Aaron Boyd\""
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "374": {
+      "question": "How many black border cards are only available on mtgo?",
+      "question_id": "374",
+      "golden": {
+        "cards": [
+          "id",
+          "availability",
+          "borderColor"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "availability",
+          "borderColor"
+        ],
+        "'black'": [],
+        "'mtgo'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'black'",
+          "'mtgo'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "376": {
+      "question": "What are the card layout of cards with keyword of flying?",
+      "question_id": "376",
+      "golden": {
+        "cards": [
+          "layout",
+          "keywords"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "keywords",
+          "layout"
+        ],
+        "\"Flying\"": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "\"Flying\""
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "377": {
+      "question": "How many cards with original type of \"Summon - Angel\" have subtype other than \"Angel\"?",
+      "question_id": "377",
+      "golden": {
+        "cards": [
+          "id",
+          "originalType",
+          "subtypes"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "originalType",
+          "subtypes"
+        ],
+        "\"Summon - Angel\"": [],
+        "\"Angel\"": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "\"Angel\"",
+          "\"Summon - Angel\""
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "378": {
+      "question": "What are the foiled cards that are incredibly powerful when paired with non foiled cards? List the IDs.",
+      "question_id": "378",
+      "golden": {
+        "cards": [
+          "id",
+          "cardKingdomId",
+          "cardKingdomFoilId"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "cardKingdomFoilId",
+          "cardKingdomId",
+          "hasFoil",
+          "id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "cards.hasFoil"
+        ]
+      }
+    },
+    "379": {
+      "question": "What are the cards belong to duel deck a? List the ID.",
+      "question_id": "379",
+      "golden": {
+        "cards": [
+          "id",
+          "duelDeck"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "duelDeck",
+          "id"
+        ],
+        "'a'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'a'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "381": {
+      "question": "List down the name of artists for cards in Chinese Simplified.",
+      "question_id": "381",
+      "golden": {
+        "cards": [
+          "artist",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "'Chinese Simplified'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Chinese Simplified'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "382": {
+      "question": "What are the cards that only available in paper and Japanese language?",
+      "question_id": "382",
+      "golden": {
+        "cards": [
+          "name",
+          "availability",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "availability",
+          "name",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "'paper'": [],
+        "'Japanese'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Japanese'",
+          "'paper'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "383": {
+      "question": "How many of the banned cards are white border?",
+      "question_id": "383",
+      "golden": {
+        "cards": [
+          "id",
+          "uuid",
+          "borderColor"
+        ],
+        "legalities": [
+          "uuid",
+          "status"
+        ]
+      },
+      "retrieved": {
+        "legalities": [
+          "status",
+          "uuid"
+        ],
+        "cards": [
+          "borderColor",
+          "uuid"
+        ],
+        "'Banned'": [],
+        "'white'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Banned'",
+          "'white'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "384": {
+      "question": "List down the uuid for legacy cards and the foreign language of these cards.",
+      "question_id": "384",
+      "golden": {
+        "cards": [
+          "uuid"
+        ],
+        "legalities": [
+          "uuid",
+          "format"
+        ],
+        "foreign_data": [
+          "uuid",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "legalities": [
+          "format",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "'legacy'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "cards"
+        ],
+        "extra_tables": [
+          "'legacy'"
+        ],
+        "missing_columns": [
+          "cards.uuid"
+        ],
+        "extra_columns": []
+      }
+    },
+    "385": {
+      "question": "Write down the ruling of Beacon of Immortality.",
+      "question_id": "385",
+      "golden": {
+        "cards": [
+          "uuid",
+          "name"
+        ],
+        "rulings": [
+          "text",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "rulings": [
+          "text",
+          "uuid"
+        ],
+        "cards": [
+          "name",
+          "uuid"
+        ],
+        "'Beacon of Immortality'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Beacon of Immortality'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "386": {
+      "question": "How many cards are having future frame version and what are the legality status of these cards?",
+      "question_id": "386",
+      "golden": {
+        "cards": [
+          "id",
+          "uuid",
+          "frameVersion"
+        ],
+        "legalities": [
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "frameVersion",
+          "id",
+          "uuid"
+        ],
+        "legalities": [
+          "status",
+          "uuid"
+        ],
+        "'future'": [],
+        "'legal'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'future'",
+          "'legal'"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "legalities.status"
+        ]
+      }
+    },
+    "387": {
+      "question": "What are the cards for set OGW? State the colour for these cards.",
+      "question_id": "387",
+      "golden": {
+        "cards": [
+          "id",
+          "colors"
+        ],
+        "set_translations": [
+          "id",
+          "setCode"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "colors",
+          "name",
+          "setCode"
+        ],
+        "'OGW'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 2,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "set_translations"
+        ],
+        "extra_tables": [
+          "'OGW'"
+        ],
+        "missing_columns": [
+          "cards.id",
+          "set_translations.id",
+          "set_translations.setCode"
+        ],
+        "extra_columns": [
+          "cards.name",
+          "cards.setCode"
+        ]
+      }
+    },
+    "388": {
+      "question": "What are the cards in set 10E with converted mana of 5 have translation and what are the languages?",
+      "question_id": "388",
+      "golden": {
+        "cards": [
+          "id",
+          "convertedManaCost"
+        ],
+        "set_translations": [
+          "id",
+          "language",
+          "setCode"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "convertedManaCost",
+          "setCode",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "'10E'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 4,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "set_translations"
+        ],
+        "extra_tables": [
+          "'10E'",
+          "foreign_data"
+        ],
+        "missing_columns": [
+          "cards.id",
+          "set_translations.id",
+          "set_translations.language",
+          "set_translations.setCode"
+        ],
+        "extra_columns": [
+          "cards.setCode",
+          "cards.uuid",
+          "foreign_data.language",
+          "foreign_data.uuid"
+        ]
+      }
+    },
+    "389": {
+      "question": "List down the name of cards with original types of Creature - Elf and the date of rulings for these cards.",
+      "question_id": "389",
+      "golden": {
+        "cards": [
+          "id",
+          "uuid",
+          "originalType"
+        ],
+        "rulings": [
+          "date",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "originalType",
+          "uuid"
+        ],
+        "rulings": [
+          "date",
+          "uuid"
+        ],
+        "'Creature - Elf'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Creature - Elf'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": [
+          "cards.name"
+        ]
+      }
+    },
+    "391": {
+      "question": "Among the Artifact cards, which are black color and comes with foreign languague translation?",
+      "question_id": "391",
+      "golden": {
+        "cards": [
+          "name",
+          "uuid",
+          "originalType",
+          "colors"
+        ],
+        "foreign_data": [
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "colors",
+          "originalType",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "'Artifact'": [],
+        "'B'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Artifact'",
+          "'B'"
+        ],
+        "missing_columns": [
+          "cards.name"
+        ],
+        "extra_columns": [
+          "foreign_data.language"
+        ]
+      }
+    },
+    "392": {
+      "question": "Pick 3 cards with rarity of uncommon, list down name these cards according to ascending order of it's ruling date.",
+      "question_id": "392",
+      "golden": {
+        "cards": [
+          "name",
+          "uuid",
+          "rarity"
+        ],
+        "rulings": [
+          "uuid",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "rarity",
+          "uuid"
+        ],
+        "rulings": [
+          "date",
+          "uuid"
+        ],
+        "'uncommon'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'uncommon'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "393": {
+      "question": "On how many cards designed by John Avon is its foil non-powerful?",
+      "question_id": "393",
+      "golden": {
+        "cards": [
+          "id",
+          "cardKingdomId",
+          "cardKingdomFoilId",
+          "artist"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "cardKingdomFoilId",
+          "cardKingdomId"
+        ],
+        "'John Avon'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'John Avon'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "394": {
+      "question": "How many white bordered cards are powerful?",
+      "question_id": "394",
+      "golden": {
+        "cards": [
+          "id",
+          "borderColor",
+          "cardKingdomId",
+          "cardKingdomFoilId"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "borderColor",
+          "cardKingdomFoilId",
+          "cardKingdomId"
+        ],
+        "'white'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'white'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "395": {
+      "question": "How many cards designed by UDON and available in mtgo print type has a starting maximum hand size of -1?",
+      "question_id": "395",
+      "golden": {
+        "cards": [
+          "id",
+          "hand",
+          "artist",
+          "availability"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "availability",
+          "hand"
+        ],
+        "'UDON'": [],
+        "'mtgo'": [],
+        "'-1'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'-1'",
+          "'UDON'",
+          "'mtgo'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "396": {
+      "question": "How many cards with a 1993 frame version and available on paper have a sensitive content warning?",
+      "question_id": "396",
+      "golden": {
+        "cards": [
+          "id",
+          "frameVersion",
+          "availability",
+          "hasContentWarning"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "availability",
+          "frameVersion",
+          "hasContentWarning"
+        ],
+        "'1993'": [],
+        "'paper'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'1993'",
+          "'paper'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "397": {
+      "question": "What is the mana cost of cards with a normal layout, a 2003 frame version, with a black border color, and available in paper and mtgo?",
+      "question_id": "397",
+      "golden": {
+        "cards": [
+          "manaCost",
+          "availability",
+          "borderColor",
+          "frameVersion",
+          "layout"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "availability",
+          "borderColor",
+          "frameVersion",
+          "layout",
+          "manaCost"
+        ],
+        "'normal'": [],
+        "'2003'": [],
+        "'black'": [],
+        "'mtgo": [],
+        "paper'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 5,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2003'",
+          "'black'",
+          "'mtgo",
+          "'normal'",
+          "paper'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "398": {
+      "question": "What is the  unconverted mana do all the cards created by Rob Alexander cost in total?",
+      "question_id": "398",
+      "golden": {
+        "cards": [
+          "manaCost",
+          "artist"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "manaCost"
+        ],
+        "'Rob Alexander'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Rob Alexander'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "399": {
+      "question": "Lists all types of cards available in arena.",
+      "question_id": "399",
+      "golden": {
+        "cards": [
+          "availability",
+          "subtypes",
+          "supertypes"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "availability",
+          "subtypes",
+          "supertypes"
+        ],
+        "'arena'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'arena'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "400": {
+      "question": "Lists the set code of all cards translated into Spanish.",
+      "question_id": "400",
+      "golden": {
+        "set_translations": [
+          "language",
+          "setCode"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "setCode",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "'Spanish'": []
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 3,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 4,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "set_translations"
+        ],
+        "extra_tables": [
+          "'Spanish'",
+          "cards",
+          "foreign_data"
+        ],
+        "missing_columns": [
+          "set_translations.language",
+          "set_translations.setCode"
+        ],
+        "extra_columns": [
+          "cards.setCode",
+          "cards.uuid",
+          "foreign_data.language",
+          "foreign_data.uuid"
+        ]
+      }
+    },
+    "401": {
+      "question": "What percentage of legendary frame effect cards that are only available in online game variations?",
+      "question_id": "401",
+      "golden": {
+        "cards": [
+          "isOnlineOnly",
+          "id",
+          "frameEffects"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "frameEffects",
+          "id",
+          "isOnlineOnly"
+        ],
+        "'legendary'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'legendary'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "403": {
+      "question": "Calculate the percentage of cards in Spanish. List them by name.",
+      "question_id": "403",
+      "golden": {
+        "foreign_data": [
+          "language",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "foreign_data": [
+          "id",
+          "language",
+          "name"
+        ],
+        "'Spanish'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Spanish'"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "foreign_data.id"
+        ]
+      }
+    },
+    "405": {
+      "question": "How many Brazilian Portuguese translated sets are inside the Commander block?",
+      "question_id": "405",
+      "golden": {
+        "sets": [
+          "id",
+          "code",
+          "block"
+        ],
+        "set_translations": [
+          "setCode",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "block",
+          "code"
+        ],
+        "set_translations": [
+          "language",
+          "setCode"
+        ],
+        "'Commander'": [],
+        "'Portuguese (Brasil)'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Commander'",
+          "'Portuguese (Brasil)'"
+        ],
+        "missing_columns": [
+          "sets.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "406": {
+      "question": "Lists by ID all Creature-type cards with legal status.",
+      "question_id": "406",
+      "golden": {
+        "cards": [
+          "id",
+          "uuid",
+          "types"
+        ],
+        "rulings": [
+          "uuid"
+        ],
+        "legalities": [
+          "uuid",
+          "status"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "id",
+          "types",
+          "uuid"
+        ],
+        "legalities": [
+          "status",
+          "uuid"
+        ],
+        "'Legal'": [],
+        "'Creature'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "rulings"
+        ],
+        "extra_tables": [
+          "'Creature'",
+          "'Legal'"
+        ],
+        "missing_columns": [
+          "rulings.uuid"
+        ],
+        "extra_columns": []
+      }
+    },
+    "407": {
+      "question": "Lists all types of cards in German.",
+      "question_id": "407",
+      "golden": {
+        "cards": [
+          "subtypes",
+          "supertypes",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "subtypes",
+          "supertypes",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "'German'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'German'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "408": {
+      "question": "How many unknown power cards contain info about the triggered ability",
+      "question_id": "408",
+      "golden": {
+        "cards": [
+          "uuid",
+          "power"
+        ],
+        "rulings": [
+          "uuid",
+          "text"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "power",
+          "text"
+        ],
+        "'*'": [],
+        "'triggered ability'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 1,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "rulings"
+        ],
+        "extra_tables": [
+          "'*'",
+          "'triggered ability'"
+        ],
+        "missing_columns": [
+          "cards.uuid",
+          "rulings.text",
+          "rulings.uuid"
+        ],
+        "extra_columns": [
+          "cards.text"
+        ]
+      }
+    },
+    "409": {
+      "question": "Indicates the number of cards with pre-modern format, ruling text \"This is a triggered mana ability.\" that do not have multiple faces.",
+      "question_id": "409",
+      "golden": {
+        "cards": [
+          "id",
+          "uuid",
+          "side"
+        ],
+        "legalities": [
+          "uuid",
+          "format"
+        ],
+        "rulings": [
+          "uuid",
+          "text"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "side",
+          "uuid"
+        ],
+        "legalities": [
+          "format",
+          "uuid"
+        ],
+        "rulings": [
+          "text",
+          "uuid"
+        ],
+        "'premodern'": [],
+        "'This is a triggered mana ability": [
+          "'"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'This is a triggered mana ability",
+          "'premodern'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": [
+          "'This is a triggered mana ability.'"
+        ]
+      }
+    },
+    "410": {
+      "question": "Is there any card from Erica Yang artist in pauper format and available in paper? If so, indicate its ID.",
+      "question_id": "410",
+      "golden": {
+        "cards": [
+          "id",
+          "artist",
+          "availability",
+          "uuid"
+        ],
+        "legalities": [
+          "format",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "availability",
+          "id",
+          "uuid"
+        ],
+        "legalities": [
+          "format",
+          "uuid"
+        ],
+        "'Erica Yang'": [],
+        "'paper'": [],
+        "'pauper'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Erica Yang'",
+          "'paper'",
+          "'pauper'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "411": {
+      "question": "To which artist does the card with the text \"Das perfekte Gegenmittel zu einer dichten Formation\" belong?",
+      "question_id": "411",
+      "golden": {
+        "cards": [
+          "artist",
+          "uuid"
+        ],
+        "foreign_data": [
+          "flavorText",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "uuid"
+        ],
+        "foreign_data": [
+          "flavorText",
+          "text",
+          "uuid"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "foreign_data.text"
+        ]
+      }
+    },
+    "412": {
+      "question": "What is the foreign name of the card in French of type Creature, normal layout and black border color, by artist Matthew D. Wilson?",
+      "question_id": "412",
+      "golden": {
+        "cards": [
+          "uuid",
+          "types",
+          "layout",
+          "borderColor",
+          "artist"
+        ],
+        "foreign_data": [
+          "name",
+          "uuid",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "foreign_data": [
+          "language",
+          "name",
+          "uuid"
+        ],
+        "cards": [
+          "artist",
+          "borderColor",
+          "layout",
+          "type",
+          "uuid"
+        ],
+        "'French'": [],
+        "'black'": [],
+        "'normal'": [],
+        "'Matthew D": [
+          " Wilson'"
+        ],
+        "'Creature'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 5,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Creature'",
+          "'French'",
+          "'Matthew D",
+          "'black'",
+          "'normal'"
+        ],
+        "missing_columns": [
+          "cards.types"
+        ],
+        "extra_columns": [
+          "'Matthew D. Wilson'",
+          "cards.type"
+        ]
+      }
+    },
+    "413": {
+      "question": "How many cards with print rarity have ruling text printed on 01/02/2007?",
+      "question_id": "413",
+      "golden": {
+        "cards": [
+          "id",
+          "uuid",
+          "rarity"
+        ],
+        "rulings": [
+          "uuid",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "rarity",
+          "uuid"
+        ],
+        "rulings": [
+          "date",
+          "uuid"
+        ],
+        "'rare'": [],
+        "'2007-02-01'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2007-02-01'",
+          "'rare'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "414": {
+      "question": "What language is the set of 180 cards that belongs to the Ravnica block translated into?",
+      "question_id": "414",
+      "golden": {
+        "sets": [
+          "code",
+          "block",
+          "baseSetSize"
+        ],
+        "set_translations": [
+          "language",
+          "setCode"
+        ]
+      },
+      "retrieved": {
+        "set_translations": [
+          "language",
+          "setCode"
+        ],
+        "sets": [
+          "baseSetSize",
+          "block",
+          "code"
+        ],
+        "'Ravnica'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Ravnica'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "415": {
+      "question": "What percentage of cards with format commander and legal status do not have a content warning?",
+      "question_id": "415",
+      "golden": {
+        "cards": [
+          "hasContentWarning",
+          "id",
+          "uuid"
+        ],
+        "legalities": [
+          "format",
+          "status",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "legalities": [
+          "format",
+          "status",
+          "uuid"
+        ],
+        "cards": [
+          "hasContentWarning",
+          "uuid"
+        ],
+        "'commander'": [],
+        "'Legal'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Legal'",
+          "'commander'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "416": {
+      "question": "What percentage of cards without power are in French?",
+      "question_id": "416",
+      "golden": {
+        "cards": [
+          "id",
+          "power",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "power",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "'French'": [],
+        "'*'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'*'",
+          "'French'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "417": {
+      "question": "What percentage of Japanese translated sets are expansion sets?",
+      "question_id": "417",
+      "golden": {
+        "sets": [
+          "id",
+          "code",
+          "type"
+        ],
+        "set_translations": [
+          "language",
+          "setCode"
+        ]
+      },
+      "retrieved": {
+        "set_translations": [
+          "language",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "type"
+        ],
+        "'Japanese'": [],
+        "'expansion'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Japanese'",
+          "'expansion'"
+        ],
+        "missing_columns": [
+          "sets.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "418": {
+      "question": "What kind of printing is on the card that Daren Bader created?",
+      "question_id": "418",
+      "golden": {
+        "cards": [
+          "availability",
+          "artist"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "availability"
+        ],
+        "'Daren Bader'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Daren Bader'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "419": {
+      "question": "How many color cards with no borders have been ranked higher than 12000 on EDHRec?",
+      "question_id": "419",
+      "golden": {
+        "cards": [
+          "id",
+          "edhrecRank",
+          "borderColor"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "borderColor",
+          "edhrecRank"
+        ],
+        "'borderless'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'borderless'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "420": {
+      "question": "How many cards are oversized, reprinted, and printed for promotions?",
+      "question_id": "420",
+      "golden": {
+        "cards": [
+          "id",
+          "isOversized",
+          "isReprint",
+          "isPromo"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "isOversized",
+          "isPromo",
+          "isReprint"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "421": {
+      "question": "Please list top three unknown power cards that have promotional types for arena league in alphabetical order.",
+      "question_id": "421",
+      "golden": {
+        "cards": [
+          "name",
+          "power",
+          "promoTypes"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "power",
+          "promoTypes"
+        ],
+        "'*'": [],
+        "'arenaleague'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'*'",
+          "'arenaleague'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "423": {
+      "question": "Please provide the ids of top three powerful pairs of Kingdom Foil and Kingdom Cards sorted by Kingdom Foil id in alphabetical order.",
+      "question_id": "423",
+      "golden": {
+        "cards": [
+          "cardKingdomFoilId",
+          "cardKingdomId"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "cardKingdomFoilId",
+          "cardKingdomId",
+          "id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "cards.id"
+        ]
+      }
+    },
+    "424": {
+      "question": "What proportion of cards do not have a text box with a normal layout?",
+      "question_id": "424",
+      "golden": {
+        "cards": [
+          "isTextless",
+          "layout"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "isTextless",
+          "layout"
+        ],
+        "'normal'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'normal'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "425": {
+      "question": "What are the card numbers that don't have multiple faces on a single card and have the subtypes Angel and Wizard?",
+      "question_id": "425",
+      "golden": {
+        "cards": [
+          "id",
+          "subtypes",
+          "side"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "number",
+          "side",
+          "subtypes"
+        ],
+        "'Angel'": [],
+        "'Wizard'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Angel'",
+          "'Wizard'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": [
+          "cards.number"
+        ]
+      }
+    },
+    "427": {
+      "question": "What languages are available in the set known as Archenemy on the magic card market and having the code ARC?",
+      "question_id": "427",
+      "golden": {
+        "sets": [
+          "code",
+          "mcmName"
+        ],
+        "set_translations": [
+          "language",
+          "setCode"
+        ]
+      },
+      "retrieved": {
+        "set_translations": [
+          "language",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "mcmName"
+        ],
+        "'Archenemy'": [],
+        "'ARC'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'ARC'",
+          "'Archenemy'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "428": {
+      "question": "What is the name of set number 5 and its translation?",
+      "question_id": "428",
+      "golden": {
+        "sets": [
+          "name",
+          "code"
+        ],
+        "set_translations": [
+          "id",
+          "setCode",
+          "translation"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "id",
+          "name"
+        ],
+        "set_translations": [
+          "setCode",
+          "translation"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "set_translations.id"
+        ],
+        "extra_columns": [
+          "sets.id"
+        ]
+      }
+    },
+    "429": {
+      "question": "What is the language and expansion type of set number 206?",
+      "question_id": "429",
+      "golden": {
+        "sets": [
+          "code",
+          "type"
+        ],
+        "set_translations": [
+          "id",
+          "language",
+          "setCode"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "id",
+          "type"
+        ],
+        "set_translations": [
+          "language",
+          "setCode"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "set_translations.id"
+        ],
+        "extra_columns": [
+          "sets.id"
+        ]
+      }
+    },
+    "430": {
+      "question": "Please list top two sets of cards with their IDs that have Italian-language cards and are located in the Shadowmoor block in alphabetical order.",
+      "question_id": "430",
+      "golden": {
+        "sets": [
+          "name",
+          "id",
+          "code",
+          "block"
+        ],
+        "set_translations": [
+          "setCode",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "block",
+          "code",
+          "id",
+          "name"
+        ],
+        "cards": [
+          "setCode",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "'Italian'": [],
+        "'Shadowmoor'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 4,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 4,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "set_translations"
+        ],
+        "extra_tables": [
+          "'Italian'",
+          "'Shadowmoor'",
+          "cards",
+          "foreign_data"
+        ],
+        "missing_columns": [
+          "set_translations.language",
+          "set_translations.setCode"
+        ],
+        "extra_columns": [
+          "cards.setCode",
+          "cards.uuid",
+          "foreign_data.language",
+          "foreign_data.uuid"
+        ]
+      }
+    },
+    "431": {
+      "question": "Which set is not available outside of the United States and has foil cards with Japanese writing on them? Please include the set ID in your response.",
+      "question_id": "431",
+      "golden": {
+        "sets": [
+          "name",
+          "id",
+          "code",
+          "isFoilOnly",
+          "isForeignOnly"
+        ],
+        "set_translations": [
+          "setCode",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "id",
+          "isFoilOnly",
+          "isForeignOnly",
+          "name"
+        ],
+        "set_translations": [
+          "language",
+          "setCode"
+        ],
+        "'Japanese'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Japanese'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "432": {
+      "question": "Which Russian set of cards contains the most cards overall?",
+      "question_id": "432",
+      "golden": {
+        "sets": [
+          "id",
+          "code",
+          "baseSetSize"
+        ],
+        "set_translations": [
+          "setCode",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "set_translations": [
+          "language",
+          "setCode"
+        ],
+        "sets": [
+          "baseSetSize",
+          "code",
+          "name"
+        ],
+        "'Russian'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Russian'"
+        ],
+        "missing_columns": [
+          "sets.id"
+        ],
+        "extra_columns": [
+          "sets.name"
+        ]
+      }
+    },
+    "433": {
+      "question": "What is the percentage of the set of cards that have Chinese Simplified as the language and are only available for online games?",
+      "question_id": "433",
+      "golden": {
+        "sets": [
+          "code",
+          "isOnlineOnly"
+        ],
+        "set_translations": [
+          "language",
+          "setCode"
+        ]
+      },
+      "retrieved": {
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "cards": [
+          "isOnlineOnly",
+          "uuid"
+        ],
+        "'Chinese Simplified'": []
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 3,
+        "tbl_fn": 2,
+        "col_tp": 0,
+        "col_fp": 4,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "set_translations",
+          "sets"
+        ],
+        "extra_tables": [
+          "'Chinese Simplified'",
+          "cards",
+          "foreign_data"
+        ],
+        "missing_columns": [
+          "set_translations.language",
+          "set_translations.setCode",
+          "sets.code",
+          "sets.isOnlineOnly"
+        ],
+        "extra_columns": [
+          "cards.isOnlineOnly",
+          "cards.uuid",
+          "foreign_data.language",
+          "foreign_data.uuid"
+        ]
+      }
+    },
+    "434": {
+      "question": "How many sets are available just in Japanese and not in Magic: The Gathering Online?",
+      "question_id": "434",
+      "golden": {
+        "sets": [
+          "id",
+          "code",
+          "mtgoCode"
+        ],
+        "set_translations": [
+          "setCode",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "mtgoCode"
+        ],
+        "set_translations": [
+          "language",
+          "setCode"
+        ],
+        "'Japanese'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Japanese'"
+        ],
+        "missing_columns": [
+          "sets.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "435": {
+      "question": "How many card border with black color ? List out the card id.",
+      "question_id": "435",
+      "golden": {
+        "cards": [
+          "id",
+          "borderColor"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "borderColor",
+          "id"
+        ],
+        "'black'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'black'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "436": {
+      "question": "How many cards have frame effect as extendedart? List out the id of those cards.",
+      "question_id": "436",
+      "golden": {
+        "cards": [
+          "id",
+          "frameEffects"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "frameEffects",
+          "id"
+        ],
+        "'extendedart'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'extendedart'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "437": {
+      "question": "Among black card borders, which card has full artwork?",
+      "question_id": "437",
+      "golden": {
+        "cards": [
+          "id",
+          "borderColor",
+          "isFullArt"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "borderColor",
+          "isFullArt",
+          "name"
+        ],
+        "'black'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'black'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": [
+          "cards.name"
+        ]
+      }
+    },
+    "438": {
+      "question": "Point out the language of set id \"174\"?",
+      "question_id": "438",
+      "golden": {
+        "set_translations": [
+          "id",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "id"
+        ],
+        "set_translations": [
+          "language",
+          "setCode"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 3,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "sets"
+        ],
+        "missing_columns": [
+          "set_translations.id"
+        ],
+        "extra_columns": [
+          "set_translations.setCode",
+          "sets.code",
+          "sets.id"
+        ]
+      }
+    },
+    "439": {
+      "question": "List out the set name of the set code \"ALL\".",
+      "question_id": "439",
+      "golden": {
+        "sets": [
+          "name",
+          "code"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "name"
+        ],
+        "'ALL'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'ALL'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "440": {
+      "question": "Which foreign language used by \"A Pedra Fellwar\"?",
+      "question_id": "440",
+      "golden": {
+        "foreign_data": [
+          "language",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "foreign_data": [
+          "language",
+          "name"
+        ],
+        "'A Pedra Fellwar'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'A Pedra Fellwar'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "441": {
+      "question": "State the set code of the set with release date of 07/13/2007?",
+      "question_id": "441",
+      "golden": {
+        "sets": [
+          "code",
+          "releaseDate"
+        ],
+        "set_translations": [
+          "setCode"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "releaseDate"
+        ],
+        "'2007-07-13'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "set_translations"
+        ],
+        "extra_tables": [
+          "'2007-07-13'"
+        ],
+        "missing_columns": [
+          "set_translations.setCode"
+        ],
+        "extra_columns": []
+      }
+    },
+    "442": {
+      "question": "Mention the base set size and set code of the set that was in block named \"Masques\" and \"Mirage\".",
+      "question_id": "442",
+      "golden": {
+        "sets": [
+          "baseSetSize",
+          "block",
+          "code"
+        ],
+        "set_translations": [
+          "setCode"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "baseSetSize",
+          "block",
+          "code"
+        ],
+        "\"Masques\"": [],
+        "\"Mirage\"": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "set_translations"
+        ],
+        "extra_tables": [
+          "\"Masques\"",
+          "\"Mirage\""
+        ],
+        "missing_columns": [
+          "set_translations.setCode"
+        ],
+        "extra_columns": []
+      }
+    },
+    "443": {
+      "question": "Give the code of sets have expansion type of 'expansion'?",
+      "question_id": "443",
+      "golden": {
+        "sets": [
+          "code",
+          "type"
+        ],
+        "set_translations": [
+          "setCode"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "type"
+        ],
+        "'expansion'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "set_translations"
+        ],
+        "extra_tables": [
+          "'expansion'"
+        ],
+        "missing_columns": [
+          "set_translations.setCode"
+        ],
+        "extra_columns": []
+      }
+    },
+    "444": {
+      "question": "Name the foreign name of the card that has boros watermark? List out the type of this card.",
+      "question_id": "444",
+      "golden": {
+        "cards": [
+          "name",
+          "type",
+          "watermark",
+          "uuid"
+        ],
+        "foreign_data": [
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "foreign_data": [
+          "name",
+          "type",
+          "uuid"
+        ],
+        "cards": [
+          "uuid",
+          "watermark"
+        ],
+        "'boros'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'boros'"
+        ],
+        "missing_columns": [
+          "cards.name",
+          "cards.type"
+        ],
+        "extra_columns": [
+          "foreign_data.name",
+          "foreign_data.type"
+        ]
+      }
+    },
+    "445": {
+      "question": "What is the language and flavor text of the card that has colorpie watermark? List out the type of this card.",
+      "question_id": "445",
+      "golden": {
+        "cards": [
+          "uuid",
+          "watermark"
+        ],
+        "foreign_data": [
+          "uuid",
+          "language",
+          "flavorText"
+        ]
+      },
+      "retrieved": {
+        "foreign_data": [
+          "flavorText",
+          "language",
+          "type",
+          "uuid"
+        ],
+        "cards": [
+          "uuid",
+          "watermark"
+        ],
+        "'colorpie'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'colorpie'"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "foreign_data.type"
+        ]
+      }
+    },
+    "446": {
+      "question": "What is percentage of the cards with a converted Mana Cost of 10 in set of Abyssal Horror?",
+      "question_id": "446",
+      "golden": {
+        "cards": [
+          "convertedManaCost",
+          "id",
+          "name",
+          "setCode"
+        ],
+        "sets": [
+          "code"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "convertedManaCost",
+          "name",
+          "setCode"
+        ],
+        "'Abyssal Horror'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "sets"
+        ],
+        "extra_tables": [
+          "'Abyssal Horror'"
+        ],
+        "missing_columns": [
+          "cards.id",
+          "sets.code"
+        ],
+        "extra_columns": []
+      }
+    },
+    "447": {
+      "question": "Give the code of sets have expansion commander type?",
+      "question_id": "447",
+      "golden": {
+        "sets": [
+          "code",
+          "type"
+        ],
+        "set_translations": [
+          "setCode"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "type"
+        ],
+        "'commander'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "set_translations"
+        ],
+        "extra_tables": [
+          "'commander'"
+        ],
+        "missing_columns": [
+          "set_translations.setCode"
+        ],
+        "extra_columns": []
+      }
+    },
+    "448": {
+      "question": "Name the foreign name of the card that has abzan watermark? List out the type of this card.",
+      "question_id": "448",
+      "golden": {
+        "cards": [
+          "name",
+          "type",
+          "watermark",
+          "uuid"
+        ],
+        "foreign_data": [
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "foreign_data": [
+          "name",
+          "type",
+          "uuid"
+        ],
+        "cards": [
+          "uuid",
+          "watermark"
+        ],
+        "'abzan'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'abzan'"
+        ],
+        "missing_columns": [
+          "cards.name",
+          "cards.type"
+        ],
+        "extra_columns": [
+          "foreign_data.name",
+          "foreign_data.type"
+        ]
+      }
+    },
+    "449": {
+      "question": "What is the language of the card that has azorius watermark? List out the type of this card.",
+      "question_id": "449",
+      "golden": {
+        "cards": [
+          "type",
+          "uuid",
+          "watermark"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "type",
+          "uuid",
+          "watermark"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "'azorius'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'azorius'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "450": {
+      "question": "Of all the cards that are designed by Aaron Miller, how many of them are incredibly powerful?",
+      "question_id": "450",
+      "golden": {
+        "cards": [
+          "artist",
+          "cardKingdomFoilId",
+          "cardKingdomId"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "cardKingdomFoilId",
+          "cardKingdomId"
+        ],
+        "'Aaron Miller'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Aaron Miller'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "453": {
+      "question": "What's the unconverted mana cost of the card \"Ancestor's Chosen\"?",
+      "question_id": "453",
+      "golden": {
+        "cards": [
+          "manaCost",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "manaCost",
+          "name"
+        ],
+        "\"Ancestor's Chosen\"": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "\"Ancestor's Chosen\""
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "454": {
+      "question": "Among the cards with a white border color, how many of them have unknown power?",
+      "question_id": "454",
+      "golden": {
+        "cards": [
+          "power",
+          "borderColor"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "borderColor",
+          "power"
+        ],
+        "'white'": [],
+        "'*'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'*'",
+          "'white'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "456": {
+      "question": "What's the list of all types for the card \"Molimo, Maro-Sorcerer\"?",
+      "question_id": "456",
+      "golden": {
+        "cards": [
+          "subtypes",
+          "supertypes",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "subtypes",
+          "supertypes"
+        ],
+        "'Molimo": [],
+        "Maro-Sorcerer'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Molimo",
+          "Maro-Sorcerer'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "457": {
+      "question": "Please list the websites where I can purchase the cards that have the promotional type of \"bundle\".",
+      "question_id": "457",
+      "golden": {
+        "cards": [
+          "purchaseUrls",
+          "promoTypes"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "promoTypes",
+          "purchaseUrls"
+        ],
+        "'bundle'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'bundle'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "458": {
+      "question": "How many artists have designed a card with a black border color and is available in both \"arena\" and \"mtgo\" printing type?",
+      "question_id": "458",
+      "golden": {
+        "cards": [
+          "availability",
+          "borderColor"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "availability",
+          "borderColor"
+        ],
+        "\"black\"": [],
+        "\"arena\"": [],
+        "\"mtgo\"": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "\"arena\"",
+          "\"black\"",
+          "\"mtgo\""
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "cards.artist"
+        ]
+      }
+    },
+    "459": {
+      "question": "Which card costs more converted mana, \"Serra Angel\" or \"Shrine Keeper\"?",
+      "question_id": "459",
+      "golden": {
+        "cards": [
+          "name",
+          "convertedManaCost"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "convertedManaCost",
+          "name"
+        ],
+        "'Serra Angel'": [],
+        "'Shrine Keeper'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Serra Angel'",
+          "'Shrine Keeper'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "460": {
+      "question": "Which artist designed the card whose promotional name is \"Battra, Dark Destroyer\"?",
+      "question_id": "460",
+      "golden": {
+        "cards": [
+          "artist",
+          "flavorName"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "flavorName"
+        ],
+        "'Battra": [],
+        "Dark Destroyer'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Battra",
+          "Dark Destroyer'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "461": {
+      "question": "Please list the names of the top 3 cards with the highest converted mana cost and have a 2003 card frame style.",
+      "question_id": "461",
+      "golden": {
+        "cards": [
+          "name",
+          "frameVersion",
+          "convertedManaCost"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "convertedManaCost",
+          "frameVersion",
+          "name"
+        ],
+        "'2003'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2003'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "462": {
+      "question": "What's the Italian name of the set of cards with \"Ancestor's Chosen\" is in?",
+      "question_id": "462",
+      "golden": {
+        "set_translations": [
+          "translation",
+          "setCode",
+          "language"
+        ],
+        "cards": [
+          "name",
+          "setCode"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "setCode"
+        ],
+        "set_translations": [
+          "language",
+          "setCode",
+          "translation"
+        ],
+        "\"Ancestor's Chosen\"": [],
+        "\"Italian\"": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "\"Ancestor's Chosen\"",
+          "\"Italian\""
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "463": {
+      "question": "How many translations are there for the set of cards with \"Angel of Mercy\" in it?",
+      "question_id": "463",
+      "golden": {
+        "set_translations": [
+          "setCode",
+          "translation"
+        ],
+        "cards": [
+          "name",
+          "setCode"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "setCode"
+        ],
+        "set_translations": [
+          "setCode",
+          "translation"
+        ],
+        "'Angel of Mercy'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Angel of Mercy'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "464": {
+      "question": "Please list the names of the cards in the set \"Hauptset Zehnte Edition\".",
+      "question_id": "464",
+      "golden": {
+        "cards": [
+          "name",
+          "setCode"
+        ],
+        "set_translations": [
+          "setCode",
+          "translation"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "setCode"
+        ],
+        "set_translations": [
+          "setCode",
+          "translation"
+        ],
+        "'Hauptset Zehnte Edition'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Hauptset Zehnte Edition'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "465": {
+      "question": "For the set of cards with \"Ancestor's Chosen\" in it, is there a Korean version of it?",
+      "question_id": "465",
+      "golden": {
+        "cards": [
+          "name",
+          "setCode"
+        ],
+        "set_translations": [
+          "language",
+          "translation",
+          "setCode"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "\"Ancestor's Chosen\"": [],
+        "\"Korean\"": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 3,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 3,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "set_translations"
+        ],
+        "extra_tables": [
+          "\"Ancestor's Chosen\"",
+          "\"Korean\"",
+          "foreign_data"
+        ],
+        "missing_columns": [
+          "cards.setCode",
+          "set_translations.language",
+          "set_translations.setCode",
+          "set_translations.translation"
+        ],
+        "extra_columns": [
+          "cards.uuid",
+          "foreign_data.language",
+          "foreign_data.uuid"
+        ]
+      }
+    },
+    "466": {
+      "question": "Among the cards in the set \"Hauptset Zehnte Edition\", how many of them are designed by Adam Rex?",
+      "question_id": "466",
+      "golden": {
+        "cards": [
+          "id",
+          "artist",
+          "setCode"
+        ],
+        "set_translations": [
+          "setCode",
+          "translation"
+        ]
+      },
+      "retrieved": {
+        "set_translations": [
+          "setCode",
+          "translation"
+        ],
+        "sets": [
+          "code"
+        ],
+        "cards": [
+          "artist",
+          "setCode"
+        ],
+        "'Hauptset Zehnte Edition'": [],
+        "'Adam Rex'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Adam Rex'",
+          "'Hauptset Zehnte Edition'",
+          "sets"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": [
+          "sets.code"
+        ]
+      }
+    },
+    "467": {
+      "question": "How many cards are there in the base set of \"Hauptset Zehnte Edition\"?",
+      "question_id": "467",
+      "golden": {
+        "sets": [
+          "baseSetSize",
+          "code"
+        ],
+        "set_translations": [
+          "setCode",
+          "translation"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "baseSetSize",
+          "code"
+        ],
+        "set_translations": [
+          "setCode",
+          "translation"
+        ],
+        "'Hauptset Zehnte Edition'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Hauptset Zehnte Edition'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "468": {
+      "question": "What is the Simplified Chinese translation of the name of the set \"Eighth Edition\"?",
+      "question_id": "468",
+      "golden": {
+        "sets": [
+          "code",
+          "name"
+        ],
+        "set_translations": [
+          "setCode",
+          "language",
+          "translation"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "name"
+        ],
+        "set_translations": [
+          "language",
+          "setCode",
+          "translation"
+        ],
+        "'Eighth Edition'": [],
+        "'Chinese Simplified'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Chinese Simplified'",
+          "'Eighth Edition'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "469": {
+      "question": "Did the set of cards with \"Angel of Mercy\" appear on Magic: The Gathering Online?",
+      "question_id": "469",
+      "golden": {
+        "cards": [
+          "name",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "mtgoCode"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "mtgoCode"
+        ],
+        "'Angel of Mercy'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Angel of Mercy'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "470": {
+      "question": "When was the set of cards with \"Ancestor's Chosen\" released?",
+      "question_id": "470",
+      "golden": {
+        "cards": [
+          "name",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "releaseDate"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "releaseDate"
+        ],
+        "'Ancestor''s Chosen'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Ancestor''s Chosen'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "471": {
+      "question": "What is the expansion type of the set \"Hauptset Zehnte Edition\"?",
+      "question_id": "471",
+      "golden": {
+        "sets": [
+          "code",
+          "type"
+        ],
+        "set_translations": [
+          "setCode",
+          "translation"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "type"
+        ],
+        "set_translations": [
+          "setCode",
+          "translation"
+        ],
+        "'Hauptset Zehnte Edition'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Hauptset Zehnte Edition'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "472": {
+      "question": "Among the sets in the block \"Ice Age\", how many of them have an Italian translation?",
+      "question_id": "472",
+      "golden": {
+        "sets": [
+          "id",
+          "code",
+          "block"
+        ],
+        "set_translations": [
+          "setCode",
+          "language",
+          "translation"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "block",
+          "code"
+        ],
+        "set_translations": [
+          "language",
+          "setCode",
+          "translation"
+        ],
+        "'Ice Age'": [],
+        "'Italian'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Ice Age'",
+          "'Italian'"
+        ],
+        "missing_columns": [
+          "sets.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "473": {
+      "question": "Is the set of cards with Adarkar Valkyrie only available outside the United States?",
+      "question_id": "473",
+      "golden": {
+        "cards": [
+          "name",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "isForeignOnly"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "isForeignOnly"
+        ],
+        "'Adarkar Valkyrie'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Adarkar Valkyrie'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "474": {
+      "question": "Among the sets of cards that have an Italian translation, how many of them have a base set number of under 100?",
+      "question_id": "474",
+      "golden": {
+        "sets": [
+          "id",
+          "code",
+          "baseSetSize"
+        ],
+        "set_translations": [
+          "setCode",
+          "translation",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "set_translations": [
+          "language",
+          "setCode",
+          "translation"
+        ],
+        "sets": [
+          "baseSetSize",
+          "code"
+        ],
+        "'Italian'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Italian'"
+        ],
+        "missing_columns": [
+          "sets.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "475": {
+      "question": "How many cards in the set Coldsnap have a black border color?",
+      "question_id": "475",
+      "golden": {
+        "cards": [
+          "borderColor",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "id",
+          "setBorderColor",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ],
+        "'Coldsnap'": [],
+        "'black'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Coldsnap'",
+          "'black'"
+        ],
+        "missing_columns": [
+          "cards.borderColor"
+        ],
+        "extra_columns": [
+          "cards.id",
+          "cards.setBorderColor"
+        ]
+      }
+    },
+    "476": {
+      "question": "Please list the name of the cards in the set Coldsnap with the highest converted mana cost.",
+      "question_id": "476",
+      "golden": {
+        "cards": [
+          "name",
+          "setCode",
+          "convertedManaCost"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "convertedManaCost",
+          "name",
+          "setCode"
+        ],
+        "'Coldsnap'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "sets"
+        ],
+        "extra_tables": [
+          "'Coldsnap'"
+        ],
+        "missing_columns": [
+          "sets.code",
+          "sets.name"
+        ],
+        "extra_columns": []
+      }
+    },
+    "477": {
+      "question": "Which of these artists have designed a card in the set Coldsnap, Jeremy Jarvis, Aaron Miller or Chippy?",
+      "question_id": "477",
+      "golden": {
+        "cards": [
+          "artist",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ],
+        "'Jeremy Jarvis'": [],
+        "'Aaron Miller'": [],
+        "'Chippy'": [],
+        "'Coldsnap'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 4,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Aaron Miller'",
+          "'Chippy'",
+          "'Coldsnap'",
+          "'Jeremy Jarvis'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "478": {
+      "question": "What is card number 4 in the set Coldsnap?",
+      "question_id": "478",
+      "golden": {
+        "cards": [
+          "name",
+          "number",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "number",
+          "setCode"
+        ],
+        "'Coldsnap'": [],
+        "'4'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "sets"
+        ],
+        "extra_tables": [
+          "'4'",
+          "'Coldsnap'"
+        ],
+        "missing_columns": [
+          "cards.name",
+          "sets.code",
+          "sets.name"
+        ],
+        "extra_columns": []
+      }
+    },
+    "479": {
+      "question": "Among the cards with converted mana cost higher than 5 in the set Coldsnap, how many of them have unknown power?",
+      "question_id": "479",
+      "golden": {
+        "cards": [
+          "power",
+          "setCode",
+          "convertedManaCost"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "convertedManaCost",
+          "power",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ],
+        "'Coldsnap'": [],
+        "'*'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'*'",
+          "'Coldsnap'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "480": {
+      "question": "What is the Italian flavor text of the card \"Ancestor's Chosen\"?",
+      "question_id": "480",
+      "golden": {
+        "cards": [
+          "name",
+          "uuid"
+        ],
+        "foreign_data": [
+          "flavorText",
+          "language",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "foreign_data": [
+          "flavorText",
+          "language",
+          "name"
+        ],
+        "'Italian'": [],
+        "\"Ancestor's Chosen\"": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "cards"
+        ],
+        "extra_tables": [
+          "\"Ancestor's Chosen\"",
+          "'Italian'"
+        ],
+        "missing_columns": [
+          "cards.name",
+          "cards.uuid",
+          "foreign_data.uuid"
+        ],
+        "extra_columns": [
+          "foreign_data.name"
+        ]
+      }
+    },
+    "481": {
+      "question": "Please list all the foreign languages in which the card \"Ancestor's Chosen\" has a flavor text.",
+      "question_id": "481",
+      "golden": {
+        "cards": [
+          "name",
+          "uuid"
+        ],
+        "foreign_data": [
+          "uuid",
+          "flavorText",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "uuid"
+        ],
+        "foreign_data": [
+          "flavorText",
+          "language",
+          "uuid"
+        ],
+        "'Ancestor''s Chosen'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Ancestor''s Chosen'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "482": {
+      "question": "What's the German type of the card \"Ancestor's Chosen\"?",
+      "question_id": "482",
+      "golden": {
+        "cards": [
+          "type",
+          "name",
+          "uuid"
+        ],
+        "foreign_data": [
+          "uuid",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "foreign_data": [
+          "language",
+          "name",
+          "type",
+          "uuid"
+        ],
+        "cards": [
+          "name",
+          "uuid"
+        ],
+        "'German'": [],
+        "\"Ancestor's Chosen\"": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "\"Ancestor's Chosen\"",
+          "'German'"
+        ],
+        "missing_columns": [
+          "cards.type"
+        ],
+        "extra_columns": [
+          "foreign_data.name",
+          "foreign_data.type"
+        ]
+      }
+    },
+    "483": {
+      "question": "Please list the Italian text ruling of all the cards in the set Coldsnap.",
+      "question_id": "483",
+      "golden": {
+        "foreign_data": [
+          "text",
+          "uuid",
+          "language"
+        ],
+        "cards": [
+          "uuid",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "foreign_data": [
+          "language",
+          "text",
+          "uuid"
+        ],
+        "cards": [
+          "setCode",
+          "uuid"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ],
+        "'Coldsnap'": [],
+        "'Italian'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Coldsnap'",
+          "'Italian'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "484": {
+      "question": "Please list the Italian names of the cards in the set Coldsnap with the highest converted mana cost.",
+      "question_id": "484",
+      "golden": {
+        "foreign_data": [
+          "uuid",
+          "language"
+        ],
+        "cards": [
+          "name",
+          "uuid",
+          "setCode",
+          "convertedManaCost"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "foreign_data": [
+          "language",
+          "name",
+          "uuid"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ],
+        "cards": [
+          "convertedManaCost",
+          "setCode",
+          "uuid"
+        ],
+        "'Italian'": [],
+        "'Coldsnap'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Coldsnap'",
+          "'Italian'"
+        ],
+        "missing_columns": [
+          "cards.name"
+        ],
+        "extra_columns": [
+          "foreign_data.name"
+        ]
+      }
+    },
+    "485": {
+      "question": "When was the ruling for the card 'Reminisce' created?",
+      "question_id": "485",
+      "golden": {
+        "cards": [
+          "name",
+          "uuid"
+        ],
+        "rulings": [
+          "date",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "rulings": [
+          "date",
+          "uuid"
+        ],
+        "cards": [
+          "name",
+          "uuid"
+        ],
+        "'Reminisce'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Reminisce'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "486": {
+      "question": "What is the percentage of the cards with a converted mana cost of 7 in the set Coldsnap?",
+      "question_id": "486",
+      "golden": {
+        "cards": [
+          "id",
+          "convertedManaCost",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "convertedManaCost",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ],
+        "'Coldsnap'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Coldsnap'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "487": {
+      "question": "What is the percentage of incredibly powerful cards in the set Coldsnap?",
+      "question_id": "487",
+      "golden": {
+        "cards": [
+          "id",
+          "cardKingdomFoilId",
+          "cardKingdomId",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "cardKingdomFoilId",
+          "cardKingdomId",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ],
+        "'Coldsnap'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Coldsnap'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "488": {
+      "question": "What's the code for the set which was released on 2017/7/14?",
+      "question_id": "488",
+      "golden": {
+        "sets": [
+          "code",
+          "releaseDate"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "releaseDate"
+        ],
+        "'2017-07-14'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2017-07-14'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "489": {
+      "question": "List the keyrune code for the set whose code is 'PKHC'.",
+      "question_id": "489",
+      "golden": {
+        "sets": [
+          "keyruneCode",
+          "code"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "keyruneCode"
+        ],
+        "'PKHC'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'PKHC'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "490": {
+      "question": "For the set which had 'SS2' as the code, what is its magic card market id?",
+      "question_id": "490",
+      "golden": {
+        "sets": [
+          "mcmId",
+          "code"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "mcmId"
+        ],
+        "'SS2'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'SS2'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "491": {
+      "question": "What's the magic card market name for the set which was released on 2017/6/9?",
+      "question_id": "491",
+      "golden": {
+        "sets": [
+          "mcmName",
+          "releaseDate"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "mcmName",
+          "releaseDate"
+        ],
+        "'2017-06-09'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2017-06-09'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "492": {
+      "question": "For the set \"From the Vault: Lore\", what is its expansion type?",
+      "question_id": "492",
+      "golden": {
+        "sets": [
+          "name",
+          "type"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "name",
+          "type"
+        ],
+        "'From the Vault: Lore'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'From the Vault: Lore'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "493": {
+      "question": "For the set \"Commander 2014 Oversized\" , give its parent code.",
+      "question_id": "493",
+      "golden": {
+        "sets": [
+          "parentCode",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "name",
+          "parentCode"
+        ],
+        "'Commander 2014 Oversized'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Commander 2014 Oversized'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "494": {
+      "question": "For all cards illustrated by Jim Pavelec. and describe the text of the ruling of these cards. Do these cards have missing or degraded properties and values.",
+      "question_id": "494",
+      "golden": {
+        "cards": [
+          "artist",
+          "hasContentWarning",
+          "uuid"
+        ],
+        "rulings": [
+          "text",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "hasContentWarning",
+          "uuid"
+        ],
+        "rulings": [
+          "text",
+          "uuid"
+        ],
+        "'Jim Pavelec'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Jim Pavelec'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "495": {
+      "question": "What was the release date for the set which card \"Evacuation\" in it?",
+      "question_id": "495",
+      "golden": {
+        "cards": [
+          "name",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "releaseDate"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "releaseDate"
+        ],
+        "'Evacuation'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Evacuation'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "496": {
+      "question": "What is the number of cards are there in the set of \"Rinascita di Alara\"?",
+      "question_id": "496",
+      "golden": {
+        "sets": [
+          "baseSetSize",
+          "code"
+        ],
+        "set_translations": [
+          "setCode",
+          "translation"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "baseSetSize",
+          "code"
+        ],
+        "set_translations": [
+          "setCode",
+          "translation"
+        ],
+        "'Rinascita di Alara'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Rinascita di Alara'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "497": {
+      "question": "List the expansion type of the set \"Huitième édition\".",
+      "question_id": "497",
+      "golden": {
+        "sets": [
+          "code",
+          "type"
+        ],
+        "set_translations": [
+          "setCode",
+          "translation"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "type"
+        ],
+        "set_translations": [
+          "setCode",
+          "translation"
+        ],
+        "'Huitième édition'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Huitième édition'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "498": {
+      "question": "What's the French name of the set of cards with \"Tendo Ice Bridge\" is in?",
+      "question_id": "498",
+      "golden": {
+        "cards": [
+          "name",
+          "setCode"
+        ],
+        "set_translations": [
+          "setCode",
+          "language",
+          "translation"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "setCode"
+        ],
+        "set_translations": [
+          "language",
+          "setCode",
+          "translation"
+        ],
+        "\"Tendo Ice Bridge\"": [],
+        "\"French\"": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "\"French\"",
+          "\"Tendo Ice Bridge\""
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "499": {
+      "question": "How many translations of the name of the set \"Tenth Edition\"?",
+      "question_id": "499",
+      "golden": {
+        "sets": [
+          "code",
+          "name"
+        ],
+        "set_translations": [
+          "setCode",
+          "translation"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "name"
+        ],
+        "set_translations": [
+          "setCode",
+          "translation"
+        ],
+        "'Tenth Edition'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Tenth Edition'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "500": {
+      "question": "Tell the Japanese name of the set which card \"Fellwar Stone\" is in it.",
+      "question_id": "500",
+      "golden": {
+        "cards": [
+          "name",
+          "setCode"
+        ],
+        "set_translations": [
+          "setCode",
+          "language",
+          "translation"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "setCode"
+        ],
+        "sets": [
+          "code"
+        ],
+        "set_translations": [
+          "language",
+          "setCode",
+          "translation"
+        ],
+        "'Fellwar Stone'": [],
+        "'Japanese'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Fellwar Stone'",
+          "'Japanese'",
+          "sets"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "sets.code"
+        ]
+      }
+    },
+    "501": {
+      "question": "Which card name in the set 'Journey into Nyx Hero's Path' has the highest converted mana cost.",
+      "question_id": "501",
+      "golden": {
+        "cards": [
+          "name",
+          "setCode",
+          "convertedManaCost"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "convertedManaCost",
+          "name",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ],
+        "'Journey into Nyx Hero''s Path'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Journey into Nyx Hero''s Path'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "502": {
+      "question": "What is the release date for the set \"Ola de frío\"?",
+      "question_id": "502",
+      "golden": {
+        "sets": [
+          "code",
+          "releaseDate"
+        ],
+        "set_translations": [
+          "setCode",
+          "translation"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "releaseDate"
+        ],
+        "set_translations": [
+          "setCode",
+          "translation"
+        ],
+        "'Ola de frío'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Ola de frío'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "503": {
+      "question": "What was the expansion type for the set which card \"Samite Pilgrim\" in it?",
+      "question_id": "503",
+      "golden": {
+        "sets": [
+          "code",
+          "type"
+        ],
+        "cards": [
+          "name",
+          "setCode"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "type"
+        ],
+        "cards": [
+          "name",
+          "setCode"
+        ],
+        "'Samite Pilgrim'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Samite Pilgrim'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "504": {
+      "question": "How many cards are there in the set 'World Championship Decks 2004' with the converted mana cost as '3'.",
+      "question_id": "504",
+      "golden": {
+        "cards": [
+          "id",
+          "setCode",
+          "convertedManaCost"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "convertedManaCost",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ],
+        "'World Championship Decks 2004'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'World Championship Decks 2004'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "505": {
+      "question": "Show the Simplified Chinese translation of the name of the set \"Mirrodin\"?",
+      "question_id": "505",
+      "golden": {
+        "set_translations": [
+          "translation",
+          "setCode",
+          "language"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "name"
+        ],
+        "set_translations": [
+          "language",
+          "setCode",
+          "translation"
+        ],
+        "'Mirrodin'": [],
+        "'Chinese Simplified'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Chinese Simplified'",
+          "'Mirrodin'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "506": {
+      "question": "For all the set of cards that has Japanese translation, what is the percentage of them are only available in non-foil?",
+      "question_id": "506",
+      "golden": {
+        "sets": [
+          "isNonFoilOnly",
+          "id",
+          "code"
+        ],
+        "set_translations": [
+          "setCode",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "set_translations": [
+          "language",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "isNonFoilOnly"
+        ],
+        "'Japanese'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Japanese'"
+        ],
+        "missing_columns": [
+          "sets.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "507": {
+      "question": "For all the set of cards that has Brazil Portuguese translation, what is the percentage of them are only available online?",
+      "question_id": "507",
+      "golden": {
+        "sets": [
+          "isOnlineOnly",
+          "id",
+          "code"
+        ],
+        "set_translations": [
+          "language",
+          "setCode"
+        ]
+      },
+      "retrieved": {
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "cards": [
+          "isOnlineOnly",
+          "uuid"
+        ],
+        "'Portuguese (Brazil)'": []
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 3,
+        "tbl_fn": 2,
+        "col_tp": 0,
+        "col_fp": 4,
+        "col_fn": 5
+      },
+      "differences": {
+        "missing_tables": [
+          "set_translations",
+          "sets"
+        ],
+        "extra_tables": [
+          "'Portuguese (Brazil)'",
+          "cards",
+          "foreign_data"
+        ],
+        "missing_columns": [
+          "set_translations.language",
+          "set_translations.setCode",
+          "sets.code",
+          "sets.id",
+          "sets.isOnlineOnly"
+        ],
+        "extra_columns": [
+          "cards.isOnlineOnly",
+          "cards.uuid",
+          "foreign_data.language",
+          "foreign_data.uuid"
+        ]
+      }
+    },
+    "508": {
+      "question": "What are the available printing types of the cards that doesn't have a text box created by Aleksi Briclot?",
+      "question_id": "508",
+      "golden": {
+        "cards": [
+          "availability",
+          "artist",
+          "isTextless"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "availability",
+          "isTextless"
+        ],
+        "'Aleksi Briclot'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Aleksi Briclot'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "510": {
+      "question": "Among the cards that doesn't have multiple faces on the same card, who is the illustrator of the card art that has the highest cost of converted mana?",
+      "question_id": "510",
+      "golden": {
+        "cards": [
+          "artist",
+          "side",
+          "convertedManaCost"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "convertedManaCost",
+          "side"
+        ],
+        "NULL": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "NULL"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "512": {
+      "question": "How many cards with unknown power that can't be found in foil is in duel deck A?",
+      "question_id": "512",
+      "golden": {
+        "cards": [
+          "power",
+          "hasFoil",
+          "duelDeck"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "duelDeck",
+          "hasFoil",
+          "power"
+        ],
+        "'*'": [],
+        "'a'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'*'",
+          "'a'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "513": {
+      "question": "Among the sets whose expansion type is Commander, which set has the highest total number of cards including promotional and related supplemental products but excluding Alchemy modifications? Indicate the id of the set.",
+      "question_id": "513",
+      "golden": {
+        "sets": [
+          "id",
+          "type",
+          "totalSetSize"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "id",
+          "totalSetSize",
+          "type"
+        ],
+        "'commander'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'commander'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "514": {
+      "question": "In duels, what are the top 10 cards with the highest uncoverted mana cost?",
+      "question_id": "514",
+      "golden": {
+        "cards": [
+          "name",
+          "uuid",
+          "manaCost"
+        ],
+        "legalities": [
+          "uuid",
+          "format"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "manaCost",
+          "name",
+          "uuid"
+        ],
+        "legalities": [
+          "format",
+          "uuid"
+        ],
+        "'duel'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'duel'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "515": {
+      "question": "When was the oldest mythic card released and what are its legal play formats?",
+      "question_id": "515",
+      "golden": {
+        "cards": [
+          "originalReleaseDate",
+          "rarity",
+          "uuid"
+        ],
+        "legalities": [
+          "format",
+          "status",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "originalReleaseDate",
+          "rarity",
+          "uuid"
+        ],
+        "legalities": [
+          "format",
+          "status",
+          "uuid"
+        ],
+        "'mythic'": [],
+        "'Legal'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Legal'",
+          "'mythic'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "516": {
+      "question": "How many cards did Volkan BaÇµa illustrated whose foreign language is in French?",
+      "question_id": "516",
+      "golden": {
+        "cards": [
+          "id",
+          "artist",
+          "uuid"
+        ],
+        "foreign_data": [
+          "uuid",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "uuid"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "'Volkan Baǵa'": [],
+        "'French'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'French'",
+          "'Volkan Baǵa'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "517": {
+      "question": "How many rare enchantment Abundance cards are there whose play format status are all legal?",
+      "question_id": "517",
+      "golden": {
+        "cards": [
+          "id",
+          "rarity",
+          "types",
+          "name",
+          "uuid"
+        ],
+        "legalities": [
+          "uuid",
+          "status"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "rarity",
+          "types",
+          "uuid"
+        ],
+        "legalities": [
+          "status",
+          "uuid"
+        ],
+        "'Abundance'": [],
+        "'rare'": [],
+        "'Enchantment'": [],
+        "'Legal'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 4,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Abundance'",
+          "'Enchantment'",
+          "'Legal'",
+          "'rare'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "518": {
+      "question": "Which of the play format has the highest number of banned status? Indicate the play format and the names of all the card meet the condition.",
+      "question_id": "518",
+      "golden": {
+        "cards": [
+          "name",
+          "uuid"
+        ],
+        "legalities": [
+          "format",
+          "status",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "legalities": [
+          "format",
+          "status",
+          "uuid"
+        ],
+        "cards": [
+          "name",
+          "uuid"
+        ],
+        "'Banned'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Banned'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "519": {
+      "question": "What is the language of the \"Battlebond\" set?",
+      "question_id": "519",
+      "golden": {
+        "set_translations": [
+          "language",
+          "id"
+        ],
+        "sets": [
+          "id",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "name"
+        ],
+        "set_translations": [
+          "language",
+          "setCode"
+        ],
+        "'Battlebond'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Battlebond'"
+        ],
+        "missing_columns": [
+          "set_translations.id",
+          "sets.id"
+        ],
+        "extra_columns": [
+          "set_translations.setCode",
+          "sets.code"
+        ]
+      }
+    },
+    "520": {
+      "question": "Who is the illustrator that illustrated the least amount of cards? List the format of play of the cards that he/she illustrated.",
+      "question_id": "520",
+      "golden": {
+        "cards": [
+          "artist",
+          "uuid",
+          "id"
+        ],
+        "legalities": [
+          "format",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "uuid"
+        ],
+        "legalities": [
+          "format",
+          "uuid"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "521": {
+      "question": "Among the cards whose version of frame style is 1997, what is the status of the card illustrated by D. Alexander Gregory in legacy play format that has sensitive content or Wizards of the Coast?",
+      "question_id": "521",
+      "golden": {
+        "cards": [
+          "uuid",
+          "frameVersion",
+          "hasContentWarning",
+          "artist"
+        ],
+        "legalities": [
+          "uuid",
+          "format",
+          "status"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "frameVersion",
+          "hasContentWarning",
+          "uuid"
+        ],
+        "legalities": [
+          "format",
+          "status",
+          "uuid"
+        ],
+        "'1997'": [],
+        "'D": [
+          " Alexander Gregory'"
+        ],
+        "'legacy'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'1997'",
+          "'D",
+          "'legacy'"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "'D. Alexander Gregory'"
+        ]
+      }
+    },
+    "522": {
+      "question": "Which cards are ranked 1st on EDHRec? List all of the cards name and its banned play format.",
+      "question_id": "522",
+      "golden": {
+        "cards": [
+          "name",
+          "edhrecRank",
+          "uuid"
+        ],
+        "legalities": [
+          "format",
+          "status",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "edhrecRank",
+          "name",
+          "uuid"
+        ],
+        "legalities": [
+          "format",
+          "status",
+          "uuid"
+        ],
+        "'Banned'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Banned'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "523": {
+      "question": "What is the annual average number of sets that were released between 1/1/2012 to 12/31/2015? Indicate the common langugage of the card.",
+      "question_id": "523",
+      "golden": {
+        "sets": [
+          "id",
+          "releaseDate"
+        ],
+        "set_translations": [
+          "id",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "releaseDate"
+        ],
+        "foreign_data": [
+          "language",
+          "uuid"
+        ],
+        "cards": [
+          "setCode",
+          "uuid"
+        ],
+        "'2012-01-01'": [],
+        "'2015-12-31'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 4,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 5,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "set_translations"
+        ],
+        "extra_tables": [
+          "'2012-01-01'",
+          "'2015-12-31'",
+          "cards",
+          "foreign_data"
+        ],
+        "missing_columns": [
+          "set_translations.id",
+          "set_translations.language",
+          "sets.id"
+        ],
+        "extra_columns": [
+          "cards.setCode",
+          "cards.uuid",
+          "foreign_data.language",
+          "foreign_data.uuid",
+          "sets.code"
+        ]
+      }
+    },
+    "524": {
+      "question": "List the artists who illustrated cards with black borders which are available only in arena.",
+      "question_id": "524",
+      "golden": {
+        "cards": [
+          "artist",
+          "availability",
+          "borderColor"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "availability",
+          "borderColor"
+        ],
+        "'black'": [],
+        "'arena'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'arena'",
+          "'black'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "525": {
+      "question": "Find the uuid of cards in which the old school format is restricted or banned.",
+      "question_id": "525",
+      "golden": {
+        "legalities": [
+          "uuid",
+          "format",
+          "status"
+        ]
+      },
+      "retrieved": {
+        "legalities": [
+          "format",
+          "status",
+          "uuid"
+        ],
+        "'oldschool'": [],
+        "'banned'": [],
+        "'restricted'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'banned'",
+          "'oldschool'",
+          "'restricted'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "526": {
+      "question": "Among the card designed by Matthew D. Wilson, how many are available only in the paper?",
+      "question_id": "526",
+      "golden": {
+        "cards": [
+          "id",
+          "artist",
+          "availability"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "availability"
+        ],
+        "'Matthew D": [
+          " Wilson'"
+        ],
+        "'paper'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Matthew D",
+          "'paper'"
+        ],
+        "missing_columns": [
+          "cards.id"
+        ],
+        "extra_columns": [
+          "'Matthew D. Wilson'"
+        ]
+      }
+    },
+    "527": {
+      "question": "What are the rulings for the card named and designed by Kev Walker? List them in descending order of dates.",
+      "question_id": "527",
+      "golden": {
+        "cards": [
+          "uuid",
+          "artist"
+        ],
+        "rulings": [
+          "uuid",
+          "text",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "rulings": [
+          "date",
+          "text",
+          "uuid"
+        ],
+        "cards": [
+          "artist",
+          "uuid"
+        ],
+        "'Kev Walker'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Kev Walker'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "528": {
+      "question": "List the names of all the cards in the set Hour of Devastation and find the formats in which these cards are legal.",
+      "question_id": "528",
+      "golden": {
+        "legalities": [
+          "status",
+          "format",
+          "uuid"
+        ],
+        "cards": [
+          "name",
+          "uuid",
+          "setCode"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "name",
+          "setCode",
+          "uuid"
+        ],
+        "sets": [
+          "code",
+          "name"
+        ],
+        "legalities": [
+          "format",
+          "status",
+          "uuid"
+        ],
+        "'Hour of Devastation'": [],
+        "'Legal'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 8,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Hour of Devastation'",
+          "'Legal'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "529": {
+      "question": "Find and list the names of sets which doesn't have Japanese translation but have Korean translation.",
+      "question_id": "529",
+      "golden": {
+        "sets": [
+          "name",
+          "code"
+        ],
+        "set_translations": [
+          "setCode",
+          "language"
+        ]
+      },
+      "retrieved": {
+        "sets": [
+          "code",
+          "name"
+        ],
+        "set_translations": [
+          "language",
+          "setCode"
+        ],
+        "'Japanese'": [],
+        "'Korean'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Japanese'",
+          "'Korean'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "530": {
+      "question": "List all the frame styles and cards Allen Williams worked on and find any banned cards if there are any.",
+      "question_id": "530",
+      "golden": {
+        "cards": [
+          "frameVersion",
+          "name",
+          "artist",
+          "uuid"
+        ],
+        "legalities": [
+          "status",
+          "uuid"
+        ]
+      },
+      "retrieved": {
+        "cards": [
+          "artist",
+          "frameVersion",
+          "uuid"
+        ],
+        "legalities": [
+          "status",
+          "uuid"
+        ],
+        "'Allen Williams'": [],
+        "'Banned'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Allen Williams'",
+          "'Banned'"
+        ],
+        "missing_columns": [
+          "cards.name"
+        ],
+        "extra_columns": []
+      }
+    }
+  }
+}

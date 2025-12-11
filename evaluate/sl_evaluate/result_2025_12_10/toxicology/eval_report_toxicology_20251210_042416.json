@@ -1,0 +1,3462 @@
+{
+  "summary": {
+    "db_name": "toxicology",
+    "generated_at": "2025-12-10 05:33:27",
+    "total_questions": 145,
+    "table_metrics": {
+      "precision": 0.8208469055374593,
+      "recall": 0.9509433962264151,
+      "f1": 0.881118881118881
+    },
+    "column_metrics": {
+      "precision": 0.7548579970104634,
+      "recall": 0.9215328467153284,
+      "f1": 0.8299096138044372
+    }
+  },
+  "mismatches": {
+    "195": {
+      "question": "What is the most common bond type?",
+      "question_id": "195",
+      "golden": {
+        "bond": [
+          "bond_type",
+          "bond_id"
+        ]
+      },
+      "retrieved": {
+        "bond": [
+          "bond_type"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "bond.bond_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "198": {
+      "question": "On average how many carcinogenic molecules are single bonded?",
+      "question_id": "198",
+      "golden": {
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ],
+        "atom": [
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ],
+        "connected": [
+          "atom_id",
+          "bond_id",
+          "atom_id2"
+        ],
+        "bond": [
+          "bond_type",
+          "molecule_id",
+          "bond_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 5,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "connected"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.atom_id",
+          "bond.bond_id",
+          "connected.atom_id",
+          "connected.atom_id2",
+          "connected.bond_id"
+        ]
+      }
+    },
+    "202": {
+      "question": "How many triple type bonds are there?",
+      "question_id": "202",
+      "golden": {
+        "bond": [
+          "bond_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "bond": [
+          "bond_type"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "bond.bond_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "203": {
+      "question": "In how many atoms is there no bromine?",
+      "question_id": "203",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "element"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "element"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "atom.atom_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "206": {
+      "question": "What elements are in the TR004_8_9 bond atoms?",
+      "question_id": "206",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "bond_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "bond_id",
+          "atom_id",
+          "atom_id2"
+        ],
+        "bond": [
+          "bond_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "bond"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "bond.bond_id",
+          "connected.atom_id2"
+        ]
+      }
+    },
+    "207": {
+      "question": "What elements are in a double type bond?",
+      "question_id": "207",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "molecule_id",
+          "element"
+        ],
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ],
+        "connected": [
+          "atom_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "element",
+          "atom_id"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "bond_type"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "atom.molecule_id",
+          "bond.molecule_id"
+        ],
+        "extra_columns": [
+          "bond.bond_id",
+          "connected.atom_id2",
+          "connected.bond_id"
+        ]
+      }
+    },
+    "209": {
+      "question": "Chlorine is in what type of bond?",
+      "question_id": "209",
+      "golden": {
+        "bond": [
+          "bond_id",
+          "bond_type"
+        ],
+        "connected": [
+          "bond_id",
+          "atom_id"
+        ],
+        "atom": [
+          "atom_id",
+          "element"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "element",
+          "atom_id",
+          "molecule_id"
+        ],
+        "connected": [
+          "atom_id",
+          "bond_id",
+          "atom_id2"
+        ],
+        "bond": [
+          "bond_id",
+          "bond_type"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.molecule_id",
+          "connected.atom_id2"
+        ]
+      }
+    },
+    "210": {
+      "question": "What atoms are connected in single type bonds?",
+      "question_id": "210",
+      "golden": {
+        "bond": [
+          "bond_id",
+          "bond_type"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "bond_type"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "atom"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.atom_id",
+          "atom.element"
+        ]
+      }
+    },
+    "211": {
+      "question": "Indicate which atoms are connected in non-carcinogenic type molecules.",
+      "question_id": "211",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ],
+        "connected": [
+          "atom_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 4,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "bond"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "bond.bond_id",
+          "bond.molecule_id",
+          "connected.atom_id2",
+          "connected.bond_id"
+        ]
+      }
+    },
+    "215": {
+      "question": "How many atoms with iodine and with sulfur type elements are there in single bond molecules?",
+      "question_id": "215",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element",
+          "molecule_id"
+        ],
+        "bond": [
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "connected"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "bond.bond_id",
+          "connected.atom_id",
+          "connected.bond_id"
+        ],
+        "extra_columns": [
+          "atom.molecule_id",
+          "bond.molecule_id"
+        ]
+      }
+    },
+    "219": {
+      "question": "What is the percentage of carcinogenic molecules in triple type bonds?",
+      "question_id": "219",
+      "golden": {
+        "atom": [
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ],
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "molecule": [
+          "molecule_id",
+          "label"
+        ],
+        "bond": [
+          "bond_id",
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "atom"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "atom.molecule_id"
+        ],
+        "extra_columns": [
+          "bond.bond_id"
+        ]
+      }
+    },
+    "220": {
+      "question": "Please list top three elements of the toxicology of the molecule TR000 in alphabetical order.",
+      "question_id": "220",
+      "golden": {
+        "atom": [
+          "element",
+          "molecule_id"
+        ]
+      },
+      "retrieved": {
+        "molecule": [
+          "label"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 1,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "atom"
+        ],
+        "extra_tables": [
+          "molecule"
+        ],
+        "missing_columns": [
+          "atom.element",
+          "atom.molecule_id"
+        ],
+        "extra_columns": [
+          "molecule.label"
+        ]
+      }
+    },
+    "221": {
+      "question": "What are the atoms that are bonded in the molecule TR001 with the bond ID of TR001_2_6?",
+      "question_id": "221",
+      "golden": {
+        "bond": [
+          "bond_id",
+          "molecule_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element",
+          "molecule_id"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 6,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "atom",
+          "connected"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.atom_id",
+          "atom.element",
+          "atom.molecule_id",
+          "connected.atom_id",
+          "connected.atom_id2",
+          "connected.bond_id"
+        ]
+      }
+    },
+    "223": {
+      "question": "What are the atom IDs of the bond TR000_2_5?",
+      "question_id": "223",
+      "golden": {
+        "connected": [
+          "atom_id",
+          "bond_id"
+        ]
+      },
+      "retrieved": {
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "connected.atom_id2"
+        ]
+      }
+    },
+    "225": {
+      "question": "Please list top five molecules that have double bonds in alphabetical order.",
+      "question_id": "225",
+      "golden": {
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "molecule": [
+          "molecule_id",
+          "label"
+        ],
+        "bond": [
+          "bond_id",
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "molecule"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "bond.bond_id",
+          "molecule.label",
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "229": {
+      "question": "What is the type of bond that molecule TR000 has when involved in any bonds?",
+      "question_id": "229",
+      "golden": {
+        "bond": [
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "retrieved": {
+        "molecule": [
+          "molecule_id"
+        ],
+        "bond": [
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "molecule"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "230": {
+      "question": "What are the elements of the toxicology and label of molecule TR060?",
+      "question_id": "230",
+      "golden": {
+        "atom": [
+          "element",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "molecule_id",
+          "element"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.atom_id"
+        ]
+      }
+    },
+    "231": {
+      "question": "Which bond type accounted for the majority of the bonds found in molecule TR010 and state whether or not this molecule is carcinogenic?",
+      "question_id": "231",
+      "golden": {
+        "bond": [
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "retrieved": {
+        "molecule": [
+          "molecule_id",
+          "label"
+        ],
+        "bond": [
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "molecule"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "molecule.label",
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "233": {
+      "question": "Please list top two bonds that happened with the molecule TR006 in alphabetical order.",
+      "question_id": "233",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "molecule_id"
+        ],
+        "connected": [
+          "atom_id",
+          "bond_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "molecule_id",
+          "element"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 7,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "bond",
+          "molecule"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.element",
+          "bond.bond_id",
+          "bond.bond_type",
+          "bond.molecule_id",
+          "connected.atom_id2",
+          "molecule.label",
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "238": {
+      "question": "How many molecules have a triple bond type?",
+      "question_id": "238",
+      "golden": {
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "molecule": [
+          "molecule_id"
+        ],
+        "bond": [
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "molecule"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "240": {
+      "question": "List all the elements of the toxicology of the molecule \"TR004\".",
+      "question_id": "240",
+      "golden": {
+        "atom": [
+          "element",
+          "molecule_id"
+        ]
+      },
+      "retrieved": {
+        "molecule": [
+          "label"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 1,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "atom"
+        ],
+        "extra_tables": [
+          "molecule"
+        ],
+        "missing_columns": [
+          "atom.element",
+          "atom.molecule_id"
+        ],
+        "extra_columns": [
+          "molecule.label"
+        ]
+      }
+    },
+    "243": {
+      "question": "What are the bonds that have phosphorus and nitrogen as their atom elements?",
+      "question_id": "243",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "bond_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "bond"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "bond.bond_id",
+          "connected.atom_id2"
+        ]
+      }
+    },
+    "245": {
+      "question": "What is the average number of bonds the atoms with the element iodine have?",
+      "question_id": "245",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "bond_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "bond_id",
+          "atom_id2"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "connected.atom_id2"
+        ]
+      }
+    },
+    "247": {
+      "question": "List all the elements of atoms that can not bond with any other atoms.",
+      "question_id": "247",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "connected.atom_id2"
+        ]
+      }
+    },
+    "248": {
+      "question": "What are the atoms of the triple bond with the molecule \"TR041\"?",
+      "question_id": "248",
+      "golden": {
+        "atom": [
+          "atom_id"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "molecule"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.molecule_id",
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "249": {
+      "question": "What are the elements of the atoms of TR144_8_19?",
+      "question_id": "249",
+      "golden": {
+        "connected": [
+          "atom_id",
+          "bond_id"
+        ],
+        "atom": [
+          "atom_id",
+          "element"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "bond_id",
+          "atom_id",
+          "atom_id2"
+        ],
+        "bond": [
+          "bond_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "bond"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "bond.bond_id",
+          "connected.atom_id2"
+        ]
+      }
+    },
+    "253": {
+      "question": "List the elements of all the triple bonds.",
+      "question_id": "253",
+      "golden": {
+        "bond": [
+          "bond_id",
+          "bond_type"
+        ],
+        "connected": [
+          "bond_id",
+          "atom_id"
+        ],
+        "atom": [
+          "atom_id",
+          "element"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "bond_type"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "connected.atom_id2"
+        ]
+      }
+    },
+    "254": {
+      "question": "What percentage of bonds have the most common combination of atoms' elements?",
+      "question_id": "254",
+      "golden": {
+        "connected": [
+          "atom_id",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 3,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "atom"
+        ],
+        "missing_columns": [
+          "bond.bond_type"
+        ],
+        "extra_columns": [
+          "atom.atom_id",
+          "atom.element",
+          "connected.atom_id2"
+        ]
+      }
+    },
+    "256": {
+      "question": "Calculate the total atoms consisting of the element carbon and hydrogen.",
+      "question_id": "256",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "element"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "element"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "atom.atom_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "257": {
+      "question": "List down atom id2 for atoms with element sulfur.",
+      "question_id": "257",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element",
+          "molecule_id"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.molecule_id",
+          "connected.bond_id"
+        ]
+      }
+    },
+    "258": {
+      "question": "What are the bond type for atoms with element Tin?",
+      "question_id": "258",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element",
+          "molecule_id"
+        ],
+        "connected": [
+          "atom_id",
+          "bond_id",
+          "atom_id2"
+        ],
+        "bond": [
+          "bond_id",
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.molecule_id",
+          "bond.molecule_id",
+          "connected.atom_id2"
+        ]
+      }
+    },
+    "259": {
+      "question": "How many elements are there for single bond molecules?",
+      "question_id": "259",
+      "golden": {
+        "atom": [
+          "molecule_id",
+          "element"
+        ],
+        "molecule": [
+          "molecule_id"
+        ],
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "element"
+        ],
+        "bond": [
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "molecule"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "atom.molecule_id",
+          "molecule.molecule_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "260": {
+      "question": "Calculate the total atoms with triple-bond molecules containing the element phosphorus or bromine.",
+      "question_id": "260",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "molecule_id",
+          "element"
+        ],
+        "molecule": [
+          "molecule_id"
+        ],
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id"
+        ],
+        "bond": [
+          "bond_id",
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "bond.bond_id"
+        ]
+      }
+    },
+    "263": {
+      "question": "What is the composition of element chlorine in percentage among the single bond molecules?",
+      "question_id": "263",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "molecule_id",
+          "element"
+        ],
+        "molecule": [
+          "molecule_id"
+        ],
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element",
+          "molecule_id"
+        ],
+        "bond": [
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "molecule"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "molecule.molecule_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "268": {
+      "question": "What are the elements for bond id TR001_10_11?",
+      "question_id": "268",
+      "golden": {
+        "connected": [
+          "atom_id",
+          "bond_id"
+        ],
+        "atom": [
+          "atom_id",
+          "element"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "bond_id",
+          "atom_id",
+          "atom_id2"
+        ],
+        "bond": [
+          "bond_id",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "bond"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "bond.bond_id",
+          "bond.molecule_id",
+          "connected.atom_id2"
+        ]
+      }
+    },
+    "269": {
+      "question": "How many bond id have element iodine?",
+      "question_id": "269",
+      "golden": {
+        "atom": [
+          "molecule_id",
+          "element"
+        ],
+        "molecule": [
+          "molecule_id"
+        ],
+        "bond": [
+          "bond_id",
+          "molecule_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "bond_id",
+          "atom_id2"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 2,
+        "col_tp": 1,
+        "col_fp": 4,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "bond",
+          "molecule"
+        ],
+        "extra_tables": [
+          "connected"
+        ],
+        "missing_columns": [
+          "atom.molecule_id",
+          "bond.bond_id",
+          "bond.molecule_id",
+          "molecule.molecule_id"
+        ],
+        "extra_columns": [
+          "atom.atom_id",
+          "connected.atom_id",
+          "connected.atom_id2",
+          "connected.bond_id"
+        ]
+      }
+    },
+    "271": {
+      "question": "Does bond id TR001_1_8 have both element of chlorine and carbon?",
+      "question_id": "271",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "bond_id",
+          "atom_id",
+          "atom_id2"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element",
+          "molecule_id"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "bond"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.molecule_id",
+          "bond.bond_id",
+          "bond.molecule_id"
+        ]
+      }
+    },
+    "273": {
+      "question": "What is the percentage of element chlorine in carcinogenic molecules?",
+      "question_id": "273",
+      "golden": {
+        "atom": [
+          "element",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "molecule_id",
+          "atom_id",
+          "element"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.atom_id"
+        ]
+      }
+    },
+    "274": {
+      "question": "List the toxicology elements associated with molecule TR001.",
+      "question_id": "274",
+      "golden": {
+        "atom": [
+          "element",
+          "molecule_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "molecule_id",
+          "element"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 9,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "bond",
+          "connected",
+          "molecule"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.atom_id",
+          "bond.bond_id",
+          "bond.bond_type",
+          "bond.molecule_id",
+          "connected.atom_id",
+          "connected.atom_id2",
+          "connected.bond_id",
+          "molecule.label",
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "277": {
+      "question": "What are the toxicology elements associated with bond ID TR000_1_2?",
+      "question_id": "277",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "bond_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "molecule_id",
+          "element"
+        ],
+        "molecule": [
+          "molecule_id"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 5,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "bond",
+          "molecule"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.molecule_id",
+          "bond.bond_id",
+          "bond.molecule_id",
+          "connected.atom_id2",
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "282": {
+      "question": "What is the ratio of Hydrogen elements in molecule ID TR006? List the ratio with its label.",
+      "question_id": "282",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "element",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "element",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "atom.atom_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "284": {
+      "question": "Determine the bond type that is formed in the chemical compound containing element Carbon.",
+      "question_id": "284",
+      "golden": {
+        "atom": [
+          "molecule_id",
+          "element"
+        ],
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "molecule": [
+          "molecule_id",
+          "label"
+        ],
+        "atom": [
+          "atom_id",
+          "molecule_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 7,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "connected",
+          "molecule"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.atom_id",
+          "bond.bond_id",
+          "connected.atom_id",
+          "connected.atom_id2",
+          "connected.bond_id",
+          "molecule.label",
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "285": {
+      "question": "Name chemical elements that form a bond TR001_10_11.",
+      "question_id": "285",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element",
+          "molecule_id"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.molecule_id",
+          "bond.molecule_id",
+          "connected.atom_id2"
+        ]
+      }
+    },
+    "286": {
+      "question": "Among all chemical compounds identified in the database, what percent of compounds form a triple-bond.",
+      "question_id": "286",
+      "golden": {
+        "bond": [
+          "bond_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "molecule": [
+          "molecule_id"
+        ],
+        "bond": [
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "molecule"
+        ],
+        "missing_columns": [
+          "bond.bond_id"
+        ],
+        "extra_columns": [
+          "bond.molecule_id",
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "290": {
+      "question": "Which toxic element can be found in the molecule TR151?",
+      "question_id": "290",
+      "golden": {
+        "atom": [
+          "element",
+          "molecule_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "molecule_id",
+          "element"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "molecule"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.atom_id",
+          "molecule.label",
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "292": {
+      "question": "Identify the atoms belong to the molecule with ID between TR010 to TR050 that contain the element carbon.",
+      "question_id": "292",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "molecule_id",
+          "element"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "element",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "atom.atom_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "295": {
+      "question": "How many atoms belong to the molecule that element is hydrogen and labeled with carcinogenic compound?",
+      "question_id": "295",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "molecule_id",
+          "element"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "element",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "atom.atom_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "296": {
+      "question": "Indicate the molecule id is belonging to the TR000_1_2 bond that has the first atom named TR000_1.",
+      "question_id": "296",
+      "golden": {
+        "connected": [
+          "atom_id",
+          "bond_id"
+        ],
+        "bond": [
+          "molecule_id",
+          "bond_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "atom"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.atom_id",
+          "connected.atom_id2"
+        ]
+      }
+    },
+    "297": {
+      "question": "Among the atoms that contain element carbon, which one does not contain compound carcinogenic?",
+      "question_id": "297",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "molecule_id",
+          "element"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "element",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "atom.atom_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "300": {
+      "question": "What atoms comprise TR186?",
+      "question_id": "300",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "molecule_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "molecule"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.element",
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "302": {
+      "question": "Name the elements that comprise the atoms of bond TR001_2_4.",
+      "question_id": "302",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "bond_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "bond"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "bond.bond_id",
+          "bond.molecule_id",
+          "connected.atom_id2"
+        ]
+      }
+    },
+    "303": {
+      "question": "How many double bonds does TR006 have and is it carcinogenic?",
+      "question_id": "303",
+      "golden": {
+        "bond": [
+          "bond_id",
+          "molecule_id",
+          "bond_type"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "retrieved": {
+        "molecule": [
+          "molecule_id",
+          "label"
+        ],
+        "bond": [
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "bond.bond_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "305": {
+      "question": "Name all bonds with single bond types and what atoms are connected to the molecules.",
+      "question_id": "305",
+      "golden": {
+        "bond": [
+          "bond_id",
+          "bond_type"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "bond_type"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "atom"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.atom_id"
+        ]
+      }
+    },
+    "306": {
+      "question": "Which molecules have triple bonds and list all the elements they contain.",
+      "question_id": "306",
+      "golden": {
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ],
+        "atom": [
+          "molecule_id",
+          "element"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "element",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id"
+        ],
+        "bond": [
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "molecule"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "307": {
+      "question": "Name the atoms' elements that form bond TR000_2_3.",
+      "question_id": "307",
+      "golden": {
+        "connected": [
+          "atom_id",
+          "bond_id"
+        ],
+        "atom": [
+          "atom_id",
+          "element"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "element",
+          "atom_id"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "bond"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "bond.bond_id",
+          "connected.atom_id2"
+        ]
+      }
+    },
+    "308": {
+      "question": "How many bonds are created by bonding atoms with chlorine element?",
+      "question_id": "308",
+      "golden": {
+        "connected": [
+          "bond_id",
+          "atom_id"
+        ],
+        "atom": [
+          "atom_id",
+          "element"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "bond"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "bond.bond_id",
+          "connected.atom_id2"
+        ]
+      }
+    },
+    "309": {
+      "question": "List out the atom id that belongs to the TR346 molecule and how many bond type can be created by this molecule?",
+      "question_id": "309",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "molecule_id"
+        ],
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_type",
+          "molecule_id",
+          "bond_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 5,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "connected",
+          "molecule"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "bond.bond_id",
+          "connected.atom_id",
+          "connected.atom_id2",
+          "connected.bond_id",
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "311": {
+      "question": "How many molecules without sulphur element is not having double bond?",
+      "question_id": "311",
+      "golden": {
+        "atom": [
+          "molecule_id",
+          "element"
+        ],
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "molecule_id",
+          "element"
+        ],
+        "molecule": [
+          "molecule_id"
+        ],
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "molecule"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "312": {
+      "question": "What is the carcinogenic label for bond TR001_2_4?",
+      "question_id": "312",
+      "golden": {
+        "atom": [
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ],
+        "bond": [
+          "bond_id",
+          "molecule_id"
+        ]
+      },
+      "retrieved": {
+        "molecule": [
+          "label",
+          "molecule_id"
+        ],
+        "bond": [
+          "bond_id",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "atom"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "atom.molecule_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "313": {
+      "question": "How many atoms belong to molecule id TR001?",
+      "question_id": "313",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "molecule_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "atom.atom_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "314": {
+      "question": "How many single bonds are there in the list?",
+      "question_id": "314",
+      "golden": {
+        "bond": [
+          "bond_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "bond": [
+          "bond_type"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "bond.bond_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "315": {
+      "question": "Among the molecules which contain \"cl\" element, which of them are carcinogenic?",
+      "question_id": "315",
+      "golden": {
+        "atom": [
+          "molecule_id",
+          "element"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "molecule_id",
+          "element"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.atom_id"
+        ]
+      }
+    },
+    "316": {
+      "question": "Among the molecules which contain \"c\" element, which of them are not carcinogenic?",
+      "question_id": "316",
+      "golden": {
+        "atom": [
+          "molecule_id",
+          "element"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "molecule_id",
+          "element"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.atom_id"
+        ]
+      }
+    },
+    "318": {
+      "question": "What is the molecule id of bond id TR001_1_7?",
+      "question_id": "318",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "molecule_id"
+        ],
+        "connected": [
+          "atom_id",
+          "bond_id"
+        ]
+      },
+      "retrieved": {
+        "bond": [
+          "bond_id",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 1,
+        "tbl_fn": 2,
+        "col_tp": 0,
+        "col_fp": 2,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "atom",
+          "connected"
+        ],
+        "extra_tables": [
+          "bond"
+        ],
+        "missing_columns": [
+          "atom.atom_id",
+          "atom.molecule_id",
+          "connected.atom_id",
+          "connected.bond_id"
+        ],
+        "extra_columns": [
+          "bond.bond_id",
+          "bond.molecule_id"
+        ]
+      }
+    },
+    "319": {
+      "question": "How many elements are contained in bond_id TR001_3_4?",
+      "question_id": "319",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "element"
+        ],
+        "connected": [
+          "atom_id",
+          "bond_id"
+        ]
+      },
+      "retrieved": {
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "atom": [
+          "element",
+          "atom_id",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id"
+        ],
+        "bond": [
+          "bond_id",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 5,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "bond",
+          "molecule"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.molecule_id",
+          "bond.bond_id",
+          "bond.molecule_id",
+          "connected.atom_id2",
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "321": {
+      "question": "What is the molecule of atom id \"TR000_2\" and atom id 2 \"TR000_4\"?",
+      "question_id": "321",
+      "golden": {
+        "bond": [
+          "molecule_id",
+          "bond_id"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 2,
+        "tbl_fn": 2,
+        "col_tp": 0,
+        "col_fp": 3,
+        "col_fn": 5
+      },
+      "differences": {
+        "missing_tables": [
+          "bond",
+          "connected"
+        ],
+        "extra_tables": [
+          "atom",
+          "molecule"
+        ],
+        "missing_columns": [
+          "bond.bond_id",
+          "bond.molecule_id",
+          "connected.atom_id",
+          "connected.atom_id2",
+          "connected.bond_id"
+        ],
+        "extra_columns": [
+          "atom.atom_id",
+          "atom.molecule_id",
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "326": {
+      "question": "Which molecule consisted of Sulphur atom with double bond?",
+      "question_id": "326",
+      "golden": {
+        "atom": [
+          "molecule_id",
+          "element"
+        ],
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 6,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "connected",
+          "molecule"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.atom_id",
+          "bond.bond_id",
+          "connected.atom_id",
+          "connected.atom_id2",
+          "connected.bond_id",
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "327": {
+      "question": "Which non-carcinogenic molecules consisted more than 5 atoms?",
+      "question_id": "327",
+      "golden": {
+        "molecule": [
+          "molecule_id",
+          "label"
+        ],
+        "atom": [
+          "atom_id",
+          "molecule_id"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "atom.atom_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "328": {
+      "question": "List all the elements with double bond, consisted in molecule TR024.",
+      "question_id": "328",
+      "golden": {
+        "atom": [
+          "element",
+          "molecule_id"
+        ],
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 6,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "connected",
+          "molecule"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.atom_id",
+          "bond.bond_id",
+          "connected.atom_id",
+          "connected.atom_id2",
+          "connected.bond_id",
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "329": {
+      "question": "Which carcinogenic molecule have the highest number of atoms consisted in it?",
+      "question_id": "329",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id",
+          "label"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "atom.atom_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "330": {
+      "question": "Calculate the percentage of carcinogenic molecules with triple bonded Hidrogen atoms.",
+      "question_id": "330",
+      "golden": {
+        "molecule": [
+          "molecule_id",
+          "label"
+        ],
+        "atom": [
+          "molecule_id",
+          "element"
+        ],
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "molecule": [
+          "molecule_id",
+          "label"
+        ],
+        "atom": [
+          "atom_id",
+          "element",
+          "molecule_id"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 5,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "connected"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.atom_id",
+          "bond.bond_id",
+          "connected.atom_id",
+          "connected.atom_id2",
+          "connected.bond_id"
+        ]
+      }
+    },
+    "332": {
+      "question": "Among the molecules between TR004 to TR010, how many of them has single bonds?",
+      "question_id": "332",
+      "golden": {
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "molecule": [
+          "molecule_id"
+        ],
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "molecule"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "333": {
+      "question": "In the molecule TR008, how many carbons are present?",
+      "question_id": "333",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "molecule_id",
+          "element"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "element",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "molecule"
+        ],
+        "missing_columns": [
+          "atom.atom_id"
+        ],
+        "extra_columns": [
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "335": {
+      "question": "What is the total number of molecules with double bonded oxygen?",
+      "question_id": "335",
+      "golden": {
+        "atom": [
+          "molecule_id",
+          "element"
+        ],
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "atom": [
+          "atom_id",
+          "element",
+          "molecule_id"
+        ],
+        "molecule": [
+          "molecule_id"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 6,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "connected",
+          "molecule"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "atom.atom_id",
+          "bond.bond_id",
+          "connected.atom_id",
+          "connected.atom_id2",
+          "connected.bond_id",
+          "molecule.molecule_id"
+        ]
+      }
+    },
+    "338": {
+      "question": "What is the atom ID of double bonded carbon in TR012 molecule?",
+      "question_id": "338",
+      "golden": {
+        "atom": [
+          "atom_id",
+          "molecule_id",
+          "element"
+        ],
+        "molecule": [
+          "molecule_id"
+        ],
+        "bond": [
+          "molecule_id",
+          "bond_type"
+        ]
+      },
+      "retrieved": {
+        "molecule": [
+          "molecule_id",
+          "label"
+        ],
+        "atom": [
+          "atom_id",
+          "element",
+          "molecule_id"
+        ],
+        "connected": [
+          "atom_id",
+          "atom_id2",
+          "bond_id"
+        ],
+        "bond": [
+          "bond_id",
+          "bond_type",
+          "molecule_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 5,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "connected"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "bond.bond_id",
+          "connected.atom_id",
+          "connected.atom_id2",
+          "connected.bond_id",
+          "molecule.label"
+        ]
+      }
+    }
+  }
+}

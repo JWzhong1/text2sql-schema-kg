@@ -218,8 +218,8 @@ def main():
     parser.add_argument(
         '--input',
         type=str,
-        default='bird_data/bird_sql_dev_dev_20251106.json',
-        help='Input JSON file path'
+        default='bird_data/bird/llm/data/bird_sql_dev_20251106/bird_sql_dev_dev_20251106.jsonl',
+        help='Input JSONL file path'
     )
     parser.add_argument(
         '--output',

@@ -1,0 +1,5380 @@
+{
+  "summary": {
+    "db_name": "codebase_community",
+    "generated_at": "2025-12-10 17:16:42",
+    "total_questions": 186,
+    "table_metrics": {
+      "precision": 0.9646302250803859,
+      "recall": 0.9036144578313253,
+      "f1": 0.9331259720062208
+    },
+    "column_metrics": {
+      "precision": 0.7311435523114356,
+      "recall": 0.830110497237569,
+      "f1": 0.777490297542044
+    }
+  },
+  "mismatches": {
+    "531": {
+      "question": "Which user has a higher reputation, Harlan or Jarrod Dixon?",
+      "question_id": "531",
+      "golden": {
+        "users": [
+          "Reputation",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Reputation"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "users.DisplayName"
+        ],
+        "extra_columns": []
+      }
+    },
+    "536": {
+      "question": "How many users with more than 10 views created their account after the year 2013?",
+      "question_id": "536",
+      "golden": {
+        "users": [
+          "Id",
+          "Views",
+          "CreationDate"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Views",
+          "CreationDate"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "users.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "537": {
+      "question": "How many posts does the user csgillespie own?",
+      "question_id": "537",
+      "golden": {
+        "posts": [
+          "Id",
+          "OwnerUserId"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "LastEditorUserId",
+          "ParentId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "538": {
+      "question": "Please list the titles of the posts owned by the user csgillespie?",
+      "question_id": "538",
+      "golden": {
+        "posts": [
+          "Title",
+          "OwnerUserId"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Title",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "539": {
+      "question": "Who is the owner of the post \"Eliciting priors from experts\"?",
+      "question_id": "539",
+      "golden": {
+        "posts": [
+          "OwnerUserId",
+          "Title"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "OwnerDisplayName",
+          "ParentId",
+          "Title",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 4,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.OwnerDisplayName",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "540": {
+      "question": "What is the title of the post that is owned by csgillespie and has the highest popularity?",
+      "question_id": "540",
+      "golden": {
+        "posts": [
+          "ViewCount",
+          "Title",
+          "OwnerUserId"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "ViewCount",
+          "ParentId",
+          "Title",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "541": {
+      "question": "What is the display name of the user who is the owner of the most valuable post?",
+      "question_id": "541",
+      "golden": {
+        "posts": [
+          "FavoriteCount",
+          "OwnerUserId"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "FavoriteCount",
+          "ParentId",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "542": {
+      "question": "What is the total number of comments of all the posts owned by csgillespie?",
+      "question_id": "542",
+      "golden": {
+        "posts": [
+          "OwnerUserId",
+          "CommentCount"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "LastEditorUserId",
+          "OwnerUserId",
+          "CommentCount"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "543": {
+      "question": "For the post that got the most number of answers owned by csgillespie, how many answers did it get?",
+      "question_id": "543",
+      "golden": {
+        "posts": [
+          "AnswerCount",
+          "OwnerUserId"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "AnswerCount",
+          "ParentId",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "544": {
+      "question": "What is the display name of the user who last edited the post \"Examples for teaching: Correlation does not mean causation\"?",
+      "question_id": "544",
+      "golden": {
+        "posts": [
+          "LastEditorUserId",
+          "Title"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Title",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.OwnerUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "545": {
+      "question": "Among the posts owned by csgillespie, how many of them are root posts?",
+      "question_id": "545",
+      "golden": {
+        "posts": [
+          "Id",
+          "ParentId",
+          "OwnerUserId"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "LastEditorUserId",
+          "ParentId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.LastEditorUserId"
+        ]
+      }
+    },
+    "546": {
+      "question": "Please list the display names of all the users who owns a post that is well-finished.",
+      "question_id": "546",
+      "golden": {
+        "posts": [
+          "OwnerUserId",
+          "ClosedDate"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "ClosedDate",
+          "ParentId",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "547": {
+      "question": "Among the posts owned by an elder user, how many of them have a score of over 19?",
+      "question_id": "547",
+      "golden": {
+        "posts": [
+          "Id",
+          "OwnerUserId",
+          "Score"
+        ],
+        "users": [
+          "Id",
+          "Age"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "Age"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Score",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "548": {
+      "question": "What is the location of the owner of the post \"Eliciting priors from experts\"?",
+      "question_id": "548",
+      "golden": {
+        "posts": [
+          "OwnerUserId",
+          "Title"
+        ],
+        "users": [
+          "Id",
+          "Location"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "Location"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Title",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "549": {
+      "question": "From which post is the tag \"bayesian\" excerpted from? Please give the body of the post.",
+      "question_id": "549",
+      "golden": {
+        "tags": [
+          "TagName",
+          "ExcerptPostId"
+        ],
+        "posts": [
+          "Id",
+          "Body"
+        ]
+      },
+      "retrieved": {
+        "tags": [
+          "TagName",
+          "ExcerptPostId"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Body"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.ParentId"
+        ]
+      }
+    },
+    "550": {
+      "question": "From which post is the most popular tag excerpted from? Please give the body of the post.",
+      "question_id": "550",
+      "golden": {
+        "posts": [
+          "Id",
+          "Body"
+        ],
+        "tags": [
+          "ExcerptPostId",
+          "Count"
+        ]
+      },
+      "retrieved": {
+        "tags": [
+          "ExcerptPostId",
+          "Count"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Body"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.ParentId"
+        ]
+      }
+    },
+    "551": {
+      "question": "How many badges has the user csgillespie obtained?",
+      "question_id": "551",
+      "golden": {
+        "badges": [
+          "Id",
+          "UserId"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "badges": [
+          "UserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "badges.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "553": {
+      "question": "Among the badges obtained by csgillespie, how many of them were obtained in the year 2011?",
+      "question_id": "553",
+      "golden": {
+        "badges": [
+          "Id",
+          "UserId",
+          "Date"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "badges": [
+          "UserId",
+          "Date"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "badges.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "555": {
+      "question": "What is the average score of the posts owned by the user csgillespie?",
+      "question_id": "555",
+      "golden": {
+        "posts": [
+          "OwnerUserId",
+          "Score"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Score",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "556": {
+      "question": "What is the average number of badges obtained by a user with over 200 views?",
+      "question_id": "556",
+      "golden": {
+        "badges": [
+          "Id",
+          "UserId"
+        ],
+        "users": [
+          "Id",
+          "Views",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "Views"
+        ],
+        "badges": [
+          "Id",
+          "UserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "users.DisplayName"
+        ],
+        "extra_columns": []
+      }
+    },
+    "557": {
+      "question": "Among the posts with a score of over 5, what is the percentage of them being owned by an elder user?",
+      "question_id": "557",
+      "golden": {
+        "posts": [
+          "Id",
+          "OwnerUserId",
+          "Score"
+        ],
+        "users": [
+          "Id",
+          "Age"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "Age"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Score",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "558": {
+      "question": "How many votes did the user No.58 take on 2010/7/19?",
+      "question_id": "558",
+      "golden": {
+        "votes": [
+          "Id",
+          "CreationDate",
+          "UserId"
+        ]
+      },
+      "retrieved": {
+        "votes": [
+          "UserId",
+          "CreationDate"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "votes.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "561": {
+      "question": "What is the title for the post which got the highest score comment?",
+      "question_id": "561",
+      "golden": {
+        "posts": [
+          "Id",
+          "Title"
+        ],
+        "comments": [
+          "PostId",
+          "Score"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "PostId",
+          "Score"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Title"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.ParentId"
+        ]
+      }
+    },
+    "562": {
+      "question": "For the post which got 1910 view counts, how many comments does it get?",
+      "question_id": "562",
+      "golden": {
+        "posts": [
+          "Id",
+          "ViewCount"
+        ],
+        "comments": [
+          "PostId"
+        ]
+      },
+      "retrieved": {
+        "posts": [
+          "Id",
+          "ViewCount",
+          "CommentCount"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "comments"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "comments.PostId"
+        ],
+        "extra_columns": [
+          "posts.CommentCount"
+        ]
+      }
+    },
+    "563": {
+      "question": "User No.3025 gave a comment at 20:29:39 on 2014/4/23 to a post, how many favorite counts did that post get?",
+      "question_id": "563",
+      "golden": {
+        "posts": [
+          "Id",
+          "FavoriteCount"
+        ],
+        "comments": [
+          "UserId",
+          "PostId",
+          "CreationDate"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "UserId",
+          "PostId",
+          "CreationDate"
+        ],
+        "posts": [
+          "Id",
+          "FavoriteCount",
+          "ParentId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.ParentId"
+        ]
+      }
+    },
+    "565": {
+      "question": "User No.23853 gave a comment to a post at 9:08:18 on 2013/7/12, was that post well-finished?",
+      "question_id": "565",
+      "golden": {
+        "comments": [
+          "UserId",
+          "PostId",
+          "CreationDate"
+        ],
+        "posts": [
+          "Id",
+          "ClosedDate"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "UserId",
+          "PostId",
+          "CreationDate"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "ClosedDate"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.ParentId"
+        ]
+      }
+    },
+    "566": {
+      "question": "For the owner user of post No. 65041, what is his/her reputation points?",
+      "question_id": "566",
+      "golden": {
+        "users": [
+          "Id",
+          "Reputation"
+        ],
+        "posts": [
+          "Id",
+          "OwnerUserId"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "Reputation"
+        ],
+        "posts": [
+          "Id",
+          "LastEditorUserId",
+          "ParentId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "567": {
+      "question": "For the user with the display name of \"Tiago Pasqualini\", how many posts did he/she own?",
+      "question_id": "567",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "OwnerUserId"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "LastEditorUserId",
+          "ParentId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "569": {
+      "question": "Give the number of votes for the post about data visualization.",
+      "question_id": "569",
+      "golden": {
+        "posts": [
+          "Id",
+          "Title"
+        ],
+        "votes": [
+          "PostId"
+        ]
+      },
+      "retrieved": {
+        "posts": [
+          "Title",
+          "Score"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 1,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "votes"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "posts.Id",
+          "votes.PostId"
+        ],
+        "extra_columns": [
+          "posts.Score"
+        ]
+      }
+    },
+    "571": {
+      "question": "For the user No.24, how many times is the number of his/her posts compared to his/her votes?",
+      "question_id": "571",
+      "golden": {
+        "votes": [
+          "Id",
+          "UserId"
+        ],
+        "posts": [
+          "Id",
+          "OwnerUserId"
+        ]
+      },
+      "retrieved": {
+        "votes": [
+          "Id",
+          "PostId",
+          "UserId"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.ParentId",
+          "votes.PostId"
+        ]
+      }
+    },
+    "576": {
+      "question": "Name the user that commented 'thank you user93!'",
+      "question_id": "576",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "comments": [
+          "UserId",
+          "Text"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "Text",
+          "UserDisplayName"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 1,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "users"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "comments.UserId",
+          "users.DisplayName",
+          "users.Id"
+        ],
+        "extra_columns": [
+          "comments.UserDisplayName"
+        ]
+      }
+    },
+    "577": {
+      "question": "Write all comments made by user 'A Lion.'",
+      "question_id": "577",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "comments": [
+          "UserId",
+          "Text"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "Text",
+          "UserDisplayName"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 1,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "users"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "comments.UserId",
+          "users.DisplayName",
+          "users.Id"
+        ],
+        "extra_columns": [
+          "comments.UserDisplayName"
+        ]
+      }
+    },
+    "578": {
+      "question": "Which user made a post titled 'Understanding what Dassault iSight is doing?' and how much is the reputation of the user?",
+      "question_id": "578",
+      "golden": {
+        "users": [
+          "Id",
+          "Reputation",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "OwnerUserId",
+          "Title"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "Reputation",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Title",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "579": {
+      "question": "Write all comments made on the post titled 'How does gentle boosting differ from AdaBoost?'",
+      "question_id": "579",
+      "golden": {
+        "comments": [
+          "PostId",
+          "Text"
+        ],
+        "posts": [
+          "Id",
+          "Title"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "PostId",
+          "Text"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Title"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.ParentId"
+        ]
+      }
+    },
+    "581": {
+      "question": "Who is the editor of the post titled 'Open source tools for visualizing multi-dimensional data?'",
+      "question_id": "581",
+      "golden": {
+        "posts": [
+          "OwnerUserId",
+          "Title"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Title",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "582": {
+      "question": "List the title of posts which were edited by Vebjorn Ljosa.",
+      "question_id": "582",
+      "golden": {
+        "posts": [
+          "Title",
+          "OwnerUserId"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Title",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "583": {
+      "question": "What is the total score of the posts edited by Yevgeny and include the user's website URL.",
+      "question_id": "583",
+      "golden": {
+        "posts": [
+          "LastEditorUserId",
+          "Score"
+        ],
+        "users": [
+          "Id",
+          "WebsiteUrl",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "WebsiteUrl",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Score",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.OwnerUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "584": {
+      "question": "Write all the comments left by users who edited the post titled 'Why square the difference instead of taking the absolute value in standard deviation?'",
+      "question_id": "584",
+      "golden": {
+        "posts": [
+          "Id",
+          "Title"
+        ],
+        "postHistory": [
+          "PostId",
+          "Comment"
+        ]
+      },
+      "retrieved": {
+        "postHistory": [
+          "UserId",
+          "PostId"
+        ],
+        "comments": [
+          "UserId",
+          "PostId",
+          "Text"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Title"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 5,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "comments"
+        ],
+        "missing_columns": [
+          "postHistory.Comment"
+        ],
+        "extra_columns": [
+          "comments.PostId",
+          "comments.Text",
+          "comments.UserId",
+          "postHistory.UserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "585": {
+      "question": "How much is the total bounty amount of the post titled about 'data'",
+      "question_id": "585",
+      "golden": {
+        "posts": [
+          "Id",
+          "Title"
+        ],
+        "votes": [
+          "PostId",
+          "BountyAmount"
+        ]
+      },
+      "retrieved": {
+        "votes": [
+          "PostId",
+          "BountyAmount"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Title"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.ParentId"
+        ]
+      }
+    },
+    "586": {
+      "question": "Which user added a bounty amount of 50 to the post title mentioning variance?",
+      "question_id": "586",
+      "golden": {
+        "posts": [
+          "Id",
+          "Title"
+        ],
+        "votes": [
+          "UserId",
+          "PostId",
+          "BountyAmount"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "votes": [
+          "UserId",
+          "PostId",
+          "BountyAmount"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Title",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.LastEditorUserId",
+          "posts.OwnerUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "587": {
+      "question": "Calculate the average view count of each post tagged as 'humor' and list the title and the comment of each post.",
+      "question_id": "587",
+      "golden": {
+        "comments": [
+          "PostId",
+          "Text"
+        ],
+        "posts": [
+          "Id",
+          "ViewCount",
+          "Title",
+          "Tags"
+        ]
+      },
+      "retrieved": {
+        "posts": [
+          "ViewCount",
+          "Title",
+          "Tags"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "comments"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "comments.PostId",
+          "comments.Text",
+          "posts.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "588": {
+      "question": "Give the total number of comments posted by user ID 13.",
+      "question_id": "588",
+      "golden": {
+        "comments": [
+          "Id",
+          "UserId"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "UserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "comments.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "591": {
+      "question": "How many users are awarded with supporter badge during year 2011?",
+      "question_id": "591",
+      "golden": {
+        "badges": [
+          "Id",
+          "Name",
+          "Date"
+        ]
+      },
+      "retrieved": {
+        "badges": [
+          "UserId",
+          "Name",
+          "Date"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "badges.Id"
+        ],
+        "extra_columns": [
+          "badges.UserId"
+        ]
+      }
+    },
+    "593": {
+      "question": "How many users from New York have a teacher and supporter badge?",
+      "question_id": "593",
+      "golden": {
+        "badges": [
+          "Id",
+          "Name",
+          "UserId"
+        ],
+        "users": [
+          "Id",
+          "Location"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "Location"
+        ],
+        "badges": [
+          "UserId",
+          "Name"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "badges.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "594": {
+      "question": "Which user created post ID 1 and what is the reputation of this user?",
+      "question_id": "594",
+      "golden": {
+        "comments": [
+          "UserId",
+          "PostId"
+        ],
+        "users": [
+          "Id",
+          "Reputation"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "Reputation",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "LastEditorUserId",
+          "ParentId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 5,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "comments"
+        ],
+        "extra_tables": [
+          "posts"
+        ],
+        "missing_columns": [
+          "comments.PostId",
+          "comments.UserId"
+        ],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.OwnerUserId",
+          "posts.ParentId",
+          "users.DisplayName"
+        ]
+      }
+    },
+    "595": {
+      "question": "Which user have only one post history per post and having at least 1000 views?",
+      "question_id": "595",
+      "golden": {
+        "users": [
+          "Id"
+        ],
+        "postHistory": [
+          "UserId",
+          "PostId",
+          "PostHistoryTypeId"
+        ],
+        "posts": [
+          "Id",
+          "ViewCount"
+        ]
+      },
+      "retrieved": {
+        "postHistory": [
+          "Id",
+          "PostId"
+        ],
+        "posts": [
+          "Id",
+          "ViewCount",
+          "ParentId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 3,
+        "col_fp": 3,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "users"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "postHistory.PostHistoryTypeId",
+          "postHistory.UserId",
+          "users.Id"
+        ],
+        "extra_columns": [
+          "postHistory.Id",
+          "posts.OwnerUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "596": {
+      "question": "Which users have posted the most comments. List out the user's badge?",
+      "question_id": "596",
+      "golden": {
+        "badges": [
+          "UserId",
+          "Name"
+        ],
+        "comments": [
+          "UserId"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "Id",
+          "UserId"
+        ],
+        "badges": [
+          "UserId",
+          "Name"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "comments.Id"
+        ]
+      }
+    },
+    "597": {
+      "question": "How many users from India have the teacher badges?",
+      "question_id": "597",
+      "golden": {
+        "badges": [
+          "Id",
+          "Name",
+          "UserId"
+        ],
+        "users": [
+          "Id",
+          "Location"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "Location"
+        ],
+        "badges": [
+          "UserId",
+          "Name"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "badges.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "598": {
+      "question": "What is the percentage difference of student badges given during 2010 and 2011?",
+      "question_id": "598",
+      "golden": {
+        "badges": [
+          "Id",
+          "Name",
+          "Date"
+        ]
+      },
+      "retrieved": {
+        "badges": [
+          "Name",
+          "Date"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "badges.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "600": {
+      "question": "List out all post that are related to post ID 61217 and what is the popularity of this post?",
+      "question_id": "600",
+      "golden": {
+        "posts": [
+          "Id",
+          "ViewCount"
+        ],
+        "postLinks": [
+          "PostId"
+        ]
+      },
+      "retrieved": {
+        "postLinks": [
+          "PostId",
+          "RelatedPostId"
+        ],
+        "posts": [
+          "Id",
+          "ViewCount",
+          "ParentId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "postLinks.RelatedPostId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "601": {
+      "question": "What is the score and the link type ID for post ID 395?",
+      "question_id": "601",
+      "golden": {
+        "posts": [
+          "Id",
+          "Score"
+        ],
+        "postLinks": [
+          "PostId",
+          "LinkTypeId"
+        ]
+      },
+      "retrieved": {
+        "postLinks": [
+          "PostId",
+          "LinkTypeId",
+          "RelatedPostId"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Score"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "postLinks.RelatedPostId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "602": {
+      "question": "List out all post ID with score more than 60 and list out all the user ID that created these post.",
+      "question_id": "602",
+      "golden": {
+        "postHistory": [
+          "UserId",
+          "PostId"
+        ],
+        "posts": [
+          "Id",
+          "Score"
+        ]
+      },
+      "retrieved": {
+        "posts": [
+          "Id",
+          "OwnerUserId",
+          "Score"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "postHistory"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "postHistory.PostId",
+          "postHistory.UserId"
+        ],
+        "extra_columns": [
+          "posts.OwnerUserId"
+        ]
+      }
+    },
+    "603": {
+      "question": "What is the sum of favourite count gained by user ID 686 in 2011?",
+      "question_id": "603",
+      "golden": {
+        "posts": [
+          "Id",
+          "FavoriteCount"
+        ],
+        "postHistory": [
+          "UserId",
+          "PostId",
+          "CreationDate"
+        ]
+      },
+      "retrieved": {
+        "posts": [
+          "CreaionDate",
+          "FavoriteCount",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 2,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "postHistory"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "postHistory.CreationDate",
+          "postHistory.PostId",
+          "postHistory.UserId",
+          "posts.Id"
+        ],
+        "extra_columns": [
+          "posts.CreaionDate",
+          "posts.OwnerUserId"
+        ]
+      }
+    },
+    "604": {
+      "question": "What is the average of the up votes and the average user age for users creating more than 10 posts?",
+      "question_id": "604",
+      "golden": {
+        "users": [
+          "Id",
+          "UpVotes",
+          "Age"
+        ],
+        "posts": [
+          "OwnerUserId"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "UpVotes",
+          "Age"
+        ],
+        "posts": [
+          "Id",
+          "LastEditorUserId",
+          "ParentId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "605": {
+      "question": "How many users obtained the \"Announcer\" badge?",
+      "question_id": "605",
+      "golden": {
+        "badges": [
+          "Id",
+          "Name"
+        ]
+      },
+      "retrieved": {
+        "badges": [
+          "UserId",
+          "Name"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "badges.Id"
+        ],
+        "extra_columns": [
+          "badges.UserId"
+        ]
+      }
+    },
+    "607": {
+      "question": "How many positive comments are there on the list?",
+      "question_id": "607",
+      "golden": {
+        "comments": [
+          "Id",
+          "Score"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "Score"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "comments.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "615": {
+      "question": "Among the users who obtained the \"Organizer\" badges, calculate the percentage of users who are teenagers.",
+      "question_id": "615",
+      "golden": {
+        "badges": [
+          "Id",
+          "Name",
+          "UserId"
+        ],
+        "users": [
+          "Id",
+          "Age"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "Age"
+        ],
+        "badges": [
+          "UserId",
+          "Name"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "badges.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "616": {
+      "question": "What is the comment's rating score of the post which was created on 7/19/2010 7:19:56 PM",
+      "question_id": "616",
+      "golden": {
+        "comments": [
+          "PostId",
+          "CreationDate",
+          "Score"
+        ],
+        "posts": [
+          "Id"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "PostId",
+          "Score"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "CreaionDate"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "comments.CreationDate"
+        ],
+        "extra_columns": [
+          "posts.CreaionDate",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "617": {
+      "question": "What is the detailed content of the comment of the post which was created on 7/19/2010 7:37:33 PM?",
+      "question_id": "617",
+      "golden": {
+        "comments": [
+          "PostId",
+          "Text",
+          "CreationDate"
+        ],
+        "posts": [
+          "Id"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "PostId",
+          "Text"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "CreaionDate"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "comments.CreationDate"
+        ],
+        "extra_columns": [
+          "posts.CreaionDate",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "625": {
+      "question": "How many users were from New York?",
+      "question_id": "625",
+      "golden": {
+        "users": [
+          "Id",
+          "Location"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Location"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "users.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "626": {
+      "question": "How many votes were made in 2010?",
+      "question_id": "626",
+      "golden": {
+        "votes": [
+          "Id",
+          "CreationDate"
+        ]
+      },
+      "retrieved": {
+        "votes": [
+          "CreationDate"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "votes.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "627": {
+      "question": "How many users were adult?",
+      "question_id": "627",
+      "golden": {
+        "users": [
+          "Id",
+          "Age"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Age"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "users.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "628": {
+      "question": "Which users have the highest number of views?",
+      "question_id": "628",
+      "golden": {
+        "users": [
+          "Id",
+          "Views",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Views",
+          "DisplayName"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "users.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "629": {
+      "question": "Calculate the ratio of votes in 2010 and 2011.",
+      "question_id": "629",
+      "golden": {
+        "votes": [
+          "CreationDate"
+        ]
+      },
+      "retrieved": {
+        "votes": [
+          "Id",
+          "CreationDate"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "votes.Id"
+        ]
+      }
+    },
+    "630": {
+      "question": "What is the name of tags used by John Salvatier's?",
+      "question_id": "630",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "postHistory": [
+          "UserId",
+          "PostId"
+        ],
+        "posts": [
+          "Id",
+          "Tags"
+        ]
+      },
+      "retrieved": {
+        "tags": [
+          "TagName",
+          "ExcerptPostId"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Tags",
+          "Id",
+          "ParentId",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 5,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "postHistory"
+        ],
+        "extra_tables": [
+          "tags"
+        ],
+        "missing_columns": [
+          "postHistory.PostId",
+          "postHistory.UserId"
+        ],
+        "extra_columns": [
+          "posts.LastEditorUserId",
+          "posts.OwnerUserId",
+          "posts.ParentId",
+          "tags.ExcerptPostId",
+          "tags.TagName"
+        ]
+      }
+    },
+    "631": {
+      "question": "How many posts were created by Daniel Vassallo?",
+      "question_id": "631",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "postHistory": [
+          "UserId"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "LastEditorUserId",
+          "ParentId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 4,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "postHistory"
+        ],
+        "extra_tables": [
+          "posts"
+        ],
+        "missing_columns": [
+          "postHistory.UserId"
+        ],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.OwnerUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "632": {
+      "question": "How many votes were made by Harlan?",
+      "question_id": "632",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "postHistory": [
+          "UserId",
+          "PostId"
+        ],
+        "votes": [
+          "PostId"
+        ]
+      },
+      "retrieved": {
+        "votes": [
+          "UserId"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "postHistory"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "postHistory.PostId",
+          "postHistory.UserId",
+          "votes.PostId"
+        ],
+        "extra_columns": [
+          "votes.UserId"
+        ]
+      }
+    },
+    "633": {
+      "question": "Which post by slashnick has the most answers count? State the post ID.",
+      "question_id": "633",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "postHistory": [
+          "UserId",
+          "PostId"
+        ],
+        "posts": [
+          "Id",
+          "AnswerCount"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "OwnerDisplayName",
+          "AnswerCount",
+          "ParentId",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 4,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "postHistory"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "postHistory.PostId",
+          "postHistory.UserId"
+        ],
+        "extra_columns": [
+          "posts.LastEditorUserId",
+          "posts.OwnerDisplayName",
+          "posts.OwnerUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "634": {
+      "question": "Among posts by Harvey Motulsky and Noah Snyder, which one has higher popularity?",
+      "question_id": "634",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "postHistory": [
+          "UserId",
+          "PostId"
+        ],
+        "posts": [
+          "Id",
+          "ViewCount"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "ViewCount",
+          "Id",
+          "OwnerDisplayName",
+          "ParentId",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 4,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "postHistory"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "postHistory.PostId",
+          "postHistory.UserId"
+        ],
+        "extra_columns": [
+          "posts.LastEditorUserId",
+          "posts.OwnerDisplayName",
+          "posts.OwnerUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "635": {
+      "question": "How many posts by Matt Parker have more than 4 votes?",
+      "question_id": "635",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "postHistory": [
+          "UserId",
+          "PostId"
+        ],
+        "posts": [
+          "Id"
+        ],
+        "votes": [
+          "Id",
+          "PostId"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "OwnerDisplayName",
+          "ParentId",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 2,
+        "col_tp": 3,
+        "col_fp": 4,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "postHistory",
+          "votes"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "postHistory.PostId",
+          "postHistory.UserId",
+          "votes.Id",
+          "votes.PostId"
+        ],
+        "extra_columns": [
+          "posts.LastEditorUserId",
+          "posts.OwnerDisplayName",
+          "posts.OwnerUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "636": {
+      "question": "How many negative comments did Neil McGuigan get in his posts?",
+      "question_id": "636",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "OwnerUserId"
+        ],
+        "comments": [
+          "Id",
+          "PostId",
+          "Score"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "UserId",
+          "PostId",
+          "Score"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "LastEditorUserId",
+          "ParentId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 3,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "comments.Id"
+        ],
+        "extra_columns": [
+          "comments.UserId",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "637": {
+      "question": "State all the tags used by Mark Meckes in his posts that doesn't have comments.",
+      "question_id": "637",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "postHistory": [
+          "UserId",
+          "PostId"
+        ],
+        "posts": [
+          "Id",
+          "Tags",
+          "CommentCount"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "Tags",
+          "ParentId",
+          "LastEditorUserId",
+          "OwnerUserId",
+          "CommentCount"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 5,
+        "col_fp": 3,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "postHistory"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "postHistory.PostId",
+          "postHistory.UserId"
+        ],
+        "extra_columns": [
+          "posts.LastEditorUserId",
+          "posts.OwnerUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "639": {
+      "question": "Based on posts posted by Community, calculate the percentage of posts that use the R language.",
+      "question_id": "639",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "postHistory": [
+          "UserId",
+          "PostId"
+        ],
+        "tags": [
+          "TagName",
+          "ExcerptPostId"
+        ]
+      },
+      "retrieved": {
+        "posts": [
+          "Id",
+          "OwnerDisplayName",
+          "Tags"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 1,
+        "tbl_fn": 3,
+        "col_tp": 0,
+        "col_fp": 3,
+        "col_fn": 6
+      },
+      "differences": {
+        "missing_tables": [
+          "postHistory",
+          "tags",
+          "users"
+        ],
+        "extra_tables": [
+          "posts"
+        ],
+        "missing_columns": [
+          "postHistory.PostId",
+          "postHistory.UserId",
+          "tags.ExcerptPostId",
+          "tags.TagName",
+          "users.DisplayName",
+          "users.Id"
+        ],
+        "extra_columns": [
+          "posts.Id",
+          "posts.OwnerDisplayName",
+          "posts.Tags"
+        ]
+      }
+    },
+    "640": {
+      "question": "Calculate the difference in view count from post posted by Mornington and view count from posts posted by Amos.",
+      "question_id": "640",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "postHistory": [
+          "UserId",
+          "PostId"
+        ],
+        "posts": [
+          "Id",
+          "ViewCount"
+        ]
+      },
+      "retrieved": {
+        "posts": [
+          "ViewCount",
+          "OwnerDisplayName"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 2,
+        "col_tp": 1,
+        "col_fp": 1,
+        "col_fn": 5
+      },
+      "differences": {
+        "missing_tables": [
+          "postHistory",
+          "users"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "postHistory.PostId",
+          "postHistory.UserId",
+          "posts.Id",
+          "users.DisplayName",
+          "users.Id"
+        ],
+        "extra_columns": [
+          "posts.OwnerDisplayName"
+        ]
+      }
+    },
+    "641": {
+      "question": "How many users received commentator badges in 2014?",
+      "question_id": "641",
+      "golden": {
+        "badges": [
+          "Id",
+          "Name",
+          "Date"
+        ]
+      },
+      "retrieved": {
+        "badges": [
+          "UserId",
+          "Name",
+          "Date"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "badges.Id"
+        ],
+        "extra_columns": [
+          "badges.UserId"
+        ]
+      }
+    },
+    "642": {
+      "question": "How many posts were created on 21st July, 2010?",
+      "question_id": "642",
+      "golden": {
+        "postHistory": [
+          "Id",
+          "CreationDate"
+        ]
+      },
+      "retrieved": {
+        "posts": [
+          "CreaionDate"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 1,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "postHistory"
+        ],
+        "extra_tables": [
+          "posts"
+        ],
+        "missing_columns": [
+          "postHistory.CreationDate",
+          "postHistory.Id"
+        ],
+        "extra_columns": [
+          "posts.CreaionDate"
+        ]
+      }
+    },
+    "645": {
+      "question": "How many negative comments were given by user ID 13?",
+      "question_id": "645",
+      "golden": {
+        "comments": [
+          "Id",
+          "UserId",
+          "Score"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "UserId",
+          "Score"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "comments.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "646": {
+      "question": "Describe the post title which got positive comments and display names of the users who posted those comments.",
+      "question_id": "646",
+      "golden": {
+        "posts": [
+          "Title",
+          "Score"
+        ],
+        "comments": [
+          "Id",
+          "PostId",
+          "UserDisplayName"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "PostId",
+          "UserDisplayName",
+          "Score"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Title"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 3,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "comments.Id",
+          "posts.Score"
+        ],
+        "extra_columns": [
+          "comments.Score",
+          "posts.Id",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "648": {
+      "question": "Provide the users' display names and available website URLs of the post with favorite count of more than 150.",
+      "question_id": "648",
+      "golden": {
+        "users": [
+          "Id",
+          "WebsiteUrl",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "FavoriteCount",
+          "OwnerUserId"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "WebsiteUrl",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "FavoriteCount",
+          "ParentId",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "649": {
+      "question": "Describe the post history counts and last edit date of the post title \"What is the best introductory Bayesian statistics textbook?\"",
+      "question_id": "649",
+      "golden": {
+        "postHistory": [
+          "Id",
+          "PostId"
+        ],
+        "posts": [
+          "Id",
+          "LastEditDate",
+          "Title"
+        ]
+      },
+      "retrieved": {
+        "postHistory": [
+          "PostId"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "LastEditDate",
+          "Title"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "postHistory.Id"
+        ],
+        "extra_columns": [
+          "posts.ParentId"
+        ]
+      }
+    },
+    "651": {
+      "question": "Provide the related post title of \"How to tell if something happened in a data set which monitors a value over time\".",
+      "question_id": "651",
+      "golden": {
+        "postLinks": [
+          "PostId",
+          "RelatedPostId"
+        ],
+        "posts": [
+          "Id",
+          "Title"
+        ]
+      },
+      "retrieved": {
+        "postLinks": [
+          "PostId",
+          "RelatedPostId"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Title"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.ParentId"
+        ]
+      }
+    },
+    "652": {
+      "question": "List the post IDs and badge names of the user Samuel in 2013.",
+      "question_id": "652",
+      "golden": {
+        "postHistory": [
+          "UserId",
+          "PostId",
+          "CreationDate",
+          "UserDisplayName"
+        ],
+        "badges": [
+          "UserId",
+          "Name",
+          "Date"
+        ]
+      },
+      "retrieved": {
+        "badges": [
+          "UserId",
+          "Name",
+          "Date"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "CreaionDate",
+          "ParentId",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 3,
+        "col_fp": 7,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "postHistory"
+        ],
+        "extra_tables": [
+          "posts",
+          "users"
+        ],
+        "missing_columns": [
+          "postHistory.CreationDate",
+          "postHistory.PostId",
+          "postHistory.UserDisplayName",
+          "postHistory.UserId"
+        ],
+        "extra_columns": [
+          "posts.CreaionDate",
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.OwnerUserId",
+          "posts.ParentId",
+          "users.DisplayName",
+          "users.Id"
+        ]
+      }
+    },
+    "653": {
+      "question": "What is the owner's display name of the most popular post?",
+      "question_id": "653",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "ViewCount",
+          "OwnerUserId"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "ViewCount",
+          "Id",
+          "ParentId",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "654": {
+      "question": "Mention the display name and location of the user who owned the excerpt post with hypothesis-testing tag.",
+      "question_id": "654",
+      "golden": {
+        "tags": [
+          "TagName",
+          "ExcerptPostId"
+        ],
+        "posts": [
+          "Id",
+          "OwnerUserId"
+        ],
+        "users": [
+          "Id",
+          "Location",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "tags": [
+          "TagName",
+          "ExcerptPostId"
+        ],
+        "users": [
+          "Id",
+          "Location",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "LastEditorUserId",
+          "ParentId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "655": {
+      "question": "Write down the related posts titles and link type IDs of the post \"What are principal component scores?\".",
+      "question_id": "655",
+      "golden": {
+        "posts": [
+          "Id",
+          "Title"
+        ],
+        "postLinks": [
+          "PostId",
+          "LinkTypeId",
+          "RelatedPostId"
+        ]
+      },
+      "retrieved": {
+        "postLinks": [
+          "PostId",
+          "LinkTypeId",
+          "RelatedPostId"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Title"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.ParentId"
+        ]
+      }
+    },
+    "656": {
+      "question": "Describe the display name of the parent ID for child post with the highest score.",
+      "question_id": "656",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "ParentId",
+          "OwnerUserId",
+          "Score"
+        ]
+      },
+      "retrieved": {
+        "posts": [
+          "Id",
+          "ParentId",
+          "OwnerDisplayName",
+          "Score"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "users"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "posts.OwnerUserId",
+          "users.DisplayName",
+          "users.Id"
+        ],
+        "extra_columns": [
+          "posts.Id",
+          "posts.OwnerDisplayName"
+        ]
+      }
+    },
+    "659": {
+      "question": "How many tags have post count between 5,000 to 7,000?",
+      "question_id": "659",
+      "golden": {
+        "tags": [
+          "Id",
+          "Count"
+        ]
+      },
+      "retrieved": {
+        "tags": [
+          "Count"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "tags.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "662": {
+      "question": "How many posts with votes that were created in 2011 have a bounty of 50?",
+      "question_id": "662",
+      "golden": {
+        "posts": [
+          "Id"
+        ],
+        "votes": [
+          "PostId",
+          "BountyAmount",
+          "CreationDate"
+        ]
+      },
+      "retrieved": {
+        "votes": [
+          "PostId",
+          "BountyAmount"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "CreaionDate"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "votes.CreationDate"
+        ],
+        "extra_columns": [
+          "posts.CreaionDate",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "665": {
+      "question": "What is the average monthly number of links created in 2010 for posts that have no more than 2 answers?",
+      "question_id": "665",
+      "golden": {
+        "postLinks": [
+          "Id",
+          "PostId",
+          "CreationDate"
+        ],
+        "posts": [
+          "Id",
+          "AnswerCount"
+        ]
+      },
+      "retrieved": {
+        "posts": [
+          "Id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "postLinks"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "postLinks.CreationDate",
+          "postLinks.Id",
+          "postLinks.PostId",
+          "posts.AnswerCount"
+        ],
+        "extra_columns": []
+      }
+    },
+    "666": {
+      "question": "Among the posts that were voted by user 1465, what is the id of the most valuable post?",
+      "question_id": "666",
+      "golden": {
+        "votes": [
+          "UserId",
+          "PostId"
+        ],
+        "posts": [
+          "Id",
+          "FavoriteCount"
+        ]
+      },
+      "retrieved": {
+        "votes": [
+          "UserId",
+          "PostId"
+        ],
+        "posts": [
+          "Id",
+          "FavoriteCount",
+          "ParentId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.ParentId"
+        ]
+      }
+    },
+    "667": {
+      "question": "What is the title of the post with the oldest post link?",
+      "question_id": "667",
+      "golden": {
+        "posts": [
+          "Id",
+          "CreaionDate",
+          "Title"
+        ],
+        "postLinks": [
+          "PostId"
+        ]
+      },
+      "retrieved": {
+        "posts": [
+          "CreaionDate",
+          "Title"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "postLinks"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "postLinks.PostId",
+          "posts.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "668": {
+      "question": "What is the display name of the user who acquired the highest amount of badges?",
+      "question_id": "668",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "badges": [
+          "UserId"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "badges": [
+          "UserId",
+          "Name"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "badges.Name"
+        ]
+      }
+    },
+    "670": {
+      "question": "What is the date when the youngest user made his or her first post?",
+      "question_id": "670",
+      "golden": {
+        "users": [
+          "Id",
+          "Age"
+        ],
+        "posts": [
+          "CreaionDate",
+          "OwnerUserId"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "Age"
+        ],
+        "posts": [
+          "Id",
+          "CreaionDate",
+          "ParentId",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "672": {
+      "question": "Among the users located in United Kingdom, how many users whose post have a total favorite amount of 4 or more?",
+      "question_id": "672",
+      "golden": {
+        "users": [
+          "Id",
+          "Location"
+        ],
+        "posts": [
+          "FavoriteCount",
+          "OwnerUserId"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "Location"
+        ],
+        "posts": [
+          "Id",
+          "FavoriteCount",
+          "ParentId",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "674": {
+      "question": "Who has the highest reputation? Please give the display name.",
+      "question_id": "674",
+      "golden": {
+        "users": [
+          "Reputation",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Reputation"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "users.DisplayName"
+        ],
+        "extra_columns": []
+      }
+    },
+    "675": {
+      "question": "How many users whose reputations are higher than 2000 and the number of views is higher than 1000?",
+      "question_id": "675",
+      "golden": {
+        "users": [
+          "Id",
+          "Views",
+          "Reputation"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Reputation",
+          "Views"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "users.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "677": {
+      "question": "How many posts did Jay Stevens have in 2010?",
+      "question_id": "677",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "CreaionDate",
+          "OwnerUserId"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "OwnerDisplayName",
+          "CreaionDate",
+          "ParentId",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 4,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.OwnerDisplayName",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "678": {
+      "question": "Which post by Harvey Motulsky has the most views? Please give the id and title of this post.",
+      "question_id": "678",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "ViewCount",
+          "Title",
+          "OwnerUserId"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "ViewCount",
+          "ParentId",
+          "Title",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "679": {
+      "question": "Which post has the highest score? Please give its id and title's name.",
+      "question_id": "679",
+      "golden": {
+        "users": [
+          "Id"
+        ],
+        "posts": [
+          "Score",
+          "OwnerUserId",
+          "Title"
+        ]
+      },
+      "retrieved": {
+        "posts": [
+          "Id",
+          "Title",
+          "Score"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "users"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "posts.OwnerUserId",
+          "users.Id"
+        ],
+        "extra_columns": [
+          "posts.Id"
+        ]
+      }
+    },
+    "680": {
+      "question": "What is the average score of Stephen Turner's posts?",
+      "question_id": "680",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "OwnerUserId",
+          "Score"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Score",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "681": {
+      "question": "Please list the users' display names whose posts had over 20000 views in 2011.",
+      "question_id": "681",
+      "golden": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "CreaionDate",
+          "ViewCount",
+          "OwnerUserId"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "ViewCount",
+          "Id",
+          "CreaionDate",
+          "ParentId",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "682": {
+      "question": "Which is the most valuable post in 2010? Please give its id and the owner's display name.",
+      "question_id": "682",
+      "golden": {
+        "users": [
+          "Id",
+          "CreationDate",
+          "DisplayName"
+        ],
+        "posts": [
+          "FavoriteCount",
+          "OwnerUserId"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "FavoriteCount",
+          "CreaionDate",
+          "ParentId",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 4,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "users.CreationDate"
+        ],
+        "extra_columns": [
+          "posts.CreaionDate",
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "683": {
+      "question": "What is the percentage of posts whose owners had a reputation of over 1000 in 2011?",
+      "question_id": "683",
+      "golden": {
+        "users": [
+          "Id",
+          "Reputation"
+        ],
+        "posts": [
+          "CreaionDate",
+          "OwnerUserId"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "Reputation"
+        ],
+        "posts": [
+          "Id",
+          "CreaionDate",
+          "ParentId",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "685": {
+      "question": "Identify the total views on the post 'Computer Game Datasets'. Name the user who posted it last time.",
+      "question_id": "685",
+      "golden": {
+        "postHistory": [
+          "PostId",
+          "Text"
+        ],
+        "posts": [
+          "Id",
+          "LastEditorUserId",
+          "ViewCount"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "ViewCount",
+          "Body",
+          "CreaionDate",
+          "ParentId",
+          "Title",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 5,
+        "col_fp": 5,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "postHistory"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "postHistory.PostId",
+          "postHistory.Text"
+        ],
+        "extra_columns": [
+          "posts.Body",
+          "posts.CreaionDate",
+          "posts.OwnerUserId",
+          "posts.ParentId",
+          "posts.Title"
+        ]
+      }
+    },
+    "686": {
+      "question": "Identify the total number of posts with views above average.",
+      "question_id": "686",
+      "golden": {
+        "posts": [
+          "Id",
+          "ViewCount"
+        ]
+      },
+      "retrieved": {
+        "posts": [
+          "ViewCount"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "posts.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "687": {
+      "question": "How many comments were added to the post with the highest score?",
+      "question_id": "687",
+      "golden": {
+        "posts": [
+          "Id",
+          "Score"
+        ],
+        "comments": [
+          "Id",
+          "PostId"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "PostId"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Score"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "comments.Id"
+        ],
+        "extra_columns": [
+          "posts.ParentId"
+        ]
+      }
+    },
+    "688": {
+      "question": "Identify the number of posts that have been viewed over 35000 times but have received no comments from other users.",
+      "question_id": "688",
+      "golden": {
+        "posts": [
+          "Id",
+          "ViewCount",
+          "CommentCount"
+        ]
+      },
+      "retrieved": {
+        "posts": [
+          "ViewCount",
+          "CommentCount"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "posts.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "689": {
+      "question": "Identify the display name and location of the user, who was the last to edit the post with ID 183.",
+      "question_id": "689",
+      "golden": {
+        "posts": [
+          "Id",
+          "LastEditDate",
+          "OwnerUserId"
+        ],
+        "users": [
+          "Id",
+          "Location",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "Location",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "LastEditDate",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "691": {
+      "question": "Identify the number of adult users who have cast over 5000 upvotes.",
+      "question_id": "691",
+      "golden": {
+        "users": [
+          "Id",
+          "UpVotes",
+          "Age"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "UpVotes",
+          "Age"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "users.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "693": {
+      "question": "Identify the number of posts and comments left by the user, who has the latest created user account.",
+      "question_id": "693",
+      "golden": {
+        "users": [
+          "Id",
+          "CreationDate"
+        ],
+        "posts": [
+          "Id",
+          "OwnerUserId"
+        ],
+        "comments": [
+          "Id",
+          "PostId"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "UserId",
+          "PostId"
+        ],
+        "users": [
+          "Id",
+          "CreationDate"
+        ],
+        "posts": [
+          "Id",
+          "LastEditorUserId",
+          "ParentId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 3,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "comments.Id"
+        ],
+        "extra_columns": [
+          "comments.UserId",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "694": {
+      "question": "Provide the text of the latest 10 comments to the post with the title 'Analysing wind data with R' and the display name of the user who left it.",
+      "question_id": "694",
+      "golden": {
+        "users": [
+          "Id",
+          "CreationDate",
+          "DisplayName"
+        ],
+        "posts": [
+          "Id",
+          "OwnerUserId",
+          "Title"
+        ],
+        "comments": [
+          "PostId",
+          "Text"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "PostId",
+          "Text",
+          "UserDisplayName",
+          "CreationDate"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Title"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "users"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "posts.OwnerUserId",
+          "users.CreationDate",
+          "users.DisplayName",
+          "users.Id"
+        ],
+        "extra_columns": [
+          "comments.CreationDate",
+          "comments.UserDisplayName",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "695": {
+      "question": "How many users were awarded with 'Citizen Patrol' badge?",
+      "question_id": "695",
+      "golden": {
+        "badges": [
+          "Id",
+          "Name"
+        ]
+      },
+      "retrieved": {
+        "badges": [
+          "UserId",
+          "Name"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "badges.Id"
+        ],
+        "extra_columns": [
+          "badges.UserId"
+        ]
+      }
+    },
+    "696": {
+      "question": "Count the number of posts with a tag specified as 'careers'.",
+      "question_id": "696",
+      "golden": {
+        "tags": [
+          "Id",
+          "TagName"
+        ]
+      },
+      "retrieved": {
+        "posts": [
+          "Id",
+          "Tags"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "tags"
+        ],
+        "extra_tables": [
+          "posts"
+        ],
+        "missing_columns": [
+          "tags.Id",
+          "tags.TagName"
+        ],
+        "extra_columns": [
+          "posts.Id",
+          "posts.Tags"
+        ]
+      }
+    },
+    "698": {
+      "question": "How many comments and answers were left by the users on the post with the title 'Clustering 1D data'?",
+      "question_id": "698",
+      "golden": {
+        "posts": [
+          "AnswerCount",
+          "Title",
+          "CommentCount"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "PostId"
+        ],
+        "posts": [
+          "Id",
+          "AnswerCount",
+          "ParentId",
+          "Title",
+          "CommentCount"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "comments"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "comments.PostId",
+          "posts.Id",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "700": {
+      "question": "Identify the number of posts that offer a bounty amount over 30.",
+      "question_id": "700",
+      "golden": {
+        "votes": [
+          "Id",
+          "BountyAmount"
+        ]
+      },
+      "retrieved": {
+        "votes": [
+          "BountyAmount",
+          "PostId"
+        ],
+        "posts": [
+          "Id",
+          "ParentId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 3,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "posts"
+        ],
+        "missing_columns": [
+          "votes.Id"
+        ],
+        "extra_columns": [
+          "posts.Id",
+          "posts.ParentId",
+          "votes.PostId"
+        ]
+      }
+    },
+    "701": {
+      "question": "Among all the posts posted by the most influential user, identify the percentage with a score above 50.",
+      "question_id": "701",
+      "golden": {
+        "users": [
+          "Id",
+          "Reputation"
+        ],
+        "posts": [
+          "OwnerUserId",
+          "Score"
+        ]
+      },
+      "retrieved": {
+        "users": [
+          "Id",
+          "Reputation"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Score",
+          "LastEditorUserId",
+          "OwnerUserId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.Id",
+          "posts.LastEditorUserId",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "702": {
+      "question": "How many posts have a score less than 20?",
+      "question_id": "702",
+      "golden": {
+        "posts": [
+          "Id",
+          "Score"
+        ]
+      },
+      "retrieved": {
+        "posts": [
+          "Score"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "posts.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "706": {
+      "question": "Give the texts commented on the post about linear regression.",
+      "question_id": "706",
+      "golden": {
+        "comments": [
+          "PostId",
+          "Text"
+        ],
+        "posts": [
+          "Id",
+          "Title"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "PostId",
+          "Text"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Title"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.ParentId"
+        ]
+      }
+    },
+    "707": {
+      "question": "Among the posts with views ranging from 100 to 150, what is the comment with the highest score?",
+      "question_id": "707",
+      "golden": {
+        "comments": [
+          "PostId",
+          "Text",
+          "Score"
+        ],
+        "posts": [
+          "Id",
+          "ViewCount"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "PostId",
+          "Text",
+          "Score"
+        ],
+        "posts": [
+          "Id",
+          "ViewCount",
+          "ParentId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.ParentId"
+        ]
+      }
+    },
+    "709": {
+      "question": "In comments with 0 score, how many of the posts have view count lower than 5?",
+      "question_id": "709",
+      "golden": {
+        "comments": [
+          "Id",
+          "PostId"
+        ],
+        "posts": [
+          "Id",
+          "ViewCount",
+          "Score"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "PostId",
+          "Score"
+        ],
+        "posts": [
+          "Id",
+          "ViewCount",
+          "ParentId"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "comments.Id",
+          "posts.Score"
+        ],
+        "extra_columns": [
+          "comments.Score",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "710": {
+      "question": "In posts with 1 comment, how many of the comments have 0 score?",
+      "question_id": "710",
+      "golden": {
+        "comments": [
+          "Id",
+          "PostId"
+        ],
+        "posts": [
+          "Id",
+          "Score",
+          "CommentCount"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "PostId",
+          "Score"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "CommentCount"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "comments.Id",
+          "posts.Score"
+        ],
+        "extra_columns": [
+          "comments.Score",
+          "posts.ParentId"
+        ]
+      }
+    },
+    "711": {
+      "question": "Among products comments with 0 score, what is the total number of users ages 40 years old?",
+      "question_id": "711",
+      "golden": {
+        "comments": [
+          "Id",
+          "UserId",
+          "Score"
+        ],
+        "users": [
+          "Id",
+          "Age"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "UserId",
+          "Score"
+        ],
+        "users": [
+          "Id",
+          "Age"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "comments.Id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "712": {
+      "question": "What is the post ID and the comments commented in the post titled by \"Group differences on a five point Likert item\"?",
+      "question_id": "712",
+      "golden": {
+        "comments": [
+          "PostId",
+          "Text"
+        ],
+        "posts": [
+          "Id",
+          "Title"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "PostId",
+          "Text"
+        ],
+        "posts": [
+          "Id",
+          "ParentId",
+          "Title"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "posts.ParentId"
+        ]
+      }
+    },
+    "714": {
+      "question": "List the comments commented by the user with a username of Harvey Motulsky.",
+      "question_id": "714",
+      "golden": {
+        "comments": [
+          "UserId",
+          "Text"
+        ],
+        "users": [
+          "Id",
+          "DisplayName"
+        ]
+      },
+      "retrieved": {
+        "comments": [
+          "Text",
+          "UserDisplayName"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 1,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "users"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "comments.UserId",
+          "users.DisplayName",
+          "users.Id"
+        ],
+        "extra_columns": [
+          "comments.UserDisplayName"
+        ]
+      }
+    }
+  }
+}

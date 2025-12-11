@@ -8,7 +8,16 @@ from src.graph.schema_graph_retriever import GraphRAGRetriever
 from src.llm.client import get_competition_json, get_competition
 from src.llm.prompts import get_sql_generation_prompt
 
+# 添加日志配置，设置级别为 INFO
+# 修改：添加 force=True 强制覆盖其他模块可能已设置的日志配置
+logging.basicConfig(
+    level=logging.INFO, 
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    force=True
+)
+
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO) # 显式设置当前 logger 级别，确保不被父级过滤
 
 class Text2SQLAgent:
     def __init__(self, db_name: str, db_path: str, neo4j_config: Tuple[str, str, str], max_retries: int = 3):
@@ -85,6 +94,24 @@ class Text2SQLAgent:
             except:
                 return clean_sql
     
+    def _format_schema_for_prompt(self, schema_map: Dict[str, Any]) -> str:
+        """
+        格式化 Schema Map 为 Prompt 友好的字符串
+        """
+        lines = []
+        if not schema_map:
+            return "No schema information available."
+            
+        for table_name, columns in schema_map.items():
+            # columns 通常是列名列表
+            if isinstance(columns, list):
+                col_str = ", ".join([str(c) for c in columns])
+            else:
+                col_str = str(columns)
+            lines.append(f"Table: {table_name}\nColumns: {col_str}")
+        
+        return "\n\n".join(lines)
+
     def _format_reasoning_context(self, reasoning_ctx: Dict[str, Any]) -> str:
         """
         格式化推理上下文为 Prompt 友好的字符串
@@ -151,10 +178,9 @@ class Text2SQLAgent:
         schema_map = retrieval_result.get("schema_map", {})
         reasoning_ctx = retrieval_result.get("reasoning_context", {})
         
-        schema_context = self._format_schema_for_prompt(schema_map)
+
         reasoning_context = self._format_reasoning_context(reasoning_ctx)
         
-        logger.info(f"Retrieved Schema Context:\n{schema_context}")
         logger.info(f"Reasoning Context:\n{reasoning_context}")
 
         current_sql = ""

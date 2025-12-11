@@ -1,0 +1,3497 @@
+{
+  "summary": {
+    "db_name": "student_club",
+    "generated_at": "2025-12-10 02:08:31",
+    "total_questions": 158,
+    "table_metrics": {
+      "precision": 0.9287925696594427,
+      "recall": 0.9523809523809523,
+      "f1": 0.9404388714733543
+    },
+    "column_metrics": {
+      "precision": 0.8097560975609757,
+      "recall": 0.8924731182795699,
+      "f1": 0.8491048593350385
+    }
+  },
+  "mismatches": {
+    "1315": {
+      "question": "How many students of the Student_Club have attended the event \"Women's Soccer\"?",
+      "question_id": "1315",
+      "golden": {
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "attendance": [
+          "link_to_event"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "member_id"
+        ],
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "attendance": [
+          "link_to_member",
+          "link_to_event"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "member"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "attendance.link_to_member",
+          "member.member_id"
+        ]
+      }
+    },
+    "1318": {
+      "question": "What is the event that has the highest attendance of the students from the Student_Club?",
+      "question_id": "1318",
+      "golden": {
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "attendance": [
+          "link_to_event"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "member_id",
+          "phone",
+          "zip",
+          "link_to_major",
+          "first_name",
+          "last_name",
+          "email",
+          "position",
+          "t_shirt_size"
+        ],
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "attendance": [
+          "link_to_event",
+          "link_to_member"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 10,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "member"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "attendance.link_to_member",
+          "member.email",
+          "member.first_name",
+          "member.last_name",
+          "member.link_to_major",
+          "member.member_id",
+          "member.phone",
+          "member.position",
+          "member.t_shirt_size",
+          "member.zip"
+        ]
+      }
+    },
+    "1320": {
+      "question": "Please list the event names of all the events attended by Maya Mclean.",
+      "question_id": "1320",
+      "golden": {
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "attendance": [
+          "link_to_event",
+          "link_to_member"
+        ],
+        "member": [
+          "member_id",
+          "first_name",
+          "last_name"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "member_id",
+          "email",
+          "first_name",
+          "last_name"
+        ],
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "attendance": [
+          "link_to_event",
+          "link_to_member"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "member.email"
+        ]
+      }
+    },
+    "1321": {
+      "question": "How many events of the Student_Club did Sacha Harrison attend in 2019?",
+      "question_id": "1321",
+      "golden": {
+        "event": [
+          "event_id",
+          "event_date"
+        ],
+        "attendance": [
+          "link_to_event",
+          "link_to_member"
+        ],
+        "member": [
+          "member_id",
+          "first_name",
+          "last_name"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "member_id",
+          "first_name",
+          "last_name"
+        ],
+        "event": [
+          "event_id",
+          "event_date",
+          "type",
+          "event_name"
+        ],
+        "attendance": [
+          "link_to_member",
+          "link_to_event"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "event.event_name",
+          "event.type"
+        ]
+      }
+    },
+    "1322": {
+      "question": "Among the events attended by more than 10 members of the Student_Club, how many of them are meetings?",
+      "question_id": "1322",
+      "golden": {
+        "event": [
+          "event_id",
+          "event_name",
+          "type"
+        ],
+        "attendance": [
+          "link_to_event"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_id",
+          "type"
+        ],
+        "attendance": [
+          "link_to_event",
+          "link_to_member"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "event.event_name"
+        ],
+        "extra_columns": [
+          "attendance.link_to_member"
+        ]
+      }
+    },
+    "1324": {
+      "question": "What is the average attendance of meetings in 2020?",
+      "question_id": "1324",
+      "golden": {
+        "event": [
+          "event_id",
+          "event_date",
+          "type"
+        ],
+        "attendance": [
+          "link_to_event"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_id",
+          "event_name",
+          "event_date",
+          "type"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "attendance"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "attendance.link_to_event"
+        ],
+        "extra_columns": [
+          "event.event_name"
+        ]
+      }
+    },
+    "1325": {
+      "question": "What is the most expensive item that was spent in support of club events?",
+      "question_id": "1325",
+      "golden": {
+        "expense": [
+          "expense_description",
+          "cost"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "type",
+          "event_id"
+        ],
+        "budget": [
+          "category",
+          "link_to_event",
+          "budget_id"
+        ],
+        "expense": [
+          "expense_description",
+          "cost",
+          "link_to_budget"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 6,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "budget",
+          "event"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "budget.budget_id",
+          "budget.category",
+          "budget.link_to_event",
+          "event.event_id",
+          "event.type",
+          "expense.link_to_budget"
+        ]
+      }
+    },
+    "1329": {
+      "question": "What county did Sherri Ramsey grew up?",
+      "question_id": "1329",
+      "golden": {
+        "member": [
+          "first_name",
+          "last_name",
+          "zip"
+        ],
+        "zip_code": [
+          "zip_code",
+          "county"
+        ]
+      },
+      "retrieved": {
+        "zip_code": [
+          "zip_code",
+          "county"
+        ],
+        "member": [
+          "member_id",
+          "zip"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.first_name",
+          "member.last_name"
+        ],
+        "extra_columns": [
+          "member.member_id"
+        ]
+      }
+    },
+    "1330": {
+      "question": "What college offers the major that Tyler Hewitt took?",
+      "question_id": "1330",
+      "golden": {
+        "member": [
+          "first_name",
+          "last_name",
+          "link_to_major"
+        ],
+        "major": [
+          "major_id",
+          "college"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "last_name",
+          "link_to_major"
+        ],
+        "major": [
+          "major_id",
+          "college"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.first_name"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1332": {
+      "question": "How much did the Student_Club members spend on food in September Meeting?",
+      "question_id": "1332",
+      "golden": {
+        "event": [
+          "event_id",
+          "event_name",
+          "event_date"
+        ],
+        "budget": [
+          "spent",
+          "category",
+          "link_to_event"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "budget": [
+          "spent",
+          "category",
+          "link_to_event"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "event.event_date"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1335": {
+      "question": "How much did the Student_Club members spend on advertisement in September Meeting?",
+      "question_id": "1335",
+      "golden": {
+        "event": [
+          "event_id",
+          "event_name",
+          "event_date"
+        ],
+        "budget": [
+          "spent",
+          "category",
+          "link_to_event"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "budget": [
+          "spent",
+          "category",
+          "link_to_event"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "event.event_date"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1336": {
+      "question": "What department offers the major that Pierce and Guidi took?",
+      "question_id": "1336",
+      "golden": {
+        "member": [
+          "last_name",
+          "link_to_major"
+        ],
+        "major": [
+          "major_id",
+          "department"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "member_id",
+          "link_to_major"
+        ],
+        "major": [
+          "major_id",
+          "major_name",
+          "department"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.last_name"
+        ],
+        "extra_columns": [
+          "major.major_name",
+          "member.member_id"
+        ]
+      }
+    },
+    "1338": {
+      "question": "Was each expense in October Meeting on October 8, 2019 approved?",
+      "question_id": "1338",
+      "golden": {
+        "event": [
+          "event_id",
+          "event_name",
+          "event_date"
+        ],
+        "budget": [
+          "budget_id",
+          "link_to_event"
+        ],
+        "expense": [
+          "approved",
+          "link_to_budget"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_id",
+          "event_name",
+          "event_date"
+        ],
+        "budget": [
+          "budget_id",
+          "link_to_event"
+        ],
+        "expense": [
+          "expense_id",
+          "approved",
+          "link_to_budget"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "expense.expense_id"
+        ]
+      }
+    },
+    "1340": {
+      "question": "Calculate the difference of the total amount spent in all events by the Student_Club in year 2019 and 2020.",
+      "question_id": "1340",
+      "golden": {
+        "event": [
+          "event_id",
+          "event_date"
+        ],
+        "budget": [
+          "link_to_event",
+          "spent"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_date",
+          "event_id",
+          "event_name",
+          "type",
+          "notes",
+          "status",
+          "location"
+        ],
+        "budget": [
+          "amount",
+          "link_to_event",
+          "spent",
+          "remaining",
+          "event_status",
+          "budget_id",
+          "category"
+        ],
+        "expense": [
+          "cost",
+          "link_to_budget",
+          "link_to_member",
+          "expense_id",
+          "expense_description",
+          "expense_date",
+          "approved"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 17,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "expense"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "budget.amount",
+          "budget.budget_id",
+          "budget.category",
+          "budget.event_status",
+          "budget.remaining",
+          "event.event_name",
+          "event.location",
+          "event.notes",
+          "event.status",
+          "event.type",
+          "expense.approved",
+          "expense.cost",
+          "expense.expense_date",
+          "expense.expense_description",
+          "expense.expense_id",
+          "expense.link_to_budget",
+          "expense.link_to_member"
+        ]
+      }
+    },
+    "1341": {
+      "question": "Give the location for \"Spring Budget Review\".",
+      "question_id": "1341",
+      "golden": {
+        "event": [
+          "location",
+          "event_name"
+        ]
+      },
+      "retrieved": {},
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "event"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "event.event_name",
+          "event.location"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1342": {
+      "question": "What was the cost for the \"Posters\" on 2019/9/4?",
+      "question_id": "1342",
+      "golden": {
+        "expense": [
+          "cost",
+          "expense_description",
+          "expense_date"
+        ]
+      },
+      "retrieved": {
+        "zip_code": [
+          "zip_code",
+          "type",
+          "city",
+          "county",
+          "state",
+          "short_state"
+        ],
+        "member": [
+          "member_id",
+          "zip",
+          "link_to_major",
+          "first_name",
+          "last_name",
+          "email",
+          "position",
+          "t_shirt_size",
+          "phone"
+        ],
+        "event": [
+          "event_id",
+          "event_name",
+          "event_date",
+          "type",
+          "notes",
+          "location",
+          "status"
+        ],
+        "attendance": [
+          "link_to_event",
+          "link_to_member"
+        ],
+        "income": [
+          "date_received",
+          "source",
+          "notes",
+          "link_to_member",
+          "amount"
+        ],
+        "major": [
+          "major_id",
+          "major_name",
+          "department",
+          "college"
+        ],
+        "budget": [
+          "link_to_event",
+          "budget_id",
+          "spent",
+          "remaining",
+          "amount",
+          "event_status",
+          "category"
+        ],
+        "expense": [
+          "cost",
+          "expense_description",
+          "link_to_budget",
+          "expense_date",
+          "link_to_member"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 7,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 42,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "attendance",
+          "budget",
+          "event",
+          "income",
+          "major",
+          "member",
+          "zip_code"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "attendance.link_to_event",
+          "attendance.link_to_member",
+          "budget.amount",
+          "budget.budget_id",
+          "budget.category",
+          "budget.event_status",
+          "budget.link_to_event",
+          "budget.remaining",
+          "budget.spent",
+          "event.event_date",
+          "event.event_id",
+          "event.event_name",
+          "event.location",
+          "event.notes",
+          "event.status",
+          "event.type",
+          "expense.link_to_budget",
+          "expense.link_to_member",
+          "income.amount",
+          "income.date_received",
+          "income.link_to_member",
+          "income.notes",
+          "income.source",
+          "major.college",
+          "major.department",
+          "major.major_id",
+          "major.major_name",
+          "member.email",
+          "member.first_name",
+          "member.last_name",
+          "member.link_to_major",
+          "member.member_id",
+          "member.phone",
+          "member.position",
+          "member.t_shirt_size",
+          "member.zip",
+          "zip_code.city",
+          "zip_code.county",
+          "zip_code.short_state",
+          "zip_code.state",
+          "zip_code.type",
+          "zip_code.zip_code"
+        ]
+      }
+    },
+    "1345": {
+      "question": "How many majors are there in \"College of Humanities and Social Sciences\"?",
+      "question_id": "1345",
+      "golden": {
+        "major": [
+          "major_name",
+          "college"
+        ]
+      },
+      "retrieved": {
+        "major": [
+          "major_id",
+          "college"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "major.major_name"
+        ],
+        "extra_columns": [
+          "major.major_id"
+        ]
+      }
+    },
+    "1347": {
+      "question": "Tell the hometown county for \"Adela O'Gallagher\".",
+      "question_id": "1347",
+      "golden": {
+        "member": [
+          "first_name",
+          "last_name",
+          "zip"
+        ],
+        "zip_code": [
+          "zip_code",
+          "county"
+        ]
+      },
+      "retrieved": {
+        "zip_code": [
+          "zip_code",
+          "county"
+        ],
+        "member": [
+          "first_name",
+          "zip"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.last_name"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1350": {
+      "question": "What is the status of the event which bought \"Post Cards, Posters\" on 2019/8/20?",
+      "question_id": "1350",
+      "golden": {
+        "budget": [
+          "event_status",
+          "budget_id"
+        ],
+        "expense": [
+          "expense_description",
+          "expense_date",
+          "link_to_budget"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_id",
+          "status"
+        ],
+        "budget": [
+          "link_to_event",
+          "event_status",
+          "budget_id"
+        ],
+        "expense": [
+          "expense_description",
+          "expense_date",
+          "link_to_budget"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "event"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "budget.link_to_event",
+          "event.event_id",
+          "event.status"
+        ]
+      }
+    },
+    "1352": {
+      "question": "For all the club members from \"Business\" major, how many of them wear medium size t-shirt?",
+      "question_id": "1352",
+      "golden": {
+        "member": [
+          "member_id",
+          "t_shirt_size",
+          "link_to_major"
+        ],
+        "major": [
+          "major_id",
+          "major_name"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "link_to_major",
+          "t_shirt_size"
+        ],
+        "major": [
+          "major_id",
+          "major_name"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.member_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1353": {
+      "question": "What's Christof Nielson's zip code type?",
+      "question_id": "1353",
+      "golden": {
+        "member": [
+          "first_name",
+          "last_name",
+          "zip"
+        ],
+        "zip_code": [
+          "zip_code",
+          "type"
+        ]
+      },
+      "retrieved": {
+        "zip_code": [
+          "zip_code",
+          "type"
+        ],
+        "member": [
+          "member_id",
+          "zip"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.first_name",
+          "member.last_name"
+        ],
+        "extra_columns": [
+          "member.member_id"
+        ]
+      }
+    },
+    "1355": {
+      "question": "Where is the hometown state for \"Sacha Harrison\"?",
+      "question_id": "1355",
+      "golden": {
+        "member": [
+          "first_name",
+          "last_name",
+          "zip"
+        ],
+        "zip_code": [
+          "zip_code",
+          "state"
+        ]
+      },
+      "retrieved": {
+        "zip_code": [
+          "zip_code",
+          "state"
+        ],
+        "member": [
+          "member_id",
+          "zip"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.first_name",
+          "member.last_name"
+        ],
+        "extra_columns": [
+          "member.member_id"
+        ]
+      }
+    },
+    "1359": {
+      "question": "How many times was the budget in Advertisement for \"Yearly Kickoff\" meeting more than \"October Meeting\"?",
+      "question_id": "1359",
+      "golden": {
+        "budget": [
+          "amount",
+          "category",
+          "link_to_event"
+        ],
+        "event": [
+          "event_id",
+          "event_name",
+          "type"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "budget": [
+          "amount",
+          "category",
+          "link_to_event"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "event.type"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1360": {
+      "question": "What percentage was the budget for Parking to the total budget for the \"November Speaker\"?",
+      "question_id": "1360",
+      "golden": {
+        "budget": [
+          "category",
+          "amount",
+          "link_to_event"
+        ],
+        "event": [
+          "event_id",
+          "event_name"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "budget": [
+          "amount",
+          "link_to_event"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "budget.category"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1364": {
+      "question": "Where is Amy Firth's hometown?",
+      "question_id": "1364",
+      "golden": {
+        "member": [
+          "first_name",
+          "last_name",
+          "zip"
+        ],
+        "zip_code": [
+          "zip_code",
+          "city",
+          "county",
+          "state"
+        ]
+      },
+      "retrieved": {
+        "zip_code": [
+          "zip_code",
+          "city",
+          "county",
+          "state"
+        ],
+        "member": [
+          "first_name",
+          "zip"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.last_name"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1366": {
+      "question": "List all the members who attended the event \"October Meeting\".",
+      "question_id": "1366",
+      "golden": {
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "attendance": [
+          "link_to_event",
+          "link_to_member"
+        ],
+        "member": [
+          "member_id"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "member_id",
+          "first_name",
+          "last_name"
+        ],
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "attendance": [
+          "link_to_member",
+          "link_to_event"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "member.first_name",
+          "member.last_name"
+        ]
+      }
+    },
+    "1370": {
+      "question": "List all the expenses incurred by the vice president.",
+      "question_id": "1370",
+      "golden": {
+        "member": [
+          "member_id",
+          "position"
+        ],
+        "expense": [
+          "expense_id",
+          "expense_description",
+          "link_to_member"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "member_id",
+          "position"
+        ],
+        "expense": [
+          "expense_description",
+          "link_to_member"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "expense.expense_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1373": {
+      "question": "How many of the members' hometowns are from Maryland state?",
+      "question_id": "1373",
+      "golden": {
+        "zip_code": [
+          "zip_code",
+          "state"
+        ],
+        "member": [
+          "member_id",
+          "zip"
+        ]
+      },
+      "retrieved": {
+        "zip_code": [
+          "zip_code",
+          "state",
+          "short_state"
+        ],
+        "member": [
+          "zip"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.member_id"
+        ],
+        "extra_columns": [
+          "zip_code.short_state"
+        ]
+      }
+    },
+    "1374": {
+      "question": "How many events did the member with the phone number \"954-555-6240\" attend?",
+      "question_id": "1374",
+      "golden": {
+        "member": [
+          "member_id",
+          "phone"
+        ],
+        "attendance": [
+          "link_to_event",
+          "link_to_member"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "member_id",
+          "phone"
+        ],
+        "event": [
+          "event_id"
+        ],
+        "attendance": [
+          "link_to_member",
+          "link_to_event"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "event"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "event.event_id"
+        ]
+      }
+    },
+    "1376": {
+      "question": "Among all the closed events, which event has the highest spend-to-budget ratio?",
+      "question_id": "1376",
+      "golden": {
+        "budget": [
+          "link_to_event",
+          "spent",
+          "amount"
+        ],
+        "event": [
+          "event_id",
+          "event_name",
+          "status"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_name",
+          "status",
+          "event_id"
+        ],
+        "budget": [
+          "amount",
+          "spent",
+          "link_to_event",
+          "event_status"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "budget.event_status"
+        ]
+      }
+    },
+    "1377": {
+      "question": "How many student have the position of president?",
+      "question_id": "1377",
+      "golden": {
+        "member": [
+          "member_id",
+          "position"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "position"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.member_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1379": {
+      "question": "How many meeting events were held in 2020?",
+      "question_id": "1379",
+      "golden": {
+        "event": [
+          "event_id",
+          "type",
+          "event_date"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_date",
+          "type"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "event.event_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1382": {
+      "question": "Among the students majored in interior design, who have attended the Community Theater event?",
+      "question_id": "1382",
+      "golden": {
+        "major": [
+          "major_id",
+          "major_name"
+        ],
+        "member": [
+          "member_id",
+          "first_name",
+          "last_name",
+          "link_to_major"
+        ],
+        "attendance": [
+          "link_to_member",
+          "link_to_event"
+        ],
+        "event": [
+          "event_id",
+          "event_name"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "member_id",
+          "link_to_major"
+        ],
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "major": [
+          "major_id",
+          "major_name"
+        ],
+        "attendance": [
+          "link_to_member",
+          "link_to_event"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 4,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 8,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.first_name",
+          "member.last_name"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1384": {
+      "question": "How many income generated by Grant Gilmour?",
+      "question_id": "1384",
+      "golden": {
+        "member": [
+          "member_id",
+          "first_name",
+          "last_name"
+        ],
+        "income": [
+          "amount",
+          "link_to_member"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "member_id"
+        ],
+        "income": [
+          "amount",
+          "link_to_member"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.first_name",
+          "member.last_name"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1386": {
+      "question": "What is the total expense for the Yearly Kickoff?",
+      "question_id": "1386",
+      "golden": {
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "budget": [
+          "budget_id",
+          "link_to_event"
+        ],
+        "expense": [
+          "cost",
+          "link_to_budget"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "budget": [
+          "link_to_event",
+          "spent",
+          "budget_id"
+        ],
+        "expense": [
+          "link_to_budget",
+          "cost"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "budget.spent"
+        ]
+      }
+    },
+    "1387": {
+      "question": "Which student has been entrusted to manage the budget for the Yearly Kickoff?",
+      "question_id": "1387",
+      "golden": {
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "budget": [
+          "budget_id",
+          "link_to_event"
+        ],
+        "expense": [
+          "link_to_budget",
+          "link_to_member"
+        ],
+        "member": [
+          "member_id",
+          "first_name",
+          "last_name"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "member_id",
+          "first_name",
+          "last_name"
+        ],
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "income": [
+          "link_to_member"
+        ],
+        "budget": [
+          "link_to_event",
+          "budget_id"
+        ],
+        "expense": [
+          "link_to_budget",
+          "link_to_member"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 4,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 9,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "income"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "income.link_to_member"
+        ]
+      }
+    },
+    "1390": {
+      "question": "Based on the total cost for all event, what is the percentage of cost for Yearly Kickoff event?",
+      "question_id": "1390",
+      "golden": {
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "budget": [
+          "budget_id",
+          "link_to_event"
+        ],
+        "expense": [
+          "cost",
+          "link_to_budget"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "budget": [
+          "link_to_event",
+          "spent",
+          "budget_id"
+        ],
+        "expense": [
+          "link_to_budget",
+          "cost"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "budget.spent"
+        ]
+      }
+    },
+    "1391": {
+      "question": "What is the ratio between students majored in finance and physics?",
+      "question_id": "1391",
+      "golden": {
+        "major": [
+          "major_name"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "link_to_major"
+        ],
+        "major": [
+          "major_id",
+          "major_name"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "member"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "major.major_id",
+          "member.link_to_major"
+        ]
+      }
+    },
+    "1392": {
+      "question": "Indicate the top source of funds received in September 2019 based on their amount.",
+      "question_id": "1392",
+      "golden": {
+        "income": [
+          "source",
+          "date_received"
+        ]
+      },
+      "retrieved": {
+        "income": [
+          "source",
+          "amount",
+          "date_received"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "income.amount"
+        ]
+      }
+    },
+    "1394": {
+      "question": "How many members of the Student_Club have major in 'Physics Teaching'?",
+      "question_id": "1394",
+      "golden": {
+        "major": [
+          "major_id",
+          "major_name"
+        ],
+        "member": [
+          "member_id",
+          "link_to_major"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "link_to_major"
+        ],
+        "major": [
+          "major_id",
+          "major_name"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.member_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1395": {
+      "question": "How many members did attend the event 'Community Theater' in 2019?",
+      "question_id": "1395",
+      "golden": {
+        "event": [
+          "event_id",
+          "event_name",
+          "event_date"
+        ],
+        "attendance": [
+          "link_to_event",
+          "link_to_member"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "member_id"
+        ],
+        "event": [
+          "event_id",
+          "event_name",
+          "event_date"
+        ],
+        "attendance": [
+          "link_to_event",
+          "link_to_member"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "member"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "member.member_id"
+        ]
+      }
+    },
+    "1396": {
+      "question": "Provide the number of events attended by Luisa Guidi. What is her major?",
+      "question_id": "1396",
+      "golden": {
+        "major": [
+          "major_id",
+          "major_name"
+        ],
+        "member": [
+          "member_id",
+          "first_name",
+          "last_name",
+          "link_to_major"
+        ],
+        "attendance": [
+          "link_to_event",
+          "link_to_member"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "member_id",
+          "link_to_major"
+        ],
+        "major": [
+          "major_id",
+          "major_name"
+        ],
+        "attendance": [
+          "link_to_member",
+          "link_to_event"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.first_name",
+          "member.last_name"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1400": {
+      "question": "Among all events hold by the Student_Club in 2019, find the percentage share of events related to 'Community Service'",
+      "question_id": "1400",
+      "golden": {
+        "event": [
+          "type",
+          "event_date"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_id",
+          "event_date",
+          "type"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "event.event_id"
+        ]
+      }
+    },
+    "1403": {
+      "question": "Indicate the name of the closed event whose cost has exceeded the budget the most.",
+      "question_id": "1403",
+      "golden": {
+        "budget": [
+          "link_to_event",
+          "event_status",
+          "remaining"
+        ],
+        "event": [
+          "event_id",
+          "event_name"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_name",
+          "status",
+          "event_id"
+        ],
+        "budget": [
+          "remaining",
+          "link_to_event",
+          "event_status"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "event.status"
+        ]
+      }
+    },
+    "1404": {
+      "question": "Identify the type of expenses and their total value approved for 'October Meeting' event.",
+      "question_id": "1404",
+      "golden": {
+        "event": [
+          "type",
+          "event_id",
+          "event_name"
+        ],
+        "budget": [
+          "budget_id",
+          "link_to_event"
+        ],
+        "expense": [
+          "cost",
+          "link_to_budget"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "budget": [
+          "budget_id",
+          "link_to_event"
+        ],
+        "expense": [
+          "expense_id",
+          "link_to_budget",
+          "cost",
+          "approved"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "event.type"
+        ],
+        "extra_columns": [
+          "expense.approved",
+          "expense.expense_id"
+        ]
+      }
+    },
+    "1407": {
+      "question": "Among the budgets for Advertising, list out top three which have the most budgeted amount?",
+      "question_id": "1407",
+      "golden": {
+        "budget": [
+          "budget_id",
+          "category",
+          "amount"
+        ]
+      },
+      "retrieved": {
+        "budget": [
+          "category",
+          "amount"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "budget.budget_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1408": {
+      "question": "Calculate the total cost spent for Parking in the list.",
+      "question_id": "1408",
+      "golden": {
+        "expense": [
+          "cost",
+          "expense_description"
+        ]
+      },
+      "retrieved": {},
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "expense"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "expense.cost",
+          "expense.expense_description"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1414": {
+      "question": "State the name of major that Phillip Cullen has joined.",
+      "question_id": "1414",
+      "golden": {
+        "major": [
+          "major_id",
+          "major_name"
+        ],
+        "member": [
+          "first_name",
+          "last_name",
+          "link_to_major"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "member_id",
+          "link_to_major"
+        ],
+        "major": [
+          "major_id",
+          "major_name"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.first_name",
+          "member.last_name"
+        ],
+        "extra_columns": [
+          "member.member_id"
+        ]
+      }
+    },
+    "1416": {
+      "question": "How many members of Business have the Medium size of tee shirt?",
+      "question_id": "1416",
+      "golden": {
+        "major": [
+          "major_id",
+          "major_name"
+        ],
+        "member": [
+          "member_id",
+          "t_shirt_size",
+          "link_to_major"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "t_shirt_size",
+          "link_to_major"
+        ],
+        "major": [
+          "major_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "major.major_name",
+          "member.member_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1418": {
+      "question": "Mention the category of events which were held at MU 215.",
+      "question_id": "1418",
+      "golden": {
+        "event": [
+          "event_id",
+          "location"
+        ],
+        "budget": [
+          "category",
+          "link_to_event"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "location"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "budget"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "budget.category",
+          "budget.link_to_event",
+          "event.event_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1419": {
+      "question": "What is the category of event which was taken place in 2020-03-24T12:00:00?",
+      "question_id": "1419",
+      "golden": {
+        "event": [
+          "event_id",
+          "event_date"
+        ],
+        "budget": [
+          "category",
+          "link_to_event"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_date",
+          "type"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 1,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "budget"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "budget.category",
+          "budget.link_to_event",
+          "event.event_id"
+        ],
+        "extra_columns": [
+          "event.type"
+        ]
+      }
+    },
+    "1421": {
+      "question": "Calculate the percentage of members who are major Business in the list?",
+      "question_id": "1421",
+      "golden": {
+        "member": [
+          "member_id",
+          "position",
+          "link_to_major"
+        ],
+        "major": [
+          "major_id",
+          "major_name"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "position",
+          "link_to_major"
+        ],
+        "major": [
+          "major_id",
+          "major_name"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.member_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1422": {
+      "question": "State the category of events were held at MU 215.",
+      "question_id": "1422",
+      "golden": {
+        "event": [
+          "event_id",
+          "location"
+        ],
+        "budget": [
+          "category",
+          "link_to_event"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "type",
+          "location"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 1,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "budget"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "budget.category",
+          "budget.link_to_event",
+          "event.event_id"
+        ],
+        "extra_columns": [
+          "event.type"
+        ]
+      }
+    },
+    "1423": {
+      "question": "How many income are received with an amount of 50?",
+      "question_id": "1423",
+      "golden": {
+        "income": [
+          "income_id",
+          "amount"
+        ]
+      },
+      "retrieved": {
+        "income": [
+          "amount"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "income.income_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1424": {
+      "question": "Among the members, how many of them have an extra large t-shirt size?",
+      "question_id": "1424",
+      "golden": {
+        "member": [
+          "member_id",
+          "position",
+          "t_shirt_size"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "position",
+          "t_shirt_size"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.member_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1425": {
+      "question": "In the College of Agriculture and Applied Sciences, how many majors are under the department of School of Applied Sciences, Technology and Education?",
+      "question_id": "1425",
+      "golden": {
+        "major": [
+          "major_id",
+          "department",
+          "college"
+        ]
+      },
+      "retrieved": {
+        "major": [
+          "major_id",
+          "major_name",
+          "department",
+          "college"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "major.major_name"
+        ]
+      }
+    },
+    "1426": {
+      "question": "List the last name of members with a major in environmental engineering and include its department and college name.",
+      "question_id": "1426",
+      "golden": {
+        "major": [
+          "major_id",
+          "major_name",
+          "department",
+          "college"
+        ],
+        "member": [
+          "last_name",
+          "position",
+          "link_to_major"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "last_name",
+          "link_to_major"
+        ],
+        "major": [
+          "major_name",
+          "department",
+          "college",
+          "major_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.position"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1429": {
+      "question": "What is the name of the social event that was attended by the vice president of the Student_Club located at 900 E. Washington St.?",
+      "question_id": "1429",
+      "golden": {
+        "attendance": [
+          "link_to_event",
+          "link_to_member"
+        ],
+        "event": [
+          "event_id",
+          "event_name",
+          "location",
+          "type"
+        ],
+        "member": [
+          "member_id",
+          "position"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "member_id",
+          "position"
+        ],
+        "event": [
+          "event_name",
+          "type",
+          "event_id"
+        ],
+        "attendance": [
+          "link_to_event",
+          "link_to_member"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "event.location"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1432": {
+      "question": "Among the members with t-shirt size of medium, what is the percentage of the amount 50 received by the Student_Club?",
+      "question_id": "1432",
+      "golden": {
+        "member": [
+          "member_id",
+          "position",
+          "t_shirt_size"
+        ],
+        "income": [
+          "income_id",
+          "amount",
+          "link_to_member"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "t_shirt_size",
+          "member_id"
+        ],
+        "income": [
+          "amount",
+          "link_to_member"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "income.income_id",
+          "member.position"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1433": {
+      "question": "Which countries have zip codes with post office boxes?",
+      "question_id": "1433",
+      "golden": {
+        "zip_code": [
+          "county",
+          "type"
+        ]
+      },
+      "retrieved": {},
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "zip_code"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "zip_code.county",
+          "zip_code.type"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1436": {
+      "question": "Please provide links to events for members who have paid more than 50 dollar.",
+      "question_id": "1436",
+      "golden": {
+        "expense": [
+          "link_to_member",
+          "cost"
+        ],
+        "member": [
+          "member_id"
+        ],
+        "attendance": [
+          "link_to_member",
+          "link_to_event"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_id",
+          "event_name",
+          "event_date",
+          "type",
+          "notes",
+          "status",
+          "location"
+        ],
+        "expense": [
+          "cost",
+          "link_to_member"
+        ],
+        "attendance": [
+          "link_to_member",
+          "link_to_event"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 7,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "member"
+        ],
+        "extra_tables": [
+          "event"
+        ],
+        "missing_columns": [
+          "member.member_id"
+        ],
+        "extra_columns": [
+          "event.event_date",
+          "event.event_id",
+          "event.event_name",
+          "event.location",
+          "event.notes",
+          "event.status",
+          "event.type"
+        ]
+      }
+    },
+    "1437": {
+      "question": "Which members who were approved from 1/10/2019 to 11/19/2019? Please identify the member who attended the event and the link to their event.",
+      "question_id": "1437",
+      "golden": {
+        "expense": [
+          "link_to_member",
+          "expense_date",
+          "approved"
+        ],
+        "member": [
+          "member_id"
+        ],
+        "attendance": [
+          "link_to_member",
+          "link_to_event"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "member_id",
+          "first_name",
+          "last_name",
+          "email",
+          "position",
+          "phone",
+          "zip",
+          "link_to_major",
+          "t_shirt_size"
+        ],
+        "event": [
+          "event_id",
+          "event_name",
+          "event_date",
+          "type",
+          "notes",
+          "status",
+          "location"
+        ],
+        "expense": [
+          "approved",
+          "expense_date",
+          "link_to_member",
+          "expense_id",
+          "expense_description",
+          "cost",
+          "link_to_budget"
+        ],
+        "attendance": [
+          "link_to_member",
+          "link_to_event"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 19,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "event"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "event.event_date",
+          "event.event_id",
+          "event.event_name",
+          "event.location",
+          "event.notes",
+          "event.status",
+          "event.type",
+          "expense.cost",
+          "expense.expense_description",
+          "expense.expense_id",
+          "expense.link_to_budget",
+          "member.email",
+          "member.first_name",
+          "member.last_name",
+          "member.link_to_major",
+          "member.phone",
+          "member.position",
+          "member.t_shirt_size",
+          "member.zip"
+        ]
+      }
+    },
+    "1441": {
+      "question": "How many members have education major in the College of Education & Human Services?",
+      "question_id": "1441",
+      "golden": {
+        "member": [
+          "member_id",
+          "position",
+          "link_to_major"
+        ],
+        "major": [
+          "major_id",
+          "major_name",
+          "college"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "position",
+          "link_to_major"
+        ],
+        "major": [
+          "major_name",
+          "college",
+          "major_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.member_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1442": {
+      "question": "What is the percentage of the events that went over budget?",
+      "question_id": "1442",
+      "golden": {
+        "budget": [
+          "remaining",
+          "budget_id"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_id"
+        ],
+        "budget": [
+          "remaining",
+          "link_to_event"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "event"
+        ],
+        "missing_columns": [
+          "budget.budget_id"
+        ],
+        "extra_columns": [
+          "budget.link_to_event",
+          "event.event_id"
+        ]
+      }
+    },
+    "1444": {
+      "question": "List the expenses that spend more than fifty dollars on average.",
+      "question_id": "1444",
+      "golden": {
+        "expense": [
+          "expense_description",
+          "cost"
+        ]
+      },
+      "retrieved": {
+        "expense": [
+          "expense_description",
+          "cost",
+          "expense_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "expense.expense_id"
+        ]
+      }
+    },
+    "1446": {
+      "question": "Calculate the percentage of zip codes that are PO boxes.",
+      "question_id": "1446",
+      "golden": {
+        "zip_code": [
+          "zip_code",
+          "type"
+        ]
+      },
+      "retrieved": {},
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 0,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "zip_code"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "zip_code.type",
+          "zip_code.zip_code"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1450": {
+      "question": "In the events with more than forty incomes, list the city and country in which the event is happening.",
+      "question_id": "1450",
+      "golden": {
+        "income": [
+          "amount",
+          "link_to_member"
+        ],
+        "member": [
+          "member_id",
+          "zip"
+        ],
+        "zip_code": [
+          "zip_code",
+          "city",
+          "county"
+        ]
+      },
+      "retrieved": {
+        "zip_code": [
+          "zip_code",
+          "city",
+          "state"
+        ],
+        "member": [
+          "member_id",
+          "zip"
+        ],
+        "event": [
+          "event_id",
+          "location"
+        ],
+        "attendance": [
+          "link_to_event",
+          "link_to_member"
+        ],
+        "income": [
+          "amount",
+          "link_to_member"
+        ],
+        "budget": [
+          "link_to_event",
+          "spent",
+          "remaining"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 8,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "attendance",
+          "budget",
+          "event"
+        ],
+        "missing_columns": [
+          "zip_code.county"
+        ],
+        "extra_columns": [
+          "attendance.link_to_event",
+          "attendance.link_to_member",
+          "budget.link_to_event",
+          "budget.remaining",
+          "budget.spent",
+          "event.event_id",
+          "event.location",
+          "zip_code.state"
+        ]
+      }
+    },
+    "1451": {
+      "question": "Among the members who incurred expenses in more than one event, who paid the most amount?",
+      "question_id": "1451",
+      "golden": {
+        "expense": [
+          "link_to_member",
+          "link_to_budget",
+          "cost"
+        ],
+        "member": [
+          "member_id"
+        ],
+        "budget": [
+          "budget_id",
+          "link_to_event"
+        ],
+        "event": [
+          "event_id"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "member_id",
+          "first_name",
+          "last_name"
+        ],
+        "expense": [
+          "link_to_member",
+          "cost"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 2,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "budget",
+          "event"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "budget.budget_id",
+          "budget.link_to_event",
+          "event.event_id",
+          "expense.link_to_budget"
+        ],
+        "extra_columns": [
+          "member.first_name",
+          "member.last_name"
+        ]
+      }
+    },
+    "1453": {
+      "question": "List the name of events with less than average parking cost.",
+      "question_id": "1453",
+      "golden": {
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "budget": [
+          "budget_id",
+          "category",
+          "link_to_event"
+        ],
+        "expense": [
+          "cost",
+          "link_to_budget"
+        ]
+      },
+      "retrieved": {
+        "event": [
+          "event_id",
+          "event_name"
+        ],
+        "budget": [
+          "link_to_event",
+          "category",
+          "budget_id"
+        ],
+        "expense": [
+          "link_to_budget",
+          "cost",
+          "expense_description"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "expense.expense_description"
+        ]
+      }
+    },
+    "1456": {
+      "question": "List the full name of the top five members who spend the most money in the descending order of spending.",
+      "question_id": "1456",
+      "golden": {
+        "expense": [
+          "link_to_budget",
+          "link_to_member"
+        ],
+        "budget": [
+          "budget_id",
+          "spent"
+        ],
+        "member": [
+          "member_id",
+          "first_name",
+          "last_name"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "member_id",
+          "first_name",
+          "last_name"
+        ],
+        "expense": [
+          "link_to_member",
+          "cost"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "budget"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "budget.budget_id",
+          "budget.spent",
+          "expense.link_to_budget"
+        ],
+        "extra_columns": [
+          "expense.cost"
+        ]
+      }
+    },
+    "1457": {
+      "question": "Give the full name and contact number of members who had to spend more than average on each expense.",
+      "question_id": "1457",
+      "golden": {
+        "expense": [
+          "cost",
+          "link_to_member",
+          "link_to_budget"
+        ],
+        "budget": [
+          "budget_id"
+        ],
+        "member": [
+          "first_name",
+          "last_name",
+          "phone",
+          "member_id"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "first_name",
+          "last_name",
+          "phone",
+          "member_id"
+        ],
+        "expense": [
+          "cost",
+          "link_to_member"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "budget"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "budget.budget_id",
+          "expense.link_to_budget"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1458": {
+      "question": "Calculate the difference in the percentage of members in New Jersey and Vermont.",
+      "question_id": "1458",
+      "golden": {
+        "member": [
+          "member_id",
+          "zip"
+        ],
+        "zip_code": [
+          "zip_code",
+          "state"
+        ]
+      },
+      "retrieved": {
+        "zip_code": [
+          "zip_code",
+          "state"
+        ],
+        "member": [
+          "position",
+          "zip"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.member_id"
+        ],
+        "extra_columns": [
+          "member.position"
+        ]
+      }
+    },
+    "1459": {
+      "question": "What is the major of Garrett Gerke and which department does it belong to?",
+      "question_id": "1459",
+      "golden": {
+        "member": [
+          "first_name",
+          "last_name",
+          "link_to_major"
+        ],
+        "major": [
+          "major_name",
+          "department",
+          "major_id"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "link_to_major",
+          "member_id"
+        ],
+        "major": [
+          "major_id",
+          "major_name",
+          "department"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.first_name",
+          "member.last_name"
+        ],
+        "extra_columns": [
+          "member.member_id"
+        ]
+      }
+    },
+    "1464": {
+      "question": "Write the full names of students who received funds on the date of 9/9/2019 and include the amount received.",
+      "question_id": "1464",
+      "golden": {
+        "event": [
+          "event_id"
+        ],
+        "attendance": [
+          "link_to_event",
+          "link_to_member"
+        ],
+        "member": [
+          "member_id",
+          "first_name",
+          "last_name"
+        ],
+        "income": [
+          "link_to_member",
+          "date_received",
+          "amount"
+        ]
+      },
+      "retrieved": {
+        "member": [
+          "first_name",
+          "last_name",
+          "member_id"
+        ],
+        "income": [
+          "amount",
+          "date_received",
+          "link_to_member"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 2,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "attendance",
+          "event"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "attendance.link_to_event",
+          "attendance.link_to_member",
+          "event.event_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1468": {
+      "question": "Where is the hometown of Garrett Gerke?",
+      "question_id": "1468",
+      "golden": {
+        "member": [
+          "first_name",
+          "last_name",
+          "zip"
+        ],
+        "zip_code": [
+          "zip_code",
+          "city"
+        ]
+      },
+      "retrieved": {
+        "zip_code": [
+          "zip_code",
+          "city"
+        ],
+        "member": [
+          "member_id",
+          "zip"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "member.first_name",
+          "member.last_name"
+        ],
+        "extra_columns": [
+          "member.member_id"
+        ]
+      }
+    }
+  }
+}

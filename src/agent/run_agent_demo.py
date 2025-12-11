@@ -27,7 +27,7 @@ def main():
 
     # 设定测试参数
     # 这里以 california_schools 为例，你可以修改为你 workspace 中存在的其他 DB
-    db_name = "codebase_community" 
+    db_name = "california_schools" 
     
     # 构造 SQLite 路径 (根据你的 workspace 结构)
     project_root = Path(__file__).parent.parent
@@ -42,9 +42,8 @@ def main():
 
     try:
         # 测试问题
-        question = "How many users from New York have a teacher and supporter badge?"
-        evidence = "\"Supporter\" and \"Teachers\" are both Name of badge; 'New York' is the Location; user refers to UserId"
-        
+        question = "Please list the lowest three eligible free rates for students aged 5-17 in continuation schools."
+        evidence = "Eligible free rates for students aged 5-17 = `Free Meal Count (Ages 5-17)` / `Enrollment (Ages 5-17)`"
         print(f"\n{'='*50}")
         print(f"Processing Question: {question}")
         print(f"{'='*50}\n")

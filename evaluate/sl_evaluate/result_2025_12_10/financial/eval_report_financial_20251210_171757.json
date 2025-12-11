@@ -1,0 +1,3761 @@
+{
+  "summary": {
+    "db_name": "financial",
+    "generated_at": "2025-12-10 17:17:57",
+    "total_questions": 106,
+    "table_metrics": {
+      "precision": 0.8754448398576512,
+      "recall": 0.917910447761194,
+      "f1": 0.8961748633879781
+    },
+    "column_metrics": {
+      "precision": 0.8250401284109149,
+      "recall": 0.889273356401384,
+      "f1": 0.8559533721898418
+    }
+  },
+  "mismatches": {
+    "90": {
+      "question": "How many accounts who have region in Prague are eligible for loans?",
+      "question_id": "90",
+      "golden": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "loan": [
+          "account_id"
+        ],
+        "district": [
+          "A3",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "district": [
+          "A3",
+          "district_id"
+        ],
+        "loan": [
+          "account_id",
+          "status"
+        ],
+        "account": [
+          "account_id",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "loan.status"
+        ]
+      }
+    },
+    "92": {
+      "question": "List out the no. of districts that have female average salary is more than 6000 but less than 10000?",
+      "question_id": "92",
+      "golden": {
+        "client": [
+          "gender",
+          "district_id"
+        ],
+        "district": [
+          "A11",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "district": [
+          "A11",
+          "district_id"
+        ],
+        "client": [
+          "client_id",
+          "gender",
+          "district_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "account": [
+          "account_id",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 5,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "account",
+          "disp"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "account.account_id",
+          "account.district_id",
+          "client.client_id",
+          "disp.account_id",
+          "disp.client_id"
+        ]
+      }
+    },
+    "93": {
+      "question": "How many male customers who are living in North Bohemia have average salary greater than 8000?",
+      "question_id": "93",
+      "golden": {
+        "client": [
+          "client_id",
+          "gender",
+          "district_id"
+        ],
+        "district": [
+          "A11",
+          "A3",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "district": [
+          "A3",
+          "district_id"
+        ],
+        "client": [
+          "gender",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "client.client_id",
+          "district.A11"
+        ],
+        "extra_columns": []
+      }
+    },
+    "94": {
+      "question": "List out the account numbers of female clients who are oldest and has lowest average salary, calculate the gap between this lowest average salary with the highest average salary?",
+      "question_id": "94",
+      "golden": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "district": [
+          "A11",
+          "district_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "client": [
+          "client_id",
+          "gender",
+          "birth_date",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "district": [
+          "district_id"
+        ],
+        "client": [
+          "client_id",
+          "gender",
+          "birth_date",
+          "district_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id",
+          "disp_id"
+        ],
+        "account": [
+          "account_id",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 4,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 9,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "district.A11"
+        ],
+        "extra_columns": [
+          "disp.disp_id"
+        ]
+      }
+    },
+    "95": {
+      "question": "List out the account numbers of clients who are youngest and have highest average salary?",
+      "question_id": "95",
+      "golden": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "client": [
+          "client_id",
+          "birth_date"
+        ],
+        "district": [
+          "A11",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "district": [
+          "A11",
+          "district_id"
+        ],
+        "client": [
+          "client_id",
+          "district_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "account": [
+          "account_id",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 4,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "client.birth_date"
+        ],
+        "extra_columns": [
+          "client.district_id"
+        ]
+      }
+    },
+    "96": {
+      "question": "How many customers who choose statement of weekly issuance are Owner?",
+      "question_id": "96",
+      "golden": {
+        "account": [
+          "account_id",
+          "frequency"
+        ],
+        "disp": [
+          "type",
+          "account_id"
+        ]
+      },
+      "retrieved": {
+        "disp": [
+          "client_id",
+          "type",
+          "account_id"
+        ],
+        "client": [
+          "client_id"
+        ],
+        "account": [
+          "account_id",
+          "frequency"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "client"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "client.client_id",
+          "disp.client_id"
+        ]
+      }
+    },
+    "97": {
+      "question": "List out the id number of client who choose statement of issuance after transaction are Disponent?",
+      "question_id": "97",
+      "golden": {
+        "account": [
+          "account_id",
+          "frequency"
+        ],
+        "disp": [
+          "client_id",
+          "type",
+          "account_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "frequency"
+        ],
+        "client": [
+          "client_id"
+        ],
+        "trans": [
+          "account_id"
+        ],
+        "disp": [
+          "client_id",
+          "type",
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "client",
+          "trans"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "client.client_id",
+          "trans.account_id"
+        ]
+      }
+    },
+    "100": {
+      "question": "Among the account opened, how many female customers who were born before 1950 and stayed in Sokolov?",
+      "question_id": "100",
+      "golden": {
+        "district": [
+          "A2",
+          "district_id"
+        ],
+        "client": [
+          "client_id",
+          "gender",
+          "birth_date",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "district": [
+          "district_id"
+        ],
+        "client": [
+          "client_id",
+          "gender",
+          "birth_date",
+          "district_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "account": [
+          "account_id",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 4,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "account",
+          "disp"
+        ],
+        "missing_columns": [
+          "district.A2"
+        ],
+        "extra_columns": [
+          "account.account_id",
+          "account.district_id",
+          "disp.account_id",
+          "disp.client_id"
+        ]
+      }
+    },
+    "101": {
+      "question": "List out the accounts who have the earliest trading date in 1995 ?",
+      "question_id": "101",
+      "golden": {
+        "trans": [
+          "account_id",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "date"
+        ],
+        "trans": [
+          "account_id",
+          "date"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "account"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "account.account_id",
+          "account.date"
+        ]
+      }
+    },
+    "102": {
+      "question": "State different accounts who have account opening date before 1997 and own an amount of money greater than 3000USD",
+      "question_id": "102",
+      "golden": {
+        "trans": [
+          "account_id",
+          "amount"
+        ],
+        "account": [
+          "account_id",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "date"
+        ],
+        "trans": [
+          "balance",
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "trans.amount"
+        ],
+        "extra_columns": [
+          "trans.balance"
+        ]
+      }
+    },
+    "103": {
+      "question": "Which client issued his/her card in 1994/3/3, give his/her client id.",
+      "question_id": "103",
+      "golden": {
+        "client": [
+          "client_id"
+        ],
+        "disp": [
+          "client_id",
+          "disp_id"
+        ],
+        "card": [
+          "disp_id",
+          "issued"
+        ]
+      },
+      "retrieved": {
+        "card": [
+          "disp_id",
+          "issued"
+        ],
+        "disp": [
+          "client_id",
+          "disp_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "client"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "client.client_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "106": {
+      "question": "What is the biggest amount of transaction that the client whose card was opened in 1996/10/21 made?",
+      "question_id": "106",
+      "golden": {
+        "card": [
+          "disp_id",
+          "issued"
+        ],
+        "disp": [
+          "disp_id",
+          "account_id"
+        ],
+        "account": [
+          "account_id"
+        ],
+        "trans": [
+          "account_id",
+          "amount"
+        ]
+      },
+      "retrieved": {
+        "card": [
+          "disp_id",
+          "issued"
+        ],
+        "trans": [
+          "account_id",
+          "amount"
+        ],
+        "disp": [
+          "disp_id",
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "account"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "account.account_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "107": {
+      "question": "What is the gender of the oldest client who opened his/her account in the highest average salary branch?",
+      "question_id": "107",
+      "golden": {
+        "district": [
+          "A11",
+          "district_id"
+        ],
+        "client": [
+          "gender",
+          "birth_date",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "district": [
+          "A11",
+          "district_id"
+        ],
+        "client": [
+          "client_id",
+          "gender",
+          "birth_date",
+          "district_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "account": [
+          "account_id",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 5,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "account",
+          "disp"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "account.account_id",
+          "account.district_id",
+          "client.client_id",
+          "disp.account_id",
+          "disp.client_id"
+        ]
+      }
+    },
+    "108": {
+      "question": "For the client who applied the biggest loan, what was his/her first amount of transaction after opened the account?",
+      "question_id": "108",
+      "golden": {
+        "loan": [
+          "account_id",
+          "amount"
+        ],
+        "account": [
+          "account_id"
+        ],
+        "trans": [
+          "date",
+          "account_id",
+          "amount"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "date"
+        ],
+        "loan": [
+          "account_id",
+          "amount"
+        ],
+        "trans": [
+          "amount",
+          "account_id",
+          "date"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "account.date"
+        ]
+      }
+    },
+    "109": {
+      "question": "How many clients opened their accounts in Jesenik branch were women?",
+      "question_id": "109",
+      "golden": {
+        "client": [
+          "client_id",
+          "gender",
+          "district_id"
+        ],
+        "district": [
+          "A2",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "district": [
+          "A3",
+          "district_id"
+        ],
+        "client": [
+          "client_id",
+          "gender",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "district.A2"
+        ],
+        "extra_columns": [
+          "district.A3"
+        ]
+      }
+    },
+    "110": {
+      "question": "What is the disposition id of the client who made 5100 USD transaction in 1998/9/2?",
+      "question_id": "110",
+      "golden": {
+        "disp": [
+          "disp_id",
+          "account_id"
+        ],
+        "account": [
+          "account_id"
+        ],
+        "trans": [
+          "amount",
+          "account_id",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id",
+          "disp_id"
+        ],
+        "trans": [
+          "date",
+          "account_id",
+          "amount"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "disp.client_id"
+        ]
+      }
+    },
+    "111": {
+      "question": "How many accounts were opened in Litomerice in 1996?",
+      "question_id": "111",
+      "golden": {
+        "district": [
+          "A2",
+          "district_id"
+        ],
+        "account": [
+          "date",
+          "account_id",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "district_id",
+          "date"
+        ],
+        "district": [
+          "A2",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "account.account_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "112": {
+      "question": "For the female client who was born in 1976/1/29, which district did she opened her account?",
+      "question_id": "112",
+      "golden": {
+        "district": [
+          "A2",
+          "district_id"
+        ],
+        "client": [
+          "gender",
+          "birth_date",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "client": [
+          "client_id",
+          "gender",
+          "birth_date",
+          "district_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "district": [
+          "A2",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 5,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "account",
+          "disp"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "account.account_id",
+          "account.district_id",
+          "client.client_id",
+          "disp.account_id",
+          "disp.client_id"
+        ]
+      }
+    },
+    "116": {
+      "question": "For the client whose loan was approved first in 1993/7/5, what is the increase rate of his/her account balance from 1993/3/22 to 1998/12/27?",
+      "question_id": "116",
+      "golden": {
+        "loan": [
+          "account_id",
+          "date"
+        ],
+        "account": [
+          "account_id"
+        ],
+        "trans": [
+          "balance",
+          "account_id",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "frequency",
+          "date"
+        ],
+        "trans": [
+          "account_id"
+        ],
+        "client": [
+          "client_id",
+          "gender",
+          "birth_date"
+        ],
+        "loan": [
+          "loan_id",
+          "status",
+          "amount",
+          "account_id",
+          "duration",
+          "date"
+        ],
+        "disp": [
+          "client_id",
+          "type",
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 12,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "client",
+          "disp"
+        ],
+        "missing_columns": [
+          "trans.balance",
+          "trans.date"
+        ],
+        "extra_columns": [
+          "account.date",
+          "account.frequency",
+          "client.birth_date",
+          "client.client_id",
+          "client.gender",
+          "disp.account_id",
+          "disp.client_id",
+          "disp.type",
+          "loan.amount",
+          "loan.duration",
+          "loan.loan_id",
+          "loan.status"
+        ]
+      }
+    },
+    "120": {
+      "question": "From Year 1995 to 2000, who are the accounts holders from 'east Bohemia'. State the account ID the frequency of statement issuance.",
+      "question_id": "120",
+      "golden": {
+        "account": [
+          "date",
+          "account_id",
+          "frequency",
+          "district_id"
+        ],
+        "district": [
+          "A3",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "district_id",
+          "account_id",
+          "frequency",
+          "date"
+        ],
+        "client": [
+          "client_id",
+          "district_id"
+        ],
+        "disp": [
+          "client_id",
+          "type",
+          "account_id"
+        ],
+        "district": [
+          "A2",
+          "A3",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 6,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "client",
+          "disp"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "client.client_id",
+          "client.district_id",
+          "disp.account_id",
+          "disp.client_id",
+          "disp.type",
+          "district.A2"
+        ]
+      }
+    },
+    "124": {
+      "question": "List the loan ID, district and average salary for loan with duration of 60 months.",
+      "question_id": "124",
+      "golden": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "district": [
+          "A2",
+          "A11",
+          "district_id"
+        ],
+        "loan": [
+          "loan_id",
+          "account_id",
+          "duration"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "loan": [
+          "loan_id",
+          "account_id",
+          "duration"
+        ],
+        "district": [
+          "A11",
+          "A3",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "district.A2"
+        ],
+        "extra_columns": [
+          "district.A3"
+        ]
+      }
+    },
+    "125": {
+      "question": "For loans contracts which are still running where client are in debt, list the district of the and the state the percentage unemployment rate increment from year 1995 to 1996.",
+      "question_id": "125",
+      "golden": {
+        "loan": [
+          "account_id",
+          "status"
+        ],
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "district": [
+          "A12",
+          "A13",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "loan": [
+          "account_id",
+          "status"
+        ],
+        "district": [
+          "A2",
+          "A12",
+          "A13",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "district.A2"
+        ]
+      }
+    },
+    "126": {
+      "question": "Calculate the percentage of account from 'Decin' district for all accounts are opened in 1993.",
+      "question_id": "126",
+      "golden": {
+        "district": [
+          "A2",
+          "district_id"
+        ],
+        "account": [
+          "date",
+          "account_id",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "district_id",
+          "date"
+        ],
+        "district": [
+          "A2",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "account.account_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "128": {
+      "question": "List the top nine districts, by descending order, from the highest to the lowest, the number of female account holders.",
+      "question_id": "128",
+      "golden": {
+        "client": [
+          "client_id",
+          "gender",
+          "district_id"
+        ],
+        "district": [
+          "A2",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "district": [
+          "A2",
+          "district_id"
+        ],
+        "client": [
+          "gender",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "client.client_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "129": {
+      "question": "Which are the top ten withdrawals (non-credit card) by district names for the month of January 1996?",
+      "question_id": "129",
+      "golden": {
+        "district": [
+          "A2",
+          "district_id"
+        ],
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "trans": [
+          "type",
+          "account_id",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "trans": [
+          "amount",
+          "type",
+          "account_id",
+          "date"
+        ],
+        "district": [
+          "A2",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "trans.amount"
+        ]
+      }
+    },
+    "130": {
+      "question": "How many of the account holders in South Bohemia still do not own credit cards?",
+      "question_id": "130",
+      "golden": {
+        "district": [
+          "A3",
+          "district_id"
+        ],
+        "client": [
+          "client_id",
+          "district_id"
+        ],
+        "disp": [
+          "client_id",
+          "type",
+          "account_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "card": [
+          "disp_id"
+        ],
+        "district": [
+          "A3",
+          "district_id"
+        ],
+        "client": [
+          "client_id",
+          "district_id"
+        ],
+        "disp": [
+          "client_id",
+          "type",
+          "account_id",
+          "disp_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 4,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "account",
+          "card"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "account.account_id",
+          "account.district_id",
+          "card.disp_id",
+          "disp.disp_id"
+        ]
+      }
+    },
+    "131": {
+      "question": "Which district has highest active loan?",
+      "question_id": "131",
+      "golden": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "district": [
+          "A3",
+          "district_id"
+        ],
+        "loan": [
+          "account_id",
+          "status",
+          "amount"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "loan": [
+          "account_id",
+          "status"
+        ],
+        "district": [
+          "A2",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "district.A3",
+          "loan.amount"
+        ],
+        "extra_columns": [
+          "district.A2"
+        ]
+      }
+    },
+    "132": {
+      "question": "What is the average loan amount by male borrowers?",
+      "question_id": "132",
+      "golden": {
+        "client": [
+          "client_id",
+          "gender"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "account": [
+          "account_id"
+        ],
+        "loan": [
+          "account_id",
+          "amount"
+        ]
+      },
+      "retrieved": {
+        "client": [
+          "client_id",
+          "gender"
+        ],
+        "loan": [
+          "account_id",
+          "amount"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "account"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "account.account_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "134": {
+      "question": "In the branch where the largest number of crimes were committed in 1996, how many accounts were opened?",
+      "question_id": "134",
+      "golden": {
+        "district": [
+          "A16",
+          "district_id"
+        ],
+        "account": [
+          "account_id",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "district": [
+          "A16",
+          "district_id"
+        ],
+        "account": [
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "account.account_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "135": {
+      "question": "After making a credit card withdrawal, how many account/s with monthly issuance has a negative balance?",
+      "question_id": "135",
+      "golden": {
+        "trans": [
+          "balance",
+          "account_id",
+          "operation"
+        ],
+        "account": [
+          "account_id",
+          "frequency"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "frequency"
+        ],
+        "trans": [
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "trans.balance",
+          "trans.operation"
+        ],
+        "extra_columns": []
+      }
+    },
+    "136": {
+      "question": "Between 1/1/1995 and 12/31/1997, how many loans in the amount of at least 250,000 per account that chose monthly statement issuance were approved?",
+      "question_id": "136",
+      "golden": {
+        "account": [
+          "account_id",
+          "frequency"
+        ],
+        "loan": [
+          "amount",
+          "account_id",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "frequency"
+        ],
+        "loan": [
+          "amount",
+          "account_id",
+          "status",
+          "date"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "loan.status"
+        ]
+      }
+    },
+    "137": {
+      "question": "How many accounts have running contracts in Branch location 1?",
+      "question_id": "137",
+      "golden": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "district": [
+          "district_id"
+        ],
+        "loan": [
+          "account_id",
+          "status"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "loan": [
+          "account_id",
+          "status"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "district"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "district.district_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "138": {
+      "question": "In the branch where the second-highest number of crimes were committed in 1995 occurred, how many male clients are there?",
+      "question_id": "138",
+      "golden": {
+        "client": [
+          "client_id",
+          "gender",
+          "district_id"
+        ],
+        "district": [
+          "A15",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "district": [
+          "A15",
+          "district_id"
+        ],
+        "client": [
+          "gender",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "client.client_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "139": {
+      "question": "How many high-level credit cards have \"OWNER\" type of disposition?",
+      "question_id": "139",
+      "golden": {
+        "card": [
+          "type",
+          "card_id",
+          "disp_id"
+        ],
+        "disp": [
+          "type",
+          "disp_id"
+        ]
+      },
+      "retrieved": {
+        "card": [
+          "type",
+          "disp_id"
+        ],
+        "disp": [
+          "type",
+          "disp_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "card.card_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "140": {
+      "question": "How many accounts are there in the district of \"Pisek\"?",
+      "question_id": "140",
+      "golden": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "district": [
+          "A2",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "district_id"
+        ],
+        "district": [
+          "A2",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "account.account_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "141": {
+      "question": "Which districts have transactions greater than USS$10,000 in 1997?",
+      "question_id": "141",
+      "golden": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "district": [
+          "district_id"
+        ],
+        "trans": [
+          "amount",
+          "account_id",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "trans": [
+          "date",
+          "account_id",
+          "amount"
+        ],
+        "district": [
+          "A2",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "district.A2"
+        ]
+      }
+    },
+    "142": {
+      "question": "Which accounts placed orders for household payment in Pisek?",
+      "question_id": "142",
+      "golden": {
+        "trans": [
+          "k_symbol",
+          "account_id"
+        ],
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "district": [
+          "A2",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "district": [
+          "A2",
+          "district_id"
+        ],
+        "order": [
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "trans"
+        ],
+        "extra_tables": [
+          "order"
+        ],
+        "missing_columns": [
+          "trans.account_id",
+          "trans.k_symbol"
+        ],
+        "extra_columns": [
+          "order.account_id"
+        ]
+      }
+    },
+    "143": {
+      "question": "What are the accounts that have gold credit cards?",
+      "question_id": "143",
+      "golden": {
+        "disp": [
+          "disp_id",
+          "account_id"
+        ],
+        "card": [
+          "type",
+          "disp_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id"
+        ],
+        "card": [
+          "type",
+          "disp_id"
+        ],
+        "disp": [
+          "account_id",
+          "disp_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "account"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "account.account_id"
+        ]
+      }
+    },
+    "144": {
+      "question": "How much is the average amount in credit card made by account holders in a month, in year 2021?",
+      "question_id": "144",
+      "golden": {
+        "card": [
+          "disp_id"
+        ],
+        "disp": [
+          "disp_id",
+          "account_id"
+        ],
+        "account": [
+          "account_id"
+        ],
+        "trans": [
+          "amount",
+          "account_id",
+          "operation",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id"
+        ],
+        "trans": [
+          "date",
+          "account_id",
+          "operation",
+          "amount"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 2,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "card",
+          "disp"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "card.disp_id",
+          "disp.account_id",
+          "disp.disp_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "146": {
+      "question": "Who are the female account holders who own credit cards and also have loans?",
+      "question_id": "146",
+      "golden": {
+        "client": [
+          "client_id",
+          "gender"
+        ],
+        "disp": [
+          "client_id",
+          "account_id",
+          "disp_id"
+        ],
+        "account": [
+          "account_id"
+        ],
+        "loan": [
+          "account_id"
+        ],
+        "card": [
+          "disp_id"
+        ]
+      },
+      "retrieved": {
+        "card": [
+          "disp_id"
+        ],
+        "client": [
+          "client_id",
+          "gender"
+        ],
+        "loan": [
+          "account_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id",
+          "disp_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 4,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "account"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "account.account_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "147": {
+      "question": "How many female clients' accounts are in the region of South Bohemia?",
+      "question_id": "147",
+      "golden": {
+        "client": [
+          "client_id",
+          "gender",
+          "district_id"
+        ],
+        "district": [
+          "A3",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "client": [
+          "client_id",
+          "gender",
+          "district_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "district": [
+          "A3",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 4,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "account",
+          "disp"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "account.account_id",
+          "account.district_id",
+          "disp.account_id",
+          "disp.client_id"
+        ]
+      }
+    },
+    "148": {
+      "question": "Please list the accounts whose district is Tabor that are eligible for loans.",
+      "question_id": "148",
+      "golden": {
+        "district": [
+          "A2",
+          "district_id"
+        ],
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "disp": [
+          "type",
+          "account_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "disp": [
+          "type",
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "district"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "district.A2",
+          "district.district_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "151": {
+      "question": "Please list the name of the districts with accounts that made withdrawal transactions.",
+      "question_id": "151",
+      "golden": {
+        "district": [
+          "A2",
+          "district_id"
+        ],
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "trans": [
+          "type",
+          "account_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "trans": [
+          "account_id"
+        ],
+        "district": [
+          "A2",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "trans.type"
+        ],
+        "extra_columns": []
+      }
+    },
+    "152": {
+      "question": "What is the average number of crimes committed in 1995 in regions where the number exceeds 4000 and the region has accounts that are opened starting from the year 1997?",
+      "question_id": "152",
+      "golden": {
+        "district": [
+          "A15",
+          "district_id"
+        ],
+        "account": [
+          "date",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "district": [
+          "A15",
+          "A3",
+          "district_id"
+        ],
+        "account": [
+          "date",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "district.A3"
+        ]
+      }
+    },
+    "153": {
+      "question": "How many 'classic' cards are eligible for loan?",
+      "question_id": "153",
+      "golden": {
+        "card": [
+          "type",
+          "card_id",
+          "disp_id"
+        ],
+        "disp": [
+          "type",
+          "disp_id"
+        ]
+      },
+      "retrieved": {
+        "card": [
+          "type",
+          "disp_id"
+        ],
+        "disp": [
+          "type",
+          "disp_id",
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "card.card_id"
+        ],
+        "extra_columns": [
+          "disp.account_id"
+        ]
+      }
+    },
+    "154": {
+      "question": "How many male clients in 'Hl.m. Praha' district?",
+      "question_id": "154",
+      "golden": {
+        "client": [
+          "client_id",
+          "gender",
+          "district_id"
+        ],
+        "district": [
+          "A2",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "district": [
+          "A2",
+          "district_id"
+        ],
+        "client": [
+          "gender",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "client.client_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "155": {
+      "question": "How many percent of 'Gold' cards were issued prior to 1998?",
+      "question_id": "155",
+      "golden": {
+        "card": [
+          "type",
+          "card_id",
+          "issued"
+        ]
+      },
+      "retrieved": {
+        "card": [
+          "type",
+          "issued"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "card.card_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "156": {
+      "question": "Who is the owner of the account with the largest loan amount?",
+      "question_id": "156",
+      "golden": {
+        "disp": [
+          "client_id",
+          "type",
+          "account_id"
+        ],
+        "account": [
+          "account_id"
+        ],
+        "loan": [
+          "account_id",
+          "amount"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id"
+        ],
+        "client": [
+          "client_id"
+        ],
+        "loan": [
+          "account_id",
+          "amount"
+        ],
+        "disp": [
+          "client_id",
+          "type",
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "client"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "client.client_id"
+        ]
+      }
+    },
+    "157": {
+      "question": "What is the number of committed crimes in 1995 in the district of the account with the id 532?",
+      "question_id": "157",
+      "golden": {
+        "district": [
+          "A15"
+        ],
+        "account": [
+          "account_id",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "district": [
+          "A15",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "district.district_id"
+        ]
+      }
+    },
+    "158": {
+      "question": "What is the district Id of the account that placed the order with the id 33333?",
+      "question_id": "158",
+      "golden": {
+        "order": [
+          "order_id",
+          "account_id"
+        ],
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "district": [
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "order": [
+          "order_id",
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "district"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "district.district_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "159": {
+      "question": "List all the withdrawals in cash transactions that the client with the id 3356 makes.",
+      "question_id": "159",
+      "golden": {
+        "client": [
+          "client_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "account": [
+          "account_id"
+        ],
+        "trans": [
+          "account_id",
+          "operation",
+          "trans_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "trans": [
+          "account_id",
+          "operation"
+        ],
+        "client": [
+          "client_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 4,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "trans.trans_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "162": {
+      "question": "What is the region of the client with the id 3541 from?",
+      "question_id": "162",
+      "golden": {
+        "district": [
+          "A3"
+        ],
+        "client": [
+          "client_id",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "district": [
+          "A3",
+          "district_id"
+        ],
+        "client": [
+          "client_id",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "district.district_id"
+        ]
+      }
+    },
+    "164": {
+      "question": "Who placed the order with the id 32423?",
+      "question_id": "164",
+      "golden": {
+        "order": [
+          "order_id",
+          "account_id"
+        ],
+        "account": [
+          "account_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "client": [
+          "client_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id"
+        ],
+        "client": [
+          "client_id",
+          "gender",
+          "birth_date"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "order": [
+          "order_id",
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 4,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "client.birth_date",
+          "client.gender"
+        ]
+      }
+    },
+    "165": {
+      "question": "Please list all the transactions made by accounts from district 5.",
+      "question_id": "165",
+      "golden": {
+        "district": [
+          "district_id"
+        ],
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "trans": [
+          "account_id",
+          "trans_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "trans": [
+          "balance",
+          "bank",
+          "type",
+          "account",
+          "operation",
+          "amount",
+          "trans_id",
+          "account_id",
+          "date"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 7,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "district"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "district.district_id"
+        ],
+        "extra_columns": [
+          "trans.account",
+          "trans.amount",
+          "trans.balance",
+          "trans.bank",
+          "trans.date",
+          "trans.operation",
+          "trans.type"
+        ]
+      }
+    },
+    "166": {
+      "question": "How many of the accounts are from Jesenik district?",
+      "question_id": "166",
+      "golden": {
+        "district": [
+          "A2",
+          "district_id"
+        ],
+        "account": [
+          "account_id",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "district_id"
+        ],
+        "district": [
+          "A2",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "account.account_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "167": {
+      "question": "List all the clients' IDs whose junior credit cards were issued after 1996.",
+      "question_id": "167",
+      "golden": {
+        "card": [
+          "type",
+          "disp_id",
+          "issued"
+        ],
+        "disp": [
+          "client_id",
+          "disp_id"
+        ]
+      },
+      "retrieved": {
+        "card": [
+          "type",
+          "disp_id",
+          "issued"
+        ],
+        "client": [
+          "client_id"
+        ],
+        "disp": [
+          "client_id",
+          "disp_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "client"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "client.client_id"
+        ]
+      }
+    },
+    "168": {
+      "question": "What percentage of clients who opened their accounts in the district with an average salary of over 10000 are women?",
+      "question_id": "168",
+      "golden": {
+        "district": [
+          "A11",
+          "district_id"
+        ],
+        "client": [
+          "client_id",
+          "gender",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "client": [
+          "client_id",
+          "gender",
+          "district_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "district": [
+          "A11",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 4,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "account",
+          "disp"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "account.account_id",
+          "account.district_id",
+          "disp.account_id",
+          "disp.client_id"
+        ]
+      }
+    },
+    "169": {
+      "question": "What was the growth rate of the total amount of loans across all accounts for a male client between 1996 and 1997?",
+      "question_id": "169",
+      "golden": {
+        "loan": [
+          "amount",
+          "account_id",
+          "date"
+        ],
+        "account": [
+          "account_id"
+        ],
+        "disp": [
+          "client_id",
+          "type",
+          "account_id"
+        ],
+        "client": [
+          "client_id",
+          "gender"
+        ]
+      },
+      "retrieved": {
+        "client": [
+          "client_id",
+          "gender"
+        ],
+        "loan": [
+          "date",
+          "account_id",
+          "amount"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "account"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "account.account_id",
+          "disp.type"
+        ],
+        "extra_columns": []
+      }
+    },
+    "170": {
+      "question": "How many credit card withdrawals were recorded after 1995?",
+      "question_id": "170",
+      "golden": {
+        "trans": [
+          "account_id",
+          "operation",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "trans": [
+          "date",
+          "operation"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "trans.account_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "173": {
+      "question": "How often does account number 3 request an account statement to be released? What was the aim of debiting 3539 in total?",
+      "question_id": "173",
+      "golden": {
+        "account": [
+          "account_id",
+          "frequency"
+        ],
+        "order": [
+          "k_symbol",
+          "account_id",
+          "amount"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id"
+        ],
+        "trans": [
+          "type",
+          "account_id",
+          "k_symbol",
+          "amount"
+        ],
+        "order": [
+          "k_symbol",
+          "account_id",
+          "amount"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 4,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "trans"
+        ],
+        "missing_columns": [
+          "account.frequency"
+        ],
+        "extra_columns": [
+          "trans.account_id",
+          "trans.amount",
+          "trans.k_symbol",
+          "trans.type"
+        ]
+      }
+    },
+    "174": {
+      "question": "What year was account owner number 130 born?",
+      "question_id": "174",
+      "golden": {
+        "client": [
+          "client_id",
+          "birth_date"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "account": [
+          "account_id"
+        ]
+      },
+      "retrieved": {
+        "client": [
+          "client_id",
+          "birth_date"
+        ],
+        "disp": [
+          "client_id",
+          "type",
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "account"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "account.account_id"
+        ],
+        "extra_columns": [
+          "disp.type"
+        ]
+      }
+    },
+    "176": {
+      "question": "What is the amount of debt that client number 992 has, and how is this client doing with payments?",
+      "question_id": "176",
+      "golden": {
+        "client": [
+          "client_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "account": [
+          "account_id"
+        ],
+        "loan": [
+          "account_id",
+          "status",
+          "amount"
+        ]
+      },
+      "retrieved": {
+        "trans": [
+          "account_id"
+        ],
+        "client": [
+          "client_id"
+        ],
+        "loan": [
+          "status",
+          "amount",
+          "account_id",
+          "duration",
+          "date"
+        ],
+        "order": [
+          "account_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 2,
+        "tbl_fn": 1,
+        "col_tp": 6,
+        "col_fp": 4,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "account"
+        ],
+        "extra_tables": [
+          "order",
+          "trans"
+        ],
+        "missing_columns": [
+          "account.account_id"
+        ],
+        "extra_columns": [
+          "loan.date",
+          "loan.duration",
+          "order.account_id",
+          "trans.account_id"
+        ]
+      }
+    },
+    "177": {
+      "question": "What is the sum that client number 4's account has following transaction 851? Who owns this account, a man or a woman?",
+      "question_id": "177",
+      "golden": {
+        "client": [
+          "client_id",
+          "gender"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "account": [
+          "account_id"
+        ],
+        "trans": [
+          "balance",
+          "account_id",
+          "trans_id"
+        ]
+      },
+      "retrieved": {
+        "trans": [
+          "balance",
+          "account_id",
+          "trans_id"
+        ],
+        "client": [
+          "client_id",
+          "gender"
+        ],
+        "disp": [
+          "client_id",
+          "type",
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 7,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "account"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "account.account_id"
+        ],
+        "extra_columns": [
+          "disp.type"
+        ]
+      }
+    },
+    "179": {
+      "question": "How much, in total, did client number 617 pay for all of the transactions in 1998?",
+      "question_id": "179",
+      "golden": {
+        "client": [
+          "client_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "account": [
+          "account_id"
+        ],
+        "trans": [
+          "amount",
+          "account_id",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "trans": [
+          "date",
+          "account_id",
+          "amount"
+        ],
+        "client": [
+          "client_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "account"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "account.account_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "180": {
+      "question": "Please provide a list of clients who were born between 1983 and 1987 and whose account branch is in East Bohemia, along with their IDs.",
+      "question_id": "180",
+      "golden": {
+        "client": [
+          "client_id",
+          "birth_date",
+          "district_id"
+        ],
+        "district": [
+          "A3",
+          "district_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "account": [
+          "account_id",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "district": [
+          "A3",
+          "district_id"
+        ],
+        "client": [
+          "client_id",
+          "birth_date",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 2,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 4
+      },
+      "differences": {
+        "missing_tables": [
+          "account",
+          "disp"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "account.account_id",
+          "account.district_id",
+          "disp.account_id",
+          "disp.client_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "181": {
+      "question": "Please provide the IDs of the 3 female clients with the largest loans.",
+      "question_id": "181",
+      "golden": {
+        "client": [
+          "client_id",
+          "gender"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "account": [
+          "account_id"
+        ],
+        "loan": [
+          "account_id",
+          "amount"
+        ]
+      },
+      "retrieved": {
+        "client": [
+          "client_id",
+          "gender"
+        ],
+        "loan": [
+          "account_id",
+          "amount"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "account"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "account.account_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "182": {
+      "question": "How many male customers who were born between 1974 and 1976 have made a payment on their home in excess of $4000?",
+      "question_id": "182",
+      "golden": {
+        "trans": [
+          "k_symbol",
+          "account_id",
+          "amount"
+        ],
+        "account": [
+          "account_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "client": [
+          "client_id",
+          "gender",
+          "birth_date"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id"
+        ],
+        "client": [
+          "client_id",
+          "gender",
+          "birth_date"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "order": [
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "trans"
+        ],
+        "extra_tables": [
+          "order"
+        ],
+        "missing_columns": [
+          "trans.account_id",
+          "trans.amount",
+          "trans.k_symbol"
+        ],
+        "extra_columns": [
+          "order.account_id"
+        ]
+      }
+    },
+    "183": {
+      "question": "How many accounts in Beroun were opened after 1996?",
+      "question_id": "183",
+      "golden": {
+        "account": [
+          "date",
+          "account_id",
+          "district_id"
+        ],
+        "district": [
+          "A2",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "district_id",
+          "date"
+        ],
+        "district": [
+          "A2",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "account.account_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "185": {
+      "question": "What proportion of customers who have accounts at the Prague branch are female?",
+      "question_id": "185",
+      "golden": {
+        "district": [
+          "A3",
+          "district_id"
+        ],
+        "client": [
+          "client_id",
+          "gender",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "client": [
+          "client_id",
+          "gender",
+          "district_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ],
+        "district": [
+          "A2",
+          "A3",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 5,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "account",
+          "disp"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "account.account_id",
+          "account.district_id",
+          "disp.account_id",
+          "disp.client_id",
+          "district.A2"
+        ]
+      }
+    },
+    "186": {
+      "question": "What percentage of male clients request for weekly statements to be issued?",
+      "question_id": "186",
+      "golden": {
+        "client": [
+          "client_id",
+          "gender",
+          "district_id"
+        ],
+        "district": [
+          "district_id"
+        ],
+        "account": [
+          "account_id",
+          "frequency",
+          "district_id"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "frequency"
+        ],
+        "client": [
+          "client_id",
+          "gender"
+        ],
+        "disp": [
+          "client_id",
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "district"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "account.district_id",
+          "client.district_id",
+          "district.district_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "187": {
+      "question": "How many clients who choose statement of weekly issuance are Owner?",
+      "question_id": "187",
+      "golden": {
+        "account": [
+          "account_id",
+          "frequency"
+        ],
+        "disp": [
+          "type",
+          "account_id"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "frequency"
+        ],
+        "client": [
+          "client_id"
+        ],
+        "disp": [
+          "client_id",
+          "type",
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "client"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "client.client_id",
+          "disp.client_id"
+        ]
+      }
+    },
+    "190": {
+      "question": "How many clients who were born in 1920 stay in east Bohemia?",
+      "question_id": "190",
+      "golden": {
+        "client": [
+          "client_id",
+          "birth_date",
+          "district_id"
+        ],
+        "district": [
+          "A3",
+          "district_id"
+        ]
+      },
+      "retrieved": {
+        "district": [
+          "A3",
+          "district_id"
+        ],
+        "client": [
+          "birth_date",
+          "district_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "client.client_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "191": {
+      "question": "How many loan accounts are for pre-payment of duration of 24 months with weekly issuance of statement.",
+      "question_id": "191",
+      "golden": {
+        "account": [
+          "account_id",
+          "frequency"
+        ],
+        "loan": [
+          "account_id",
+          "duration"
+        ]
+      },
+      "retrieved": {
+        "account": [
+          "account_id",
+          "frequency"
+        ],
+        "loan": [
+          "status",
+          "account_id",
+          "duration"
+        ],
+        "order": [
+          "k_symbol",
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "order"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "loan.status",
+          "order.account_id",
+          "order.k_symbol"
+        ]
+      }
+    },
+    "193": {
+      "question": "List all ID and district for clients that can only have the right to issue permanent orders or apply for loans.",
+      "question_id": "193",
+      "golden": {
+        "account": [
+          "account_id",
+          "district_id"
+        ],
+        "district": [
+          "A2",
+          "district_id"
+        ],
+        "disp": [
+          "client_id",
+          "type",
+          "account_id"
+        ]
+      },
+      "retrieved": {
+        "district": [
+          "A2",
+          "district_id"
+        ],
+        "client": [
+          "client_id",
+          "district_id"
+        ],
+        "disp": [
+          "client_id",
+          "type",
+          "account_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 5,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "account"
+        ],
+        "extra_tables": [
+          "client"
+        ],
+        "missing_columns": [
+          "account.account_id",
+          "account.district_id"
+        ],
+        "extra_columns": [
+          "client.client_id",
+          "client.district_id"
+        ]
+      }
+    },
+    "194": {
+      "question": "Provide the IDs and age of the client with high level credit card, which is eligible for loans.",
+      "question_id": "194",
+      "golden": {
+        "disp": [
+          "client_id",
+          "type",
+          "disp_id"
+        ],
+        "card": [
+          "type",
+          "disp_id"
+        ],
+        "client": [
+          "client_id",
+          "birth_date"
+        ]
+      },
+      "retrieved": {
+        "card": [
+          "type",
+          "disp_id"
+        ],
+        "client": [
+          "client_id",
+          "birth_date"
+        ],
+        "disp": [
+          "client_id",
+          "type",
+          "account_id",
+          "disp_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "disp.account_id"
+        ]
+      }
+    }
+  }
+}

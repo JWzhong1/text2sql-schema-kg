@@ -1,0 +1,3065 @@
+{
+  "summary": {
+    "db_name": "thrombosis_prediction",
+    "generated_at": "2025-12-10 04:24:03",
+    "total_questions": 163,
+    "table_metrics": {
+      "precision": 0.8942598187311178,
+      "recall": 0.9308176100628931,
+      "f1": 0.9121725731895224
+    },
+    "column_metrics": {
+      "precision": 0.8727524204702628,
+      "recall": 0.8975817923186344,
+      "f1": 0.884992987377279
+    }
+  },
+  "mismatches": {
+    "1149": {
+      "question": "Are there more in-patient or outpatient who were male? What is the deviation in percentage?",
+      "question_id": "1149",
+      "golden": {
+        "Patient": [
+          "Admission",
+          "SEX"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "SEX",
+          "Admission"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "Patient.ID"
+        ]
+      }
+    },
+    "1150": {
+      "question": "What is the percentage of female patient were born after 1930?",
+      "question_id": "1150",
+      "golden": {
+        "Patient": [
+          "SEX",
+          "Birthday"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "SEX",
+          "Birthday"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "Patient.ID"
+        ]
+      }
+    },
+    "1151": {
+      "question": "For patient born between Year 1930 to 1940, how many percent of them were inpatient?",
+      "question_id": "1151",
+      "golden": {
+        "Patient": [
+          "Admission",
+          "Birthday"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "Birthday",
+          "Admission"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "Patient.ID"
+        ]
+      }
+    },
+    "1152": {
+      "question": "What is the ratio of outpatient to inpatient followed up treatment among all the 'SLE' diagnosed patient?",
+      "question_id": "1152",
+      "golden": {
+        "Patient": [
+          "Admission",
+          "Diagnosis"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "Diagnosis",
+          "Admission"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "Patient.ID"
+        ]
+      }
+    },
+    "1153": {
+      "question": "What is the disease patient '30609' diagnosed with. List all the date of laboratory tests done for this patient.",
+      "question_id": "1153",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "Date"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "Date"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis",
+          "Examination Date"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.Examination Date",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1156": {
+      "question": "State the ID and age of patient with positive degree of coagulation.",
+      "question_id": "1156",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Birthday"
+        ],
+        "Examination": [
+          "ID",
+          "RVVT"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "Birthday"
+        ],
+        "Examination": [
+          "ID"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Examination.RVVT"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1157": {
+      "question": "For patients with severe degree of thrombosis, list their ID, sex and disease the patient is diagnosed with.",
+      "question_id": "1157",
+      "golden": {
+        "Patient": [
+          "ID",
+          "SEX",
+          "Diagnosis"
+        ],
+        "Examination": [
+          "ID",
+          "Thrombosis"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "SEX"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis",
+          "Thrombosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Patient.Diagnosis"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis"
+        ]
+      }
+    },
+    "1165": {
+      "question": "What is the age gap between the youngest and oldest patient with a normal triglyceride recorded?",
+      "question_id": "1165",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Birthday"
+        ],
+        "Laboratory": [
+          "ID",
+          "TG"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "Birthday"
+        ],
+        "Laboratory": [
+          "ID"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Laboratory.TG"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1166": {
+      "question": "What are the symptoms observed by the youngest patient to ever did a medical examination? Identify their diagnosis.",
+      "question_id": "1166",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Diagnosis",
+          "Birthday"
+        ],
+        "Examination": [
+          "ID",
+          "Symptoms"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "Birthday"
+        ],
+        "Examination": [
+          "ID",
+          "Symptoms",
+          "Diagnosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Patient.Diagnosis"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis"
+        ]
+      }
+    },
+    "1170": {
+      "question": "How many patients hadn't undergone a medical examination until at least a year following their initial hospital visit?",
+      "question_id": "1170",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Admission",
+          "First Date"
+        ],
+        "Examination": [
+          "ID",
+          "Examination Date"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "First Date"
+        ],
+        "Examination": [
+          "ID",
+          "Examination Date"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Patient.Admission"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1173": {
+      "question": "What is the most common illness that doctors identified among the patients whose lab work was done between 1/1/1985, and 12/31/1995?",
+      "question_id": "1173",
+      "golden": {
+        "Examination": [
+          "ID",
+          "Examination Date"
+        ],
+        "Patient": [
+          "ID",
+          "Diagnosis"
+        ]
+      },
+      "retrieved": {
+        "Examination": [
+          "Diagnosis",
+          "Examination Date"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 1,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "Patient"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "Examination.ID",
+          "Patient.Diagnosis",
+          "Patient.ID"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis"
+        ]
+      }
+    },
+    "1175": {
+      "question": "How old was the patient who had the highest hemoglobin count at the time of the examination, and what is the doctor's diagnosis?",
+      "question_id": "1175",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Birthday",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "Date",
+          "HGB"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "Birthday",
+          "ID"
+        ],
+        "Laboratory": [
+          "HGB",
+          "ID"
+        ],
+        "Examination": [
+          "Diagnosis",
+          "Examination Date",
+          "ID"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 3,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [
+          "Laboratory.Date",
+          "Patient.Diagnosis"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.Examination Date",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1178": {
+      "question": "What was the gender of the first AORTITIS diagnosed patient?",
+      "question_id": "1178",
+      "golden": {
+        "Patient": [
+          "SEX",
+          "Diagnosis",
+          "First Date"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "SEX"
+        ],
+        "Examination": [
+          "Diagnosis",
+          "Examination Date",
+          "ID"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 4,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [
+          "Patient.Diagnosis",
+          "Patient.First Date"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.Examination Date",
+          "Examination.ID",
+          "Patient.ID"
+        ]
+      }
+    },
+    "1179": {
+      "question": "For the patient who was diagnosed with SLE on 1994/2/19, what was his/her anti-Cardiolipin antibody concentration status on 1993/11/12?",
+      "question_id": "1179",
+      "golden": {
+        "Examination": [
+          "aCL IgA",
+          "aCL IgG",
+          "aCL IgM",
+          "ID",
+          "Examination Date"
+        ],
+        "Patient": [
+          "ID",
+          "Diagnosis",
+          "Description"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "Diagnosis",
+          "Description"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis",
+          "Examination Date",
+          "aCL IgM"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 1,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Examination.aCL IgA",
+          "Examination.aCL IgG"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis"
+        ]
+      }
+    },
+    "1186": {
+      "question": "Lists all patients by ID who were diagnosed with Behcet's and had their exams between 01/01/197 and 12/31/1997.",
+      "question_id": "1186",
+      "golden": {
+        "Examination": [
+          "ID",
+          "Examination Date",
+          "Diagnosis"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis",
+          "Examination Date"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Patient"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "Patient.ID"
+        ]
+      }
+    },
+    "1187": {
+      "question": "How many patients who were examined between 1987/7/6 and 1996/1/31 had a GPT level greater than 30 and an ALB level less than 4? List them by their ID.",
+      "question_id": "1187",
+      "golden": {
+        "Laboratory": [
+          "ID",
+          "Date",
+          "GPT",
+          "ALB"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "Date",
+          "GPT",
+          "ALB"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Patient"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "Patient.ID"
+        ]
+      }
+    },
+    "1189": {
+      "question": "What number of patients with a degree of thrombosis level 2 and ANA pattern of only S, have a level of anti-Cardiolip in antibody (IgM) 20% higher than average?",
+      "question_id": "1189",
+      "golden": {
+        "Examination": [
+          "Thrombosis",
+          "ANA Pattern",
+          "aCL IgM"
+        ]
+      },
+      "retrieved": {
+        "Examination": [
+          "ID",
+          "Thrombosis",
+          "aCL IgM",
+          "ANA Pattern"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "Examination.ID"
+        ]
+      }
+    },
+    "1190": {
+      "question": "What percentage of patients with a proteinuria level within the normal range have a uric acid level below the normal range?",
+      "question_id": "1190",
+      "golden": {
+        "Laboratory": [
+          "ID",
+          "UA",
+          "U-PRO"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "UA",
+          "U-PRO",
+          "Date"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Patient"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "Laboratory.Date",
+          "Patient.ID"
+        ]
+      }
+    },
+    "1195": {
+      "question": "What is the average blood albumin level for female patients with a PLT greater than 400 who have been diagnosed with SLE?",
+      "question_id": "1195",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Diagnosis",
+          "SEX"
+        ],
+        "Laboratory": [
+          "ID",
+          "PLT",
+          "ALB"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "SEX",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "ALB",
+          "PLT"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1196": {
+      "question": "What is the most common sign of patients with SLE disease?",
+      "question_id": "1196",
+      "golden": {
+        "Examination": [
+          "Symptoms",
+          "Diagnosis"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "Diagnosis"
+        ],
+        "Examination": [
+          "ID",
+          "Symptoms"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 3,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Patient"
+        ],
+        "missing_columns": [
+          "Examination.Diagnosis"
+        ],
+        "extra_columns": [
+          "Examination.ID",
+          "Patient.Diagnosis",
+          "Patient.ID"
+        ]
+      }
+    },
+    "1197": {
+      "question": "When was the medical information on patient number 48473 first documented, and what disease did she have?",
+      "question_id": "1197",
+      "golden": {
+        "Patient": [
+          "First Date",
+          "Diagnosis",
+          "ID"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "First Date",
+          "Diagnosis",
+          "Description"
+        ],
+        "Laboratory": [
+          "ID",
+          "Date"
+        ],
+        "Examination": [
+          "ID",
+          "Examination Date",
+          "Diagnosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 6,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Examination",
+          "Laboratory"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.Examination Date",
+          "Examination.ID",
+          "Laboratory.Date",
+          "Laboratory.ID",
+          "Patient.Description"
+        ]
+      }
+    },
+    "1198": {
+      "question": "How many female patients were given an APS diagnosis?",
+      "question_id": "1198",
+      "golden": {
+        "Patient": [
+          "ID",
+          "SEX",
+          "Diagnosis"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "SEX"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [
+          "Patient.Diagnosis"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1199": {
+      "question": "How many patients who underwent testing in 1997 had protein levels outside the normal range?",
+      "question_id": "1199",
+      "golden": {
+        "Laboratory": [
+          "ID",
+          "Date",
+          "ALB"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "Date",
+          "TP"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Patient"
+        ],
+        "missing_columns": [
+          "Laboratory.ALB"
+        ],
+        "extra_columns": [
+          "Laboratory.TP",
+          "Patient.ID"
+        ]
+      }
+    },
+    "1200": {
+      "question": "What proportion of patients who had signs of thrombocytopenia had SLE diagnosed?",
+      "question_id": "1200",
+      "golden": {
+        "Examination": [
+          "ID",
+          "Diagnosis",
+          "Symptoms"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "PLT"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis",
+          "Symptoms"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 4,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Laboratory",
+          "Patient"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "Laboratory.ID",
+          "Laboratory.PLT",
+          "Patient.Diagnosis",
+          "Patient.ID"
+        ]
+      }
+    },
+    "1201": {
+      "question": "What percentage of patients who were born in 1980 and were diagnosed with RA are women?",
+      "question_id": "1201",
+      "golden": {
+        "Patient": [
+          "ID",
+          "SEX",
+          "Birthday",
+          "Diagnosis"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "Birthday",
+          "SEX"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [
+          "Patient.Diagnosis"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1205": {
+      "question": "Was the patient with the number 57266's uric acid within a normal range?",
+      "question_id": "1205",
+      "golden": {
+        "Patient": [
+          "ID",
+          "SEX"
+        ],
+        "Laboratory": [
+          "ID",
+          "UA"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "SEX"
+        ],
+        "Laboratory": [
+          "ID"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Laboratory.UA"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1208": {
+      "question": "Provide IDs for male patients with ALT glutamic pylvic transaminase (GPT) that have history of ALT glutamic pylvic transaminase (GPT) exceed the normal range.",
+      "question_id": "1208",
+      "golden": {
+        "Patient": [
+          "ID",
+          "SEX"
+        ],
+        "Laboratory": [
+          "ID",
+          "GPT"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "SEX"
+        ],
+        "Laboratory": [
+          "ID"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Laboratory.GPT"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1210": {
+      "question": "What is the average index of the lactate dehydrogenase (LDH) for all patients with lactate dehydrogenase (LDH) within the normal range.",
+      "question_id": "1210",
+      "golden": {
+        "Laboratory": [
+          "LDH"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "LDH"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "Laboratory.ID"
+        ]
+      }
+    },
+    "1221": {
+      "question": "Provide the ID, sex, birthday of all patients diagnosed with 'RA' that are within the UN normal index.",
+      "question_id": "1221",
+      "golden": {
+        "Patient": [
+          "ID",
+          "SEX",
+          "Birthday",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "UN"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "SEX",
+          "Birthday"
+        ],
+        "Laboratory": [
+          "ID",
+          "UN"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [
+          "Patient.Diagnosis"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1228": {
+      "question": "Provide list of patients and their diagnosis with triglyceride (TG) index greater than 100 of the normal range?",
+      "question_id": "1228",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "TG"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "TG"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [
+          "Patient.Diagnosis"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1233": {
+      "question": "List each patient's ID and blood glucose (GLU) index that were within normal range for patient's whose data was first recorded in 1991.",
+      "question_id": "1233",
+      "golden": {
+        "Patient": [
+          "ID",
+          "First Date"
+        ],
+        "Laboratory": [
+          "ID",
+          "GLU"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "Description"
+        ],
+        "Laboratory": [
+          "ID",
+          "GLU"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Patient.First Date"
+        ],
+        "extra_columns": [
+          "Patient.Description"
+        ]
+      }
+    },
+    "1235": {
+      "question": "What are the patient's diagnosis for those who has lower red blood blood cell? State their ID and age.",
+      "question_id": "1235",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Diagnosis",
+          "Birthday"
+        ],
+        "Laboratory": [
+          "ID",
+          "RBC"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "Birthday"
+        ],
+        "Laboratory": [
+          "ID",
+          "RBC"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [
+          "Patient.Diagnosis"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1240": {
+      "question": "From laboratory examinations in 1991, what is the average hematoclit level that is lower than the normal range.",
+      "question_id": "1240",
+      "golden": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "HCT",
+          "Date"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "Date",
+          "HCT"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "Patient"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "Laboratory.ID",
+          "Patient.ID"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1241": {
+      "question": "For patients with abnormal platelet level, state the number of patients with lower than normal range. How is it compare to the number of patients with higher than normal range?",
+      "question_id": "1241",
+      "golden": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "PLT"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "PLT"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "Patient"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "Patient.ID"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1244": {
+      "question": "List all patients who first came to the hospital after year 1992 with prothrombin time (PT) level that are normal.",
+      "question_id": "1244",
+      "golden": {
+        "Patient": [
+          "ID",
+          "First Date"
+        ],
+        "Laboratory": [
+          "ID",
+          "PT"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "First Date"
+        ],
+        "Laboratory": [
+          "ID"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Laboratory.PT"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1245": {
+      "question": "For the examinations done after 1997/1/1, how many of them have the result of an inactivated partial prothrom bin time?",
+      "question_id": "1245",
+      "golden": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "Date",
+          "APTT"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "Date",
+          "APTT"
+        ],
+        "Examination": [
+          "ID",
+          "Examination Date"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "Examination.Examination Date",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1246": {
+      "question": "For the patients with an abnormal activated partial prothrom bin time, how many of them does not have thrombosis?",
+      "question_id": "1246",
+      "golden": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "APTT"
+        ],
+        "Examination": [
+          "ID",
+          "Thrombosis"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "APTT"
+        ],
+        "Examination": [
+          "ID",
+          "Thrombosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "Patient"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "Patient.ID"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1249": {
+      "question": "Please list the disease names of the patients that have a proteinuria level higher than normal.",
+      "question_id": "1249",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "U-PRO"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "U-PRO"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [
+          "Patient.Diagnosis"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1250": {
+      "question": "Which patient has a normal proteinuria level and is diagnosed with SLE? Please give his or her patient ID.",
+      "question_id": "1250",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "U-PRO"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [
+          "Laboratory.U-PRO",
+          "Patient.Diagnosis"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1251": {
+      "question": "How many patients with an Ig G higher than normal?",
+      "question_id": "1251",
+      "golden": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "IGG"
+        ],
+        "Examination": [
+          "ID"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "IGG"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 2,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "Examination",
+          "Patient"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "Examination.ID",
+          "Patient.ID"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1252": {
+      "question": "Among the patients with a normal Ig G level, how many of them have symptoms?",
+      "question_id": "1252",
+      "golden": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "IGG"
+        ],
+        "Examination": [
+          "ID",
+          "Symptoms"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "IGG"
+        ],
+        "Examination": [
+          "ID",
+          "Symptoms"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "Patient"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "Patient.ID"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1255": {
+      "question": "For the patients with an abnormal Ig M level, what is the most common disease they are diagnosed with?",
+      "question_id": "1255",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "IGM"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "IGM"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "Patient"
+        ],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [
+          "Patient.Diagnosis",
+          "Patient.ID"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1258": {
+      "question": "How many patients with a normal Rhuematoid Factor has a positive measure of degree of coagulation?",
+      "question_id": "1258",
+      "golden": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "RA"
+        ],
+        "Examination": [
+          "ID",
+          "KCT"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "RA"
+        ],
+        "Examination": [
+          "ID",
+          "LAC"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Examination.KCT"
+        ],
+        "extra_columns": [
+          "Examination.LAC"
+        ]
+      }
+    },
+    "1259": {
+      "question": "Please list the diseases of the patients born after 1985-1-1 and have a normal Rhuematoid Factor.",
+      "question_id": "1259",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Birthday",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "RA"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "Birthday"
+        ],
+        "Laboratory": [
+          "ID",
+          "RA"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [
+          "Patient.Diagnosis"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1260": {
+      "question": "Please list the ID of the patient whose RF is normal and who is older than 60.",
+      "question_id": "1260",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Birthday"
+        ],
+        "Laboratory": [
+          "ID",
+          "RF"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "Birthday"
+        ],
+        "Laboratory": [
+          "ID",
+          "RA"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Laboratory.RF"
+        ],
+        "extra_columns": [
+          "Laboratory.RA"
+        ]
+      }
+    },
+    "1261": {
+      "question": "How many patients with a normal RF don't have thrombosis?",
+      "question_id": "1261",
+      "golden": {
+        "Examination": [
+          "ID",
+          "Thrombosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "RF"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "RA"
+        ],
+        "Examination": [
+          "ID",
+          "Thrombosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Laboratory.RF"
+        ],
+        "extra_columns": [
+          "Laboratory.RA"
+        ]
+      }
+    },
+    "1263": {
+      "question": "Among the patients whose level of Hematoclit isn't normal, which patient has the highest anti-Cardiolipin antibody concentration? Please list his or her ID.",
+      "question_id": "1263",
+      "golden": {
+        "Patient": [
+          "ID"
+        ],
+        "Examination": [
+          "ID",
+          "aCL IgA"
+        ],
+        "Laboratory": [
+          "ID",
+          "HCT"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "HCT"
+        ],
+        "Examination": [
+          "ID",
+          "aCL IgA"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "Patient"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "Patient.ID"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1264": {
+      "question": "Among the patients have blood clots in veins, how many of them have a normal level of complement 4?",
+      "question_id": "1264",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "C4"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "C4"
+        ],
+        "Examination": [
+          "ID",
+          "Thrombosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "Examination.ID",
+          "Examination.Thrombosis"
+        ]
+      }
+    },
+    "1269": {
+      "question": "Please list the IDs of the patients who had the examination done after 1997/1/1 and had a normal anti-scl70.",
+      "question_id": "1269",
+      "golden": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "Date",
+          "SC170"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "SC170"
+        ],
+        "Examination": [
+          "ID",
+          "Examination Date"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "Patient"
+        ],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [
+          "Laboratory.Date",
+          "Patient.ID"
+        ],
+        "extra_columns": [
+          "Examination.Examination Date",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1271": {
+      "question": "How many patients with a normal anti-SSA came to the hospital before 2000?",
+      "question_id": "1271",
+      "golden": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "SSA",
+          "Date"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "First Date"
+        ],
+        "Laboratory": [
+          "ID",
+          "SSA"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Laboratory.Date"
+        ],
+        "extra_columns": [
+          "Patient.First Date"
+        ]
+      }
+    },
+    "1273": {
+      "question": "How many patients have a normal anti-SSB and are diagnosed with SLE in the examination?",
+      "question_id": "1273",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "SSB"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "SSB"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "Patient"
+        ],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [
+          "Patient.Diagnosis",
+          "Patient.ID"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1276": {
+      "question": "For the patients who have an abnormal level of anti-DNA, please list the diseases they are diagnosed with.",
+      "question_id": "1276",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "DNA"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "DNA-II"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 3,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [
+          "Patient"
+        ],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [
+          "Laboratory.DNA",
+          "Patient.Diagnosis",
+          "Patient.ID"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.ID",
+          "Laboratory.DNA-II"
+        ]
+      }
+    },
+    "1277": {
+      "question": "How many patients have a normal anti-DNA level, yet their data are not recorded.",
+      "question_id": "1277",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Description"
+        ],
+        "Laboratory": [
+          "ID",
+          "DNA"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "Description"
+        ],
+        "Laboratory": [
+          "ID",
+          "DNA-II"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Laboratory.DNA"
+        ],
+        "extra_columns": [
+          "Laboratory.DNA-II"
+        ]
+      }
+    },
+    "1279": {
+      "question": "What is the percentage of patient who has a abnormal level of glutamic oxaloacetic transaminase level, yet he or she is diagnosed with SLE?",
+      "question_id": "1279",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "GOT"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "GOT"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "Patient"
+        ],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [
+          "Patient.Diagnosis",
+          "Patient.ID"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1288": {
+      "question": "Please list the diagnosis of the patients whose total protein is lower than normal.",
+      "question_id": "1288",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "TP"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "TP"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "Patient"
+        ],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [
+          "Patient.Diagnosis",
+          "Patient.ID"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1289": {
+      "question": "For the patients who are diagnosed with SJS, how many of them have a normal level of total protein?",
+      "question_id": "1289",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "TP"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "TP"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "Patient"
+        ],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [
+          "Patient.Diagnosis",
+          "Patient.ID"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1290": {
+      "question": "What is the examination date of the patient whose albumin is the highest in the normal range?",
+      "question_id": "1290",
+      "golden": {
+        "Laboratory": [
+          "Date",
+          "ALB"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "Date",
+          "ID",
+          "ALB"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Patient"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "Laboratory.ID",
+          "Patient.ID"
+        ]
+      }
+    },
+    "1292": {
+      "question": "What is the anti Cardiolipin antibody concentration of the female patient with the highest uric acid level in the normal range?",
+      "question_id": "1292",
+      "golden": {
+        "Patient": [
+          "ID",
+          "SEX"
+        ],
+        "Laboratory": [
+          "ID",
+          "UA"
+        ],
+        "Examination": [
+          "ID",
+          "aCL IgG",
+          "aCL IgM",
+          "aCL IgA"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "SEX"
+        ],
+        "Laboratory": [
+          "ID",
+          "UA"
+        ],
+        "Examination": [
+          "ID",
+          "aCL IgG",
+          "aCL IgM"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Examination.aCL IgA"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1293": {
+      "question": "What is the highest anti-nucleus antibody concentration level of a patient with a normal creatinine level?",
+      "question_id": "1293",
+      "golden": {
+        "Patient": [
+          "ID"
+        ],
+        "Examination": [
+          "ID",
+          "ANA"
+        ],
+        "Laboratory": [
+          "ID",
+          "CRE"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "CRE"
+        ],
+        "Examination": [
+          "ID",
+          "ANA"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "Patient"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "Patient.ID"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1295": {
+      "question": "Among the patients whose total bilirubin is over the normal range, how many of them have a peripheral pattern observed in the sheet of ANA examination?",
+      "question_id": "1295",
+      "golden": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "T-BIL"
+        ],
+        "Examination": [
+          "ID",
+          "ANA Pattern"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "T-BIL"
+        ],
+        "Examination": [
+          "ID",
+          "ANA Pattern"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "Patient"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "Patient.ID"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1296": {
+      "question": "What is the anti-nucleus antibody concentration of the patient whose total bilirubin is the highest in the normal range?",
+      "question_id": "1296",
+      "golden": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "T-BIL"
+        ],
+        "Examination": [
+          "ID",
+          "ANA"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "T-BIL"
+        ],
+        "Examination": [
+          "ID",
+          "ANA"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "Patient"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "Patient.ID"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1297": {
+      "question": "For the patients whose total cholesterol is higher than normal, how many of them have a negative measure of degree of coagulation?",
+      "question_id": "1297",
+      "golden": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "T-CHO"
+        ],
+        "Examination": [
+          "ID",
+          "KCT"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "T-CHO"
+        ],
+        "Examination": [
+          "ID",
+          "LAC"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Examination.KCT"
+        ],
+        "extra_columns": [
+          "Examination.LAC"
+        ]
+      }
+    },
+    "1299": {
+      "question": "Among the patients with the normal level of triglyceride, how many of them have other symptoms observed?",
+      "question_id": "1299",
+      "golden": {
+        "Examination": [
+          "ID",
+          "Symptoms"
+        ],
+        "Laboratory": [
+          "ID",
+          "TG"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID"
+        ],
+        "Examination": [
+          "ID",
+          "Symptoms"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Patient"
+        ],
+        "missing_columns": [
+          "Laboratory.TG"
+        ],
+        "extra_columns": [
+          "Patient.ID"
+        ]
+      }
+    },
+    "1300": {
+      "question": "What is the disease name of the patient who has the highest level of triglyceride within the normal range?",
+      "question_id": "1300",
+      "golden": {
+        "Examination": [
+          "ID",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "TG"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "TG"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "Examination"
+        ],
+        "extra_tables": [
+          "Patient"
+        ],
+        "missing_columns": [
+          "Examination.Diagnosis",
+          "Examination.ID"
+        ],
+        "extra_columns": [
+          "Patient.Diagnosis",
+          "Patient.ID"
+        ]
+      }
+    },
+    "1302": {
+      "question": "For the patients with a normal range of creatinine phosphokinase, how many of them have a positive measure of degree of coagulation?",
+      "question_id": "1302",
+      "golden": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "CPK"
+        ],
+        "Examination": [
+          "ID",
+          "KCT",
+          "RVVT",
+          "LAC"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "CPK"
+        ],
+        "Examination": [
+          "ID",
+          "LAC"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Examination.KCT",
+          "Examination.RVVT"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1304": {
+      "question": "Among the patients with a normal blood glucose, how many of them don't have thrombosis?",
+      "question_id": "1304",
+      "golden": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "GLU"
+        ],
+        "Examination": [
+          "ID",
+          "Thrombosis"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "GLU"
+        ],
+        "Examination": [
+          "ID",
+          "Thrombosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "Patient"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "Patient.ID"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1306": {
+      "question": "How many patients diagnosed with SLE have a normal white blood cell level?",
+      "question_id": "1306",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "WBC"
+        ]
+      },
+      "retrieved": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "WBC"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [
+          "Patient.Diagnosis"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1308": {
+      "question": "Among the patients who have a normal platelet level, how many of them have other symptoms observed?",
+      "question_id": "1308",
+      "golden": {
+        "Patient": [
+          "ID",
+          "Diagnosis"
+        ],
+        "Laboratory": [
+          "ID",
+          "PLT"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "PLT"
+        ],
+        "Examination": [
+          "ID",
+          "Diagnosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 1,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "Patient"
+        ],
+        "extra_tables": [
+          "Examination"
+        ],
+        "missing_columns": [
+          "Patient.Diagnosis",
+          "Patient.ID"
+        ],
+        "extra_columns": [
+          "Examination.Diagnosis",
+          "Examination.ID"
+        ]
+      }
+    },
+    "1311": {
+      "question": "How many patients with severe thrombosis have a normal prothrombin time?",
+      "question_id": "1311",
+      "golden": {
+        "Patient": [
+          "ID"
+        ],
+        "Laboratory": [
+          "ID",
+          "PT"
+        ],
+        "Examination": [
+          "ID",
+          "Thrombosis"
+        ]
+      },
+      "retrieved": {
+        "Laboratory": [
+          "ID",
+          "PT"
+        ],
+        "Examination": [
+          "ID",
+          "Thrombosis"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [
+          "Patient"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "Patient.ID"
+        ],
+        "extra_columns": []
+      }
+    }
+  }
+}

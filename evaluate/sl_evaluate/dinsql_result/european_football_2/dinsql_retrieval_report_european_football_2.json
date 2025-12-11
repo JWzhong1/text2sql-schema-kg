@@ -1,0 +1,4615 @@
+{
+  "summary": {
+    "db_name": "european_football_2",
+    "generated_at": "2025-12-10 13:40:12",
+    "total_questions": 129,
+    "table_metrics": {
+      "precision": 0.6005434782608695,
+      "recall": 0.9778761061946902,
+      "f1": 0.744107744107744
+    },
+    "column_metrics": {
+      "precision": 0.8131487889273357,
+      "recall": 0.888468809073724,
+      "f1": 0.8491418247515808
+    }
+  },
+  "mismatches": {
+    "1020": {
+      "question": "Which player has the highest overall rating? Indicate the player's api id.",
+      "question_id": "1020",
+      "golden": {
+        "Player_Attributes": [
+          "player_api_id",
+          "overall_rating"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "overall_rating",
+          "player_api_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Player"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "Player.player_api_id",
+          "Player.player_name"
+        ]
+      }
+    },
+    "1021": {
+      "question": "What is the height of the tallest player? Indicate his name.",
+      "question_id": "1021",
+      "golden": {},
+      "retrieved": {
+        "Player": [
+          "height",
+          "player_name"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 0,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Player"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "Player.height",
+          "Player.player_name"
+        ]
+      }
+    },
+    "1023": {
+      "question": "Among the players with an overall rating between 60 to 65, how many players whose going to be in all of your attack moves instead of defensing?",
+      "question_id": "1023",
+      "golden": {
+        "Player_Attributes": [
+          "id",
+          "overall_rating",
+          "defensive_work_rate"
+        ]
+      },
+      "retrieved": {
+        "Player_Attributes": [
+          "defensive_work_rate",
+          "overall_rating",
+          "player_api_id"
+        ],
+        "Player": [
+          "player_api_id"
+        ],
+        "'low'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'low'",
+          "Player"
+        ],
+        "missing_columns": [
+          "Player_Attributes.id"
+        ],
+        "extra_columns": [
+          "Player.player_api_id",
+          "Player_Attributes.player_api_id"
+        ]
+      }
+    },
+    "1024": {
+      "question": "Who are the top 5 players who perform better in crossing actions? Indicate their player id.",
+      "question_id": "1024",
+      "golden": {
+        "Player_Attributes": [
+          "id",
+          "crossing"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id"
+        ],
+        "Player_Attributes": [
+          "crossing",
+          "player_api_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Player"
+        ],
+        "missing_columns": [
+          "Player_Attributes.id"
+        ],
+        "extra_columns": [
+          "Player.player_api_id",
+          "Player_Attributes.player_api_id"
+        ]
+      }
+    },
+    "1025": {
+      "question": "Give the name of the league had the most goals in the 2016 season?",
+      "question_id": "1025",
+      "golden": {
+        "Match": [
+          "league_id",
+          "season",
+          "home_team_goal",
+          "away_team_goal"
+        ],
+        "League": [
+          "id",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "League": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "away_team_goal",
+          "home_team_goal",
+          "league_id",
+          "season"
+        ],
+        "'2015/2016'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2015/2016'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1026": {
+      "question": "Which home team had lost the fewest matches in the 2016 season?",
+      "question_id": "1026",
+      "golden": {
+        "Match": [
+          "home_team_api_id",
+          "season",
+          "home_team_goal",
+          "away_team_goal"
+        ],
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ]
+      },
+      "retrieved": {
+        "Match": [
+          "away_team_goal",
+          "home_team_api_id",
+          "home_team_goal",
+          "season"
+        ],
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "'2015/2016'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2015/2016'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1027": {
+      "question": "Indicate the full names of the top 10 players with the highest number of penalties.",
+      "question_id": "1027",
+      "golden": {},
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "penalties",
+          "player_api_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 0,
+        "col_fp": 4,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Player",
+          "Player_Attributes"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "Player.player_api_id",
+          "Player.player_name",
+          "Player_Attributes.penalties",
+          "Player_Attributes.player_api_id"
+        ]
+      }
+    },
+    "1028": {
+      "question": "In Scotland Premier League, which away team won the most during the 2010 season?",
+      "question_id": "1028",
+      "golden": {
+        "League": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "league_id",
+          "season",
+          "away_team_api_id",
+          "away_team_goal",
+          "home_team_goal"
+        ],
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ]
+      },
+      "retrieved": {
+        "League": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "away_team_api_id",
+          "away_team_goal",
+          "home_team_goal",
+          "league_id",
+          "season"
+        ],
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "'Scotland Premier League'": [],
+        "'2009/2010'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 9,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2009/2010'",
+          "'Scotland Premier League'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1029": {
+      "question": "What are the speed in which attacks are put together of the top 4 teams with the highest build Up Play Speed?",
+      "question_id": "1029",
+      "golden": {
+        "Team_Attributes": [
+          "team_api_id",
+          "buildUpPlaySpeed"
+        ],
+        "Team": [
+          "team_api_id"
+        ]
+      },
+      "retrieved": {
+        "Team_Attributes": [
+          "buildUpPlaySpeed"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 1,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "Team"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "Team.team_api_id",
+          "Team_Attributes.team_api_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1030": {
+      "question": "Give the name of the league had the most matches end as draw in the 2016 season?",
+      "question_id": "1030",
+      "golden": {
+        "Match": [
+          "id",
+          "league_id",
+          "season",
+          "home_team_goal",
+          "away_team_goal"
+        ],
+        "League": [
+          "id",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "League": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "away_team_goal",
+          "home_team_goal",
+          "league_id",
+          "season"
+        ],
+        "'2015/2016'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2015/2016'"
+        ],
+        "missing_columns": [
+          "Match.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1031": {
+      "question": "At present, calculate for the player's age who have a sprint speed of no less than 97 between 2013 to 2015.",
+      "question_id": "1031",
+      "golden": {},
+      "retrieved": {
+        "Player": [
+          "birthday",
+          "player_api_id"
+        ],
+        "Player_Attributes": [
+          "date",
+          "player_api_id",
+          "sprint_speed"
+        ],
+        "'2013'": [],
+        "'2015'": []
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 4,
+        "tbl_fn": 0,
+        "col_tp": 0,
+        "col_fp": 5,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2013'",
+          "'2015'",
+          "Player",
+          "Player_Attributes"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "Player.birthday",
+          "Player.player_api_id",
+          "Player_Attributes.date",
+          "Player_Attributes.player_api_id",
+          "Player_Attributes.sprint_speed"
+        ]
+      }
+    },
+    "1032": {
+      "question": "Give the name of the league with the highest matches of all time and how many matches were played in the said league.",
+      "question_id": "1032",
+      "golden": {},
+      "retrieved": {
+        "League": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "id",
+          "league_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 0,
+        "col_fp": 4,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "League",
+          "Match"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "League.id",
+          "League.name",
+          "Match.id",
+          "Match.league_id"
+        ]
+      }
+    },
+    "1033": {
+      "question": "What is the average height of players born between 1990 and 1995?",
+      "question_id": "1033",
+      "golden": {},
+      "retrieved": {
+        "Player": [
+          "birthday",
+          "height"
+        ],
+        "'1990-01-01 00:00:00'": [],
+        "'1996-01-01 00:00:00'": []
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 0,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'1990-01-01 00:00:00'",
+          "'1996-01-01 00:00:00'",
+          "Player"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "Player.birthday",
+          "Player.height"
+        ]
+      }
+    },
+    "1034": {
+      "question": "List the players' api id who had the highest above average overall ratings in 2010.",
+      "question_id": "1034",
+      "golden": {},
+      "retrieved": {
+        "Player_Attributes": [
+          "date",
+          "overall_rating",
+          "player_api_id"
+        ],
+        "'2010'": []
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 0,
+        "col_fp": 3,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2010'",
+          "Player_Attributes"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "Player_Attributes.date",
+          "Player_Attributes.overall_rating",
+          "Player_Attributes.player_api_id"
+        ]
+      }
+    },
+    "1035": {
+      "question": "Give the team_fifa_api_id of teams with more than 50 but less than 60 build-up play speed.",
+      "question_id": "1035",
+      "golden": {},
+      "retrieved": {
+        "Team_Attributes": [
+          "buildUpPlaySpeed",
+          "team_fifa_api_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 0,
+        "col_fp": 2,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "Team_Attributes"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "Team_Attributes.buildUpPlaySpeed",
+          "Team_Attributes.team_fifa_api_id"
+        ]
+      }
+    },
+    "1036": {
+      "question": "List the long name of teams with above-average build-up play passing in 2012.",
+      "question_id": "1036",
+      "golden": {
+        "Team_Attributes": [
+          "team_api_id",
+          "date",
+          "buildUpPlayPassing"
+        ],
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ]
+      },
+      "retrieved": {
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Team_Attributes": [
+          "buildUpPlayPassing",
+          "date",
+          "team_api_id"
+        ],
+        "'2012'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2012'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1037": {
+      "question": "Calculate the percentage of players who prefer left foot, who were born between 1987 and 1992.",
+      "question_id": "1037",
+      "golden": {
+        "Player": [
+          "id",
+          "player_api_id",
+          "birthday"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "preferred_foot"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "birthday",
+          "player_api_id"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "preferred_foot"
+        ],
+        "'left'": [],
+        "'1987'": [],
+        "'1992'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'1987'",
+          "'1992'",
+          "'left'"
+        ],
+        "missing_columns": [
+          "Player.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1039": {
+      "question": "Find the average number of long-shot done by Ahmed Samir Farag.",
+      "question_id": "1039",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "date",
+          "long_shots"
+        ]
+      },
+      "retrieved": {
+        "Player_Attributes": [
+          "long_shots",
+          "player_api_id"
+        ],
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "'Ahmed Samir Farag'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Ahmed Samir Farag'"
+        ],
+        "missing_columns": [
+          "Player_Attributes.date"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1040": {
+      "question": "List the top 10 players' names whose heights are above 180 in descending order of average heading accuracy.",
+      "question_id": "1040",
+      "golden": {
+        "Player": [
+          "player_name",
+          "player_api_id",
+          "height",
+          "id"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "heading_accuracy",
+          "player_fifa_api_id"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "height",
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "heading_accuracy",
+          "player_api_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Player.id",
+          "Player_Attributes.player_fifa_api_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1041": {
+      "question": "For the teams with normal build-up play dribbling class in 2014, List the names of the teams with less than average chance creation passing, in descending order of chance creation passing.",
+      "question_id": "1041",
+      "golden": {
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Team_Attributes": [
+          "team_api_id",
+          "buildUpPlayDribblingClass",
+          "chanceCreationPassing",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Team_Attributes": [
+          "buildUpPlayDribblingClass",
+          "chanceCreationPassing",
+          "date",
+          "team_api_id"
+        ],
+        "'Normal'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Normal'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1042": {
+      "question": "List the name of leagues in which the average goals by the home team is higher than the away team in the 2009/2010 season.",
+      "question_id": "1042",
+      "golden": {},
+      "retrieved": {
+        "League": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "away_team_goal",
+          "home_team_goal",
+          "league_id",
+          "season"
+        ],
+        "'2009/2010'": []
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 0,
+        "col_fp": 6,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2009/2010'",
+          "League",
+          "Match"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "League.id",
+          "League.name",
+          "Match.away_team_goal",
+          "Match.home_team_goal",
+          "Match.league_id",
+          "Match.season"
+        ]
+      }
+    },
+    "1043": {
+      "question": "What is the short name of the football team Queens Park Rangers?",
+      "question_id": "1043",
+      "golden": {
+        "Team": [
+          "team_long_name",
+          "team_short_name"
+        ]
+      },
+      "retrieved": {
+        "Team": [
+          "team_long_name",
+          "team_short_name"
+        ],
+        "'Queens Park Rangers'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Queens Park Rangers'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1044": {
+      "question": "List the football players with a birthyear of 1970 and a birthmonth of October.",
+      "question_id": "1044",
+      "golden": {
+        "Player": [
+          "player_name",
+          "birthday"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "birthday",
+          "player_name"
+        ],
+        "'1970-10'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'1970-10'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1045": {
+      "question": "What is the attacking work rate of the football playerr Franco Zennaro?",
+      "question_id": "1045",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "attacking_work_rate"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "attacking_work_rate",
+          "player_api_id"
+        ],
+        "'Franco Zennaro'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Franco Zennaro'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1046": {
+      "question": "What is the ADO Den Haag team freedom of movement in the 1st two thirds of the pitch?",
+      "question_id": "1046",
+      "golden": {
+        "Team": [
+          "team_long_name",
+          "team_fifa_api_id"
+        ],
+        "Team_Attributes": [
+          "buildUpPlayPositioningClass",
+          "team_fifa_api_id"
+        ]
+      },
+      "retrieved": {
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Team_Attributes": [
+          "buildUpPlayPositioningClass",
+          "team_api_id"
+        ],
+        "'ADO Den Haag'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'ADO Den Haag'"
+        ],
+        "missing_columns": [
+          "Team.team_fifa_api_id",
+          "Team_Attributes.team_fifa_api_id"
+        ],
+        "extra_columns": [
+          "Team.team_api_id",
+          "Team_Attributes.team_api_id"
+        ]
+      }
+    },
+    "1047": {
+      "question": "What is the football player Francois Affolter header's finishing rate on 18/09/2014?",
+      "question_id": "1047",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "date",
+          "heading_accuracy"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "date",
+          "heading_accuracy",
+          "player_api_id"
+        ],
+        "'Francois Affolter'": [],
+        "'2014-09-18 00:00:00'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2014-09-18 00:00:00'",
+          "'Francois Affolter'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1048": {
+      "question": "What is the overall rating of the football player Gabriel Tamas in year 2011?",
+      "question_id": "1048",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "date",
+          "overall_rating"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "date",
+          "overall_rating",
+          "player_api_id"
+        ],
+        "'Gabriel Tamas'": [],
+        "'2011'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2011'",
+          "'Gabriel Tamas'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1049": {
+      "question": "How many matches in the 2015/2016 season were held in Scotland Premier League\n?",
+      "question_id": "1049",
+      "golden": {
+        "League": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "id",
+          "league_id",
+          "season"
+        ]
+      },
+      "retrieved": {
+        "Match": [
+          "id",
+          "league_id",
+          "season"
+        ],
+        "League": [
+          "id",
+          "name"
+        ],
+        "'2015/2016'": [],
+        "'Scotland Premier League'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2015/2016'",
+          "'Scotland Premier League'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1052": {
+      "question": "Among all the players whose weight is under 130, how many of them preferred foot in attacking is left?",
+      "question_id": "1052",
+      "golden": {
+        "Player": [
+          "id",
+          "player_api_id",
+          "weight"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "preferred_foot"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "weight"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "preferred_foot"
+        ],
+        "'left'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'left'"
+        ],
+        "missing_columns": [
+          "Player.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1053": {
+      "question": "List the football teams that has a chance creation passing class of Risky. Inidcate its short name only.",
+      "question_id": "1053",
+      "golden": {
+        "Team": [
+          "team_short_name",
+          "team_api_id"
+        ],
+        "Team_Attributes": [
+          "team_api_id",
+          "chanceCreationPassingClass"
+        ]
+      },
+      "retrieved": {
+        "Team": [
+          "team_api_id",
+          "team_short_name"
+        ],
+        "Team_Attributes": [
+          "chanceCreationPassingClass",
+          "team_api_id"
+        ],
+        "'Risky'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Risky'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1054": {
+      "question": "What is the defensive work rate of the football player David Wilson\n?",
+      "question_id": "1054",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "defensive_work_rate"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "defensive_work_rate",
+          "player_api_id"
+        ],
+        "\"David Wilson\"": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "\"David Wilson\""
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1056": {
+      "question": "What is the name of the football league in the country of Netherlands?",
+      "question_id": "1056",
+      "golden": {
+        "Country": [
+          "id",
+          "name"
+        ],
+        "League": [
+          "country_id",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "League": [
+          "country_id",
+          "name"
+        ],
+        "Country": [
+          "id",
+          "name"
+        ],
+        "'Netherlands'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Netherlands'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1057": {
+      "question": "Calculate the average home team goal in the 2010/2011 season in the country of Poland.",
+      "question_id": "1057",
+      "golden": {
+        "Country": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "id",
+          "country_id",
+          "season",
+          "home_team_goal"
+        ]
+      },
+      "retrieved": {
+        "Match": [
+          "country_id",
+          "home_team_goal",
+          "season"
+        ],
+        "Country": [
+          "id",
+          "name"
+        ],
+        "'Poland'": [],
+        "'2010/2011'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2010/2011'",
+          "'Poland'"
+        ],
+        "missing_columns": [
+          "Match.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1058": {
+      "question": "Who has the highest average finishing rate between the highest and shortest football player?",
+      "question_id": "1058",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "height"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "finishing"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "height",
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "finishing",
+          "player_api_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [],
+        "extra_columns": [
+          "Player.player_name"
+        ]
+      }
+    },
+    "1060": {
+      "question": "How many players were born after 1990?",
+      "question_id": "1060",
+      "golden": {
+        "Player": [
+          "id",
+          "birthday"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "birthday",
+          "player_api_id"
+        ],
+        "'1990'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 1,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'1990'"
+        ],
+        "missing_columns": [
+          "Player.id"
+        ],
+        "extra_columns": [
+          "Player.player_api_id"
+        ]
+      }
+    },
+    "1061": {
+      "question": "How many players whose first names are Adam and weigh more than 170?",
+      "question_id": "1061",
+      "golden": {
+        "Player": [
+          "id",
+          "player_name",
+          "weight"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_name",
+          "weight"
+        ],
+        "'Adam'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Adam'"
+        ],
+        "missing_columns": [
+          "Player.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1062": {
+      "question": "Which players had an overall rating of over 80 from 2008 to 2010? Please list player names.",
+      "question_id": "1062",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "overall_rating",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "date",
+          "overall_rating",
+          "player_api_id"
+        ],
+        "'2008'": [],
+        "'2010'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2008'",
+          "'2010'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1063": {
+      "question": "What is Aaron Doran's potential score?",
+      "question_id": "1063",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "potential"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "potential"
+        ],
+        "'Aaron Doran'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Aaron Doran'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1064": {
+      "question": "List out of players whose preferred foot is left.",
+      "question_id": "1064",
+      "golden": {
+        "Player": [
+          "id",
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "preferred_foot"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "preferred_foot"
+        ],
+        "'left'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'left'"
+        ],
+        "missing_columns": [
+          "Player.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1065": {
+      "question": "Please list all team names which the speed class is fast.",
+      "question_id": "1065",
+      "golden": {
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Team_Attributes": [
+          "team_api_id",
+          "buildUpPlaySpeedClass"
+        ]
+      },
+      "retrieved": {
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Team_Attributes": [
+          "buildUpPlaySpeedClass",
+          "team_api_id"
+        ],
+        "'Fast'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Fast'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1066": {
+      "question": "What is the passing class of CLB team?",
+      "question_id": "1066",
+      "golden": {
+        "Team": [
+          "team_api_id",
+          "team_short_name"
+        ],
+        "Team_Attributes": [
+          "team_api_id",
+          "buildUpPlayPassingClass"
+        ]
+      },
+      "retrieved": {
+        "Team_Attributes": [
+          "buildUpPlayPassingClass",
+          "team_api_id"
+        ],
+        "Team": [
+          "team_api_id",
+          "team_short_name"
+        ],
+        "'CLB'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'CLB'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1068": {
+      "question": "From 2010 to 2015, what was the average overall rating of players who are higher than 170?",
+      "question_id": "1068",
+      "golden": {
+        "Player": [
+          "height",
+          "player_api_id"
+        ],
+        "Player_Attributes": [
+          "id",
+          "player_api_id",
+          "date",
+          "overall_rating"
+        ]
+      },
+      "retrieved": {
+        "Player_Attributes": [
+          "date",
+          "overall_rating",
+          "player_api_id"
+        ],
+        "Player": [
+          "height",
+          "player_api_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Player_Attributes.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1070": {
+      "question": "Which country is the league Italy Serie A from?",
+      "question_id": "1070",
+      "golden": {
+        "Country": [
+          "id",
+          "name"
+        ],
+        "League": [
+          "country_id",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "Country": [
+          "id",
+          "name"
+        ],
+        "League": [
+          "country_id",
+          "name"
+        ],
+        "'Italy Serie A'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Italy Serie A'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1072": {
+      "question": "What is the average overall rating of the football player Aaron Doran?",
+      "question_id": "1072",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "overall_rating",
+          "id"
+        ]
+      },
+      "retrieved": {
+        "Player_Attributes": [
+          "overall_rating",
+          "player_api_id"
+        ],
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "'Aaron Doran'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Aaron Doran'"
+        ],
+        "missing_columns": [
+          "Player_Attributes.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1073": {
+      "question": "How many matches were held in the league Germany 1. Bundesliga\nfrom August to October 2008?",
+      "question_id": "1073",
+      "golden": {
+        "League": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "id",
+          "league_id",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "Match": [
+          "date",
+          "id",
+          "league_id"
+        ],
+        "League": [
+          "id",
+          "name"
+        ],
+        "'Germany 1": [
+          " Bundesliga'"
+        ],
+        "'2008-08'": [],
+        "'2008-10'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 1,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2008-08'",
+          "'2008-10'",
+          "'Germany 1"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "'Germany 1. Bundesliga'"
+        ]
+      }
+    },
+    "1076": {
+      "question": "What is the difference of the average ball control score between Abdou Diallo and Aaron Appindangoye\n?",
+      "question_id": "1076",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "ball_control",
+          "id"
+        ]
+      },
+      "retrieved": {
+        "Player_Attributes": [
+          "ball_control",
+          "player_api_id"
+        ],
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "'Abdou Diallo'": [],
+        "'Aaron Appindangoye'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Aaron Appindangoye'",
+          "'Abdou Diallo'"
+        ],
+        "missing_columns": [
+          "Player_Attributes.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1077": {
+      "question": "What's the long name for the team GEN?",
+      "question_id": "1077",
+      "golden": {
+        "Team": [
+          "team_long_name",
+          "team_short_name"
+        ]
+      },
+      "retrieved": {
+        "Team": [
+          "team_long_name",
+          "team_short_name"
+        ],
+        "'GEN'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'GEN'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1078": {
+      "question": "Which player is older, Aaron Lennon or Abdelaziz Barrada?",
+      "question_id": "1078",
+      "golden": {
+        "Player": [
+          "player_name",
+          "birthday"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "birthday",
+          "player_name"
+        ],
+        "\"Aaron Lennon\"": [],
+        "\"Abdelaziz Barrada\"": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "\"Aaron Lennon\"",
+          "\"Abdelaziz Barrada\""
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1080": {
+      "question": "Among the players whose preferred foot was the left foot when attacking, how many of them would remain in his position when the team attacked?",
+      "question_id": "1080",
+      "golden": {
+        "Player_Attributes": [
+          "player_api_id",
+          "preferred_foot",
+          "attacking_work_rate"
+        ]
+      },
+      "retrieved": {
+        "Player_Attributes": [
+          "attacking_work_rate",
+          "preferred_foot"
+        ],
+        "'left'": [],
+        "'low'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'left'",
+          "'low'"
+        ],
+        "missing_columns": [
+          "Player_Attributes.player_api_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1081": {
+      "question": "Which country is the Belgium Jupiler League from?",
+      "question_id": "1081",
+      "golden": {
+        "Country": [
+          "id",
+          "name"
+        ],
+        "League": [
+          "country_id",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "Country": [
+          "id",
+          "name"
+        ],
+        "League": [
+          "country_id",
+          "name"
+        ],
+        "'Belgium Jupiler League'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Belgium Jupiler League'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1082": {
+      "question": "Please list the leagues from Germany.",
+      "question_id": "1082",
+      "golden": {
+        "Country": [
+          "id",
+          "name"
+        ],
+        "League": [
+          "country_id",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "League": [
+          "country_id",
+          "name"
+        ],
+        "Country": [
+          "id",
+          "name"
+        ],
+        "'Germany'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Germany'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1084": {
+      "question": "Among the players born before the year 1986, how many of them would remain in his position and defense while the team attacked?",
+      "question_id": "1084",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name",
+          "birthday"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "defensive_work_rate"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "birthday",
+          "player_api_id"
+        ],
+        "Player_Attributes": [
+          "defensive_work_rate",
+          "player_api_id"
+        ],
+        "'1986'": [],
+        "'high'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'1986'",
+          "'high'"
+        ],
+        "missing_columns": [
+          "Player.player_name"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1085": {
+      "question": "Which of these players performs the best in crossing actions, Alexis, Ariel Borysiuk or Arouna Kone?",
+      "question_id": "1085",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "crossing"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "crossing",
+          "player_api_id"
+        ],
+        "'Alexis'": [],
+        "'Ariel Borysiuk'": [],
+        "'Arouna Kone'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Alexis'",
+          "'Ariel Borysiuk'",
+          "'Arouna Kone'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1086": {
+      "question": "What's the heading accuracy of Ariel Borysiuk?",
+      "question_id": "1086",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "heading_accuracy"
+        ]
+      },
+      "retrieved": {
+        "Player_Attributes": [
+          "heading_accuracy",
+          "player_api_id"
+        ],
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "'Ariel Borysiuk'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Ariel Borysiuk'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1087": {
+      "question": "Among the players whose height is over 180, how many of them have a volley score of over 70?",
+      "question_id": "1087",
+      "golden": {
+        "Player": [
+          "id",
+          "player_api_id",
+          "height"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "volleys"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "height",
+          "player_api_id"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "volleys"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Player.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1089": {
+      "question": "How many matches in the 2008/2009 season were held in Belgium?",
+      "question_id": "1089",
+      "golden": {
+        "Country": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "id",
+          "country_id",
+          "season"
+        ]
+      },
+      "retrieved": {
+        "Match": [
+          "country_id",
+          "id",
+          "season"
+        ],
+        "Country": [
+          "id",
+          "name"
+        ],
+        "'2008/2009'": [],
+        "'Belgium'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2008/2009'",
+          "'Belgium'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1091": {
+      "question": "How many matches were held in the Belgium Jupiler League in April, 2009?",
+      "question_id": "1091",
+      "golden": {
+        "League": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "id",
+          "league_id",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "Match": [
+          "date",
+          "league_id"
+        ],
+        "League": [
+          "id",
+          "name"
+        ],
+        "'Belgium Jupiler League'": [],
+        "'2009-04'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2009-04'",
+          "'Belgium Jupiler League'"
+        ],
+        "missing_columns": [
+          "Match.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1092": {
+      "question": "Give the name of the league had the most matches in the 2008/2009 season?",
+      "question_id": "1092",
+      "golden": {
+        "League": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "id",
+          "league_id",
+          "season"
+        ]
+      },
+      "retrieved": {
+        "League": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "league_id",
+          "season"
+        ],
+        "'2008/2009'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2008/2009'"
+        ],
+        "missing_columns": [
+          "Match.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1093": {
+      "question": "What is the average overall rating of the players born before the year 1986?",
+      "question_id": "1093",
+      "golden": {
+        "Player": [
+          "id",
+          "player_api_id",
+          "birthday"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "overall_rating"
+        ]
+      },
+      "retrieved": {
+        "Player_Attributes": [
+          "overall_rating",
+          "player_api_id"
+        ],
+        "Player": [
+          "birthday",
+          "player_api_id"
+        ],
+        "'1986'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'1986'"
+        ],
+        "missing_columns": [
+          "Player.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1094": {
+      "question": "How much higher in percentage is Ariel Borysiuk's overall rating than that of Paulin Puel?",
+      "question_id": "1094",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "overall_rating"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "overall_rating",
+          "player_api_id"
+        ],
+        "'Ariel Borysiuk'": [],
+        "'Paulin Puel'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Ariel Borysiuk'",
+          "'Paulin Puel'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1095": {
+      "question": "How much is the average build up play speed of the Heart of Midlothian team?",
+      "question_id": "1095",
+      "golden": {
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Team_Attributes": [
+          "id",
+          "team_api_id",
+          "buildUpPlaySpeed"
+        ]
+      },
+      "retrieved": {
+        "Team_Attributes": [
+          "buildUpPlaySpeed",
+          "team_api_id"
+        ],
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "'Heart of Midlothian'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Heart of Midlothian'"
+        ],
+        "missing_columns": [
+          "Team_Attributes.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1096": {
+      "question": "Calculate the average overall rating of Pietro Marino.",
+      "question_id": "1096",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "id",
+          "player_api_id",
+          "overall_rating"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "overall_rating",
+          "player_api_id"
+        ],
+        "'Pietro Marino'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Pietro Marino'"
+        ],
+        "missing_columns": [
+          "Player_Attributes.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1097": {
+      "question": "What is Aaron Lennox's total crossing score?",
+      "question_id": "1097",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "crossing"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "crossing",
+          "player_api_id"
+        ],
+        "'Aaron Lennox'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Aaron Lennox'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1098": {
+      "question": "What is Ajax's highest chance creation passing score and what is it classified as?",
+      "question_id": "1098",
+      "golden": {
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Team_Attributes": [
+          "team_api_id",
+          "chanceCreationPassing",
+          "chanceCreationPassingClass"
+        ]
+      },
+      "retrieved": {
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Team_Attributes": [
+          "chanceCreationPassing",
+          "chanceCreationPassingClass",
+          "team_api_id"
+        ],
+        "'Ajax'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Ajax'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1099": {
+      "question": "Which foot is preferred by Abdou Diallo?",
+      "question_id": "1099",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "preferred_foot"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "preferred_foot"
+        ],
+        "'Abdou Diallo'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Abdou Diallo'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1100": {
+      "question": "What is the highest overall rating received by Dorlan Pabon?",
+      "question_id": "1100",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "overall_rating"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "overall_rating",
+          "player_api_id"
+        ],
+        "'Dorlan Pabon'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Dorlan Pabon'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1101": {
+      "question": "What is the average number of goals made by Parma as the away team while playing in Italy?",
+      "question_id": "1101",
+      "golden": {
+        "Match": [
+          "id",
+          "away_team_goal",
+          "away_team_api_id",
+          "country_id"
+        ],
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Country": [
+          "id",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "Match": [
+          "away_team_api_id",
+          "away_team_goal",
+          "country_id"
+        ],
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Country": [
+          "id",
+          "name"
+        ],
+        "'Parma'": [],
+        "'Italy'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 7,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Italy'",
+          "'Parma'"
+        ],
+        "missing_columns": [
+          "Match.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1102": {
+      "question": "For the players who had a 77 points overall rating on 2016/6/23, who was the oldest? Give the name of the player.",
+      "question_id": "1102",
+      "golden": {
+        "Player": [
+          "player_name",
+          "player_api_id",
+          "birthday"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "date",
+          "overall_rating"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "birthday",
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "date",
+          "overall_rating",
+          "player_api_id"
+        ],
+        "'2016-06-23%'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2016-06-23%'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1103": {
+      "question": "What was the overall rating for Aaron Mooy on 2016/2/4?",
+      "question_id": "1103",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "date",
+          "overall_rating"
+        ]
+      },
+      "retrieved": {
+        "Player_Attributes": [
+          "date",
+          "overall_rating",
+          "player_api_id"
+        ],
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "'Aaron Mooy'": [],
+        "'2016-02-04%'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2016-02-04%'",
+          "'Aaron Mooy'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1104": {
+      "question": "What was the potiential for Francesco Parravicini on 2010/8/30?",
+      "question_id": "1104",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "date",
+          "potential"
+        ]
+      },
+      "retrieved": {
+        "Player_Attributes": [
+          "date",
+          "player_api_id",
+          "potential"
+        ],
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "'Francesco Parravicini'": [],
+        "'2010-08-30 00:00:00'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2010-08-30 00:00:00'",
+          "'Francesco Parravicini'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1105": {
+      "question": "How was Francesco Migliore's attacking work rate on 2015/5/1?",
+      "question_id": "1105",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "date",
+          "attacking_work_rate"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "attacking_work_rate",
+          "date",
+          "player_api_id"
+        ],
+        "'Francesco Migliore'": [],
+        "'2015-05-01%'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2015-05-01%'",
+          "'Francesco Migliore'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1106": {
+      "question": "Tell the defensive work rate for Kevin Berigaud on 2013/2/22.",
+      "question_id": "1106",
+      "golden": {
+        "Player": [
+          "player_name",
+          "player_fifa_api_id"
+        ],
+        "Player_Attributes": [
+          "defensive_work_rate",
+          "player_fifa_api_id",
+          "date"
+        ]
+      },
+      "retrieved": {
+        "Player_Attributes": [
+          "date",
+          "defensive_work_rate",
+          "player_api_id"
+        ],
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "'Kevin Berigaud'": [],
+        "'2013-02-22 00:00:00'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2013-02-22 00:00:00'",
+          "'Kevin Berigaud'"
+        ],
+        "missing_columns": [
+          "Player.player_fifa_api_id",
+          "Player_Attributes.player_fifa_api_id"
+        ],
+        "extra_columns": [
+          "Player.player_api_id",
+          "Player_Attributes.player_api_id"
+        ]
+      }
+    },
+    "1107": {
+      "question": "When was the first time did Kevin Constant have his highest crossing score? Give the date.",
+      "question_id": "1107",
+      "golden": {
+        "Player": [
+          "player_name",
+          "player_fifa_api_id"
+        ],
+        "Player_Attributes": [
+          "player_fifa_api_id",
+          "date",
+          "crossing"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "crossing",
+          "date",
+          "player_api_id"
+        ],
+        "'Kevin Constant'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Kevin Constant'"
+        ],
+        "missing_columns": [
+          "Player.player_fifa_api_id",
+          "Player_Attributes.player_fifa_api_id"
+        ],
+        "extra_columns": [
+          "Player.player_api_id",
+          "Player_Attributes.player_api_id"
+        ]
+      }
+    },
+    "1108": {
+      "question": "What was the build up play speed class for \"Willem II\" on 2011/2/22?",
+      "question_id": "1108",
+      "golden": {
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Team_Attributes": [
+          "team_api_id",
+          "date",
+          "buildUpPlaySpeedClass"
+        ]
+      },
+      "retrieved": {
+        "Team_Attributes": [
+          "buildUpPlaySpeedClass",
+          "date",
+          "team_api_id"
+        ],
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "'Willem II'": [],
+        "'2012-02-22'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2012-02-22'",
+          "'Willem II'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1109": {
+      "question": "How was the build up play dribbling class for \"LEI\" on 2015/9/10?",
+      "question_id": "1109",
+      "golden": {
+        "Team": [
+          "team_api_id",
+          "team_short_name"
+        ],
+        "Team_Attributes": [
+          "team_api_id",
+          "date",
+          "buildUpPlayDribblingClass"
+        ]
+      },
+      "retrieved": {
+        "Team_Attributes": [
+          "buildUpPlayDribblingClass",
+          "date",
+          "team_api_id"
+        ],
+        "Team": [
+          "team_api_id",
+          "team_short_name"
+        ],
+        "'LEI'": [],
+        "'2015-09-10 00:00:00'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2015-09-10 00:00:00'",
+          "'LEI'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1110": {
+      "question": "Tell the build Up play passing class for \"FC Lorient\" on 2010/2/22.",
+      "question_id": "1110",
+      "golden": {
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Team_Attributes": [
+          "team_api_id",
+          "date",
+          "buildUpPlayPassingClass"
+        ]
+      },
+      "retrieved": {
+        "Team_Attributes": [
+          "buildUpPlayPassingClass",
+          "date",
+          "team_api_id"
+        ],
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "'FC Lorient'": [],
+        "'2010-02-22%'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2010-02-22%'",
+          "'FC Lorient'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1111": {
+      "question": "State the chance creation passing class for \"PEC Zwolle\" on 2013/9/20.",
+      "question_id": "1111",
+      "golden": {
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Team_Attributes": [
+          "team_api_id",
+          "date",
+          "chanceCreationPassingClass"
+        ]
+      },
+      "retrieved": {
+        "Team_Attributes": [
+          "chanceCreationPassingClass",
+          "date",
+          "team_api_id"
+        ],
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "'PEC Zwolle'": [],
+        "'2013-09-20 00:00:00'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2013-09-20 00:00:00'",
+          "'PEC Zwolle'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1112": {
+      "question": "What was the chance creation crossing class for \"Hull City\" on 2010/2/22?",
+      "question_id": "1112",
+      "golden": {
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Team_Attributes": [
+          "team_api_id",
+          "date",
+          "chanceCreationCrossingClass"
+        ]
+      },
+      "retrieved": {
+        "Team_Attributes": [
+          "chanceCreationCrossingClass",
+          "date",
+          "team_api_id"
+        ],
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "'Hull City'": [],
+        "'2010-02-22 00:00:00'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2010-02-22 00:00:00'",
+          "'Hull City'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1113": {
+      "question": "For the team \"Hannover 96\", what was its defence aggression class on 2015/9/10?",
+      "question_id": "1113",
+      "golden": {
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Team_Attributes": [
+          "team_api_id",
+          "date",
+          "chanceCreationShootingClass"
+        ]
+      },
+      "retrieved": {
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Team_Attributes": [
+          "date",
+          "defenceAggressionClass",
+          "team_api_id"
+        ],
+        "'Hannover 96'": [],
+        "'2015-09-10%'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2015-09-10%'",
+          "'Hannover 96'"
+        ],
+        "missing_columns": [
+          "Team_Attributes.chanceCreationShootingClass"
+        ],
+        "extra_columns": [
+          "Team_Attributes.defenceAggressionClass"
+        ]
+      }
+    },
+    "1114": {
+      "question": "What was the average overall rating for Marko Arnautovic from 2007/2/22 to 2016/4/21?",
+      "question_id": "1114",
+      "golden": {
+        "Player": [
+          "player_name",
+          "player_fifa_api_id"
+        ],
+        "Player_Attributes": [
+          "id",
+          "player_fifa_api_id",
+          "date",
+          "overall_rating"
+        ]
+      },
+      "retrieved": {
+        "Player_Attributes": [
+          "date",
+          "overall_rating",
+          "player_api_id"
+        ],
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "'Marko Arnautovic'": [],
+        "'2007-02-22'": [],
+        "'2016-04-21'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2007-02-22'",
+          "'2016-04-21'",
+          "'Marko Arnautovic'"
+        ],
+        "missing_columns": [
+          "Player.player_fifa_api_id",
+          "Player_Attributes.id",
+          "Player_Attributes.player_fifa_api_id"
+        ],
+        "extra_columns": [
+          "Player.player_api_id",
+          "Player_Attributes.player_api_id"
+        ]
+      }
+    },
+    "1115": {
+      "question": "What percentage is Landon Donovan's overall rating higher than Jordan Bowery on 2013/7/12?",
+      "question_id": "1115",
+      "golden": {
+        "Player": [
+          "player_name",
+          "player_fifa_api_id"
+        ],
+        "Player_Attributes": [
+          "player_fifa_api_id",
+          "date",
+          "overall_rating"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "date",
+          "overall_rating",
+          "player_api_id"
+        ],
+        "'Landon Donovan'": [],
+        "'Jordan Bowery'": [],
+        "'2013-07-12 00:00:00'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 2,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2013-07-12 00:00:00'",
+          "'Jordan Bowery'",
+          "'Landon Donovan'"
+        ],
+        "missing_columns": [
+          "Player.player_fifa_api_id",
+          "Player_Attributes.player_fifa_api_id"
+        ],
+        "extra_columns": [
+          "Player.player_api_id",
+          "Player_Attributes.player_api_id"
+        ]
+      }
+    },
+    "1119": {
+      "question": "How many home team goal have been scored by Aaron Lennon?",
+      "question_id": "1119",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Match": [
+          "away_player_9",
+          "home_team_goal"
+        ]
+      },
+      "retrieved": {
+        "Match": [
+          "home_player_1",
+          "home_player_10",
+          "home_player_11",
+          "home_player_2",
+          "home_player_3",
+          "home_player_4",
+          "home_player_5",
+          "home_player_6",
+          "home_player_7",
+          "home_player_8",
+          "home_player_9",
+          "home_team_goal"
+        ],
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "'Aaron Lennon'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 11,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Aaron Lennon'"
+        ],
+        "missing_columns": [
+          "Match.away_player_9"
+        ],
+        "extra_columns": [
+          "Match.home_player_1",
+          "Match.home_player_10",
+          "Match.home_player_11",
+          "Match.home_player_2",
+          "Match.home_player_3",
+          "Match.home_player_4",
+          "Match.home_player_5",
+          "Match.home_player_6",
+          "Match.home_player_7",
+          "Match.home_player_8",
+          "Match.home_player_9"
+        ]
+      }
+    },
+    "1120": {
+      "question": "Sum up the away team goal scored by both Daan Smith and Filipe Ferreira.",
+      "question_id": "1120",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Match": [
+          "away_team_goal",
+          "away_player_5"
+        ]
+      },
+      "retrieved": {
+        "Match": [
+          "away_player_1",
+          "away_player_10",
+          "away_player_11",
+          "away_player_2",
+          "away_player_3",
+          "away_player_4",
+          "away_player_5",
+          "away_player_6",
+          "away_player_7",
+          "away_player_8",
+          "away_player_9",
+          "away_team_goal"
+        ],
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "'Daan Smith'": [],
+        "'Filipe Ferreira'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 10,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Daan Smith'",
+          "'Filipe Ferreira'"
+        ],
+        "missing_columns": [],
+        "extra_columns": [
+          "Match.away_player_1",
+          "Match.away_player_10",
+          "Match.away_player_11",
+          "Match.away_player_2",
+          "Match.away_player_3",
+          "Match.away_player_4",
+          "Match.away_player_6",
+          "Match.away_player_7",
+          "Match.away_player_8",
+          "Match.away_player_9"
+        ]
+      }
+    },
+    "1121": {
+      "question": "Calculate the total home team goal scored by players whose age are 30 years old and below.",
+      "question_id": "1121",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "birthday"
+        ],
+        "Match": [
+          "away_player_1",
+          "home_team_goal"
+        ]
+      },
+      "retrieved": {
+        "Match": [
+          "home_player_1",
+          "home_team_goal"
+        ],
+        "Player": [
+          "birthday",
+          "player_api_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Match.away_player_1"
+        ],
+        "extra_columns": [
+          "Match.home_player_1"
+        ]
+      }
+    },
+    "1124": {
+      "question": "Who are the players that tend to be attacking when their mates were doing attack moves? List down their name.",
+      "question_id": "1124",
+      "golden": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "attacking_work_rate"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "attacking_work_rate",
+          "player_api_id"
+        ],
+        "'high'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'high'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1126": {
+      "question": "State the name of players who came from Belgium.",
+      "question_id": "1126",
+      "golden": {
+        "Country": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "country_id",
+          "home_player_1"
+        ],
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Country": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "country_id"
+        ],
+        "'Belgium'": []
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Belgium'"
+        ],
+        "missing_columns": [
+          "Match.home_player_1"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1127": {
+      "question": "Locate players with vision scores of 90 and above, state the country of these players.",
+      "question_id": "1127",
+      "golden": {
+        "Player_Attributes": [
+          "player_api_id",
+          "vision"
+        ],
+        "Player": [
+          "player_api_id"
+        ],
+        "Match": [
+          "home_player_8",
+          "country_id"
+        ],
+        "Country": [
+          "id",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "Player_Attributes": [
+          "player_api_id",
+          "vision"
+        ],
+        "Country": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "country_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 0,
+        "tbl_fn": 1,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 2
+      },
+      "differences": {
+        "missing_tables": [
+          "Player"
+        ],
+        "extra_tables": [],
+        "missing_columns": [
+          "Match.home_player_8",
+          "Player.player_api_id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1128": {
+      "question": "Which country's players have the heaviest average weights?",
+      "question_id": "1128",
+      "golden": {
+        "Country": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "country_id",
+          "home_player_1"
+        ],
+        "Player": [
+          "player_api_id",
+          "weight"
+        ]
+      },
+      "retrieved": {
+        "movies": [
+          "movie_id",
+          "movie_release_year",
+          "movie_title"
+        ],
+        "ratings": [
+          "movie_id",
+          "rating_score"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 0,
+        "tbl_fp": 2,
+        "tbl_fn": 3,
+        "col_tp": 0,
+        "col_fp": 5,
+        "col_fn": 6
+      },
+      "differences": {
+        "missing_tables": [
+          "Country",
+          "Match",
+          "Player"
+        ],
+        "extra_tables": [
+          "movies",
+          "ratings"
+        ],
+        "missing_columns": [
+          "Country.id",
+          "Country.name",
+          "Match.country_id",
+          "Match.home_player_1",
+          "Player.player_api_id",
+          "Player.weight"
+        ],
+        "extra_columns": [
+          "movies.movie_id",
+          "movies.movie_release_year",
+          "movies.movie_title",
+          "ratings.movie_id",
+          "ratings.rating_score"
+        ]
+      }
+    },
+    "1129": {
+      "question": "List down the long name for slow speed class team.",
+      "question_id": "1129",
+      "golden": {
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Team_Attributes": [
+          "team_api_id",
+          "buildUpPlaySpeedClass"
+        ]
+      },
+      "retrieved": {
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Team_Attributes": [
+          "buildUpPlaySpeedClass",
+          "team_api_id"
+        ],
+        "'Slow'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Slow'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1130": {
+      "question": "What are the short name of team who played safe while creating chance of passing?",
+      "question_id": "1130",
+      "golden": {
+        "Team": [
+          "team_short_name",
+          "team_api_id"
+        ],
+        "Team_Attributes": [
+          "team_api_id",
+          "chanceCreationPassingClass"
+        ]
+      },
+      "retrieved": {
+        "Team": [
+          "team_api_id",
+          "team_short_name"
+        ],
+        "Team_Attributes": [
+          "chanceCreationPassingClass",
+          "team_api_id"
+        ],
+        "'Safe'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Safe'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1131": {
+      "question": "What is the average heights of Italy players?",
+      "question_id": "1131",
+      "golden": {
+        "Player": [
+          "id",
+          "height"
+        ],
+        "Match": [
+          "id",
+          "country_id"
+        ],
+        "Country": [
+          "id",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "height",
+          "player_api_id"
+        ],
+        "Country": [
+          "id",
+          "name"
+        ],
+        "League": [
+          "country_id",
+          "id"
+        ],
+        "Match": [
+          "away_player_1",
+          "away_player_10",
+          "away_player_11",
+          "away_player_2",
+          "away_player_3",
+          "away_player_4",
+          "away_player_5",
+          "away_player_6",
+          "away_player_7",
+          "away_player_8",
+          "away_player_9",
+          "away_team_api_id",
+          "home_player_1",
+          "home_player_10",
+          "home_player_11",
+          "home_player_2",
+          "home_player_3",
+          "home_player_4",
+          "home_player_5",
+          "home_player_6",
+          "home_player_7",
+          "home_player_8",
+          "home_player_9",
+          "home_team_api_id",
+          "league_id"
+        ],
+        "Team": [
+          "team_api_id"
+        ],
+        "etc": [
+          ""
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 3,
+        "tbl_fp": 3,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 30,
+        "col_fn": 3
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "League",
+          "Team",
+          "etc"
+        ],
+        "missing_columns": [
+          "Match.country_id",
+          "Match.id",
+          "Player.id"
+        ],
+        "extra_columns": [
+          "League.country_id",
+          "League.id",
+          "Match.away_player_1",
+          "Match.away_player_10",
+          "Match.away_player_11",
+          "Match.away_player_2",
+          "Match.away_player_3",
+          "Match.away_player_4",
+          "Match.away_player_5",
+          "Match.away_player_6",
+          "Match.away_player_7",
+          "Match.away_player_8",
+          "Match.away_player_9",
+          "Match.away_team_api_id",
+          "Match.home_player_1",
+          "Match.home_player_10",
+          "Match.home_player_11",
+          "Match.home_player_2",
+          "Match.home_player_3",
+          "Match.home_player_4",
+          "Match.home_player_5",
+          "Match.home_player_6",
+          "Match.home_player_7",
+          "Match.home_player_8",
+          "Match.home_player_9",
+          "Match.home_team_api_id",
+          "Match.league_id",
+          "Player.player_api_id",
+          "Team.team_api_id",
+          "etc."
+        ]
+      }
+    },
+    "1133": {
+      "question": "How many football players born after the 1990s have the first name \"Aaron\"?",
+      "question_id": "1133",
+      "golden": {
+        "Player": [
+          "id",
+          "player_name",
+          "birthday"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "birthday",
+          "player_name"
+        ],
+        "'Aaron%'": [],
+        "'1990'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'1990'",
+          "'Aaron%'"
+        ],
+        "missing_columns": [
+          "Player.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1135": {
+      "question": "Please provide top five football players' IDs who are among the lowest potential players and prefer to use the right foot when attacking.",
+      "question_id": "1135",
+      "golden": {
+        "Player_Attributes": [
+          "id",
+          "preferred_foot",
+          "potential"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "potential",
+          "preferred_foot"
+        ],
+        "'right'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 2,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'right'",
+          "Player"
+        ],
+        "missing_columns": [
+          "Player_Attributes.id"
+        ],
+        "extra_columns": [
+          "Player.player_api_id",
+          "Player_Attributes.player_api_id"
+        ]
+      }
+    },
+    "1136": {
+      "question": "How many players had the highest potential score for crossing that preferred to use their left foots while attacking?",
+      "question_id": "1136",
+      "golden": {
+        "Player_Attributes": [
+          "id",
+          "preferred_foot",
+          "crossing"
+        ]
+      },
+      "retrieved": {
+        "Player_Attributes": [
+          "crossing",
+          "preferred_foot"
+        ],
+        "'left'": []
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'left'"
+        ],
+        "missing_columns": [
+          "Player_Attributes.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1137": {
+      "question": "What percentage of players have a strength and stamina score of more than 80?",
+      "question_id": "1137",
+      "golden": {
+        "Player_Attributes": [
+          "id",
+          "strength",
+          "stamina"
+        ]
+      },
+      "retrieved": {
+        "Player_Attributes": [
+          "stamina",
+          "strength"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 1,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 2,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Player_Attributes.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1138": {
+      "question": "In what country did the Poland Ekstraklasa take place?",
+      "question_id": "1138",
+      "golden": {
+        "Country": [
+          "id",
+          "name"
+        ],
+        "League": [
+          "country_id",
+          "name"
+        ]
+      },
+      "retrieved": {
+        "Country": [
+          "id",
+          "name"
+        ],
+        "League": [
+          "country_id",
+          "name"
+        ],
+        "'Poland Ekstraklasa'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Poland Ekstraklasa'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1139": {
+      "question": "What was the final score for the match on September 24, 2008, in the Belgian Jupiler League between the home team and the away team?",
+      "question_id": "1139",
+      "golden": {
+        "League": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "league_id",
+          "date",
+          "home_team_goal",
+          "away_team_goal"
+        ]
+      },
+      "retrieved": {
+        "Match": [
+          "away_team_goal",
+          "date",
+          "home_team_goal",
+          "league_id"
+        ],
+        "League": [
+          "id",
+          "name"
+        ],
+        "'2008-09-24%'": [],
+        "'Belgium Jupiler League'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2008-09-24%'",
+          "'Belgium Jupiler League'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1140": {
+      "question": "What are Alexis Blin's sprint speed, agility, and acceleration scores?",
+      "question_id": "1140",
+      "golden": {
+        "Player_Attributes": [
+          "sprint_speed",
+          "agility",
+          "acceleration",
+          "player_api_id"
+        ],
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "player_api_id",
+          "player_name"
+        ],
+        "Player_Attributes": [
+          "acceleration",
+          "agility",
+          "player_api_id",
+          "sprint_speed"
+        ],
+        "'Alexis Blin'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 6,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Alexis Blin'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1141": {
+      "question": "Does the KSV Cercle Brugge team have a slow, balanced or fast speed class?",
+      "question_id": "1141",
+      "golden": {
+        "Team_Attributes": [
+          "buildUpPlaySpeedClass",
+          "team_api_id"
+        ],
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ]
+      },
+      "retrieved": {
+        "Team": [
+          "team_api_id",
+          "team_long_name"
+        ],
+        "Team_Attributes": [
+          "buildUpPlaySpeedClass",
+          "team_api_id"
+        ],
+        "'KSV Cercle Brugge'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'KSV Cercle Brugge'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1142": {
+      "question": "In the 2015–2016 season, how many games were played in the Italian Serie A league?",
+      "question_id": "1142",
+      "golden": {
+        "League": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "id",
+          "league_id",
+          "season"
+        ]
+      },
+      "retrieved": {
+        "Match": [
+          "league_id",
+          "season"
+        ],
+        "League": [
+          "id",
+          "name"
+        ],
+        "'2015/2016'": [],
+        "'Italy Serie A'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 2,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2015/2016'",
+          "'Italy Serie A'"
+        ],
+        "missing_columns": [
+          "Match.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1143": {
+      "question": "What was the highest score of the home team in the Netherlands Eredivisie league?",
+      "question_id": "1143",
+      "golden": {
+        "League": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "league_id",
+          "home_team_goal"
+        ]
+      },
+      "retrieved": {
+        "Match": [
+          "home_team_goal",
+          "league_id"
+        ],
+        "League": [
+          "id",
+          "name"
+        ],
+        "'Netherlands Eredivisie'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 4,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'Netherlands Eredivisie'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1144": {
+      "question": "Please state the finishing rate and curve score of the player who has the heaviest weight.",
+      "question_id": "1144",
+      "golden": {
+        "Player_Attributes": [
+          "id",
+          "finishing",
+          "curve",
+          "player_api_id"
+        ],
+        "Player": [
+          "player_api_id",
+          "weight"
+        ]
+      },
+      "retrieved": {
+        "Player_Attributes": [
+          "curve",
+          "finishing",
+          "player_api_id"
+        ],
+        "Player": [
+          "player_api_id",
+          "weight"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Player_Attributes.id"
+        ],
+        "extra_columns": []
+      }
+    },
+    "1145": {
+      "question": "Which top 4 leagues had the most games in the 2015-2016 season?",
+      "question_id": "1145",
+      "golden": {
+        "League": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "league_id",
+          "season",
+          "id"
+        ]
+      },
+      "retrieved": {
+        "League": [
+          "id",
+          "name"
+        ],
+        "Match": [
+          "id",
+          "league_id",
+          "season"
+        ],
+        "'2015/2016'": []
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 1,
+        "tbl_fn": 0,
+        "col_tp": 5,
+        "col_fp": 0,
+        "col_fn": 0
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [
+          "'2015/2016'"
+        ],
+        "missing_columns": [],
+        "extra_columns": []
+      }
+    },
+    "1148": {
+      "question": "What is the percentage of players that are under 180 cm who have an overall strength of more than 70?",
+      "question_id": "1148",
+      "golden": {
+        "Player": [
+          "id",
+          "height"
+        ],
+        "Player_Attributes": [
+          "player_api_id",
+          "overall_rating"
+        ]
+      },
+      "retrieved": {
+        "Player": [
+          "height",
+          "player_api_id"
+        ],
+        "Player_Attributes": [
+          "overall_rating",
+          "player_api_id"
+        ]
+      },
+      "metrics": {
+        "tbl_tp": 2,
+        "tbl_fp": 0,
+        "tbl_fn": 0,
+        "col_tp": 3,
+        "col_fp": 1,
+        "col_fn": 1
+      },
+      "differences": {
+        "missing_tables": [],
+        "extra_tables": [],
+        "missing_columns": [
+          "Player.id"
+        ],
+        "extra_columns": [
+          "Player.player_api_id"
+        ]
+      }
+    }
+  }
+}
