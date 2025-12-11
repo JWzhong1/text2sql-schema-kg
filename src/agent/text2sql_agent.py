@@ -6,6 +6,7 @@ from typing import Dict, Any, List, Optional, Tuple
 
 from src.graph.schema_graph_retriever import GraphRAGRetriever
 from src.llm.client import get_competition_json, get_competition
+from src.llm.prompts import get_sql_generation_prompt
 
 logger = logging.getLogger(__name__)
 
@@ -40,16 +41,6 @@ class Text2SQLAgent:
         result = self.retriever.retrieve_schema_subgraph(query, return_reasoning=True)
         return result
 
-    def _format_schema_for_prompt(self, schema_map: Dict[str, List[str]]) -> str:
-        """
-        将检索到的 schema map 转换为 Prompt 友好的字符串
-        """
-        lines = []
-        for table, cols in schema_map.items():
-            col_str = ", ".join(cols)
-            lines.append(f"Table: {table}\nColumns: {col_str}")
-        return "\n\n".join(lines)
-
     def generate_sql(self, question: str, evidence: str, retrieval_result: Dict[str, Any], error_msg: str = None, previous_sql: str = None) -> str:
         """
         步骤 2 & 4: 生成 SQL (包含推理上下文)
@@ -61,45 +52,16 @@ class Text2SQLAgent:
         schema_context = self._format_schema_for_prompt(schema_map)
         
         # 格式化推理上下文
-        reasoning_context = self._format_reasoning_context(reasoning_ctx)
+        reasoning_context_str = self._format_reasoning_context(reasoning_ctx)
         
-        system_prompt = (
-            "You are an expert SQL Data Analyst. Your goal is to write a correct SQLite-compatible SQL query.\n"
-            "You have access to the reasoning process used to select the schema, which will help you understand:\n"
-            "- How the question was interpreted and rewritten for clarity\n"
-            "- What tables and columns were selected and why\n"
-            "- What normalization rules were applied\n"
-            "Strictly follow these rules:\n"
-            "1. Only use the tables and columns provided in the 'Retrieved Schema'.\n"
-            "2. Follow the JOIN paths suggested by the normalization rules.\n"
-            "3. The output must be a valid JSON object with a single key 'sql'.\n"
-            "4. Do not wrap the JSON in markdown code blocks.\n"
-            "5. Ensure the SQL is compatible with SQLite."
+        system_prompt, user_content = get_sql_generation_prompt(
+            question, 
+            evidence, 
+            schema_context, 
+            reasoning_context_str, 
+            error_msg, 
+            previous_sql
         )
-
-        user_content = f"""
-### User Question
-{question}
-
-### Evidence / Hint
-{evidence}
-
-### Schema Retrieval Reasoning Process
-{reasoning_context}
-
-### Retrieved Schema (Final Selected Tables and Columns)
-{schema_context}
-"""
-
-        if error_msg and previous_sql:
-            user_content += f"""
-### Previous Failed Attempt
-SQL: {previous_sql}
-Error: {error_msg}
-
-### Instruction
-The previous SQL failed. Analyze the error and the reasoning context to correct the SQL.
-"""
 
         messages = [
             {"role": "system", "content": system_prompt},
@@ -143,11 +105,7 @@ The previous SQL failed. Analyze the error and the reasoning context to correct 
                 for i, step in enumerate(reasoning_trace, 1):
                     lines.append(f"  {i}. {step}")
         
-        # 2. Candidate Schema
-        candidate = reasoning_ctx.get("candidate_schema", {})
-        if candidate:
-            lines.append("\n#### Initial Candidate Schema (Before Pruning)")
-            lines.append(json.dumps(candidate, ensure_ascii=False, indent=2))
+        # 2. Candidate Schema (已移除)
         
         # 3. Pruning Decision
         pruning = reasoning_ctx.get("pruning_decision", {})

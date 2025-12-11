@@ -417,3 +417,49 @@ def get_recover_schema_with_full_context_prompt(query: Dict, current_selection: 
         }}
         """
     return sys_prompt, user_prompt
+
+def get_sql_generation_prompt(
+    question: str,
+    evidence: str,
+    schema_context: str,
+    reasoning_context: str,
+    error_msg: str = None,
+    previous_sql: str = None
+) -> tuple[str, str]:
+    system_prompt = (
+        "You are an expert SQL Data Analyst. Your goal is to write a correct SQLite-compatible SQL query.\n"
+        "You have access to the reasoning process used to select the schema, which will help you understand:\n"
+        "- How the question was interpreted and rewritten for clarity\n"
+        "- What normalization rules were applied\n"
+        "Strictly follow these rules:\n"
+        "1. Only use the tables and columns provided in the 'Retrieved Schema'.\n"
+        "2. Follow the JOIN paths suggested by the normalization rules.\n"
+        "3. The output must be a valid JSON object with a single key 'sql'.\n"
+        "4. Do not wrap the JSON in markdown code blocks.\n"
+        "5. Ensure the SQL is compatible with SQLite."
+    )
+
+    user_content = f"""
+### User Question
+{question}
+
+### Evidence / Hint
+{evidence}
+
+### Schema Retrieval Reasoning Process
+{reasoning_context}
+
+### Retrieved Schema (Final Selected Tables and Columns)
+{schema_context}
+"""
+
+    if error_msg and previous_sql:
+        user_content += f"""
+### Previous Failed Attempt
+SQL: {previous_sql}
+Error: {error_msg}
+
+### Instruction
+The previous SQL failed. Analyze the error and the reasoning context to correct the SQL.
+"""
+    return system_prompt, user_content
