@@ -429,7 +429,7 @@ def get_sql_generation_prompt(
     question: str,
     evidence: str,
     schema_context: str,
-    reasoning_context: str,
+    exploration_context_str: str,
     error_msg: str = None,
     previous_sql: str = None
 ) -> tuple[str, str]:
@@ -445,12 +445,13 @@ def get_sql_generation_prompt(
 
 ### Evidence / Hint
 {evidence}
-
-### Schema Retrieval 
-{reasoning_context}
-
+ 
 ### Retrieved Schema
 {schema_context}
+
+### 
+{exploration_context_str}
+
 """
 
     if error_msg and previous_sql:

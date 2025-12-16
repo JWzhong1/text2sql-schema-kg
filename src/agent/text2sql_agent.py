@@ -309,39 +309,36 @@ class Text2SQLAgent:
         
         return "\n".join(lines)
 
-    def generate_sql(self, question: str, evidence: str, retrieval_result: Dict[str, Any], 
-                     exploration_result: Dict[str, Any] = None, error_msg: str = None, 
+    def generate_sql(self, question: str, evidence: str, schema_context: str, 
+                      exploration_context_str: str, error_msg: str = None, 
                      previous_sql: str = None) -> str:
         """
         步骤 2 & 4: 生成 SQL (包含推理上下文和值探索结果)
         """
-        schema_map = retrieval_result.get("schema_map", {})
-        reasoning_ctx = retrieval_result.get("reasoning_context", {})
+        # schema_map = retrieval_result.get("schema_map", {})
+        # reasoning_ctx = retrieval_result.get("reasoning_context", {})
         
-        # 格式化 Schema
-        schema_context = self._format_schema_for_prompt(schema_map)
+        # # 格式化 Schema
+        # schema_context = self._format_schema_for_prompt(schema_map)
         
-        # 格式化推理上下文
-        reasoning_context_str = self._format_reasoning_context(reasoning_ctx)
+        # # 格式化推理上下文
+        # reasoning_context_str = self._format_reasoning_context(reasoning_ctx)
         
-        # 格式化值探索结果
-        exploration_context_str = ""
-        if exploration_result and exploration_result.get("enabled", False):
-            exploration_context_str = self._format_exploration_context(exploration_result)
+        # # 格式化值探索结果
+        # exploration_context_str = ""
+        # if exploration_result and exploration_result.get("enabled", False):
+        #     exploration_context_str = self._format_exploration_context(exploration_result)
         
-        # 合并上下文
-        full_reasoning_context = reasoning_context_str
-        if exploration_context_str:
-            full_reasoning_context += "\n\n" + exploration_context_str
+        # # 合并上下文
+        # full_reasoning_context = reasoning_context_str
+        # if exploration_context_str:
+        #     full_reasoning_context += "\n\n" + exploration_context_str
         
-        logger.info(f"Reasoning Context:\n{full_reasoning_context}")
-        logger.info(f"Retrieved Schema Map: {schema_map}")
-
         system_prompt, user_content = get_sql_generation_prompt(
             question, 
             evidence, 
             schema_context, 
-            full_reasoning_context, 
+            exploration_context_str, 
             error_msg, 
             previous_sql
         )
@@ -373,9 +370,9 @@ class Text2SQLAgent:
                 original_t_name = table.get("original_table_name")
                 
                 # Table Header
-                header = f"Table: {t_name}"
+                header = f"Original_table_name: {original_t_name} \n (数据库中实际保存的名称)"
                 if original_t_name and original_t_name != t_name:
-                    header += f" (Original: {original_t_name})"
+                    header += f"(full_name: {t_name}) \n (注意：此名称不可直接用于 SQL 查询,仅展示完整语义)"
                 table_lines.append(header)
 
                 # Columns
@@ -389,10 +386,10 @@ class Text2SQLAgent:
                             c_type = col.get("type")
                             samples = col.get("sample_values", [])
                             
-                            col_info = f"  - {c_name} ({c_type})"
+                            col_info = f"  - {c_original_name} ({c_type})"
 
                             if c_original_name:
-                                col_info += f" (Original: {c_original_name})"
+                                col_info += f" (full_name: {c_name})"
                             
                             if samples:
                                 # Limit samples to avoid context overflow
@@ -448,16 +445,7 @@ class Text2SQLAgent:
         """
         lines = []
         
-        # 1. Query Rewrite
-        rewrite = reasoning_ctx.get("rewrite_result", {})
-        if rewrite:
-            lines.append("#### Query Understanding & Rewriting")
-            lines.append(f"**Original Question**: {reasoning_ctx.get('original_question', '')}")
-            # lines.append(f"**Rewritten Question**: {rewrite.get('rewritten_question', '')}")
-            lines.append(f"**Evidence**: {reasoning_ctx.get('original_evidence', '')}")
-            lines.append(f"**Keywords Extracted**: {', '.join(rewrite.get('keywords', []))}")
-        
-        # 2. Pruning Decision
+        # 1. Pruning Decision
         pruning = reasoning_ctx.get("pruning_decision", {})
         if pruning:
             lines.append("\n#### Schema Selection Decision")
@@ -522,12 +510,28 @@ class Text2SQLAgent:
         error_msg = None
         
         # 3. Generate & Execute Loop
+
+        schema_map = retrieval_result.get("schema_map", {})
+        reasoning_ctx = retrieval_result.get("reasoning_context", {})
+        
+        # 格式化 Schema
+        schema_context = self._format_schema_for_prompt(schema_map)
+        
+        # 格式化值探索结果
+        exploration_context_str = ""
+        if exploration_result and exploration_result.get("enabled", False):
+            exploration_context_str = self._format_exploration_context(exploration_result)
+        
+        
+        logger.info(f"Retrieved Schema Map: {schema_map}")
+        logger.info(f"exploration_context_str: {exploration_context_str}")
+
         for attempt in range(self.max_retries + 1):
             logger.info(f"Generating SQL (Attempt {attempt + 1})...")
             
             current_sql = self.generate_sql(
-                question, evidence, retrieval_result, 
-                exploration_result, error_msg, current_sql
+                question, evidence, schema_context, 
+                exploration_context_str, error_msg, current_sql
             )
             logger.info(f"Generated SQL: {current_sql}")
 
