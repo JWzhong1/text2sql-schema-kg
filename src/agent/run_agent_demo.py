@@ -40,7 +40,11 @@ def main():
         return
 
     # 初始化 Agent
-    agent = Text2SQLAgent(db_name, str(db_path), neo4j_config)
+    agent = Text2SQLAgent(
+        db_name="california_schools",
+        db_path=f"bird_data/bird/llm/data/dev_databases/{db_name}/{db_name}.sqlite",
+        neo4j_config=(neo4j_uri, neo4j_user, neo4j_password)
+    )
 
     # 准备输出目录
     output_dir = Path("src/agent/output")
@@ -57,11 +61,11 @@ def main():
              logging.error(f"JSONL file not found at {jsonl_path}")
              return
 
-        with open(jsonl_path, "r") as f:
+        with open(jsonl_path, "r", encoding="utf-8") as f:
             dev_jsonl = [json.loads(line) for line in f.readlines()]
 
         # 只测试前5个题目
-        test_cases = dev_jsonl[1:2]
+        test_cases = dev_jsonl[1:5]
         
         for idx, case in enumerate(test_cases):
             question = case["question"]

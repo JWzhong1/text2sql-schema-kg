@@ -296,59 +296,24 @@ def get_graph_traversal_prompt(question: str, evidence: str, subgraph_context: s
 
 def get_subgraph_pruning_prompt(query: dict, subgraph_context: str) -> tuple[str, str]:
     sys_prompt = (
-        "You are a Schema Graph Finalizer. Your goal is to identify the minimal set of tables and columns "
-        "needed to correctly answer the user's question, while ensuring query executability and join integrity.\n"
-        "Follow these principles:\n"
-        "1. Ensure semantic completeness: keep all columns required for filtering, grouping, calculation, or returning results.\n"
-        "2. Preserve joinability: if multiple tables are involved, keep the necessary primary/foreign key columns.\n"
-        "3. Apply normalization when beneficial: if a descriptive column can reliably be obtained from a related dimension table "
-        "via a stable join, you may prefer using the normalized join path.\n"
-        "4. Never remove information required to correctly interpret or compute the answer.\n"
-        "5. All filter conditions must strictly use values that appear in the user query or evidence.\n"
+        "你是一个数据分析助手，你的任务是根据用户的问题和背景知识，从当前schema子图中选择最相关的表和列，确保查询的可执行性和连接完整性。\n"
+        "- 1.保持可连接性，当查询涉及多个表时，保留必要的主键/外键列\n"
+        "- 2.确保语义完整性，当查询存在多条路径时，保留全部查询路径可能涉及的字段\n"
+        "- 3.严格遵循原始查询和背景知识中的条件、约束和计算公式等，优先级高于schema中字段的说明。\n"
+        "- 4.以json格式返回输出结果"
     )
 
-    user_prompt = f"""## original_question: {query.get('original_question', '')}
-## evidence: {query.get('evidence', '')}
+    user_prompt = f"""## 原始查询: {query.get('original_question', '')}
+## 背景知识: {query.get('evidence', '')}
 ## subgraph_nodes: {subgraph_context}
 
 ### EXECUTION STEPS:
 
 1. **DECOMPOSE THE QUERY**
-    - Identify required tables/columns for:
-        a) Filtering or grouping
-        b) Calculations or metrics
-        c) Output fields
-        d) Necessary join keys
-    - Extract *all filter values*, ensuring they **strictly originate** from:
-        - original_question / rewritten_question
-        - subgraph_context (evidence)
 
 2. **PRUNE THE SUBGRAPH**
-    - From `subgraph_nodes`, select all columns needed above.
-    - Remove unrelated columns that do not contribute to answering the query.
 
-3. **APPLY OPTIONAL NORMALIZATION**
-    - If a descriptive/denormalized column has an equivalent normalized source and the join is reliable,
-      you may replace it with the normalized table + join key.
-    - If the descriptive column is essential to semantics, keep it.
-
-4. **BUILD FILTER CONDITIONS**
-    - For each identified filter:
-        - Ensure its column exists in the final `selected_schema`.
-        - Keep filter values **exactly as found** in the original query or evidence.
-    - Represent filters in a structured JSON form:
-        {{
-          "table": "...",
-          "column": "...",
-          "operator": "...",
-          "value": "..."  // Value must appear in the query or evidence
-        }}
-
-5. **SUFFICIENCY CHECK**
-    - is_sufficient = true only if:
-        (a) All required semantic fields are present
-        (b) All needed join paths are preserved
-        (c) All filters map to valid schema columns
+3. **SUFFICIENCY CHECK**
 
 ### OUTPUT FORMAT (STRICT JSON):
 
@@ -357,18 +322,7 @@ def get_subgraph_pruning_prompt(query: dict, subgraph_context: str) -> tuple[str
     "table1": ["col1", "col2"],
     "table2": ["col1"]
   }},
-  "filter_conditions": [
-    {{
-      "table": "table1",
-      "column": "col1",
-      "operator": "=",
-      "value": "..." 
-    }}
-  ],
   "is_sufficient": boolean,
-  "reasoning": [
-    "Step-by-step explanation of how the query was decomposed, why each table/column was selected, how filters were extracted, and how normalization was applied or not."
-  ],
   "missing_info": ""
 }}
 """
@@ -481,26 +435,18 @@ def get_sql_generation_prompt(
 ) -> tuple[str, str]:
     system_prompt = (
         "You are an expert SQL Data Analyst. Your goal is to write a correct SQLite-compatible SQL query.\n"
-        "You have access to the reasoning process used to select the schema, which will help you understand:\n"
-        "- How the question was interpreted and rewritten for clarity\n"
-        "- What normalization rules were applied\n"
-        "Strictly follow these rules:\n"
-        "1. Only use the tables and columns provided in the 'Retrieved Schema'.\n"
-        "2. The output must be a valid JSON object with a single key 'sql'.\n"
-        "3. Do not wrap the JSON in markdown code blocks.\n"
-        "4. Ensure the SQL is compatible with SQLite.\n"
-        "5. **CRITICAL NAME MAPPING**: The 'reasoning_context' uses descriptive/expanded names for clarity. "
-        "You MUST map these back to the actual 'original_name' (or table/column keys) defined in the 'Retrieved Schema'. "
+        "Use only tables and columns from the Retrieved Schema.\n"
+        "Map any descriptive names in the reasoning context back to the original schema names.\n"
+        "Return a valid JSON object with a single key 'sql'. Do not use markdown."
     )
 
-    user_content = f"""
-### User Question
+    user_content = f"""### User Question
 {question}
 
 ### Evidence / Hint
 {evidence}
 
-### Schema Retrieval Reasoning Process
+### Schema Retrieval 
 {reasoning_context}
 
 ### Retrieved Schema
@@ -508,7 +454,31 @@ def get_sql_generation_prompt(
 """
 
     if error_msg and previous_sql:
-        user_content += f"""
+        # 判断是否是空结果错误
+        is_empty_result_error = "returned no results" in error_msg.lower() or "empty" in error_msg.lower()
+        
+        if is_empty_result_error:
+            user_content += f"""
+### Previous Attempt Returned Empty Results
+SQL: {previous_sql}
+Issue: {error_msg}
+
+### Instruction
+The previous SQL executed successfully but returned no results. This likely indicates:
+1. Incorrect filter conditions (e.g., wrong value matching, case sensitivity issues)
+2. Missing or incorrect JOIN conditions
+3. Overly restrictive WHERE clauses
+4. Column value mismatches (check if you need LIKE instead of = for fuzzy matching)
+
+Please analyze the query and try a different approach. Consider:
+- Relaxing filter conditions
+- Using LIKE with wildcards for string matching
+- Checking for case sensitivity issues (use LOWER() if needed)
+- Verifying JOIN conditions are correct
+- Removing unnecessary filters to broaden the search
+"""
+        else:
+            user_content += f"""
 ### Previous Failed Attempt
 SQL: {previous_sql}
 Error: {error_msg}
@@ -517,3 +487,60 @@ Error: {error_msg}
 The previous SQL failed. Analyze the error and the reasoning context to correct the SQL.
 """
     return system_prompt, user_content
+
+def get_value_exploration_prompt(
+    question: str,
+    evidence: str,
+    keywords: List[str],
+    schema_context: str
+) -> tuple[str, str]:
+    """
+    生成值探索 SQL 的 Prompt
+    """
+    system_prompt = (
+        "You are a database exploration expert. Your task is to generate simple exploratory SQL queries "
+        "to help understand the data distribution and validate whether keywords from the user's question "
+        "correspond to actual values in the database.\n\n"
+        "Guidelines:\n"
+        "1. Generate 3-5 simple, low-cost SQL queries (e.g., SELECT DISTINCT, COUNT, LIMIT clauses).\n"
+        "2. Focus on validating keywords that might be column values (not column/table names).\n"
+        "3. Use LIKE patterns for fuzzy matching when appropriate.\n"
+        "4. Prioritize queries that help disambiguate the user's intent.\n"
+        "5. Each query should have a clear purpose explaining what information it seeks.\n"
+        "6. Use the original table/column names from the schema for SQL execution.\n"
+        "7. Keep queries simple - avoid complex JOINs or aggregations.\n\n"
+        "Output ONLY a valid JSON object with the following structure:\n"
+        "{\n"
+        '  "exploratory_sql": [\n'
+        '    {\n'
+        '      "sql": "SELECT DISTINCT column FROM table LIMIT 10;",\n'
+        '      "purpose": "Explanation of what this query validates"\n'
+        '    }\n'
+        "  ]\n"
+        "}"
+    )
+    
+    keywords_str = ", ".join(keywords) if keywords else "No specific keywords extracted"
+    
+    user_prompt = f"""
+### User Question
+{question}
+
+### Evidence / Hint
+{evidence}
+
+### Extracted Keywords
+{keywords_str}
+
+### Available Schema (use original_name for SQL)
+{schema_context}
+
+### Task
+Generate exploratory SQL queries to:
+1. Check if any keywords might be actual data values in the database
+2. Understand the data distribution in relevant columns
+3. Validate entity references mentioned in the question
+
+Return only the JSON object with exploratory_sql array.
+"""
+    return system_prompt, user_prompt

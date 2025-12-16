@@ -13,7 +13,7 @@ from src.llm import prompts
 dotenv.load_dotenv()
 
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.ERROR,
     format='%(asctime)s - %(levelname)s - %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S'
 )
@@ -102,7 +102,8 @@ class GraphRAGRetriever:
         }
 
         # Phase 0: Query Rewrite
-        rewrite_query = self._rewrite_query_for_schema_linking({"question": query}, self.schema)
+        rewrite_query = self._rewrite_query_for_schema_linking(query, self.schema)
+        rewrite_query["evidence"] = query.get("evidence", "")
         rewritten_question = rewrite_query.get("rewritten_question", query.get("question", ""))
         keywords = list(set([k.strip().lower() for k in rewrite_query.get("keywords", [])]))
         reasoning_trace = rewrite_query.get("reasoning_trace", [])
@@ -379,9 +380,7 @@ class GraphRAGRetriever:
         """
         decision_info = {
             "selected_schema": {},
-            "filter_conditions": [],
             "is_sufficient": True,
-            "reasoning": [],
             "missing_info": "",
             "recovery_applied": False
         }
@@ -429,9 +428,7 @@ class GraphRAGRetriever:
             # 保存 LLM 决策
             if isinstance(decision, dict):
                 decision_info["selected_schema"] = decision.get("selected_schema", {})
-                decision_info["filter_conditions"] = decision.get("filter_conditions", [])
                 decision_info["is_sufficient"] = decision.get("is_sufficient", True)
-                decision_info["reasoning"] = decision.get("reasoning", [])
                 decision_info["missing_info"] = decision.get("missing_info", "")
             
             # 解析 LLM 返回
