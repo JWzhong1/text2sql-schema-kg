@@ -5,7 +5,7 @@ import os
 from typing import Dict, Any, List, Optional, Tuple
 
 from src.graph.schema_graph_retriever import GraphRAGRetriever
-from src.llm.client import get_competition_json, get_competition
+from src.llm.client import get_competition_json, get_competition, get_competition_from_coder
 from src.llm.prompts import get_sql_generation_prompt
 
 # 添加日志配置，设置级别为 INFO
@@ -13,7 +13,7 @@ from src.llm.prompts import get_sql_generation_prompt
 logging.basicConfig(
     level=logging.INFO, 
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    force=True
+    force=False
 )
 
 logger = logging.getLogger(__name__)
@@ -47,7 +47,7 @@ class Text2SQLAgent:
             "evidence": evidence
         }
         # 调用检索逻辑,获取完整信息
-        result = self.retriever.retrieve_schema_subgraph(query, return_reasoning=True)
+        result = self.retriever.retrieve_schema_subgraph(query)
         return result
 
     def generate_sql(self, question: str, evidence: str, retrieval_result: Dict[str, Any], error_msg: str = None, previous_sql: str = None) -> str:
@@ -63,6 +63,9 @@ class Text2SQLAgent:
         # 格式化推理上下文
         reasoning_context_str = self._format_reasoning_context(reasoning_ctx)
         
+        logger.info(f"Reasoning Context:\n{reasoning_context_str}")
+        logger.info(f"Retrieved Schema Map: {schema_map}")
+
         system_prompt, user_content = get_sql_generation_prompt(
             question, 
             evidence, 
@@ -77,40 +80,96 @@ class Text2SQLAgent:
             {"role": "user", "content": user_content}
         ]
 
-        try:
-            response = get_competition_json(messages)
-            result = json.loads(response)
-            return result.get("sql", "")
-        except Exception as e:
-            logger.error(f"LLM Generation failed: {e}")
-            # Fallback: 尝试直接获取文本并清洗
-            resp_text = get_competition(messages)
-            # 简单的清洗逻辑，移除 markdown
-            clean_sql = resp_text.replace("```sql", "").replace("```json", "").replace("```", "").strip()
-            # 如果是 JSON 字符串尝试解析
-            try:
-                j = json.loads(clean_sql)
-                return j.get("sql", clean_sql)
-            except:
-                return clean_sql
+        response = get_competition_from_coder(messages)
+        result = json.loads(response)
+        return result.get("sql", "")
+
     
-    def _format_schema_for_prompt(self, schema_map: Dict[str, Any]) -> str:
+    def _format_schema_for_prompt(self, schema_map: Any) -> str:
         """
         格式化 Schema Map 为 Prompt 友好的字符串
+        支持 Dict[str, List[str]] 或 List[Dict] (BIRD format)
         """
-        lines = []
+        blocks = []
         if not schema_map:
             return "No schema information available."
             
-        for table_name, columns in schema_map.items():
-            # columns 通常是列名列表
-            if isinstance(columns, list):
-                col_str = ", ".join([str(c) for c in columns])
-            else:
-                col_str = str(columns)
-            lines.append(f"Table: {table_name}\nColumns: {col_str}")
+        # Case 1: List of Table Objects (Rich Schema format)
+        if isinstance(schema_map, list):
+            for table in schema_map:
+                table_lines = []
+                t_name = table.get("table_name", "Unknown")
+                original_t_name = table.get("original_table_name")
+                
+                # Table Header
+                header = f"Table: {t_name}"
+                if original_t_name and original_t_name != t_name:
+                    header += f" (Original: {original_t_name})"
+                table_lines.append(header)
+
+                # Columns
+                columns = table.get("columns", [])
+                if columns:
+                    table_lines.append("Columns:")
+                    for col in columns:
+                        if isinstance(col, dict):
+                            c_name = col.get("col")
+                            c_original_name = col.get("original_column_name")
+                            c_type = col.get("type")
+                            samples = col.get("sample_values", [])
+                            
+                            col_info = f"  - {c_name} ({c_type})"
+
+                            if c_original_name:
+                                col_info += f" (Original: {c_original_name})"
+                            
+                            if samples:
+                                # Limit samples to avoid context overflow
+                                samples_str = ", ".join([str(s) for s in samples[:3]])
+                                col_info += f", sample values: [{samples_str}]"
+                            
+                            c_desc = col.get("column_description")
+                            
+                            if c_desc:
+                                col_info += f", Description: {c_desc}"
+                                
+                            table_lines.append(col_info)
+                        else:
+                            table_lines.append(f"  - {str(col)}")
+                
+                # Primary Keys
+                pks = table.get("primary_keys", [])
+                if pks:
+                    pk_str = ", ".join([str(pk) for pk in pks])
+                    table_lines.append(f"Primary Keys: {pk_str}")
+                
+                # Foreign Keys
+                fks = table.get("foreign_keys", [])
+                if fks:
+                    for fk in fks:
+                        fk_table = fk.get("table", "Unknown")
+                        fk_columns = fk.get("columns", [])
+                        fk_col_str = ", ".join([str(c) for c in fk_columns])
+                        table_lines.append(f"Foreign Key -> Table: {fk_table}, Columns: {fk_col_str}")
+                
+                # Table-level Comments
+                t_desc = table.get("table_description")
+                if t_desc:
+                    table_lines.append(f"Description: {t_desc}")
+                
+                blocks.append("\n".join(table_lines))
+
+        # Case 2: Simple Dict {table: [cols]}
+        elif isinstance(schema_map, dict):
+            for table_name, columns in schema_map.items():
+                # columns 通常是列名列表
+                if isinstance(columns, list):
+                    col_str = ", ".join([str(c) for c in columns])
+                else:
+                    col_str = str(columns)
+                blocks.append(f"Table: {table_name}\nColumns: {col_str}")
         
-        return "\n\n".join(lines)
+        return "\n\n".join(blocks)
 
     def _format_reasoning_context(self, reasoning_ctx: Dict[str, Any]) -> str:
         """
@@ -125,24 +184,27 @@ class Text2SQLAgent:
             lines.append(f"**Original Question**: {reasoning_ctx.get('original_question', '')}")
             lines.append(f"**Rewritten Question**: {rewrite.get('rewritten_question', '')}")
             lines.append(f"**Keywords Extracted**: {', '.join(rewrite.get('keywords', []))}")
-            
-            reasoning_trace = rewrite.get("reasoning_trace", [])
-            if reasoning_trace:
-                lines.append("**Reasoning Trace**:")
-                for i, step in enumerate(reasoning_trace, 1):
-                    lines.append(f"  {i}. {step}")
         
-        # 2. Candidate Schema (已移除)
-        
-        # 3. Pruning Decision
+        # 2. Pruning Decision
         pruning = reasoning_ctx.get("pruning_decision", {})
         if pruning:
             lines.append("\n#### Schema Selection Decision")
             llm_dec = pruning.get("llm_decision", {})
             
-            norm_rules = llm_dec.get("applied_normalization_rules", [])
+            # Handle new format
+            if "selected_schema" in llm_dec:
+                selected_schema = llm_dec.get("selected_schema", {})
+                lines.append("**Selected Schema**:\n (Attention: Not the original names that can be used directly in DB)")
+                for t, cols in selected_schema.items():
+                    lines.append(f"  - {t}: {cols}")
+            else:
+                # Fallback to old format
+                lines.append(f"**Selected Tables**: {', '.join(llm_dec.get('selected_tables', []))}")
+                lines.append(f"**Selected Columns**: {', '.join(llm_dec.get('selected_columns', []))}")
+
+            norm_rules = llm_dec.get("reasoning", [])
             if norm_rules:
-                lines.append("**Applied Normalization Rules**:")
+                lines.append("**Schema Link Reasoning**:")
                 for rule in norm_rules:
                     lines.append(f"  - {rule}")
             
@@ -178,10 +240,6 @@ class Text2SQLAgent:
         schema_map = retrieval_result.get("schema_map", {})
         reasoning_ctx = retrieval_result.get("reasoning_context", {})
         
-
-        reasoning_context = self._format_reasoning_context(reasoning_ctx)
-        
-        logger.info(f"Reasoning Context:\n{reasoning_context}")
 
         current_sql = ""
         error_msg = None

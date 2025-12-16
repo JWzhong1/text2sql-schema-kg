@@ -1,0 +1,37 @@
+[
+    {
+        "id": 0,
+        "question": "For the school with the highest free meal rate in Alameda County, what are its characteristics including whether it's a charter school, what grades it serves, its SAT performance level, and how much its free meal rate deviates from the county average?",
+        "evidence": "Free meal rate = Free Meal Count (K-12) / Enrollment (K-12). SAT performance levels are categorized as: Below Average (total score < 1200), Average (1200-1500), Above Average (> 1500), or No SAT Data if unavailable.",
+        "golden_sql": "WITH CountyStats AS (\n    SELECT \n        f.`County Name`,\n        f.`School Name`,\n        f.`Free Meal Count (K-12)`,\n        f.`Enrollment (K-12)`,\n        CAST(f.`Free Meal Count (K-12)` AS REAL) / f.`Enrollment (K-12)` AS FreeRate,\n        s.sname,\n        s.AvgScrRead,\n        s.AvgScrMath,\n        s.AvgScrWrite,\n        (s.AvgScrRead + s.AvgScrMath + s.AvgScrWrite) AS TotalSATScore,\n        sc.Charter,\n        sc.GSserved,\n        RANK() OVER (PARTITION BY f.`County Name` ORDER BY CAST(f.`Free Meal Count (K-12)` AS REAL) / f.`Enrollment (K-12)` DESC) AS CountyRank\n    FROM frpm f\n    LEFT JOIN schools sc ON f.CDSCode = sc.CDSCode\n    LEFT JOIN satscores s ON f.CDSCode = s.cds\n    WHERE f.`Enrollment (K-12)` > 0 \n    AND f.`County Name` = 'Alameda'\n)\nSELECT \n    cs.`County Name` AS County,\n    cs.`School Name`,\n    cs.FreeRate AS HighestFreeRate,\n    cs.`Free Meal Count (K-12)` AS FreeMealCount,\n    cs.`Enrollment (K-12)` AS TotalEnrollment,\n    CASE \n        WHEN cs.Charter = 1 THEN 'Yes'\n        WHEN cs.Charter = 0 THEN 'No'\n        ELSE 'Unknown'\n    END AS IsCharterSchool,\n    cs.GSserved AS GradesServed,\n    CASE\n        WHEN cs.TotalSATScore IS NULL THEN 'No SAT Data'\n        WHEN cs.TotalSATScore < 1200 THEN 'Below Average'\n        WHEN cs.TotalSATScore BETWEEN 1200 AND 1500 THEN 'Average'\n        ELSE 'Above Average'\n    END AS SATPerformance,\n    (SELECT AVG(CAST(f2.`Free Meal Count (K-12)` AS REAL) / f2.`Enrollment (K-12)`)\n     FROM frpm f2\n     WHERE f2.`County Name` = 'Alameda' AND f2.`Enrollment (K-12)` > 0) AS CountyAverageFreeRate,\n    cs.FreeRate - (SELECT AVG(CAST(f2.`Free Meal Count (K-12)` AS REAL) / f2.`Enrollment (K-12)`)\n                  FROM frpm f2\n                  WHERE f2.`County Name` = 'Alameda' AND f2.`Enrollment (K-12)` > 0) AS DeviationFromCountyAverage\nFROM CountyStats cs\nWHERE cs.CountyRank = 1\nORDER BY cs.FreeRate DESC\nLIMIT 1;",
+        "golden_result": [
+            [
+                "Alameda",
+                "Oakland Community Day Middle",
+                1.0,
+                1.0,
+                1.0,
+                "No",
+                "7-8",
+                "No SAT Data",
+                0.4532504204074731,
+                0.5467495795925269
+            ]
+        ],
+        "generated_sql": "WITH AlamedaSchools AS (\n    SELECT \n        f.CDSCode,\n        f.\"School Name\",\n        f.\"Charter School (Y/N)\",\n        f.\"Low Grade\",\n        f.\"High Grade\",\n        f.\"Percent (%) Eligible Free (K-12)\" AS FreeMealRate\n    FROM frpm f\n    WHERE f.\"County Name\" = 'Alameda'\n),\nCountyAvg AS (\n    SELECT AVG(FreeMealRate) AS AvgRate\n    FROM AlamedaSchools\n),\nRankedSchools AS (\n    SELECT \n        a.*, \n        RANK() OVER (ORDER BY a.FreeMealRate DESC) AS Rank\n    FROM AlamedaSchools a\n)\nSELECT \n    r.\"School Name\",\n    CASE WHEN r.\"Charter School (Y/N)\" = 1 THEN 'Yes' ELSE 'No' END AS IsCharter,\n    r.\"Low Grade\" || ' - ' || r.\"High Grade\" AS GradesServed,\n    CASE \n        WHEN (s.\"AvgScrMath\" + s.\"AvgScrRead\" + s.\"AvgScrWrite\") > 1500 THEN 'Above Average'\n        WHEN (s.\"AvgScrMath\" + s.\"AvgScrRead\" + s.\"AvgScrWrite\") >= 1200 THEN 'Average'\n        WHEN (s.\"AvgScrMath\" + s.\"AvgScrRead\" + s.\"AvgScrWrite\") < 1200 THEN 'Below Average'\n        ELSE 'No SAT Data'\n    END AS SATPerformanceLevel,\n    (r.FreeMealRate - c.AvgRate) AS DeviationFromCountyAvg\nFROM RankedSchools r\nLEFT JOIN satscores s ON r.CDSCode = s.cds\nCROSS JOIN CountyAvg c\nWHERE r.Rank = 1",
+        "generated_result": [
+            [
+                "Oakland Community Day Middle",
+                "No",
+                "6 - 8",
+                "No SAT Data",
+                0.5467495795925269
+            ]
+        ],
+        "status": "success",
+        "error": null,
+        "is_correct": false,
+        "duration_seconds": 101.140399,
+        "intermediate_steps": []
+    }
+]

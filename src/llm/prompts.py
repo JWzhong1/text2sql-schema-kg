@@ -294,92 +294,145 @@ def get_graph_traversal_prompt(question: str, evidence: str, subgraph_context: s
     )
     return sys_prompt, user_prompt
 
-def get_subgraph_pruning_prompt(query:dict, subgraph_context: str) -> tuple[str, str]:
-    
+def get_subgraph_pruning_prompt(query: dict, subgraph_context: str) -> tuple[str, str]:
     sys_prompt = (
-        "You are a Schema Graph Finalizer. STRICTLY enforce these rules:\n"
-        "1. ALWAYS prioritize normalized data: If a denormalized field (e.g., 'UserDisplayName' in 'comments') "
-        "and its normalized source table (e.g., 'users') BOTH exist in the subgraph, YOU MUST:\n"
-        "   - IGNORE the denormalized field\n"
-        "   - USE the normalized table + JOIN path\n"
-        "2. ONLY use denormalized fields when the normalized table is ABSENT from the subgraph.\n"
-        "3. NEVER sacrifice a JOIN path to avoid denormalized fields – stale data risks outweigh query simplicity."
+        "You are a Schema Graph Finalizer. Your goal is to identify the minimal set of tables and columns "
+        "needed to correctly answer the user's question, while ensuring query executability and join integrity.\n"
+        "Follow these principles:\n"
+        "1. Ensure semantic completeness: keep all columns required for filtering, grouping, calculation, or returning results.\n"
+        "2. Preserve joinability: if multiple tables are involved, keep the necessary primary/foreign key columns.\n"
+        "3. Apply normalization when beneficial: if a descriptive column can reliably be obtained from a related dimension table "
+        "via a stable join, you may prefer using the normalized join path.\n"
+        "4. Never remove information required to correctly interpret or compute the answer.\n"
+        "5. All filter conditions must strictly use values that appear in the user query or evidence.\n"
     )
-    
+
     user_prompt = f"""## original_question: {query.get('original_question', '')}
-## rewritten_question: {query.get('rewritten_question', '')}
+## evidence: {query.get('evidence', '')}
 ## subgraph_nodes: {subgraph_context}
 
-### EXECUTION STEPS (MUST FOLLOW IN ORDER):
-1. **NORMALIZATION CHECK**  
-   For EVERY denormalized field in candidate tables (e.g., 'UserDisplayName' in 'comments'):  
-   - IF its normalized source table (e.g., 'users') EXISTS in subgraph_nodes:  
-        → IMMEDIATELY DISCARD the denormalized field  
-        → REQUIRE the normalized table + JOIN columns  
-   - ELSE:  
-        → Allow the denormalized field  
+### EXECUTION STEPS:
 
-2. **JOIN PATH PRESERVATION**  
-   - If multiple tables are needed, retain ALL columns required for a complete join path (including foreign/primary keys).  
-   - Example: To join 'comments' and 'users', keep 'comments.UserId' and 'users.UserId'.  
+1. **DECOMPOSE THE QUERY**
+    - Identify required tables/columns for:
+        a) Filtering or grouping
+        b) Calculations or metrics
+        c) Output fields
+        d) Necessary join keys
+    - Extract *all filter values*, ensuring they **strictly originate** from:
+        - original_question / rewritten_question
+        - subgraph_context (evidence)
 
-3. **SUFFICIENCY EVALUATION**  
-   - is_sufficient = true ONLY IF:  
-        (a) Normalization rules are fully satisfied, AND  
-        (b) All columns for filtering/joining/result-returning exist.  
+2. **PRUNE THE SUBGRAPH**
+    - From `subgraph_nodes`, select all columns needed above.
+    - Remove unrelated columns that do not contribute to answering the query.
+
+3. **APPLY OPTIONAL NORMALIZATION**
+    - If a descriptive/denormalized column has an equivalent normalized source and the join is reliable,
+      you may replace it with the normalized table + join key.
+    - If the descriptive column is essential to semantics, keep it.
+
+4. **BUILD FILTER CONDITIONS**
+    - For each identified filter:
+        - Ensure its column exists in the final `selected_schema`.
+        - Keep filter values **exactly as found** in the original query or evidence.
+    - Represent filters in a structured JSON form:
+        {{
+          "table": "...",
+          "column": "...",
+          "operator": "...",
+          "value": "..."  // Value must appear in the query or evidence
+        }}
+
+5. **SUFFICIENCY CHECK**
+    - is_sufficient = true only if:
+        (a) All required semantic fields are present
+        (b) All needed join paths are preserved
+        (c) All filters map to valid schema columns
 
 ### OUTPUT FORMAT (STRICT JSON):
+
 {{
   "selected_schema": {{
-    "table1": ["col1", "col2", ...],  // ONLY normalized fields + join keys
-    "table2": ["col1", ...]
+    "table1": ["col1", "col2"],
+    "table2": ["col1"]
   }},
-  "is_sufficient": boolean,
-  "applied_normalization_rules": [  // REQUIRED FIELD: Prove rule compliance
-    "Rule 1: Discarded 'comments.UserDisplayName' because 'users' table exists",
-    "Rule 2: Kept 'comments.UserId' and 'users.UserId' for JOIN path"
+  "filter_conditions": [
+    {{
+      "table": "table1",
+      "column": "col1",
+      "operator": "=",
+      "value": "..." 
+    }}
   ],
-  "missing_info": ""  // Non-empty ONLY if normalized tables are missing from subgraph
+  "is_sufficient": boolean,
+  "reasoning": [
+    "Step-by-step explanation of how the query was decomposed, why each table/column was selected, how filters were extracted, and how normalization was applied or not."
+  ],
+  "missing_info": ""
 }}
 """
+
     return sys_prompt, user_prompt
 
-# sys_prompt = (
-#         "You are a Schema Graph Finalizer. Given the final traversed subgraph and the original question, identify the final set of relevant table and column nodes.\n"
-#         "You must also evaluate if the retained schema information is sufficient to answer the user's question.\n"
-#         "ALWAYS prioritize preserving join paths between tables over keyword matching.\n"
-#         "**STRICT RULE FOR REDUNDANCY**: You MUST prefer normalized data sources over denormalized/redundant fields. "
-#         "For example, if a 'Comments' table has 'UserDisplayName' and 'UserId', and there is a 'Users' table, you MUST join 'Users' to get 'DisplayName'. "
-#         "Do NOT use the local 'UserDisplayName' just to avoid a join. Denormalized fields are often stale. "
-#         "Only use the denormalized field if the normalized table is NOT available in the subgraph.\n"
-#         "For each selected table, you MUST select the specific columns relevant to the question. Do not just select the table. If a column is used for filtering, joining, or returning results, it must be included."
+
+
+# def get_subgraph_pruning_prompt(query:dict, subgraph_context: str) -> tuple[str, str]:  
+#     sys_prompt = (
+#         "You are a Schema Graph Finalizer. Your goal is to identify the minimal set of tables and columns "
+#         "needed to correctly answer the user's question, while ensuring query executability and join integrity.\n"
+#         "Follow these principles:\n"
+#         "1. Ensure semantic completeness: keep all columns required for filtering, grouping, calculation, or returning results.\n"
+#         "2. Preserve joinability: if multiple tables are involved, keep the necessary primary/foreign key columns.\n"
+#         "3. Apply normalization when beneficial: if a descriptive column can reliably be obtained from a related dimension table "
+#         "via a stable join, you may prefer using the normalized join path.\n"
+#         "4. Never remove information required to correctly interpret or compute the answer.\n"
 #     )
 
-#     user_prompt = f"""## original_question:{query.get('original_question', '')}
-#     ## reasoning_trace:{query.get('reasoning_trace', [])}
-#     ## rewritten_question:{query.get('rewritten_question', '')}
-#     ## keywords:{query.get('keywords', [])}
+#     user_prompt = f"""## original_question: {query.get('original_question', '')}
+# ## evidence: {query.get('evidence', '')}
+# ## rewritten_question: {query.get('rewritten_question', '')}
+# ## reasoning_trace: {query.get('reasoning_trace', [])}
+# ## subgraph_nodes: {subgraph_context}
 
-#     Subgraph:\n{subgraph_context}\n\n
-#     Task:
-#     - Review the subgraph in the context of the question and evidence.
-#     - Identify and list the relevant table and column nodes needed to answer the question.
-#     - If multiple tables are needed to answer the question, MUST retain at least one complete join path between them.
-#     - **Critical**: Evaluate if the selected tables and columns are sufficient to fully answer the original question.
-#     - Respond with a JSON object containing the selected schema, sufficiency status, and missing info description.
+# ### EXECUTION STEPS:
 
-#     Output Format:
-#     {{
-#       "selected_schema": {{
-#         "table_name1": ["column_name1", "column_name2", ...],
-#         "table_name2": ["column_name1", "column_name2", ...],
-#         ...
-#       }},
-#       "is_sufficient": true,  // boolean, true if the selected schema is sufficient to answer the question
-#       "reasoning": "..." , // string, explain your reasoning for sufficiency evaluation
-#       "missing_info": "..."   // string, describe what is missing if is_sufficient is false, otherwise empty string
-#     }}
+# 1. **DECOMPOSE THE QUERY**
+#     - Identify required tables/columns for:
+#         a) Filtering or grouping
+#         b) Calculations or metrics
+#         c) Output fields
+#         d) Necessary join keys
+
+# 2. **PRUNE THE SUBGRAPH**
+#     - From `subgraph_nodes`, keep all columns identified above.
+#     - Remove unrelated columns that do not contribute to answering the query.
+
+# 3. **APPLY OPTIONAL NORMALIZATION**
+#     - If a descriptive/denormalized column has an equivalent normalized source and the join is reliable,
+#       you may replace it with the normalized table + join key.
+#     - If the descriptive column is essential to semantics, keep it.
+
+# 4. **SUFFICIENCY CHECK**
+#     - is_sufficient = true only if:
+#         (a) All required semantic fields are present
+#         (b) All needed join paths are preserved
+
+# ### OUTPUT FORMAT (STRICT JSON):
+
+# {{
+#   "selected_schema": {{
+#     "table1": ["col1", "col2"],
+#     "table2": ["col1"]
+#   }},
+#   "is_sufficient": boolean,
+#   "reasoning": [
+#     "Step-by-step explanation of how the query was decomposed, why each table/column was selected, and how normalization was applied or not."
+#   ],
+#   "missing_info": ""
+# }}
 # """
+
 #     return sys_prompt, user_prompt
 
 def get_recover_schema_with_full_context_prompt(query: Dict, current_selection: Dict, missing_info: str, schema_str: str) -> tuple[str, str]:
@@ -433,10 +486,11 @@ def get_sql_generation_prompt(
         "- What normalization rules were applied\n"
         "Strictly follow these rules:\n"
         "1. Only use the tables and columns provided in the 'Retrieved Schema'.\n"
-        "2. Follow the JOIN paths suggested by the normalization rules.\n"
-        "3. The output must be a valid JSON object with a single key 'sql'.\n"
-        "4. Do not wrap the JSON in markdown code blocks.\n"
-        "5. Ensure the SQL is compatible with SQLite."
+        "2. The output must be a valid JSON object with a single key 'sql'.\n"
+        "3. Do not wrap the JSON in markdown code blocks.\n"
+        "4. Ensure the SQL is compatible with SQLite.\n"
+        "5. **CRITICAL NAME MAPPING**: The 'reasoning_context' uses descriptive/expanded names for clarity. "
+        "You MUST map these back to the actual 'original_name' (or table/column keys) defined in the 'Retrieved Schema'. "
     )
 
     user_content = f"""
@@ -449,7 +503,7 @@ def get_sql_generation_prompt(
 ### Schema Retrieval Reasoning Process
 {reasoning_context}
 
-### Retrieved Schema (Final Selected Tables and Columns)
+### Retrieved Schema
 {schema_context}
 """
 

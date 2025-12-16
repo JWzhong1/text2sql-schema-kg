@@ -13,7 +13,7 @@ from src.llm import prompts
 dotenv.load_dotenv()
 
 logging.basicConfig(
-    level=logging.ERROR,
+    level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S'
 )
@@ -69,42 +69,34 @@ class GraphRAGRetriever:
     def close(self):
         self.driver.close()
 
-    def retrieve_schema_subgraph(self, query: Dict, return_candidate_map: bool = False, return_reasoning: bool = True) -> Dict[str, Any]:
+    def retrieve_schema_subgraph(self, query: Dict) -> Dict[str, Any]:
         """
         入口函数
         :param return_reasoning: 是否返回推理过程信息
         """
         # 1. 神经符号检索 (Embedding + PPR + ToG)
-        final_nodes, candidate_map, reasoning_context = self._neuro_symbolic_retrieve(query)
+        final_nodes,reasoning_context = self._neuro_symbolic_retrieve(query)
         
         # 2. 格式化输出
         final_map = self._build_map_from_nodes(final_nodes)
-
-        if return_reasoning:
-            return {
+        return {
                 "schema_map": final_map,
                 "reasoning_context": reasoning_context,
-                "candidate_map": candidate_map if return_candidate_map else None
             }
-        
-        if return_candidate_map:
-            return {"candidate": candidate_map, "final": final_map}
-        return final_map
 
     # -------------------------
     # Core Logic
     # -------------------------
 
-    def _neuro_symbolic_retrieve(self, query: Dict) -> Tuple[Dict[str, NodeItem], Dict[str, List[str]], Dict[str, Any]]:
+    def _neuro_symbolic_retrieve(self, query: Dict) -> Tuple[Dict[str, NodeItem], Dict[str, Any]]:
         """
         执行检索全流程,返回推理上下文
-        返回: (最终节点, 候选Map, 推理上下文)
+        返回: (最终节点, 推理上下文)
         """
         reasoning_context = {
             "original_question": query.get("question", ""),
             "original_evidence": query.get("evidence", ""),
             "rewrite_result": None,
-            "candidate_schema": None,
             "pruning_decision": None,
             "recovery_applied": False
         }
@@ -119,34 +111,30 @@ class GraphRAGRetriever:
         reasoning_context["rewrite_result"] = {
             "rewritten_question": rewritten_question,
             "keywords": keywords,
-            "reasoning_trace": reasoning_trace
+            # "reasoning_trace": reasoning_trace
         }
         
         logger.info(f"Rewritten Query: {rewritten_question} \n Keywords: {keywords} \n reasoning_trace: {reasoning_trace}")
         
         # Phase 1: Embedding & PPR
-        candidate_nodes, candidate_map = self._embeddings_retrieve(rewrite_query)
+        candidate_nodes = self._embeddings_retrieve(rewrite_query)
         logger.info(f"Phase 1: Retrieved {len(candidate_nodes)} candidate nodes.")
-        logger.info(f"Candidate Map: {json.dumps(candidate_map, ensure_ascii=False)}")
-        
-        # 保存候选结果
-        reasoning_context["candidate_schema"] = candidate_map
-
+    
         if not candidate_nodes:
-            return {}, candidate_map, reasoning_context
+            return {}, reasoning_context
 
         # Phase 2: ToG
         if os.getenv("TOG_ENABLED", "1") == "1":
             final_nodes_map, pruning_info = self._tog_traversal(rewrite_query, candidate_nodes)
             reasoning_context["pruning_decision"] = pruning_info
-            return final_nodes_map, candidate_map, reasoning_context
+            return final_nodes_map, reasoning_context
         else:
-            return candidate_nodes, candidate_map, reasoning_context
+            return candidate_nodes, reasoning_context
 
     # -------------------------
     # Phase 1: Seeds Retrieval & PPR
     # -------------------------
-    def _embeddings_retrieve(self, query: str) -> Tuple[Dict[str, NodeItem], Dict[str, List[str]]]:
+    def _embeddings_retrieve(self, query: str) -> Dict[str, NodeItem]:
         """
         向量检索 + PPR。
         优化：直接返回 NodeItem 对象，包含 elementId，避免后续名字查ID的开销。
@@ -259,8 +247,7 @@ class GraphRAGRetriever:
                          # 这是一个 trade-off。通常我们会稍后补全 table。
                          pass 
 
-        # 构建 candidate_map 用于返回
-        return final_candidates, self._build_map_from_nodes(final_candidates)
+        return final_candidates
 
     def _parse_neo4j_result_to_nodes(self, result, node_map: Dict[str, NodeItem]):
         """Helper: 解析 Neo4j 结果到 NodeItem，并去重保留最高分"""
@@ -294,7 +281,6 @@ class GraphRAGRetriever:
             "expanded_count": 0,
             "final_count": 0,
             "llm_decision": None,
-            "applied_normalization": [],
             "recovery_info": None
         }
         
@@ -307,8 +293,8 @@ class GraphRAGRetriever:
         
         pruning_info["expanded_count"] = len(expanded_nodes)
         
-        expanded_map = self._build_map_from_nodes(expanded_nodes)
-        logger.info(f"Expanded Map: {json.dumps(expanded_map, ensure_ascii=False)}")
+        # expanded_map = self._build_map_from_nodes(expanded_nodes)
+        # logger.info(f"Expanded Map: {json.dumps(expanded_map, ensure_ascii=False)}")
         
         logger.info("ToG Step 2: LLM Pruning...")
         final_nodes, llm_decision = self._llm_pruning(query, expanded_nodes)
@@ -393,8 +379,9 @@ class GraphRAGRetriever:
         """
         decision_info = {
             "selected_schema": {},
+            "filter_conditions": [],
             "is_sufficient": True,
-            "applied_normalization_rules": [],
+            "reasoning": [],
             "missing_info": "",
             "recovery_applied": False
         }
@@ -442,23 +429,15 @@ class GraphRAGRetriever:
             # 保存 LLM 决策
             if isinstance(decision, dict):
                 decision_info["selected_schema"] = decision.get("selected_schema", {})
+                decision_info["filter_conditions"] = decision.get("filter_conditions", [])
                 decision_info["is_sufficient"] = decision.get("is_sufficient", True)
-                decision_info["applied_normalization_rules"] = decision.get("applied_normalization_rules", [])
+                decision_info["reasoning"] = decision.get("reasoning", [])
                 decision_info["missing_info"] = decision.get("missing_info", "")
             
             # 解析 LLM 返回
             if isinstance(decision, dict):
                 if "selected_schema" in decision:
                     selected_schema_map = decision["selected_schema"]
-                    decision_info["is_sufficient"] = decision.get("is_sufficient", True)
-                    decision_info["missing_info"] = decision.get("missing_info", "")
-                else:
-                    # 兼容旧格式，尝试将其转换为 map
-                    if "table_ids" in decision or "column_ids" in decision or "selected_nodes" in decision:
-                        pass # Fall through to old ID parsing logic
-                    else:
-                        # 假设是 {"t1": ["c1"], ...}
-                        selected_schema_map = decision
 
             # 如果需要恢复
             if not decision_info["is_sufficient"]:
@@ -500,64 +479,12 @@ class GraphRAGRetriever:
                     fetched_nodes = self._fetch_nodes_by_names(missing_nodes_map)
                     final_result.update(fetched_nodes)
                 
-                # # *** 新增：补充外键列 ***
-                # final_result = self._ensure_foreign_key_columns(final_result)
+
                 
                 # 可视化最终结果
                 # self._visualize_final_result(final_result, edges_info)
                 return final_result, decision_info
 
-            # --- 旧的 ID 解析逻辑 (Fallback) ---
-            # 解析 LLM 返回的 ID
-            # 假设返回格式为 {"table_ids": [], "column_ids": []} 或直接是 ID 列表
-            selected_ids = set()
-            if isinstance(decision, dict):
-                # 建立查找表以便将名称映射回 ID
-                table_map = {} # name -> id
-                col_map = {}   # (table_name, col_name) -> id
-                
-                for nid, node in candidate_nodes.items():
-                    if node.is_table:
-                        table_map[node.name] = nid
-                    elif node.is_column and node.table_name:
-                        col_map[(node.table_name, node.name)] = nid
-
-                # 遍历 LLM 返回的字典
-                for t_name, cols in decision.items():
-                    # 尝试匹配表
-                    if t_name in table_map:
-                        selected_ids.add(table_map[t_name])
-                    
-                    # 尝试匹配列
-                    if isinstance(cols, list):
-                        for c_name in cols:
-                            key = (t_name, c_name)
-                            if key in col_map:
-                                selected_ids.add(col_map[key])
-                
-                # 兼容旧格式: {"table_ids": [], "column_ids": []}
-                # 如果上述解析没有找到任何东西，但字典里有特定的 keys，则尝试旧逻辑
-                if not selected_ids:
-                    if "table_ids" in decision or "column_ids" in decision or "selected_nodes" in decision:
-                        selected_ids.update(decision.get("table_ids", []))
-                        selected_ids.update(decision.get("column_ids", []))
-                        selected_ids.update(decision.get("selected_nodes", []))
-
-            elif isinstance(decision, list):
-                selected_ids.update(decision)
-            
-            # 过滤有效 ID
-            final_result = {nid: candidate_nodes[nid] for nid in selected_ids if nid in candidate_nodes}
-            
-            # Fallback: 如果 LLM 返回空或解析失败，返回所有 Table 节点 (保守策略)
-            if not final_result and candidate_nodes:
-                logger.warning("LLM pruning returned empty set, falling back to all tables in candidates.")
-                final_result = {nid: node for nid, node in candidate_nodes.items() if node.is_table}
-            
-            # 可视化剪枝后的结果
-            # self._visualize_final_result(final_result, edges_info)
-
-            return final_result, decision_info
 
         except Exception as e:
             logger.error(f"LLM Pruning failed: {e}")
@@ -688,8 +615,81 @@ class GraphRAGRetriever:
             lines.append(f"ID: {n['neighbor_id']} (Name: {n['name']}, Type: {n['labels'][0]}, Table: {n['table_name']}) via {n['rel_type']}")
         return "\n".join(lines)
 
-    def _build_map_from_nodes(self, nodes: Dict[str, NodeItem]) -> Dict[str, List[str]]:
-        """将 NodeItem 字典转换为题目要求的 Table: [Columns] 格式"""
+    def _build_map_from_nodes(self, nodes: Dict[str, NodeItem]) -> Any:
+        """
+        将 NodeItem 字典转换为 schema.json 格式的列表。
+        包含选中的表和列的完整信息。
+        """
+        if not self.schema:
+            return self._build_simple_map(nodes)
+
+        # 1. 建立索引: table_name/original_name -> schema_entry
+        schema_map = {}
+        for table in self.schema:
+            t_name = table.get("table_name")
+            t_orig = table.get("original_table_name")
+            if t_name: schema_map[t_name] = table
+            if t_orig: schema_map[t_orig] = table
+
+        # 2. 收集选中的表和列
+        selected_tables = set() # Set of table names (normalized to table_name in schema)
+        selected_columns = {}   # table_name -> Set of column names
+
+        for node in nodes.values():
+            # 确定该节点对应的 Schema Table Key
+            table_key = None
+            
+            # 尝试匹配 Table
+            t_names = []
+            if node.is_table:
+                if node.name: t_names.append(node.name)
+                if node.original_name: t_names.append(node.original_name)
+            elif node.is_column:
+                if node.table_name: t_names.append(node.table_name)
+                if node.table_original_name: t_names.append(node.table_original_name)
+            
+            for name in t_names:
+                if name in schema_map:
+                    # 归一化为 table_name
+                    table_key = schema_map[name].get("table_name")
+                    break
+            
+            if table_key:
+                selected_tables.add(table_key)
+                
+                if node.is_column:
+                    if table_key not in selected_columns:
+                        selected_columns[table_key] = set()
+                    if node.name: selected_columns[table_key].add(node.name)
+                    if node.original_name: selected_columns[table_key].add(node.original_name)
+
+        # 3. 构建最终列表
+        final_list = []
+        # 遍历 self.schema 以保持原始顺序
+        for table in self.schema:
+            t_name = table.get("table_name")
+            
+            if t_name in selected_tables:
+                new_table = table.copy()
+                
+                # 过滤列
+                cols_needed = selected_columns.get(t_name, set())
+                original_cols = table.get("columns", [])
+                new_cols = []
+                
+                for col in original_cols:
+                    c_name = col.get("col")
+                    c_orig = col.get("original_column_name")
+                    if c_name in cols_needed or c_orig in cols_needed:
+                        new_cols.append(col)
+                
+                new_table["columns"] = new_cols
+                final_list.append(new_table)
+                
+        return final_list
+
+    def _build_simple_map(self, nodes: Dict[str, NodeItem]) -> Dict[str, List[str]]:
+        """将 NodeItem 字典转换为 Table: [Columns] 格式 (Fallback)"""
         result = {}
         # 先收集所有涉及的表名
         tables = set()

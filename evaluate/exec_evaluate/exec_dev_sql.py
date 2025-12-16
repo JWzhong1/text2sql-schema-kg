@@ -224,7 +224,7 @@ def main():
     parser.add_argument(
         '--output',
         type=str,
-        default='scripts/evaluate/exec_evaluate/bird_sql_dev_with_results.json',
+        default='scripts/evaluate/exec_evaluate/golden_exec_results.json',
         help='Output JSON file path'
     )
     parser.add_argument(
