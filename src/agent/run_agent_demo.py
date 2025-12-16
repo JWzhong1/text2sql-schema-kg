@@ -43,6 +43,7 @@ def main():
     agent = Text2SQLAgent(
         db_name="california_schools",
         db_path=f"bird_data/bird/llm/data/dev_databases/{db_name}/{db_name}.sqlite",
+        cache_dir="src/agent/schema_retrieval_cache",
         neo4j_config=(neo4j_uri, neo4j_user, neo4j_password)
     )
 
@@ -65,7 +66,7 @@ def main():
             dev_jsonl = [json.loads(line) for line in f.readlines()]
 
         # 只测试前5个题目
-        test_cases = dev_jsonl[1:5]
+        test_cases = dev_jsonl[2:3]
         
         for idx, case in enumerate(test_cases):
             question = case["question"]

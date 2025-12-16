@@ -2,6 +2,7 @@ import sqlite3
 import json
 import logging
 import os
+import hashlib
 from typing import Dict, Any, List, Optional, Tuple
 
 from src.graph.schema_graph_retriever import GraphRAGRetriever
@@ -20,7 +21,9 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 class Text2SQLAgent:
-    def __init__(self, db_name: str, db_path: str, neo4j_config: Tuple[str, str, str], max_retries: int = 3, enable_value_exploration: bool = True):
+    def __init__(self, db_name: str, db_path: str, neo4j_config: Tuple[str, str, str], 
+                 max_retries: int = 3, enable_value_exploration: bool = True,
+                 cache_dir: Optional[str] = None, use_cache: bool = True):
         """
         初始化 Agent
         :param db_name: 数据库名称 (用于检索)
@@ -28,21 +31,75 @@ class Text2SQLAgent:
         :param neo4j_config: (uri, user, password) 用于初始化检索器
         :param max_retries: SQL 执行失败后的最大重试次数
         :param enable_value_exploration: 是否启用值探索模块
+        :param cache_dir: 缓存目录路径，默认为 cache/{db_name}/retrieval
+        :param use_cache: 是否启用缓存，默认 True
         """
         self.db_name = db_name
         self.db_path = db_path
         self.max_retries = max_retries
         self.enable_value_exploration = enable_value_exploration
+        self.use_cache = use_cache
+        
+        # 初始化缓存目录
+        self.cache_dir = cache_dir or f"src/agent/schema_retrieval_cache"
+        if self.use_cache:
+            os.makedirs(self.cache_dir, exist_ok=True)
+            self._retrieval_cache = self._load_cache()
+        else:
+            self._retrieval_cache = {}
         
         # 初始化检索器
         # 注意：这里假设 schema_json_path 存在于标准位置，用于检索器的初始化
         schema_path = f"bird_data/converted_schemas/{db_name}.json"
         self.retriever = GraphRAGRetriever(*neo4j_config, schema_json_path=schema_path)
 
-    def retrieve_schema(self, question: str, evidence: str) -> Dict[str, Any]:
+    def _get_cache_path(self) -> str:
+        """获取缓存文件路径"""
+        return os.path.join(self.cache_dir, "retrieval_cache.json")
+    
+    def _load_cache(self) -> Dict[str, Any]:
+        """从磁盘加载缓存"""
+        cache_path = self._get_cache_path()
+        if os.path.exists(cache_path):
+            try:
+                with open(cache_path, 'r', encoding='utf-8') as f:
+                    logger.info(f"Loaded retrieval cache from {cache_path}")
+                    return json.load(f)
+            except Exception as e:
+                logger.warning(f"Failed to load cache: {e}")
+        return {}
+    
+    def _save_cache(self):
+        """保存缓存到磁盘"""
+        if not self.use_cache:
+            return
+        cache_path = self._get_cache_path()
+        try:
+            with open(cache_path, 'w', encoding='utf-8') as f:
+                json.dump(self._retrieval_cache, f, ensure_ascii=False, indent=2)
+            logger.debug(f"Saved retrieval cache to {cache_path}")
+        except Exception as e:
+            logger.warning(f"Failed to save cache: {e}")
+    
+    def _generate_cache_key(self, question: str, evidence: str) -> str:
+        """生成缓存键（基于问题和证据的哈希）"""
+        content = f"{question}|||{evidence}"
+        return hashlib.md5(content.encode('utf-8')).hexdigest()
+
+    def retrieve_schema(self, question: str, evidence: str, force_refresh: bool = False) -> Dict[str, Any]:
         """
         步骤 1: 调用 GraphRAG 获取 Schema Link 结果及推理信息
+        :param question: 自然语言问题
+        :param evidence: 背景知识/提示
+        :param force_refresh: 是否强制刷新缓存
         """
+        cache_key = self._generate_cache_key(question, evidence)
+        
+        # 检查缓存
+        if self.use_cache and not force_refresh and cache_key in self._retrieval_cache:
+            logger.info(f"Cache hit for question: {question[:50]}...")
+            return self._retrieval_cache[cache_key]
+        
         logger.info(f"Retrieving schema for: {question}")
         query = {
             "question": question,
@@ -50,6 +107,13 @@ class Text2SQLAgent:
         }
         # 调用检索逻辑,获取完整信息
         result = self.retriever.retrieve_schema_subgraph(query)
+        
+        # 保存到缓存
+        if self.use_cache:
+            self._retrieval_cache[cache_key] = result
+            self._save_cache()
+            logger.info(f"Cached retrieval result for question: {question[:50]}...")
+        
         return result
 
     def explore_values(self, question: str, evidence: str, retrieval_result: Dict[str, Any]) -> Dict[str, Any]:
@@ -287,7 +351,7 @@ class Text2SQLAgent:
             {"role": "user", "content": user_content}
         ]
 
-        response = get_competition_from_coder(messages)
+        response = get_competition_json(messages)
         result = json.loads(response)
         return result.get("sql", "")
 
@@ -439,12 +503,15 @@ class Text2SQLAgent:
         except sqlite3.Error as e:
             return [], str(e)
 
-    def solve(self, question: str, evidence: str) -> Dict[str, Any]:
+    def solve(self, question: str, evidence: str, force_refresh: bool = False) -> Dict[str, Any]:
         """
         Agent 主流程
+        :param question: 自然语言问题
+        :param evidence: 背景知识
+        :param force_refresh: 是否强制刷新检索缓存
         """
         # 1. Retrieve (获取完整推理信息)
-        retrieval_result = self.retrieve_schema(question, evidence)
+        retrieval_result = self.retrieve_schema(question, evidence, force_refresh=force_refresh)
         schema_map = retrieval_result.get("schema_map", {})
         reasoning_ctx = retrieval_result.get("reasoning_context", {})
         
@@ -497,7 +564,18 @@ class Text2SQLAgent:
             "value_exploration": exploration_result,
             "status": "failed"
         }
+    
+    def clear_cache(self):
+        """清空检索缓存"""
+        self._retrieval_cache = {}
+        cache_path = self._get_cache_path()
+        if os.path.exists(cache_path):
+            os.remove(cache_path)
+            logger.info(f"Cleared retrieval cache at {cache_path}")
 
     def close(self):
+        # 关闭前保存缓存
+        if self.use_cache:
+            self._save_cache()
         if self.retriever:
             self.retriever.close()
