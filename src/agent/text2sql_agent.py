@@ -251,108 +251,6 @@ class Text2SQLAgent:
         
         return f"{sql} LIMIT {max_results}"
     
-    def _format_exploration_context(self, exploration_result: Dict[str, Any]) -> str:
-        """
-        格式化值探索结果为 Prompt 友好的字符串
-        """
-        if not exploration_result.get("enabled", False):
-            return ""
-        
-        explorations = exploration_result.get("exploratory_sql", [])
-        if not explorations:
-            return ""
-        
-        lines = ["#### Value Exploration Results"]
-        lines.append("The following exploratory queries were executed to understand the data:")
-        lines.append("")
-        
-        for i, exp in enumerate(explorations, 1):
-            sql = exp.get("sql", "")
-            purpose = exp.get("purpose", "")
-            status = exp.get("status", "unknown")
-            
-            lines.append(f"**Query {i}**: `{sql}`")
-            lines.append(f"- Purpose: {purpose}")
-            lines.append(f"- Status: {status}")
-            
-            if status == "success":
-                result = exp.get("result", {})
-                columns = result.get("columns", [])
-                rows = result.get("rows", [])
-                row_count = exp.get("row_count", 0)
-                
-                if rows:
-                    # 格式化结果
-                    lines.append(f"- Found {row_count} row(s)")
-                    
-                    # 显示列名和前几行数据
-                    if columns:
-                        col_str = " | ".join(columns)
-                        lines.append(f"- Columns: {col_str}")
-                    
-                    # 限制显示的行数
-                    display_rows = rows[:5]
-                    for row in display_rows:
-                        row_str = " | ".join([str(v) if v is not None else "NULL" for v in row])
-                        lines.append(f"  - {row_str}")
-                    
-                    if len(rows) > 5:
-                        lines.append(f"  - ... and {len(rows) - 5} more rows")
-                else:
-                    lines.append("- No results found")
-            
-            elif status == "error":
-                error = exp.get("error", "Unknown error")
-                lines.append(f"- Error: {error}")
-            
-            lines.append("")
-        
-        return "\n".join(lines)
-
-    def generate_sql(self, question: str, evidence: str, schema_context: str, 
-                      exploration_context_str: str, error_msg: str = None, 
-                     previous_sql: str = None) -> str:
-        """
-        步骤 2 & 4: 生成 SQL (包含推理上下文和值探索结果)
-        """
-        # schema_map = retrieval_result.get("schema_map", {})
-        # reasoning_ctx = retrieval_result.get("reasoning_context", {})
-        
-        # # 格式化 Schema
-        # schema_context = self._format_schema_for_prompt(schema_map)
-        
-        # # 格式化推理上下文
-        # reasoning_context_str = self._format_reasoning_context(reasoning_ctx)
-        
-        # # 格式化值探索结果
-        # exploration_context_str = ""
-        # if exploration_result and exploration_result.get("enabled", False):
-        #     exploration_context_str = self._format_exploration_context(exploration_result)
-        
-        # # 合并上下文
-        # full_reasoning_context = reasoning_context_str
-        # if exploration_context_str:
-        #     full_reasoning_context += "\n\n" + exploration_context_str
-        
-        system_prompt, user_content = get_sql_generation_prompt(
-            question, 
-            evidence, 
-            schema_context, 
-            exploration_context_str, 
-            error_msg, 
-            previous_sql
-        )
-
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_content}
-        ]
-
-        response = get_competition_json(messages)
-        result = json.loads(response)
-        return result.get("sql", "")
-
-    
     def _format_schema_for_prompt(self, schema_map: Any) -> str:
         """
         格式化 Schema Map 为 Prompt 友好的字符串
@@ -462,17 +360,91 @@ class Text2SQLAgent:
                 lines.append(f"**Selected Tables**: {', '.join(llm_dec.get('selected_tables', []))}")
                 lines.append(f"**Selected Columns**: {', '.join(llm_dec.get('selected_columns', []))}")
 
-            # norm_rules = llm_dec.get("reasoning", [])
-            # if norm_rules:
-            #     lines.append("**Schema Link Reasoning**:")
-            #     for rule in norm_rules:
-            #         lines.append(f"  - {rule}")
+        return "\n".join(lines)
+    def _format_exploration_context(self, exploration_result: Dict[str, Any]) -> str:
+        """
+        格式化值探索结果为 Prompt 友好的字符串
+        """
+        if not exploration_result.get("enabled", False):
+            return ""
+        
+        explorations = exploration_result.get("exploratory_sql", [])
+        if not explorations:
+            return ""
+        
+        lines = ["#### Value Exploration Results"]
+        lines.append("The following exploratory queries were executed to understand the data:")
+        lines.append("")
+        
+        for i, exp in enumerate(explorations, 1):
+            sql = exp.get("sql", "")
+            purpose = exp.get("purpose", "")
+            status = exp.get("status", "unknown")
             
-            # if not llm_dec.get("is_sufficient", True):
-            #     lines.append(f"**Schema Recovery Applied**: {llm_dec.get('missing_info', '')}")
+            lines.append(f"**Query {i}**: `{sql}`")
+            lines.append(f"- Purpose: {purpose}")
+            lines.append(f"- Status: {status}")
+            
+            if status == "success":
+                result = exp.get("result", {})
+                columns = result.get("columns", [])
+                rows = result.get("rows", [])
+                row_count = exp.get("row_count", 0)
+                
+                if rows:
+                    # 格式化结果
+                    lines.append(f"- Found {row_count} row(s)")
+                    
+                    # 显示列名和前几行数据
+                    if columns:
+                        col_str = " | ".join(columns)
+                        lines.append(f"- Columns: {col_str}")
+                    
+                    # 限制显示的行数
+                    display_rows = rows[:5]
+                    for row in display_rows:
+                        row_str = " | ".join([str(v) if v is not None else "NULL" for v in row])
+                        lines.append(f"  - {row_str}")
+                    
+                    if len(rows) > 5:
+                        lines.append(f"  - ... and {len(rows) - 5} more rows")
+                else:
+                    lines.append("- No results found")
+            
+            elif status == "error":
+                error = exp.get("error", "Unknown error")
+                lines.append(f"- Error: {error}")
+            
+            lines.append("")
         
         return "\n".join(lines)
-    
+
+    def generate_sql(self, question: str, evidence: str, schema_context: str, 
+                      exploration_context_str: str, error_msg: str = None, 
+                     previous_sql: str = None, attempt: int = 1) -> str:
+        """
+        步骤 2 & 4: 生成 SQL (包含推理上下文和值探索结果)
+        :param attempt: 当前尝试次数，用于调整提示策略
+        """
+        system_prompt, user_content = get_sql_generation_prompt(
+            question, 
+            evidence, 
+            schema_context, 
+            exploration_context_str, 
+            error_msg, 
+            previous_sql,
+            attempt  # 传递尝试次数
+        )
+
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_content}
+        ]
+
+        response = get_competition_json(messages)
+        result = json.loads(response)
+        return result.get("sql", "")
+
     def execute_sql(self, sql: str) -> Tuple[List[Any], Optional[str]]:
         """
         步骤 3: 在 SQLite 中执行 SQL
@@ -506,14 +478,6 @@ class Text2SQLAgent:
         # 2. Value Exploration (可选)
         exploration_result = self.explore_values(question, evidence, retrieval_result)
         
-        current_sql = ""
-        error_msg = None
-        
-        # 3. Generate & Execute Loop
-
-        schema_map = retrieval_result.get("schema_map", {})
-        reasoning_ctx = retrieval_result.get("reasoning_context", {})
-        
         # 格式化 Schema
         schema_context = self._format_schema_for_prompt(schema_map)
         
@@ -522,31 +486,53 @@ class Text2SQLAgent:
         if exploration_result and exploration_result.get("enabled", False):
             exploration_context_str = self._format_exploration_context(exploration_result)
         
-        
         logger.info(f"Retrieved Schema Map: {schema_map}")
         logger.info(f"exploration_context_str: {exploration_context_str}")
 
+        # 3. Generate & Execute Loop with enhanced error handling
+        execution_history = []  # 记录执行历史
+        
         for attempt in range(self.max_retries + 1):
-            logger.info(f"Generating SQL (Attempt {attempt + 1})...")
+            logger.info(f"Generating SQL (Attempt {attempt + 1}/{self.max_retries + 1})...")
+            
+            # 分析错误模式，决定是否需要特殊处理
+            error_analysis = self._analyze_error_pattern(execution_history) if execution_history else None
             
             current_sql = self.generate_sql(
                 question, evidence, schema_context, 
-                exploration_context_str, error_msg, current_sql
+                exploration_context_str, 
+                error_analysis.get("error_msg") if error_analysis else None,
+                error_analysis.get("reference_sql") if error_analysis else None,
+                attempt + 1
             )
+            
             logger.info(f"Generated SQL: {current_sql}")
 
             if not current_sql:
-                return {"error": "Failed to generate SQL", "steps": attempt}
+                execution_history.append({
+                    "attempt": attempt + 1,
+                    "sql": None,
+                    "error": "Failed to generate SQL",
+                    "result": None
+                })
+                continue
 
             results, error_msg = self.execute_sql(current_sql)
+            
+            # 记录执行历史
+            execution_history.append({
+                "attempt": attempt + 1,
+                "sql": current_sql,
+                "error": error_msg,
+                "result": results if error_msg is None else None,
+                "is_empty": (error_msg is None and (results is None or len(results) == 0))
+            })
 
             if error_msg is None:
                 # 检查结果是否为空
                 if results is None or (isinstance(results, list) and len(results) == 0):
                     logger.warning(f"Execution returned empty results (Attempt {attempt + 1})")
-                    error_msg = "Query executed successfully but returned no results. The SQL may be incorrect or the filter conditions may be too restrictive."
-                    # 继续重试循环
-                    continue
+                    continue  # 继续重试
                 
                 logger.info("Execution Successful.")
                 return {
@@ -556,19 +542,139 @@ class Text2SQLAgent:
                     "retrieved_schema": schema_map,
                     "reasoning_context": reasoning_ctx,
                     "value_exploration": exploration_result,
+                    "execution_history": execution_history,
                     "status": "success"
                 }
             else:
                 logger.warning(f"Execution Failed: {error_msg}")
 
+        # 所有尝试失败
         return {
             "question": question,
-            "sql": current_sql,
-            "error": error_msg,
+            "sql": execution_history[-1]["sql"] if execution_history else None,
+            "error": execution_history[-1]["error"] if execution_history else "Unknown error",
             "value_exploration": exploration_result,
+            "execution_history": execution_history,
             "status": "failed"
         }
     
+    def _analyze_error_pattern(self, history: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """
+        分析历史错误模式，生成智能化的错误提示
+        :param history: 执行历史记录
+        :return: 包含 error_msg 和 reference_sql 的字典
+        """
+        if not history:
+            return {"error_msg": None, "reference_sql": None}
+        
+        # 统计错误类型
+        syntax_errors = []
+        empty_results = []
+        execution_errors = []
+        
+        for record in history:
+            if record["error"]:
+                if "syntax" in record["error"].lower() or "near" in record["error"].lower():
+                    syntax_errors.append(record)
+                else:
+                    execution_errors.append(record)
+            elif record.get("is_empty", False):
+                empty_results.append(record)
+        
+        # 根据错误模式生成不同的提示策略
+        
+        # 1. 连续多次语法错误 - 重新审视 schema
+        if len(syntax_errors) >= 2:
+            last_error = syntax_errors[-1]
+            return {
+                "error_msg": (
+                    f"### Pattern Detected: Repeated Syntax Errors\n"
+                    f"Last SQL: {last_error['sql']}\n"
+                    f"Last Error: {last_error['error']}\n\n"
+                    f"**Critical Issue**: Multiple syntax errors suggest schema mismatch.\n"
+                    f"**Action Required**:\n"
+                    f"1. Carefully verify ALL table and column names against the Retrieved Schema\n"
+                    f"2. Check for typos in table/column references\n"
+                    f"3. Ensure you're using the original_table_name and original_column_name\n"
+                    f"4. Verify JOIN conditions reference existing foreign keys\n"
+                    f"5. Double-check SQLite syntax (e.g., use || for concatenation, not +)"
+                ),
+                "reference_sql": None  # 不参考之前的 SQL
+            }
+        
+        # 2. 连续多次空结果 - 重新思考查询逻辑
+        if len(empty_results) >= 2:
+            different_sqls = len(set(r["sql"] for r in empty_results)) > 1
+            
+            if different_sqls:
+                # 尝试了不同 SQL 都返回空结果
+                return {
+                    "error_msg": (
+                        f"### Pattern Detected: Multiple Empty Results with Different Queries\n"
+                        f"Attempted {len(empty_results)} different SQL queries, all returned empty.\n\n"
+                        f"**Root Cause Analysis**:\n"
+                        f"This suggests a fundamental misunderstanding of the question or data.\n\n"
+                        f"**Recommended Approach**:\n"
+                        f"1. **Re-examine the question**: What is REALLY being asked?\n"
+                        f"2. **Reconsider table selection**: Are we querying the right tables?\n"
+                        f"3. **Review Value Exploration results**: Do the explored values match expectations?\n"
+                        f"4. **Simplify the query**: Start with a basic SELECT to verify data exists\n"
+                        f"5. **Check filter logic**: Are we applying contradictory conditions?\n\n"
+                        f"Start fresh with a completely different approach."
+                    ),
+                    "reference_sql": None  # 完全重新开始
+                }
+            else:
+                # 同一个 SQL 重复执行返回空结果（不应该发生，防御性编程）
+                return {
+                    "error_msg": (
+                        f"### Warning: Identical SQL Repeated\n"
+                        f"The same SQL was generated multiple times: {empty_results[0]['sql']}\n\n"
+                        f"Please generate a DIFFERENT query with alternative filter conditions."
+                    ),
+                    "reference_sql": None
+                }
+        
+        # 3. 单次执行错误 - 标准错误修正
+        if history[-1]["error"]:
+            last_record = history[-1]
+            return {
+                "error_msg": (
+                    f"### Execution Error\n"
+                    f"SQL: {last_record['sql']}\n"
+                    f"Error: {last_record['error']}\n\n"
+                    f"**Fix Instructions**:\n"
+                    f"- Verify column/table names match the schema exactly\n"
+                    f"- Check SQLite-specific syntax requirements\n"
+                    f"- Ensure data types in comparisons are compatible"
+                ),
+                "reference_sql": last_record['sql']
+            }
+        
+        # 4. 单次空结果 - 标准空结果处理
+        if history[-1].get("is_empty", False):
+            last_record = history[-1]
+            return {
+                "error_msg": (
+                    f"### Query Returned Empty Results\n"
+                    f"SQL: {last_record['sql']}\n\n"
+                    f"**Possible Issues**:\n"
+                    f"1. Filter conditions too restrictive (consider using LIKE with wildcards)\n"
+                    f"2. Incorrect value matching (check Value Exploration results for actual values)\n"
+                    f"3. Case sensitivity issues (use COLLATE NOCASE or LOWER())\n"
+                    f"4. Missing/incorrect JOIN conditions\n"
+                    f"5. Wrong categorical column selected (prefer type/status columns over names)\n\n"
+                    f"**Suggested Actions**:\n"
+                    f"- Review the Value Exploration results to validate your filter values\n"
+                    f"- Try relaxing filter conditions or using fuzzy matching\n"
+                    f"- Verify JOIN keys are correct"
+                ),
+                "reference_sql": last_record['sql']
+            }
+        
+        # 默认返回
+        return {"error_msg": None, "reference_sql": None}
+
     def clear_cache(self):
         """清空检索缓存"""
         self._retrieval_cache = {}

@@ -329,66 +329,6 @@ def get_subgraph_pruning_prompt(query: dict, subgraph_context: str) -> tuple[str
 
     return sys_prompt, user_prompt
 
-
-
-# def get_subgraph_pruning_prompt(query:dict, subgraph_context: str) -> tuple[str, str]:  
-#     sys_prompt = (
-#         "You are a Schema Graph Finalizer. Your goal is to identify the minimal set of tables and columns "
-#         "needed to correctly answer the user's question, while ensuring query executability and join integrity.\n"
-#         "Follow these principles:\n"
-#         "1. Ensure semantic completeness: keep all columns required for filtering, grouping, calculation, or returning results.\n"
-#         "2. Preserve joinability: if multiple tables are involved, keep the necessary primary/foreign key columns.\n"
-#         "3. Apply normalization when beneficial: if a descriptive column can reliably be obtained from a related dimension table "
-#         "via a stable join, you may prefer using the normalized join path.\n"
-#         "4. Never remove information required to correctly interpret or compute the answer.\n"
-#     )
-
-#     user_prompt = f"""## original_question: {query.get('original_question', '')}
-# ## evidence: {query.get('evidence', '')}
-# ## rewritten_question: {query.get('rewritten_question', '')}
-# ## reasoning_trace: {query.get('reasoning_trace', [])}
-# ## subgraph_nodes: {subgraph_context}
-
-# ### EXECUTION STEPS:
-
-# 1. **DECOMPOSE THE QUERY**
-#     - Identify required tables/columns for:
-#         a) Filtering or grouping
-#         b) Calculations or metrics
-#         c) Output fields
-#         d) Necessary join keys
-
-# 2. **PRUNE THE SUBGRAPH**
-#     - From `subgraph_nodes`, keep all columns identified above.
-#     - Remove unrelated columns that do not contribute to answering the query.
-
-# 3. **APPLY OPTIONAL NORMALIZATION**
-#     - If a descriptive/denormalized column has an equivalent normalized source and the join is reliable,
-#       you may replace it with the normalized table + join key.
-#     - If the descriptive column is essential to semantics, keep it.
-
-# 4. **SUFFICIENCY CHECK**
-#     - is_sufficient = true only if:
-#         (a) All required semantic fields are present
-#         (b) All needed join paths are preserved
-
-# ### OUTPUT FORMAT (STRICT JSON):
-
-# {{
-#   "selected_schema": {{
-#     "table1": ["col1", "col2"],
-#     "table2": ["col1"]
-#   }},
-#   "is_sufficient": boolean,
-#   "reasoning": [
-#     "Step-by-step explanation of how the query was decomposed, why each table/column was selected, and how normalization was applied or not."
-#   ],
-#   "missing_info": ""
-# }}
-# """
-
-#     return sys_prompt, user_prompt
-
 def get_recover_schema_with_full_context_prompt(query: Dict, current_selection: Dict, missing_info: str, schema_str: str) -> tuple[str, str]:
     sys_prompt = (
             "You are a Schema Recovery Expert. The previous schema retrieval was insufficient. "
@@ -431,15 +371,34 @@ def get_sql_generation_prompt(
     schema_context: str,
     exploration_context_str: str,
     error_msg: str = None,
-    previous_sql: str = None
+    previous_sql: str = None,
+    attempt: int = 1
 ) -> tuple[str, str]:
     system_prompt = (
         "You are an expert SQL Data Analyst. Your goal is to write a correct SQLite-compatible SQL query.\n"
         "Use only tables and columns from the Retrieved Schema.\n"
-        "Map any descriptive names in the reasoning context back to the original schema names.\n"
+        "Map any descriptive names in the reasoning context back to the original schema names.\n\n"
+        
+        "### CRITICAL SQL Best Practices:\n"
+        "1. **NULL Handling**: When performing ORDER BY, MAX, MIN, or any ranking operations, "
+        "ALWAYS filter out NULL values using 'WHERE column_name IS NOT NULL' before the operation. "
+        "NULLs can cause incorrect sorting and extreme value calculations.\n\n"
+        
+        "2. **Column Type Priority**: \n"
+        "   - ALWAYS prefer categorical/enumeration columns (e.g., 'school_type', 'status', 'category') over name-based LIKE matching.\n"
+        "   - Use exact equality (=) for categorical columns instead of fuzzy matching.\n"
+        "   - Only use LIKE with wildcards when searching free-text description fields.\n"
+        "   - Example: Use 'WHERE school_type = \"Public\"' instead of 'WHERE school_name LIKE \"%Public%\"'.\n\n"
+        
+        "3. **Query Optimization**:\n"
+        "   - Minimize the use of LIKE '%text%' patterns as they are slow.\n"
+        "   - When case-insensitivity is needed, use COLLATE NOCASE or LOWER() functions.\n"
+        "   - Ensure JOIN conditions use indexed columns (typically primary/foreign keys).\n\n"
+        
         "Return a valid JSON object with a single key 'sql'. Do not use markdown."
     )
 
+    # 基础内容
     user_content = f"""### User Question
 {question}
 
@@ -449,44 +408,43 @@ def get_sql_generation_prompt(
 ### Retrieved Schema
 {schema_context}
 
-### 
+### Value Exploration Results
 {exploration_context_str}
 
 """
 
-    if error_msg and previous_sql:
-        # 判断是否是空结果错误
-        is_empty_result_error = "returned no results" in error_msg.lower() or "empty" in error_msg.lower()
-        
-        if is_empty_result_error:
-            user_content += f"""
-### Previous Attempt Returned Empty Results
-SQL: {previous_sql}
-Issue: {error_msg}
+    # 根据尝试次数和错误情况，添加不同的指导
+    if error_msg:
+        user_content += f"\n{error_msg}\n"
+    elif attempt == 1:
+        # 第一次尝试，提供标准指导
+        user_content += """
+### Task
+Generate a SQLite-compatible SQL query that answers the user's question.
 
-### Instruction
-The previous SQL executed successfully but returned no results. This likely indicates:
-1. Incorrect filter conditions (e.g., wrong value matching, case sensitivity issues)
-2. Missing or incorrect JOIN conditions
-3. Overly restrictive WHERE clauses
-4. Column value mismatches (check if you need LIKE instead of = for fuzzy matching)
+**Key Requirements**:
+1. Use ONLY table/column names from the Retrieved Schema (original_table_name and original_column_name)
+2. Reference the Value Exploration Results to validate filter values
+3. Apply NULL filtering when using ORDER BY, MAX, or MIN
+4. Prefer categorical columns over LIKE matching where applicable
 
-Please analyze the query and try a different approach. Consider:
-- Relaxing filter conditions
-- Using LIKE with wildcards for string matching
-- Checking for case sensitivity issues (use LOWER() if needed)
-- Verifying JOIN conditions are correct
-- Removing unnecessary filters to broaden the search
+Output format: {"sql": "SELECT ..."}
 """
-        else:
-            user_content += f"""
-### Previous Failed Attempt
-SQL: {previous_sql}
-Error: {error_msg}
+    else:
+        # 后续尝试，强调创新
+        user_content += f"""
+### Task (Attempt {attempt})
+The previous attempt(s) did not succeed. Generate a NEW SQL query with a DIFFERENT approach.
 
-### Instruction
-The previous SQL failed. Analyze the error and the reasoning context to correct the SQL.
+**This time, consider**:
+- Alternative table join paths
+- Different filter strategies (exact match vs fuzzy match)
+- Simplified query structure to isolate issues
+- Different columns that might contain the target information
+
+Output format: {{"sql": "SELECT ..."}}
 """
+
     return system_prompt, user_content
 
 def get_value_exploration_prompt(

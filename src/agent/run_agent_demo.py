@@ -57,7 +57,7 @@ def main():
 
     try:
         # 测试问题
-        jsonl_path = "evaluate/exec_evaluate/golden_exec_results.jsonl"
+        jsonl_path = "test.jsonl"
         if not os.path.exists(jsonl_path):
              logging.error(f"JSONL file not found at {jsonl_path}")
              return
@@ -66,7 +66,7 @@ def main():
             dev_jsonl = [json.loads(line) for line in f.readlines()]
 
         # 只测试前5个题目
-        test_cases = dev_jsonl[4:5]
+        test_cases = dev_jsonl
         
         for idx, case in enumerate(test_cases):
             question = case["question"]
