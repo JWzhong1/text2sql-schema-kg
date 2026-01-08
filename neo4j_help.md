@@ -51,3 +51,8 @@ docker run --rm \
   neo4j-admin database dump <db_name> --to-path=/export
 
 docker start neo4j  
+
+
+
+
+

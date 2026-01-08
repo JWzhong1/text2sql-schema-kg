@@ -12,8 +12,7 @@ from collections import defaultdict
 from tqdm import tqdm
 from typing import List, Dict, Any
 
-# LangChain imports (matching dinsql.py)
-from langchain_community.utilities import SQLDatabase
+
 # Removed LangChain LLM imports
 # from langchain.chat_models import ChatOpenAI
 # from langchain.chains import LLMChain
@@ -277,10 +276,10 @@ Hint: {hint}
 A: Let's think step by step. In the question , we are asked:
 """
 
-def get_database_schema(DB_URI: str) -> str:
-    db = SQLDatabase.from_uri("sqlite:///"+DB_URI)
-    db._sample_rows_in_table_info = 3
-    return db.get_table_info_no_throw()
+def get_database_schema(schema_path: str) -> str:
+    with open(schema_path, "r", encoding="utf-8") as f:
+        schema = f.read()
+    return schema
 
 def table_descriptions_parser(database_dir):
     csv_files = glob.glob(f"{database_dir}/*.csv")
@@ -333,15 +332,13 @@ class DinSQLRetriever:
         """
         Executes DIN-SQL schema linking and converts result to {table: [columns]} format.
         """
-        db_path = os.path.join(self.db_root_path, db_id, f"{db_id}.sqlite")
         desc_path = os.path.join(self.db_root_path, db_id, "database_description")
-        
-        if not os.path.exists(db_path):
-            logger.error(f"Database not found: {db_path}")
+        schema_path = f"bird_data\\converted_schemas\\{db_id}.json"
+        if not os.path.exists(schema_path):
+            logger.error(f"Schema not found: {schema_path}")
             return {}
-
         try:
-            schema_str = get_database_schema(db_path)
+            schema_str = get_database_schema(schema_path)
             columns_desc = table_descriptions_parser(desc_path)
             
             # Construct messages manually

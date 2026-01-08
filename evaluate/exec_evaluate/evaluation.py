@@ -16,7 +16,7 @@ def load_json(dir):
         contents = json.load(j)
     return contents
 
-def load_json(dir):
+def load_jsonl(dir):
     contents = []
     with open(dir, 'r', encoding='utf-8') as j:
         for line in j:
@@ -170,17 +170,16 @@ def print_data(score_lists,count_lists):
 
 if __name__ == '__main__':
     args_parser = argparse.ArgumentParser()
-    args_parser.add_argument('--predicted_sql_path', type=str, required=True, default='')
-    args_parser.add_argument('--ground_truth_path', type=str, required=True, default='')
-    args_parser.add_argument('--data_mode', type=str, required=True, default='dev')
-    args_parser.add_argument('--db_root_path', type=str, required=True, default='')
-    args_parser.add_argument('--num_cpus', type=int, default=1)
+    args_parser.add_argument('--db_name',type=str,default='california_schools')
+    args_parser.add_argument('--eval_dir', type=str, required=True, default='')
+    # args_parser.add_argument('--ground_truth_path', type=str, required=True, default='')
+    args_parser.add_argument('--data_mode', type=str, default='dev')
+    args_parser.add_argument('--db_root_path', type=str, default='bird_data\\dev_databases\\')
+    args_parser.add_argument('--num_cpus', type=int, default=4)
     args_parser.add_argument('--meta_time_out', type=float, default=30.0)
     args_parser.add_argument('--mode_gt', type=str, default='gt')
     args_parser.add_argument('--mode_predict', type=str, default='gpt')
     args_parser.add_argument('--difficulty',type=str,default='simple')
-    args_parser.add_argument('--diff_json_path',type=str,default='')
-    args_parser.add_argument('--output_incorrect_file', type=str, default='incorrect_executions.json', help='Path to save incorrect execution details.')
     args = args_parser.parse_args()
 
     # Note: exec_result is already a global variable
@@ -190,10 +189,10 @@ if __name__ == '__main__':
     manager = mp.Manager()
     incorrect_executions = manager.list()
 
-    pred_queries, db_paths = package_sqls(args.predicted_sql_path, args.db_root_path, mode=args.mode_predict,
+    pred_queries, db_paths = package_sqls(args.eval_dir, args.db_root_path, mode=args.mode_predict,
                                           data_mode=args.data_mode)
     # generate gt sqls:
-    gt_queries, db_paths_gt = package_sqls(args.ground_truth_path, args.db_root_path, mode='gt',
+    gt_queries, db_paths_gt = package_sqls(args.eval_dir, args.db_root_path, mode='gt',
                                            data_mode=args.data_mode)
 
     query_pairs = list(zip(pred_queries, gt_queries))
@@ -201,8 +200,9 @@ if __name__ == '__main__':
     exec_result = sort_results(exec_result)
     
     print('start calculate')
+    diff_json_path = f"bird_data\\dev\\{args.db_name}.json"
     simple_acc, moderate_acc, challenging_acc, acc, count_lists = \
-        compute_acc_by_diff(exec_result, args.diff_json_path)
+        compute_acc_by_diff(exec_result, diff_json_path)
     score_lists = [simple_acc, moderate_acc, challenging_acc, acc]
     print_data(score_lists, count_lists)
     print('===========================================================================================')
@@ -213,7 +213,7 @@ if __name__ == '__main__':
     incorrect_executions_list = list(incorrect_executions)
     
     # 加载原始数据以获取 question 信息
-    original_data = load_json(args.diff_json_path)
+    original_data = load_json(diff_json_path)
     
     # 为每个错误执行结果添加 question 信息
     enriched_incorrect_executions = []
@@ -222,7 +222,6 @@ if __name__ == '__main__':
         if sql_idx >= 0 and sql_idx < len(original_data):
             original_item = original_data[sql_idx]
             enriched_item = {
-                'sql_idx': sql_idx,
                 'question_id': original_item.get('question_id', sql_idx),
                 'db_id': original_item.get('db_id', ''),
                 'question': original_item.get('question', ''),
@@ -240,9 +239,9 @@ if __name__ == '__main__':
             # 如果找不到对应的原始数据，仍然保存基本信息
             item['error_type'] = item.get('error_type', 'result_mismatch')
             enriched_incorrect_executions.append(item)
-    
-    print(f"\nSaving {len(enriched_incorrect_executions)} incorrect execution details to '{args.output_incorrect_file}'...")
-    with open(args.output_incorrect_file, 'w', encoding='utf-8') as f:
+    out_put_incorrect_file = f"{args.eval_dir}/incorrect.json"
+    print(f"\nSaving {len(enriched_incorrect_executions)} incorrect execution details to '{out_put_incorrect_file}'...")
+    with open(out_put_incorrect_file, 'w', encoding='utf-8') as f:
         json.dump(enriched_incorrect_executions, f, indent=2, ensure_ascii=False)
     print(f"Saved.")
 
@@ -255,3 +254,22 @@ if __name__ == '__main__':
     print(f"  - Timeouts: {timeout_count}")
     print(f"  - Execution Errors: {error_count}")
     # ---------------------------------
+
+    # 保存分数到 JSON 文件
+    output_scores_file = f"{args.eval_dir}/scores.json"
+    scores_data = {
+        "simple": simple_acc,
+        "moderate": moderate_acc,
+        "challenging": challenging_acc,
+        "total": acc,
+        "counts": {
+            "simple": count_lists[0],
+            "moderate": count_lists[1],
+            "challenging": count_lists[2],
+            "total": count_lists[3]
+        }
+    }
+    print(f"\nSaving scores to '{output_scores_file}'...")
+    with open(output_scores_file, 'w', encoding='utf-8') as f:
+        json.dump(scores_data, f, indent=2, ensure_ascii=False)
+    print(f"Scores saved.")

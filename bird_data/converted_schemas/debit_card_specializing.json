@@ -1,0 +1,304 @@
+[
+  {
+    "table_name": "customers",
+    "db_id": "debit_card_specializing",
+    "original_table_name": "customers",
+    "columns": [
+      {
+        "col": "CustomerID",
+        "type": "integer",
+        "original_column_name": "CustomerID",
+        "sample_values": [
+          3,
+          5,
+          6,
+          7,
+          9
+        ]
+      },
+      {
+        "col": "client segment",
+        "type": "text",
+        "original_column_name": "Segment",
+        "sample_values": [
+          "SME",
+          "LAM",
+          "KAM"
+        ]
+      },
+      {
+        "col": "Currency",
+        "type": "text",
+        "original_column_name": "Currency",
+        "sample_values": [
+          "EUR",
+          "CZK"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "CustomerID"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "gas stations",
+    "db_id": "debit_card_specializing",
+    "original_table_name": "gasstations",
+    "columns": [
+      {
+        "col": "Gas Station ID",
+        "type": "integer",
+        "original_column_name": "GasStationID",
+        "sample_values": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ]
+      },
+      {
+        "col": "Chain ID",
+        "type": "integer",
+        "original_column_name": "ChainID",
+        "sample_values": [
+          13,
+          6,
+          23,
+          33,
+          4
+        ]
+      },
+      {
+        "col": "Country",
+        "type": "text",
+        "original_column_name": "Country",
+        "sample_values": [
+          "CZE",
+          "SVK"
+        ]
+      },
+      {
+        "col": "chain segment",
+        "type": "text",
+        "original_column_name": "Segment",
+        "sample_values": [
+          "Value for money",
+          "Premium",
+          "Other",
+          "Noname",
+          "Discount"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "GasStationID"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "products",
+    "db_id": "debit_card_specializing",
+    "original_table_name": "products",
+    "columns": [
+      {
+        "col": "Product ID",
+        "type": "integer",
+        "original_column_name": "ProductID",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "Description",
+        "type": "text",
+        "original_column_name": "Description",
+        "sample_values": [
+          "Rucní zadání",
+          "Nafta",
+          "Special",
+          "Super",
+          "Natural"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "ProductID"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "transactions",
+    "db_id": "debit_card_specializing",
+    "original_table_name": "transactions_1k",
+    "columns": [
+      {
+        "col": "Transaction ID",
+        "type": "integer",
+        "original_column_name": "TransactionID",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "Date",
+        "type": "date",
+        "original_column_name": "Date",
+        "sample_values": [
+          "2012-08-24",
+          "2012-08-23",
+          "2012-08-25",
+          "2012-08-26"
+        ]
+      },
+      {
+        "col": "Time",
+        "type": "text",
+        "original_column_name": "Time",
+        "sample_values": [
+          "09:41:00",
+          "10:03:00",
+          "13:53:00",
+          "08:49:00",
+          "08:53:00"
+        ]
+      },
+      {
+        "col": "Customer ID",
+        "type": "integer",
+        "original_column_name": "CustomerID",
+        "sample_values": [
+          31543,
+          46707,
+          7654,
+          17373,
+          7881
+        ]
+      },
+      {
+        "col": "Card ID",
+        "type": "integer",
+        "original_column_name": "CardID",
+        "sample_values": [
+          486621,
+          550134,
+          684220,
+          536109,
+          99745
+        ]
+      },
+      {
+        "col": "Gas Station ID",
+        "type": "integer",
+        "original_column_name": "GasStationID",
+        "sample_values": [
+          3704,
+          656,
+          741,
+          1152,
+          636
+        ]
+      },
+      {
+        "col": "Product ID",
+        "type": "integer",
+        "original_column_name": "ProductID",
+        "sample_values": [
+          2,
+          23,
+          5,
+          11,
+          7
+        ]
+      },
+      {
+        "col": "Amount",
+        "type": "integer",
+        "original_column_name": "Amount",
+        "sample_values": [
+          28,
+          18,
+          1,
+          5,
+          4
+        ]
+      },
+      {
+        "col": "Price",
+        "type": "real",
+        "original_column_name": "Price",
+        "sample_values": [
+          672.64,
+          430.72,
+          121.99,
+          120.74,
+          645.05
+        ]
+      }
+    ],
+    "primary_keys": [
+      "TransactionID"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "year and month",
+    "db_id": "debit_card_specializing",
+    "original_table_name": "yearmonth",
+    "columns": [
+      {
+        "col": "Customer ID",
+        "type": "integer",
+        "original_column_name": "CustomerID",
+        "sample_values": [
+          39,
+          63,
+          172,
+          603,
+          1492
+        ]
+      },
+      {
+        "col": "Date",
+        "type": "text",
+        "original_column_name": "Date",
+        "sample_values": [
+          "201112",
+          "201201",
+          "201202",
+          "201203",
+          "201204"
+        ]
+      },
+      {
+        "col": "Consumption",
+        "type": "real",
+        "original_column_name": "Consumption",
+        "sample_values": [
+          528.3,
+          1598.28,
+          1931.36,
+          1497.14,
+          51.06
+        ]
+      }
+    ],
+    "primary_keys": [],
+    "foreign_keys": [
+      {
+        "column": "CustomerID",
+        "referenced_table": "customers",
+        "referenced_column": "CustomerID"
+      }
+    ]
+  }
+]

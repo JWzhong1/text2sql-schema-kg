@@ -1,0 +1,1077 @@
+[
+  {
+    "table_name": "free and reduced-price meals",
+    "db_id": "california_schools",
+    "original_table_name": "frpm",
+    "columns": [
+      {
+        "col": "CDSCode",
+        "type": "text",
+        "original_column_name": "CDSCode",
+        "sample_values": [
+          "01100170109835",
+          "01100170112607",
+          "01100170118489",
+          "01100170123968",
+          "01100170124172"
+        ]
+      },
+      {
+        "col": "Academic Year",
+        "type": "text",
+        "original_column_name": "Academic Year",
+        "sample_values": [
+          "2014-2015"
+        ]
+      },
+      {
+        "col": "County Code",
+        "type": "text",
+        "original_column_name": "County Code",
+        "sample_values": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05"
+        ]
+      },
+      {
+        "col": "District Code",
+        "type": "integer",
+        "original_column_name": "District Code",
+        "sample_values": [
+          10017,
+          31609,
+          31617,
+          61119,
+          61127
+        ]
+      },
+      {
+        "col": "School Code",
+        "type": "text",
+        "original_column_name": "School Code",
+        "sample_values": [
+          "0109835",
+          "0112607",
+          "0118489",
+          "0123968",
+          "0124172"
+        ]
+      },
+      {
+        "col": "County Name",
+        "type": "text",
+        "original_column_name": "County Name",
+        "sample_values": [
+          "Alameda",
+          "Alpine",
+          "Amador",
+          "Butte",
+          "Calaveras"
+        ]
+      },
+      {
+        "col": "District Name",
+        "type": "text",
+        "original_column_name": "District Name",
+        "sample_values": [
+          "Alameda County Office of Education",
+          "California School for the Blind (State Special Schl)",
+          "California School for the Deaf-Fremont (State Special Schl)",
+          "Alameda Unified",
+          "Albany City Unified"
+        ]
+      },
+      {
+        "col": "School Name",
+        "type": "text",
+        "original_column_name": "School Name",
+        "sample_values": [
+          "FAME Public Charter",
+          "Envision Academy for Arts & Technology",
+          "Aspire California College Preparatory Academy",
+          "Community School for Creative Education",
+          "Yu Ming Charter"
+        ]
+      },
+      {
+        "col": "District Type",
+        "type": "text",
+        "original_column_name": "District Type",
+        "sample_values": [
+          "County Office of Education (COE)",
+          "State Special Schools",
+          "Unified School District",
+          "Elementary School District",
+          "High School District"
+        ]
+      },
+      {
+        "col": "School Type",
+        "type": "text",
+        "original_column_name": "School Type",
+        "sample_values": [
+          "K-12 Schools (Public)",
+          "High Schools (Public)",
+          "Elementary Schools (Public)",
+          "Juvenile Court Schools",
+          "County Community"
+        ]
+      },
+      {
+        "col": "Educational Option Type",
+        "type": "text",
+        "original_column_name": "Educational Option Type",
+        "sample_values": [
+          "Traditional",
+          "Juvenile Court School",
+          "County Community School",
+          "State Special School",
+          "Alternative School of Choice"
+        ]
+      },
+      {
+        "col": "NSLP Provision Status",
+        "type": "text",
+        "original_column_name": "NSLP Provision Status",
+        "sample_values": [
+          "Breakfast Provision 2",
+          "Provision 2",
+          "CEP",
+          "Lunch Provision 2",
+          "Provision 1"
+        ]
+      },
+      {
+        "col": "Charter School (Y/N)",
+        "type": "integer",
+        "original_column_name": "Charter School (Y/N)",
+        "sample_values": [
+          1,
+          0
+        ]
+      },
+      {
+        "col": "Charter School Number",
+        "type": "text",
+        "original_column_name": "Charter School Number",
+        "sample_values": [
+          "0728",
+          "0811",
+          "1049",
+          "1284",
+          "1296"
+        ]
+      },
+      {
+        "col": "Charter Funding Type",
+        "type": "text",
+        "original_column_name": "Charter Funding Type",
+        "sample_values": [
+          "Directly funded",
+          "Locally funded",
+          "Not in CS funding model"
+        ]
+      },
+      {
+        "col": "IRC",
+        "type": "integer",
+        "original_column_name": "IRC",
+        "sample_values": [
+          1,
+          0
+        ]
+      },
+      {
+        "col": "Low Grade",
+        "type": "text",
+        "original_column_name": "Low Grade",
+        "sample_values": [
+          "K",
+          "9",
+          "1",
+          "P",
+          "6"
+        ]
+      },
+      {
+        "col": "High Grade",
+        "type": "text",
+        "original_column_name": "High Grade",
+        "sample_values": [
+          "12",
+          "8",
+          "5",
+          "Adult",
+          "6"
+        ]
+      },
+      {
+        "col": "Enrollment (K-12)",
+        "type": "real",
+        "original_column_name": "Enrollment (K-12)",
+        "sample_values": [
+          1087.0,
+          395.0,
+          244.0,
+          191.0,
+          257.0
+        ]
+      },
+      {
+        "col": "Free Meal Count (K-12)",
+        "type": "real",
+        "original_column_name": "Free Meal Count (K-12)",
+        "sample_values": [
+          565.0,
+          186.0,
+          134.0,
+          113.0,
+          14.0
+        ]
+      },
+      {
+        "col": "Percent (%) Eligible Free (K-12)",
+        "type": "real",
+        "original_column_name": "Percent (%) Eligible Free (K-12)",
+        "sample_values": [
+          0.519779208831647,
+          0.470886075949367,
+          0.549180327868853,
+          0.591623036649215,
+          0.0544747081712062
+        ]
+      },
+      {
+        "col": "FRPM Count (K-12)",
+        "type": "real",
+        "original_column_name": "FRPM Count (K-12)",
+        "sample_values": [
+          715.0,
+          186.0,
+          175.0,
+          139.0,
+          21.0
+        ]
+      },
+      {
+        "col": "Percent (%) Eligible FRPM (K-12)",
+        "type": "real",
+        "original_column_name": "Percent (%) Eligible FRPM (K-12)",
+        "sample_values": [
+          0.657773689052438,
+          0.470886075949367,
+          0.717213114754098,
+          0.727748691099476,
+          0.0817120622568093
+        ]
+      },
+      {
+        "col": "Enrollment (Ages 5-17)",
+        "type": "real",
+        "original_column_name": "Enrollment (Ages 5-17)",
+        "sample_values": [
+          1070.0,
+          376.0,
+          230.0,
+          190.0,
+          257.0
+        ]
+      },
+      {
+        "col": "Free Meal Count (Ages 5-17)",
+        "type": "real",
+        "original_column_name": "Free Meal Count (Ages 5-17)",
+        "sample_values": [
+          553.0,
+          182.0,
+          128.0,
+          113.0,
+          14.0
+        ]
+      },
+      {
+        "col": "Percent (%) Eligible Free (Ages 5-17)",
+        "type": "real",
+        "original_column_name": "Percent (%) Eligible Free (Ages 5-17)",
+        "sample_values": [
+          0.516822429906542,
+          0.484042553191489,
+          0.556521739130435,
+          0.594736842105263,
+          0.0544747081712062
+        ]
+      },
+      {
+        "col": "FRPM Count (Ages 5-17)",
+        "type": "real",
+        "original_column_name": "FRPM Count (Ages 5-17)",
+        "sample_values": [
+          702.0,
+          182.0,
+          168.0,
+          139.0,
+          21.0
+        ]
+      },
+      {
+        "col": "Percent (%) Eligible FRPM (Ages 5-17)",
+        "type": "real",
+        "original_column_name": "Percent (%) Eligible FRPM (Ages 5-17)",
+        "sample_values": [
+          0.65607476635514,
+          0.484042553191489,
+          0.730434782608696,
+          0.731578947368421,
+          0.0817120622568093
+        ]
+      },
+      {
+        "col": "2013-14 CALPADS Fall 1 Certification Status",
+        "type": "integer",
+        "original_column_name": "2013-14 CALPADS Fall 1 Certification Status",
+        "sample_values": [
+          1
+        ]
+      }
+    ],
+    "primary_keys": [
+      "CDSCode"
+    ],
+    "foreign_keys": [
+      {
+        "column": "CDSCode",
+        "referenced_table": "schools",
+        "referenced_column": "CDSCode"
+      }
+    ]
+  },
+  {
+    "table_name": "sat scores",
+    "db_id": "california_schools",
+    "original_table_name": "satscores",
+    "columns": [
+      {
+        "col": "cds",
+        "type": "text",
+        "original_column_name": "cds",
+        "sample_values": [
+          "10101080000000",
+          "10101080109991",
+          "10101080111682",
+          "10101080119628",
+          "10621170000000"
+        ]
+      },
+      {
+        "col": "rtype",
+        "type": "text",
+        "original_column_name": "rtype",
+        "sample_values": [
+          "D",
+          "S"
+        ]
+      },
+      {
+        "col": "school name",
+        "type": "text",
+        "original_column_name": "sname",
+        "sample_values": [
+          "FAME Public Charter",
+          "Envision Academy for Arts & Technology",
+          "Aspire California College Preparatory Academy",
+          "Alameda Science and Technology Institute",
+          "Nea Community Learning Center"
+        ]
+      },
+      {
+        "col": "district name",
+        "type": "text",
+        "original_column_name": "dname",
+        "sample_values": [
+          "Alameda County Office of Education",
+          "Alameda Unified",
+          "Albany City Unified",
+          "Berkeley Unified",
+          "Castro Valley Unified"
+        ]
+      },
+      {
+        "col": "county name",
+        "type": "text",
+        "original_column_name": "cname",
+        "sample_values": [
+          "Alameda",
+          "Amador",
+          "Butte",
+          "Calaveras",
+          "Colusa"
+        ]
+      },
+      {
+        "col": "enrollment (1st-12nd grade)",
+        "type": "integer",
+        "original_column_name": "enroll12",
+        "sample_values": [
+          398,
+          62,
+          75,
+          61,
+          922
+        ]
+      },
+      {
+        "col": "Number of Test Takers",
+        "type": "integer",
+        "original_column_name": "NumTstTakr",
+        "sample_values": [
+          88,
+          17,
+          71,
+          0,
+          544
+        ]
+      },
+      {
+        "col": "average scores in Reading",
+        "type": "integer",
+        "original_column_name": "AvgScrRead",
+        "sample_values": [
+          418,
+          503,
+          397,
+          521,
+          562
+        ]
+      },
+      {
+        "col": "average scores in Math",
+        "type": "integer",
+        "original_column_name": "AvgScrMath",
+        "sample_values": [
+          418,
+          546,
+          387,
+          590,
+          573
+        ]
+      },
+      {
+        "col": "average scores in writing",
+        "type": "integer",
+        "original_column_name": "AvgScrWrite",
+        "sample_values": [
+          417,
+          505,
+          395,
+          519,
+          555
+        ]
+      },
+      {
+        "col": "Number of Test Takers Whose Total SAT Scores Are Greater or Equal to 1500",
+        "type": "integer",
+        "original_column_name": "NumGE1500",
+        "sample_values": [
+          14,
+          9,
+          5,
+          333,
+          29
+        ]
+      }
+    ],
+    "primary_keys": [
+      "cds"
+    ],
+    "foreign_keys": [
+      {
+        "column": "cds",
+        "referenced_table": "schools",
+        "referenced_column": "CDSCode"
+      }
+    ]
+  },
+  {
+    "table_name": "schools",
+    "db_id": "california_schools",
+    "original_table_name": "schools",
+    "columns": [
+      {
+        "col": "CDSCode",
+        "type": "text",
+        "original_column_name": "CDSCode",
+        "sample_values": [
+          "01100170000000",
+          "01100170109835",
+          "01100170112607",
+          "01100170118489",
+          "01100170123968"
+        ]
+      },
+      {
+        "col": "National Center for Educational Statistics school district identification number",
+        "type": "text",
+        "original_column_name": "NCESDist",
+        "sample_values": [
+          "0691051",
+          "0600002",
+          "0600003",
+          "0601397",
+          "0601770"
+        ]
+      },
+      {
+        "col": "National Center for Educational Statistics school identification number",
+        "type": "text",
+        "original_column_name": "NCESSchool",
+        "sample_values": [
+          "10546",
+          "10947",
+          "12283",
+          "12844",
+          "12901"
+        ]
+      },
+      {
+        "col": "StatusType",
+        "type": "text",
+        "original_column_name": "StatusType",
+        "sample_values": [
+          "Active",
+          "Closed",
+          "Merged",
+          "Pending"
+        ]
+      },
+      {
+        "col": "County",
+        "type": "text",
+        "original_column_name": "County",
+        "sample_values": [
+          "Alameda",
+          "Alpine",
+          "Amador",
+          "Butte",
+          "Calaveras"
+        ]
+      },
+      {
+        "col": "District",
+        "type": "text",
+        "original_column_name": "District",
+        "sample_values": [
+          "Alameda County Office of Education",
+          "California School for the Blind (State Special Schl)",
+          "California School for the Deaf-Fremont (State Special Schl)",
+          "California Community College, Chancellors",
+          "Mission Valley ROC/P"
+        ]
+      },
+      {
+        "col": "School",
+        "type": "text",
+        "original_column_name": "School",
+        "sample_values": [
+          "FAME Public Charter",
+          "Envision Academy for Arts & Technology",
+          "Aspire California College Preparatory Academy",
+          "Community School for Creative Education",
+          "Yu Ming Charter"
+        ]
+      },
+      {
+        "col": "Street",
+        "type": "text",
+        "original_column_name": "Street",
+        "sample_values": [
+          "313 West Winton Avenue",
+          "39899 Balentine Drive, Suite 335",
+          "1515 Webster Street",
+          "2125 Jefferson Avenue",
+          "2111 International Boulevard"
+        ]
+      },
+      {
+        "col": "street address",
+        "type": "text",
+        "original_column_name": "StreetAbr",
+        "sample_values": [
+          "313 West Winton Ave.",
+          "39899 Balentine Dr., Ste. 335",
+          "1515 Webster St.",
+          "2125 Jefferson Ave.",
+          "2111 International Blvd."
+        ]
+      },
+      {
+        "col": "City",
+        "type": "text",
+        "original_column_name": "City",
+        "sample_values": [
+          "Hayward",
+          "Newark",
+          "Oakland",
+          "Berkeley",
+          "San Leandro"
+        ]
+      },
+      {
+        "col": "Zip",
+        "type": "text",
+        "original_column_name": "Zip",
+        "sample_values": [
+          "94544-1136",
+          "94560-5359",
+          "94612-3355",
+          "94703-1414",
+          "94606-4903"
+        ]
+      },
+      {
+        "col": "State",
+        "type": "text",
+        "original_column_name": "State",
+        "sample_values": [
+          "CA"
+        ]
+      },
+      {
+        "col": "Mail Street",
+        "type": "text",
+        "original_column_name": "MailStreet",
+        "sample_values": [
+          "313 West Winton Avenue",
+          "39899 Balentine Drive, Suite 335",
+          "1515 Webster Street",
+          "1001 22nd Avenue, Suite 100",
+          "2111 International Boulevard"
+        ]
+      },
+      {
+        "col": "mailing street address",
+        "type": "text",
+        "original_column_name": "MailStrAbr",
+        "sample_values": [
+          "313 West Winton Ave.",
+          "39899 Balentine Dr., Ste. 335",
+          "1515 Webster St.",
+          "1001 22nd Ave., Ste. 100",
+          "2111 International Blvd."
+        ]
+      },
+      {
+        "col": "mailing city",
+        "type": "text",
+        "original_column_name": "MailCity",
+        "sample_values": [
+          "Hayward",
+          "Newark",
+          "Oakland",
+          "San Leandro",
+          "Dublin"
+        ]
+      },
+      {
+        "col": "mailing zip",
+        "type": "text",
+        "original_column_name": "MailZip",
+        "sample_values": [
+          "94544-1136",
+          "94560-5359",
+          "94612",
+          "94606",
+          "94606-4903"
+        ]
+      },
+      {
+        "col": "mailing state",
+        "type": "text",
+        "original_column_name": "MailState",
+        "sample_values": [
+          "CA"
+        ]
+      },
+      {
+        "col": "Phone",
+        "type": "text",
+        "original_column_name": "Phone",
+        "sample_values": [
+          "(510) 887-0152",
+          "(510) 596-8901",
+          "(510) 686-4131",
+          "(510) 452-2063",
+          "(510) 842-1181"
+        ]
+      },
+      {
+        "col": "extension",
+        "type": "text",
+        "original_column_name": "Ext",
+        "sample_values": [
+          "130",
+          "1240",
+          "1200",
+          "1311",
+          "39117"
+        ]
+      },
+      {
+        "col": "Website",
+        "type": "text",
+        "original_column_name": "Website",
+        "sample_values": [
+          "www.acoe.org",
+          "www.envisionacademy.org/",
+          "www.aspirepublicschools.org",
+          "www.communityschoolforcreativeeducation.org",
+          "www.yumingschool.org"
+        ]
+      },
+      {
+        "col": "OpenDate",
+        "type": "date",
+        "original_column_name": "OpenDate",
+        "sample_values": [
+          "2005-08-29",
+          "2006-08-28",
+          "2008-08-21",
+          "2011-08-22",
+          "2011-08-09"
+        ]
+      },
+      {
+        "col": "ClosedDate",
+        "type": "date",
+        "original_column_name": "ClosedDate",
+        "sample_values": [
+          "2015-07-31",
+          "2015-06-30",
+          "1989-06-30",
+          "2013-06-30",
+          "1987-06-22"
+        ]
+      },
+      {
+        "col": "Charter",
+        "type": "integer",
+        "original_column_name": "Charter",
+        "sample_values": [
+          1,
+          0
+        ]
+      },
+      {
+        "col": "CharterNum",
+        "type": "text",
+        "original_column_name": "CharterNum",
+        "sample_values": [
+          "0728",
+          "0811",
+          "1049",
+          "1284",
+          "1296"
+        ]
+      },
+      {
+        "col": "FundingType",
+        "type": "text",
+        "original_column_name": "FundingType",
+        "sample_values": [
+          "Directly funded",
+          "Locally funded",
+          "Not in CS funding model"
+        ]
+      },
+      {
+        "col": "District Ownership Code",
+        "type": "text",
+        "original_column_name": "DOC",
+        "sample_values": [
+          "00",
+          "31",
+          "34",
+          "42",
+          "54"
+        ]
+      },
+      {
+        "col": "The District Ownership Code Type",
+        "type": "text",
+        "original_column_name": "DOCType",
+        "sample_values": [
+          "County Office of Education (COE)",
+          "State Special Schools",
+          "Non-School Locations",
+          "Joint Powers Authority (JPA)",
+          "Unified School District"
+        ]
+      },
+      {
+        "col": "School Ownership Code",
+        "type": "text",
+        "original_column_name": "SOC",
+        "sample_values": [
+          "65",
+          "66",
+          "60",
+          "10",
+          "14"
+        ]
+      },
+      {
+        "col": "School Ownership Code Type",
+        "type": "text",
+        "original_column_name": "SOCType",
+        "sample_values": [
+          "K-12 Schools (Public)",
+          "High Schools (Public)",
+          "Elementary Schools (Public)",
+          "County Community",
+          "Juvenile Court Schools"
+        ]
+      },
+      {
+        "col": "Education Option Code",
+        "type": "text",
+        "original_column_name": "EdOpsCode",
+        "sample_values": [
+          "TRAD",
+          "JUV",
+          "COMM",
+          "OPP",
+          "SPEC"
+        ]
+      },
+      {
+        "col": "Educational Option Name",
+        "type": "text",
+        "original_column_name": "EdOpsName",
+        "sample_values": [
+          "Traditional",
+          "Juvenile Court School",
+          "County Community School",
+          "Opportunity School",
+          "Special Education School"
+        ]
+      },
+      {
+        "col": "Educational Instruction Level Code",
+        "type": "text",
+        "original_column_name": "EILCode",
+        "sample_values": [
+          "ELEMHIGH",
+          "HS",
+          "ELEM",
+          "UG",
+          "INTMIDJR"
+        ]
+      },
+      {
+        "col": "Educational Instruction Level Name",
+        "type": "text",
+        "original_column_name": "EILName",
+        "sample_values": [
+          "Elementary-High Combination",
+          "High School",
+          "Elementary",
+          "Ungraded",
+          "Intermediate/Middle/Junior High"
+        ]
+      },
+      {
+        "col": "grade span offered",
+        "type": "text",
+        "original_column_name": "GSoffered",
+        "sample_values": [
+          "K-12",
+          "9-12",
+          "K-8",
+          "7-12",
+          "6-8"
+        ]
+      },
+      {
+        "col": "grade span served.",
+        "type": "text",
+        "original_column_name": "GSserved",
+        "sample_values": [
+          "K-12",
+          "9-12",
+          "K-7",
+          "K-5",
+          "8-12"
+        ]
+      },
+      {
+        "col": "Virtual",
+        "type": "text",
+        "original_column_name": "Virtual",
+        "sample_values": [
+          "P",
+          "N",
+          "F"
+        ]
+      },
+      {
+        "col": "Magnet",
+        "type": "integer",
+        "original_column_name": "Magnet",
+        "sample_values": [
+          0,
+          1
+        ]
+      },
+      {
+        "col": "Latitude",
+        "type": "real",
+        "original_column_name": "Latitude",
+        "sample_values": [
+          37.658212,
+          37.521436,
+          37.80452,
+          37.868991,
+          37.784648
+        ]
+      },
+      {
+        "col": "Longitude",
+        "type": "real",
+        "original_column_name": "Longitude",
+        "sample_values": [
+          -122.09713,
+          -121.99391,
+          -122.26815,
+          -122.27844,
+          -122.23863
+        ]
+      },
+      {
+        "col": "administrator's first name 1",
+        "type": "text",
+        "original_column_name": "AdmFName1",
+        "sample_values": [
+          "L Karen",
+          "Laura",
+          "Clifford",
+          "Sue",
+          "David"
+        ]
+      },
+      {
+        "col": "administrator's last name 1",
+        "type": "text",
+        "original_column_name": "AdmLName1",
+        "sample_values": [
+          "Monroe",
+          "Robell",
+          "Thompson",
+          "Park",
+          "Castillo"
+        ]
+      },
+      {
+        "col": "administrator's email address 1",
+        "type": "text",
+        "original_column_name": "AdmEmail1",
+        "sample_values": [
+          "lkmonroe@acoe.org",
+          "laura@envisionacademy.org",
+          "cliffordt@communityschoolforcreativeeducation.org",
+          "spark@yumingschool.org",
+          "davidc@urbanmontessori.org"
+        ]
+      },
+      {
+        "col": "administrator's first name 2",
+        "type": "text",
+        "original_column_name": "AdmFName2",
+        "sample_values": [
+          "Sau-Lim (Lance)",
+          "Jennifer",
+          "Annalisa",
+          "Woo",
+          "David"
+        ]
+      },
+      {
+        "col": "administrator's last name 2",
+        "type": "text",
+        "original_column_name": "AdmLName2",
+        "sample_values": [
+          "Tsang",
+          "Koelling",
+          "Moore",
+          "Williams",
+          "Hoopes"
+        ]
+      },
+      {
+        "col": "administrator's email address 2",
+        "type": "text",
+        "original_column_name": "AdmEmail2",
+        "sample_values": [
+          "stsang@unityhigh.org",
+          "jkoelling@efcps.net",
+          "annalisa.moore@neaclc.org",
+          "wwilliams@aoaschools.org",
+          "david.hoopes@alamedaclc.org"
+        ]
+      },
+      {
+        "col": "administrator's first name 3",
+        "type": "text",
+        "original_column_name": "AdmFName3",
+        "sample_values": [
+          "Drew",
+          "Irma",
+          "Vickie",
+          "Barbara",
+          "Kelly"
+        ]
+      },
+      {
+        "col": "administrator's last name 3",
+        "type": "text",
+        "original_column_name": "AdmLName3",
+        "sample_values": [
+          "Sarratore",
+          "Munoz",
+          "Chang",
+          "Mandelbaum",
+          "Kriss"
+        ]
+      },
+      {
+        "col": "administrator's email address 3",
+        "type": "text",
+        "original_column_name": "AdmEmail3",
+        "sample_values": [
+          "dsarratore@vincentacademy.org",
+          "gmunoz@piedmont.k12.ca.us",
+          "vickiechang@acoe.org",
+          "bmandelbaum@bcoe.org",
+          "kkriss@pusdk12.org"
+        ]
+      },
+      {
+        "col": "Last Update",
+        "type": "date",
+        "original_column_name": "LastUpdate",
+        "sample_values": [
+          "2015-06-23",
+          "2015-09-01",
+          "2015-06-18",
+          "2015-07-01",
+          "2016-07-18"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "CDSCode"
+    ],
+    "foreign_keys": []
+  }
+]

@@ -1,0 +1,1011 @@
+[
+  {
+    "table_name": "badges",
+    "db_id": "codebase_community",
+    "original_table_name": "badges",
+    "columns": [
+      {
+        "col": "Id",
+        "type": "integer",
+        "original_column_name": "Id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "User Id",
+        "type": "integer",
+        "original_column_name": "UserId",
+        "sample_values": [
+          5,
+          6,
+          8,
+          23,
+          36
+        ]
+      },
+      {
+        "col": "Name",
+        "type": "text",
+        "original_column_name": "Name",
+        "sample_values": [
+          "Teacher",
+          "Student",
+          "Editor",
+          "Organizer",
+          "Supporter"
+        ]
+      },
+      {
+        "col": "Date",
+        "type": "datetime",
+        "original_column_name": "Date",
+        "sample_values": [
+          "2010-07-19 19:39:07.0",
+          "2010-07-19 19:39:08.0",
+          "2010-07-19 19:39:09.0",
+          "2010-07-19 19:39:10.0",
+          "2010-07-19 19:44:07.0"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "Id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "UserId",
+        "referenced_table": "users",
+        "referenced_column": "Id"
+      }
+    ]
+  },
+  {
+    "table_name": "comments",
+    "db_id": "codebase_community",
+    "original_table_name": "comments",
+    "columns": [
+      {
+        "col": "Id",
+        "type": "integer",
+        "original_column_name": "Id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "Post Id",
+        "type": "integer",
+        "original_column_name": "PostId",
+        "sample_values": [
+          3,
+          5,
+          9,
+          14,
+          18
+        ]
+      },
+      {
+        "col": "Score",
+        "type": "integer",
+        "original_column_name": "Score",
+        "sample_values": [
+          5,
+          0,
+          11,
+          1,
+          9
+        ]
+      },
+      {
+        "col": "Text",
+        "type": "text",
+        "original_column_name": "Text",
+        "sample_values": [
+          "Could be a poster child fo argumentative and subjective.  At the least, need to define 'valuable'.",
+          "Yes, R is nice- but WHY is it 'valuable'.",
+          "Again- why?  How would I convince my boss to use this over, say, Excel.",
+          "It's mature, well supported, and a standard within certain scientific communities (popular in our AI department, for example)",
+          "Define \"valuable\"..."
+        ]
+      },
+      {
+        "col": "Creation Date",
+        "type": "datetime",
+        "original_column_name": "CreationDate",
+        "sample_values": [
+          "2010-07-19 19:15:52.0",
+          "2010-07-19 19:16:14.0",
+          "2010-07-19 19:18:54.0",
+          "2010-07-19 19:19:56.0",
+          "2010-07-19 19:20:28.0"
+        ]
+      },
+      {
+        "col": "User Id",
+        "type": "integer",
+        "original_column_name": "UserId",
+        "sample_values": [
+          13,
+          37,
+          5,
+          23,
+          36
+        ]
+      },
+      {
+        "col": "User Display Name",
+        "type": "text",
+        "original_column_name": "UserDisplayName",
+        "sample_values": [
+          "user28",
+          "Statprof",
+          "jjgibaja",
+          "Pete",
+          "anonymous"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "Id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "UserId",
+        "referenced_table": "users",
+        "referenced_column": "Id"
+      },
+      {
+        "column": "PostId",
+        "referenced_table": "posts",
+        "referenced_column": "Id"
+      }
+    ]
+  },
+  {
+    "table_name": "post History",
+    "db_id": "codebase_community",
+    "original_table_name": "postHistory",
+    "columns": [
+      {
+        "col": "Id",
+        "type": "integer",
+        "original_column_name": "Id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "Post History Type Id",
+        "type": "integer",
+        "original_column_name": "PostHistoryTypeId",
+        "sample_values": [
+          2,
+          1,
+          3,
+          16,
+          6
+        ]
+      },
+      {
+        "col": "Post Id",
+        "type": "integer",
+        "original_column_name": "PostId",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "Revision GUID",
+        "type": "text",
+        "original_column_name": "RevisionGUID",
+        "sample_values": [
+          "e58bf7fd-e60f-4c58-a6e4-dfc91cf98a69",
+          "18bf9150-f1cb-432d-b7b7-26d2f8e33581",
+          "6320bb0f-c792-4a8c-8083-89507c28d375",
+          "ccbe017d-d22c-4c0a-83b0-1d82a792a098",
+          "5631dbb1-2781-4924-b7bd-5a67c06c5e4e"
+        ]
+      },
+      {
+        "col": "Creation Date",
+        "type": "datetime",
+        "original_column_name": "CreationDate",
+        "sample_values": [
+          "2010-07-19 19:12:12.0",
+          "2010-07-19 19:12:57.0",
+          "2010-07-19 19:13:28.0",
+          "2010-07-19 19:13:31.0",
+          "2010-07-19 19:14:43.0"
+        ]
+      },
+      {
+        "col": "User Id",
+        "type": "integer",
+        "original_column_name": "UserId",
+        "sample_values": [
+          8,
+          24,
+          18,
+          23,
+          -1
+        ]
+      },
+      {
+        "col": "Text",
+        "type": "text",
+        "original_column_name": "Text",
+        "sample_values": [
+          "How should I elicit prior distributions from experts when fitting a Bayesian model?",
+          "Eliciting priors from experts",
+          "<bayesian><prior><elicitation>",
+          "In many different statistical methods there is an \"assumption of normality\".  What is \"normality\" and how do I know if there is normality?",
+          "What is normality?"
+        ]
+      },
+      {
+        "col": "Comment",
+        "type": "text",
+        "original_column_name": "Comment",
+        "sample_values": [
+          "",
+          "edited tags",
+          "add content from the comments;",
+          "Removed the word \"most\" and used \"some\"- most is way too subjective.",
+          "added 310 characters in body"
+        ]
+      },
+      {
+        "col": "User Display Name",
+        "type": "text",
+        "original_column_name": "UserDisplayName",
+        "sample_values": [
+          "",
+          "user28",
+          "user209",
+          "Michael Bishop",
+          "Guy Srinivasan"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "Id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "UserId",
+        "referenced_table": "users",
+        "referenced_column": "Id"
+      },
+      {
+        "column": "PostId",
+        "referenced_table": "posts",
+        "referenced_column": "Id"
+      }
+    ]
+  },
+  {
+    "table_name": "post Links",
+    "db_id": "codebase_community",
+    "original_table_name": "postLinks",
+    "columns": [
+      {
+        "col": "Id",
+        "type": "integer",
+        "original_column_name": "Id",
+        "sample_values": [
+          108,
+          145,
+          217,
+          263,
+          264
+        ]
+      },
+      {
+        "col": "Creation Date",
+        "type": "datetime",
+        "original_column_name": "CreationDate",
+        "sample_values": [
+          "2010-07-21 14:47:33.0",
+          "2010-07-23 16:30:41.0",
+          "2010-07-26 20:12:15.0",
+          "2010-07-27 16:00:22.0",
+          "2010-07-27 17:19:27.0"
+        ]
+      },
+      {
+        "col": "Post Id",
+        "type": "integer",
+        "original_column_name": "PostId",
+        "sample_values": [
+          395,
+          548,
+          375,
+          769,
+          790
+        ]
+      },
+      {
+        "col": "Related Post Id",
+        "type": "integer",
+        "original_column_name": "RelatedPostId",
+        "sample_values": [
+          173,
+          539,
+          30,
+          31,
+          6
+        ]
+      },
+      {
+        "col": "Link Type Id",
+        "type": "integer",
+        "original_column_name": "LinkTypeId",
+        "sample_values": [
+          1,
+          3
+        ]
+      }
+    ],
+    "primary_keys": [
+      "Id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "RelatedPostId",
+        "referenced_table": "posts",
+        "referenced_column": "Id"
+      },
+      {
+        "column": "PostId",
+        "referenced_table": "posts",
+        "referenced_column": "Id"
+      }
+    ]
+  },
+  {
+    "table_name": "posts",
+    "db_id": "codebase_community",
+    "original_table_name": "posts",
+    "columns": [
+      {
+        "col": "Id",
+        "type": "integer",
+        "original_column_name": "Id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "Post Type Id",
+        "type": "integer",
+        "original_column_name": "PostTypeId",
+        "sample_values": [
+          1,
+          2,
+          7,
+          5,
+          4
+        ]
+      },
+      {
+        "col": "Accepted Answer Id",
+        "type": "integer",
+        "original_column_name": "AcceptedAnswerId",
+        "sample_values": [
+          15,
+          59,
+          5,
+          135,
+          18
+        ]
+      },
+      {
+        "col": "Creation Date",
+        "type": "datetime",
+        "original_column_name": "CreaionDate",
+        "sample_values": [
+          "2010-07-19 19:12:12.0",
+          "2010-07-19 19:12:57.0",
+          "2010-07-19 19:13:28.0",
+          "2010-07-19 19:13:31.0",
+          "2010-07-19 19:14:43.0"
+        ]
+      },
+      {
+        "col": "Score",
+        "type": "integer",
+        "original_column_name": "Score",
+        "sample_values": [
+          23,
+          22,
+          54,
+          13,
+          81
+        ]
+      },
+      {
+        "col": "View Count",
+        "type": "integer",
+        "original_column_name": "ViewCount",
+        "sample_values": [
+          1278,
+          8198,
+          3613,
+          5224,
+          29229
+        ]
+      },
+      {
+        "col": "Body",
+        "type": "text",
+        "original_column_name": "Body",
+        "sample_values": [
+          "<p>How should I elicit prior distributions from experts when fitting a Bayesian model?</p>\n",
+          "<p>In many different statistical methods there is an \"assumption of normality\".  What is \"normality\" and how do I know if there is normality?</p>\n",
+          "<p>What are some valuable Statistical Analysis open source projects available right now?</p>\n\n<p>Edit: as pointed out by Sharpie, valuable could mean helping you get things done faster or more cheaply.</p>\n",
+          "<p>I have two groups of data.  Each with a different distribution of multiple variables.  I'm trying to determine if these two groups' distributions are different in a statistically significant way.  I have the data in both raw form and binned up in easier to deal with discrete categories with frequency counts in each.  </p>\n\n<p>What tests/procedures/methods should I use to determine whether or not these two groups are significantly different and how do I do that in SAS or R (or Orange)?</p>\n",
+          "<p>The R-project</p>\n\n<p><a href=\"http://www.r-project.org/\">http://www.r-project.org/</a></p>\n\n<p>R is valuable and significant because it was the first widely-accepted Open-Source alternative to big-box packages.  It's mature, well supported, and a standard within many scientific communities.</p>\n\n<ul>\n<li><a href=\"http://www.inside-r.org/why-use-r\">Some reasons why it is useful and valuable</a> </li>\n<li>There are some nice tutorials <a href=\"http://gettinggeneticsdone.blogspot.com/search/label/ggplot2\">here</a>.</li>\n</ul>\n"
+        ]
+      },
+      {
+        "col": "Owner User Id",
+        "type": "integer",
+        "original_column_name": "OwnerUserId",
+        "sample_values": [
+          8,
+          24,
+          18,
+          23,
+          5
+        ]
+      },
+      {
+        "col": "Last Activity Date",
+        "type": "datetime",
+        "original_column_name": "LasActivityDate",
+        "sample_values": [
+          "2010-09-15 21:08:26.0",
+          "2012-11-12 09:21:54.0",
+          "2013-05-27 14:48:36.0",
+          "2010-09-08 03:00:19.0",
+          "2010-07-19 19:21:15.0"
+        ]
+      },
+      {
+        "col": "Title",
+        "type": "text",
+        "original_column_name": "Title",
+        "sample_values": [
+          "Eliciting priors from experts",
+          "What is normality?",
+          "What are some valuable Statistical Analysis open source projects?",
+          "Assessing the significance of differences in distributions",
+          "The Two Cultures: statistics vs. machine learning?"
+        ]
+      },
+      {
+        "col": "Tags",
+        "type": "text",
+        "original_column_name": "Tags",
+        "sample_values": [
+          "<bayesian><prior><elicitation>",
+          "<distributions><normality>",
+          "<software><open-source>",
+          "<distributions><statistical-significance>",
+          "<machine-learning>"
+        ]
+      },
+      {
+        "col": "Answer Count",
+        "type": "integer",
+        "original_column_name": "AnswerCount",
+        "sample_values": [
+          5,
+          7,
+          19,
+          15,
+          24
+        ]
+      },
+      {
+        "col": "Comment Count",
+        "type": "integer",
+        "original_column_name": "CommentCount",
+        "sample_values": [
+          1,
+          4,
+          2,
+          3,
+          5
+        ]
+      },
+      {
+        "col": "Favorite Count",
+        "type": "integer",
+        "original_column_name": "FavoriteCount",
+        "sample_values": [
+          14,
+          8,
+          36,
+          2,
+          137
+        ]
+      },
+      {
+        "col": "Last Editor User Id",
+        "type": "integer",
+        "original_column_name": "LastEditorUserId",
+        "sample_values": [
+          88,
+          183,
+          23,
+          22047,
+          253
+        ]
+      },
+      {
+        "col": "Last Edit Date",
+        "type": "datetime",
+        "original_column_name": "LastEditDate",
+        "sample_values": [
+          "2010-08-07 17:56:44.0",
+          "2011-02-12 05:50:03.0",
+          "2010-07-19 19:21:15.0",
+          "2013-06-07 06:38:10.0",
+          "2013-09-26 21:50:36.0"
+        ]
+      },
+      {
+        "col": "Community Owned Date",
+        "type": "datetime",
+        "original_column_name": "CommunityOwnedDate",
+        "sample_values": [
+          "2010-07-19 19:13:28.0",
+          "2010-07-19 19:14:43.0",
+          "2010-08-09 13:05:50.0",
+          "2010-07-20 20:50:48.0",
+          "2010-07-19 19:16:27.0"
+        ]
+      },
+      {
+        "col": "ParentId",
+        "type": "integer",
+        "original_column_name": "ParentId",
+        "sample_values": [
+          3,
+          7,
+          6,
+          1,
+          2
+        ]
+      },
+      {
+        "col": "Closed Date",
+        "type": "datetime",
+        "original_column_name": "ClosedDate",
+        "sample_values": [
+          "2010-07-19 20:19:46.0",
+          "2010-08-05 13:06:12.0",
+          "2014-02-12 01:23:48.0",
+          "2010-07-20 00:21:48.0",
+          "2013-01-08 20:43:45.0"
+        ]
+      },
+      {
+        "col": "Owner Display Name",
+        "type": "text",
+        "original_column_name": "OwnerDisplayName",
+        "sample_values": [
+          "user28",
+          "user209",
+          "Michael Bishop",
+          "Guy Srinivasan",
+          "arik"
+        ]
+      },
+      {
+        "col": "Last Editor Display Name",
+        "type": "text",
+        "original_column_name": "LastEditorDisplayName",
+        "sample_values": [
+          "user28",
+          "user10525",
+          "sjcockell",
+          "MarcO",
+          "Juan Riera"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "Id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ParentId",
+        "referenced_table": "posts",
+        "referenced_column": "Id"
+      },
+      {
+        "column": "OwnerUserId",
+        "referenced_table": "users",
+        "referenced_column": "Id"
+      },
+      {
+        "column": "LastEditorUserId",
+        "referenced_table": "users",
+        "referenced_column": "Id"
+      }
+    ]
+  },
+  {
+    "table_name": "tags",
+    "db_id": "codebase_community",
+    "original_table_name": "tags",
+    "columns": [
+      {
+        "col": "Id",
+        "type": "integer",
+        "original_column_name": "Id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "Tag Name",
+        "type": "text",
+        "original_column_name": "TagName",
+        "sample_values": [
+          "bayesian",
+          "prior",
+          "elicitation",
+          "normality",
+          "open-source"
+        ]
+      },
+      {
+        "col": "Count",
+        "type": "integer",
+        "original_column_name": "Count",
+        "sample_values": [
+          1342,
+          168,
+          6,
+          191,
+          13
+        ]
+      },
+      {
+        "col": "Excerpt Post Id",
+        "type": "integer",
+        "original_column_name": "ExcerptPostId",
+        "sample_values": [
+          20258,
+          62158,
+          67815,
+          8046,
+          9066
+        ]
+      },
+      {
+        "col": "Wiki Post Id",
+        "type": "integer",
+        "original_column_name": "WikiPostId",
+        "sample_values": [
+          20257,
+          62157,
+          67814,
+          8045,
+          9065
+        ]
+      }
+    ],
+    "primary_keys": [
+      "Id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ExcerptPostId",
+        "referenced_table": "posts",
+        "referenced_column": "Id"
+      }
+    ]
+  },
+  {
+    "table_name": "users",
+    "db_id": "codebase_community",
+    "original_table_name": "users",
+    "columns": [
+      {
+        "col": "Id",
+        "type": "integer",
+        "original_column_name": "Id",
+        "sample_values": [
+          -1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "Reputation",
+        "type": "integer",
+        "original_column_name": "Reputation",
+        "sample_values": [
+          1,
+          101,
+          6792,
+          457,
+          429
+        ]
+      },
+      {
+        "col": "Creation Date",
+        "type": "datetime",
+        "original_column_name": "CreationDate",
+        "sample_values": [
+          "2010-07-19 06:55:26.0",
+          "2010-07-19 14:01:36.0",
+          "2010-07-19 15:34:50.0",
+          "2010-07-19 19:03:27.0",
+          "2010-07-19 19:03:57.0"
+        ]
+      },
+      {
+        "col": "Display Name",
+        "type": "text",
+        "original_column_name": "DisplayName",
+        "sample_values": [
+          "Community",
+          "Geoff Dalgas",
+          "Jarrod Dixon",
+          "Emmett",
+          "Shane"
+        ]
+      },
+      {
+        "col": "Last Access Date",
+        "type": "datetime",
+        "original_column_name": "LastAccessDate",
+        "sample_values": [
+          "2010-07-19 06:55:26.0",
+          "2013-11-12 22:07:23.0",
+          "2014-08-08 06:42:58.0",
+          "2014-01-02 09:31:02.0",
+          "2014-08-13 00:23:47.0"
+        ]
+      },
+      {
+        "col": "Website Url",
+        "type": "text",
+        "original_column_name": "WebsiteUrl",
+        "sample_values": [
+          "http://meta.stackexchange.com/",
+          "http://stackoverflow.com",
+          "http://minesweeperonline.com",
+          "http://www.statalgo.com",
+          "http://www.harlan.harris.name"
+        ]
+      },
+      {
+        "col": "Location",
+        "type": "text",
+        "original_column_name": "Location",
+        "sample_values": [
+          "on the server farm",
+          "Corvallis, OR",
+          "New York, NY",
+          "San Francisco, CA",
+          "District of Columbia"
+        ]
+      },
+      {
+        "col": "About Me",
+        "type": "text",
+        "original_column_name": "AboutMe",
+        "sample_values": [
+          "<p>Hi, I'm not really a person.</p>\n\n<p>I'm a background process that helps keep this site clean!</p>\n\n<p>I do things like</p>\n\n<ul>\n<li>Randomly poke old unanswered questions every hour so they get some attention</li>\n<li>Own community questions and answers so nobody gets unnecessary reputation from them</li>\n<li>Own downvotes on spam/evil posts that get permanently deleted</li>\n<li>Own suggested edits from anonymous users</li>\n<li><a href=\"http://meta.stackexchange.com/a/92006\">Remove abandoned questions</a></li>\n</ul>\n",
+          "<p>Developer on the StackOverflow team.  Find me on</p>\n\n<p><a href=\"http://www.twitter.com/SuperDalgas\" rel=\"nofollow\">Twitter</a>\n<br><br>\n<a href=\"http://blog.stackoverflow.com/2009/05/welcome-stack-overflow-valued-associate-00003/\">Stack Overflow Valued Associate #00003</a></p>\n",
+          "<p><a href=\"http://blog.stackoverflow.com/2009/01/welcome-stack-overflow-valued-associate-00002/\">Developer on the Stack Overflow team</a>.</p>\n\n<p>Was dubbed <strong>SALTY SAILOR</strong> by Jeff Atwood, as filth and flarn would oft-times fly when dealing with a particularly nasty bug!</p>\n\n<ul>\n<li>Twitter me: <a href=\"http://twitter.com/jarrod_dixon\" rel=\"nofollow\">jarrod_dixon</a></li>\n<li>Email me: jarrod.m.dixon@gmail.com</li>\n</ul>\n",
+          "<p>currently at a startup in SF</p>\n\n<p>formerly a dev at Stack Exchange :)</p>\n",
+          "<p>Quantitative researcher focusing on statistics and machine learning methods in finance. Primarily use R, C++, Python, various databases (including OneTick and KDB), and LaTeX on a daily basis. </p>\n\n<ul>\n<li>Twitter: @statalgo</li>\n<li>Blog: <a href=\"http://www.statalgo.com\" rel=\"nofollow\">http://www.statalgo.com</a> (largely inactive)</li>\n<li>Former moderator on data analysis stack exchange site: <a href=\"http://stats.stackexchange.com/\">http://stats.stackexchange.com/</a></li>\n<li>Proposer of Quantitative Finance stack exchange site: <a href=\"http://area51.stackexchange.com/proposals/117/quantitative-finance?referrer=EZoOPpokWeo1\">http://area51.stackexchange.com/proposals/117/quantitative-finance?referrer=EZoOPpokWeo1</a></li>\n</ul>\n"
+        ]
+      },
+      {
+        "col": "Views",
+        "type": "integer",
+        "original_column_name": "Views",
+        "sample_values": [
+          0,
+          25,
+          22,
+          11,
+          1145
+        ]
+      },
+      {
+        "col": "UpVotes",
+        "type": "integer",
+        "original_column_name": "UpVotes",
+        "sample_values": [
+          5007,
+          3,
+          19,
+          0,
+          662
+        ]
+      },
+      {
+        "col": "DownVotes",
+        "type": "integer",
+        "original_column_name": "DownVotes",
+        "sample_values": [
+          1920,
+          0,
+          5,
+          25,
+          1
+        ]
+      },
+      {
+        "col": "Account Id",
+        "type": "integer",
+        "original_column_name": "AccountId",
+        "sample_values": [
+          -1,
+          2,
+          3,
+          1998,
+          54503
+        ]
+      },
+      {
+        "col": "Age",
+        "type": "integer",
+        "original_column_name": "Age",
+        "sample_values": [
+          37,
+          35,
+          28,
+          41,
+          36
+        ]
+      },
+      {
+        "col": "Profile Image Url",
+        "type": "text",
+        "original_column_name": "ProfileImageUrl",
+        "sample_values": [
+          "http://i.stack.imgur.com/d1oHX.jpg",
+          "http://i.stack.imgur.com/km1pr.jpg",
+          "http://i.stack.imgur.com/wSfuj.png",
+          "http://i.stack.imgur.com/ILcTf.png",
+          "https://www.gravatar.com/avatar/?s=128&d=identicon&r=PG&f=1"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "Id"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "votes",
+    "db_id": "codebase_community",
+    "original_table_name": "votes",
+    "columns": [
+      {
+        "col": "Id",
+        "type": "integer",
+        "original_column_name": "Id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "Post Id",
+        "type": "integer",
+        "original_column_name": "PostId",
+        "sample_values": [
+          3,
+          2,
+          5,
+          4,
+          6
+        ]
+      },
+      {
+        "col": "Vote Type Id",
+        "type": "integer",
+        "original_column_name": "VoteTypeId",
+        "sample_values": [
+          2,
+          5,
+          3,
+          1,
+          8
+        ]
+      },
+      {
+        "col": "Creation Date",
+        "type": "date",
+        "original_column_name": "CreationDate",
+        "sample_values": [
+          "2010-07-19",
+          "2010-07-20",
+          "2010-07-21",
+          "2010-07-22",
+          "2010-07-23"
+        ]
+      },
+      {
+        "col": "User Id",
+        "type": "integer",
+        "original_column_name": "UserId",
+        "sample_values": [
+          58,
+          6,
+          66,
+          71,
+          22
+        ]
+      },
+      {
+        "col": "Bounty Amount",
+        "type": "integer",
+        "original_column_name": "BountyAmount",
+        "sample_values": [
+          50,
+          25,
+          0,
+          100,
+          150
+        ]
+      }
+    ],
+    "primary_keys": [
+      "Id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "UserId",
+        "referenced_table": "users",
+        "referenced_column": "Id"
+      },
+      {
+        "column": "PostId",
+        "referenced_table": "posts",
+        "referenced_column": "Id"
+      }
+    ]
+  }
+]

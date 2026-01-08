@@ -1,0 +1,2557 @@
+[
+  {
+    "table_name": "Player Attributes",
+    "db_id": "european_football_2",
+    "original_table_name": "Player_Attributes",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "player federation international football association api id",
+        "type": "integer",
+        "original_column_name": "player_fifa_api_id",
+        "sample_values": [
+          218353,
+          189615,
+          186170,
+          140161,
+          17725
+        ]
+      },
+      {
+        "col": "player api id",
+        "type": "integer",
+        "original_column_name": "player_api_id",
+        "sample_values": [
+          505942,
+          155782,
+          162549,
+          30572,
+          23780
+        ]
+      },
+      {
+        "col": "date",
+        "type": "text",
+        "original_column_name": "date",
+        "sample_values": [
+          "2016-02-18 00:00:00",
+          "2015-11-19 00:00:00",
+          "2015-09-21 00:00:00",
+          "2015-03-20 00:00:00",
+          "2007-02-22 00:00:00"
+        ]
+      },
+      {
+        "col": "overall_rating",
+        "type": "integer",
+        "original_column_name": "overall_rating",
+        "sample_values": [
+          67,
+          62,
+          61,
+          74,
+          73
+        ]
+      },
+      {
+        "col": "potential",
+        "type": "integer",
+        "original_column_name": "potential",
+        "sample_values": [
+          71,
+          66,
+          65,
+          76,
+          75
+        ]
+      },
+      {
+        "col": "preferred foot",
+        "type": "text",
+        "original_column_name": "preferred_foot",
+        "sample_values": [
+          "right",
+          "left"
+        ]
+      },
+      {
+        "col": "attacking work rate",
+        "type": "text",
+        "original_column_name": "attacking_work_rate",
+        "sample_values": [
+          "medium",
+          "high",
+          "low",
+          "None",
+          "le"
+        ]
+      },
+      {
+        "col": "defensive_work_rate",
+        "type": "text",
+        "original_column_name": "defensive_work_rate",
+        "sample_values": [
+          "medium",
+          "high",
+          "low",
+          "_0",
+          "5"
+        ]
+      },
+      {
+        "col": "crossing",
+        "type": "integer",
+        "original_column_name": "crossing",
+        "sample_values": [
+          49,
+          48,
+          80,
+          79,
+          78
+        ]
+      },
+      {
+        "col": "finishing",
+        "type": "integer",
+        "original_column_name": "finishing",
+        "sample_values": [
+          44,
+          43,
+          53,
+          52,
+          51
+        ]
+      },
+      {
+        "col": "heading accuracy",
+        "type": "integer",
+        "original_column_name": "heading_accuracy",
+        "sample_values": [
+          71,
+          70,
+          58,
+          57,
+          56
+        ]
+      },
+      {
+        "col": "short passing",
+        "type": "integer",
+        "original_column_name": "short_passing",
+        "sample_values": [
+          61,
+          60,
+          71,
+          70,
+          69
+        ]
+      },
+      {
+        "col": "volleys",
+        "type": "integer",
+        "original_column_name": "volleys",
+        "sample_values": [
+          44,
+          43,
+          40,
+          32,
+          29
+        ]
+      },
+      {
+        "col": "dribbling",
+        "type": "integer",
+        "original_column_name": "dribbling",
+        "sample_values": [
+          51,
+          50,
+          73,
+          71,
+          67
+        ]
+      },
+      {
+        "col": "curve",
+        "type": "integer",
+        "original_column_name": "curve",
+        "sample_values": [
+          45,
+          44,
+          70,
+          68,
+          67
+        ]
+      },
+      {
+        "col": "free kick accuracy",
+        "type": "integer",
+        "original_column_name": "free_kick_accuracy",
+        "sample_values": [
+          39,
+          38,
+          69,
+          68,
+          43
+        ]
+      },
+      {
+        "col": "long passing",
+        "type": "integer",
+        "original_column_name": "long_passing",
+        "sample_values": [
+          64,
+          63,
+          68,
+          67,
+          65
+        ]
+      },
+      {
+        "col": "ball control",
+        "type": "integer",
+        "original_column_name": "ball_control",
+        "sample_values": [
+          49,
+          48,
+          71,
+          70,
+          68
+        ]
+      },
+      {
+        "col": "acceleration",
+        "type": "integer",
+        "original_column_name": "acceleration",
+        "sample_values": [
+          60,
+          79,
+          80,
+          84,
+          85
+        ]
+      },
+      {
+        "col": "sprint speed",
+        "type": "integer",
+        "original_column_name": "sprint_speed",
+        "sample_values": [
+          64,
+          78,
+          82,
+          81,
+          72
+        ]
+      },
+      {
+        "col": "agility",
+        "type": "integer",
+        "original_column_name": "agility",
+        "sample_values": [
+          59,
+          78,
+          79,
+          81,
+          77
+        ]
+      },
+      {
+        "col": "reactions",
+        "type": "integer",
+        "original_column_name": "reactions",
+        "sample_values": [
+          47,
+          46,
+          67,
+          71,
+          69
+        ]
+      },
+      {
+        "col": "balance",
+        "type": "integer",
+        "original_column_name": "balance",
+        "sample_values": [
+          65,
+          90,
+          87,
+          62,
+          92
+        ]
+      },
+      {
+        "col": "shot power",
+        "type": "integer",
+        "original_column_name": "shot_power",
+        "sample_values": [
+          55,
+          54,
+          71,
+          70,
+          65
+        ]
+      },
+      {
+        "col": "jumping",
+        "type": "integer",
+        "original_column_name": "jumping",
+        "sample_values": [
+          58,
+          85,
+          84,
+          77,
+          73
+        ]
+      },
+      {
+        "col": "stamina",
+        "type": "integer",
+        "original_column_name": "stamina",
+        "sample_values": [
+          54,
+          79,
+          80,
+          77,
+          76
+        ]
+      },
+      {
+        "col": "strength",
+        "type": "integer",
+        "original_column_name": "strength",
+        "sample_values": [
+          76,
+          56,
+          50,
+          49,
+          48
+        ]
+      },
+      {
+        "col": "long shots",
+        "type": "integer",
+        "original_column_name": "long_shots",
+        "sample_values": [
+          35,
+          34,
+          62,
+          60,
+          59
+        ]
+      },
+      {
+        "col": "aggression",
+        "type": "integer",
+        "original_column_name": "aggression",
+        "sample_values": [
+          71,
+          63,
+          62,
+          68,
+          67
+        ]
+      },
+      {
+        "col": "interceptions",
+        "type": "integer",
+        "original_column_name": "interceptions",
+        "sample_values": [
+          70,
+          41,
+          40,
+          67,
+          66
+        ]
+      },
+      {
+        "col": "positioning",
+        "type": "integer",
+        "original_column_name": "positioning",
+        "sample_values": [
+          45,
+          44,
+          60,
+          58,
+          57
+        ]
+      },
+      {
+        "col": "vision",
+        "type": "integer",
+        "original_column_name": "vision",
+        "sample_values": [
+          54,
+          53,
+          66,
+          65,
+          64
+        ]
+      },
+      {
+        "col": "penalties",
+        "type": "integer",
+        "original_column_name": "penalties",
+        "sample_values": [
+          48,
+          47,
+          59,
+          58,
+          35
+        ]
+      },
+      {
+        "col": "marking",
+        "type": "integer",
+        "original_column_name": "marking",
+        "sample_values": [
+          65,
+          62,
+          76,
+          73,
+          72
+        ]
+      },
+      {
+        "col": "standing tackle",
+        "type": "integer",
+        "original_column_name": "standing_tackle",
+        "sample_values": [
+          69,
+          66,
+          63,
+          75,
+          72
+        ]
+      },
+      {
+        "col": "sliding tackle",
+        "type": "integer",
+        "original_column_name": "sliding_tackle",
+        "sample_values": [
+          69,
+          66,
+          78,
+          72,
+          67
+        ]
+      },
+      {
+        "col": "goalkeep diving",
+        "type": "integer",
+        "original_column_name": "gk_diving",
+        "sample_values": [
+          6,
+          5,
+          14,
+          13,
+          16
+        ]
+      },
+      {
+        "col": "goalkeep handling",
+        "type": "integer",
+        "original_column_name": "gk_handling",
+        "sample_values": [
+          11,
+          10,
+          7,
+          6,
+          22
+        ]
+      },
+      {
+        "col": "goalkeep kicking",
+        "type": "integer",
+        "original_column_name": "gk_kicking",
+        "sample_values": [
+          10,
+          9,
+          8,
+          45,
+          46
+        ]
+      },
+      {
+        "col": "goalkeep positioning",
+        "type": "integer",
+        "original_column_name": "gk_positioning",
+        "sample_values": [
+          8,
+          7,
+          9,
+          22,
+          21
+        ]
+      },
+      {
+        "col": "goalkeep reflexes",
+        "type": "integer",
+        "original_column_name": "gk_reflexes",
+        "sample_values": [
+          8,
+          7,
+          12,
+          11,
+          22
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "player_api_id",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "player_fifa_api_id",
+        "referenced_table": "Player",
+        "referenced_column": "player_fifa_api_id"
+      }
+    ]
+  },
+  {
+    "table_name": "Player",
+    "db_id": "european_football_2",
+    "original_table_name": "Player",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          3879,
+          401,
+          9179,
+          6356,
+          5034
+        ]
+      },
+      {
+        "col": "player api id",
+        "type": "integer",
+        "original_column_name": "player_api_id",
+        "sample_values": [
+          2625,
+          2752,
+          2768,
+          2770,
+          2790
+        ]
+      },
+      {
+        "col": "player name",
+        "type": "text",
+        "original_column_name": "player_name",
+        "sample_values": [
+          "Aaron Appindangoye",
+          "Aaron Cresswell",
+          "Aaron Doran",
+          "Aaron Galindo",
+          "Aaron Hughes"
+        ]
+      },
+      {
+        "col": "player federation international football association api id",
+        "type": "integer",
+        "original_column_name": "player_fifa_api_id",
+        "sample_values": [
+          2,
+          6,
+          11,
+          16,
+          27
+        ]
+      },
+      {
+        "col": "birthday",
+        "type": "text",
+        "original_column_name": "birthday",
+        "sample_values": [
+          "1992-02-29 00:00:00",
+          "1989-12-15 00:00:00",
+          "1991-05-13 00:00:00",
+          "1982-05-08 00:00:00",
+          "1979-11-08 00:00:00"
+        ]
+      },
+      {
+        "col": "height",
+        "type": "integer",
+        "original_column_name": "height",
+        "sample_values": [
+          182.88,
+          170.18,
+          172.72,
+          165.1,
+          190.5
+        ]
+      },
+      {
+        "col": "weight",
+        "type": "integer",
+        "original_column_name": "weight",
+        "sample_values": [
+          187,
+          146,
+          163,
+          198,
+          154
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "League",
+    "db_id": "european_football_2",
+    "original_table_name": "League",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          1,
+          1729,
+          4769,
+          7809,
+          10257
+        ]
+      },
+      {
+        "col": "country id",
+        "type": "integer",
+        "original_column_name": "country_id",
+        "sample_values": [
+          1,
+          1729,
+          4769,
+          7809,
+          10257
+        ]
+      },
+      {
+        "col": "name",
+        "type": "text",
+        "original_column_name": "name",
+        "sample_values": [
+          "Belgium Jupiler League",
+          "England Premier League",
+          "France Ligue 1",
+          "Germany 1. Bundesliga",
+          "Italy Serie A"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "country_id",
+        "referenced_table": "Country",
+        "referenced_column": "id"
+      }
+    ]
+  },
+  {
+    "table_name": "Country",
+    "db_id": "european_football_2",
+    "original_table_name": "Country",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          1,
+          1729,
+          4769,
+          7809,
+          10257
+        ]
+      },
+      {
+        "col": "name",
+        "type": "text",
+        "original_column_name": "name",
+        "sample_values": [
+          "Belgium",
+          "England",
+          "France",
+          "Germany",
+          "Italy"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "Team",
+    "db_id": "european_football_2",
+    "original_table_name": "Team",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          31446,
+          1513,
+          31456,
+          35774,
+          31453
+        ]
+      },
+      {
+        "col": "team api id",
+        "type": "integer",
+        "original_column_name": "team_api_id",
+        "sample_values": [
+          1601,
+          1773,
+          1957,
+          2033,
+          2182
+        ]
+      },
+      {
+        "col": "team federation international football association api id",
+        "type": "integer",
+        "original_column_name": "team_fifa_api_id",
+        "sample_values": [
+          673,
+          675,
+          15005,
+          2007,
+          1750
+        ]
+      },
+      {
+        "col": "team long name",
+        "type": "text",
+        "original_column_name": "team_long_name",
+        "sample_values": [
+          "KRC Genk",
+          "Beerschot AC",
+          "SV Zulte-Waregem",
+          "Sporting Lokeren",
+          "KSV Cercle Brugge"
+        ]
+      },
+      {
+        "col": "team short name",
+        "type": "text",
+        "original_column_name": "team_short_name",
+        "sample_values": [
+          "GEN",
+          "BAC",
+          "ZUL",
+          "LOK",
+          "CEB"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "Team Attributes",
+    "db_id": "european_football_2",
+    "original_table_name": "Team_Attributes",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "team federation international football association api id",
+        "type": "integer",
+        "original_column_name": "team_fifa_api_id",
+        "sample_values": [
+          434,
+          77,
+          614,
+          47,
+          1901
+        ]
+      },
+      {
+        "col": "team api id",
+        "type": "integer",
+        "original_column_name": "team_api_id",
+        "sample_values": [
+          9930,
+          8485,
+          8576,
+          8564,
+          10215
+        ]
+      },
+      {
+        "col": "date",
+        "type": "text",
+        "original_column_name": "date",
+        "sample_values": [
+          "2010-02-22 00:00:00",
+          "2014-09-19 00:00:00",
+          "2015-09-10 00:00:00",
+          "2011-02-22 00:00:00",
+          "2012-02-22 00:00:00"
+        ]
+      },
+      {
+        "col": "build Up Play Speed",
+        "type": "integer",
+        "original_column_name": "buildUpPlaySpeed",
+        "sample_values": [
+          60,
+          52,
+          47,
+          70,
+          58
+        ]
+      },
+      {
+        "col": "build Up Play Speed Class",
+        "type": "text",
+        "original_column_name": "buildUpPlaySpeedClass",
+        "sample_values": [
+          "Balanced",
+          "Fast",
+          "Slow"
+        ]
+      },
+      {
+        "col": "build Up Play Dribbling",
+        "type": "integer",
+        "original_column_name": "buildUpPlayDribbling",
+        "sample_values": [
+          48,
+          41,
+          64,
+          57,
+          70
+        ]
+      },
+      {
+        "col": "build Up Play Dribbling Class",
+        "type": "text",
+        "original_column_name": "buildUpPlayDribblingClass",
+        "sample_values": [
+          "Little",
+          "Normal",
+          "Lots"
+        ]
+      },
+      {
+        "col": "build Up Play Passing",
+        "type": "integer",
+        "original_column_name": "buildUpPlayPassing",
+        "sample_values": [
+          50,
+          56,
+          54,
+          70,
+          52
+        ]
+      },
+      {
+        "col": "build Up Play Passing Class",
+        "type": "text",
+        "original_column_name": "buildUpPlayPassingClass",
+        "sample_values": [
+          "Mixed",
+          "Long",
+          "Short"
+        ]
+      },
+      {
+        "col": "build Up Play Positioning Class",
+        "type": "text",
+        "original_column_name": "buildUpPlayPositioningClass",
+        "sample_values": [
+          "Organised",
+          "Free Form"
+        ]
+      },
+      {
+        "col": "chance Creation Passing",
+        "type": "integer",
+        "original_column_name": "chanceCreationPassing",
+        "sample_values": [
+          60,
+          54,
+          70,
+          53,
+          45
+        ]
+      },
+      {
+        "col": "chance Creation Passing Class",
+        "type": "text",
+        "original_column_name": "chanceCreationPassingClass",
+        "sample_values": [
+          "Normal",
+          "Risky",
+          "Safe"
+        ]
+      },
+      {
+        "col": "chance Creation Crossing",
+        "type": "integer",
+        "original_column_name": "chanceCreationCrossing",
+        "sample_values": [
+          65,
+          63,
+          70,
+          48,
+          50
+        ]
+      },
+      {
+        "col": "chance Creation Crossing Class",
+        "type": "text",
+        "original_column_name": "chanceCreationCrossingClass",
+        "sample_values": [
+          "Normal",
+          "Lots",
+          "Little"
+        ]
+      },
+      {
+        "col": "chance Creation Shooting",
+        "type": "integer",
+        "original_column_name": "chanceCreationShooting",
+        "sample_values": [
+          55,
+          64,
+          70,
+          52,
+          57
+        ]
+      },
+      {
+        "col": "chance Creation Shooting Class",
+        "type": "text",
+        "original_column_name": "chanceCreationShootingClass",
+        "sample_values": [
+          "Normal",
+          "Lots",
+          "Little"
+        ]
+      },
+      {
+        "col": "chance Creation Positioning Class",
+        "type": "text",
+        "original_column_name": "chanceCreationPositioningClass",
+        "sample_values": [
+          "Organised",
+          "Free Form"
+        ]
+      },
+      {
+        "col": "defence Pressure",
+        "type": "integer",
+        "original_column_name": "defencePressure",
+        "sample_values": [
+          50,
+          47,
+          60,
+          40,
+          42
+        ]
+      },
+      {
+        "col": "defence Pressure Class",
+        "type": "text",
+        "original_column_name": "defencePressureClass",
+        "sample_values": [
+          "Medium",
+          "Deep",
+          "High"
+        ]
+      },
+      {
+        "col": "defence Aggression",
+        "type": "integer",
+        "original_column_name": "defenceAggression",
+        "sample_values": [
+          55,
+          44,
+          70,
+          47,
+          40
+        ]
+      },
+      {
+        "col": "defence Aggression Class",
+        "type": "text",
+        "original_column_name": "defenceAggressionClass",
+        "sample_values": [
+          "Press",
+          "Double",
+          "Contain"
+        ]
+      },
+      {
+        "col": "defence Team Width",
+        "type": "integer",
+        "original_column_name": "defenceTeamWidth",
+        "sample_values": [
+          45,
+          54,
+          70,
+          52,
+          60
+        ]
+      },
+      {
+        "col": "defence Team Width Class",
+        "type": "text",
+        "original_column_name": "defenceTeamWidthClass",
+        "sample_values": [
+          "Normal",
+          "Wide",
+          "Narrow"
+        ]
+      },
+      {
+        "col": "defence Defender Line Class",
+        "type": "text",
+        "original_column_name": "defenceDefenderLineClass",
+        "sample_values": [
+          "Cover",
+          "Offside Trap"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "team_api_id",
+        "referenced_table": "Team",
+        "referenced_column": "team_api_id"
+      },
+      {
+        "column": "team_fifa_api_id",
+        "referenced_table": "Team",
+        "referenced_column": "team_fifa_api_id"
+      }
+    ]
+  },
+  {
+    "table_name": "Match",
+    "db_id": "european_football_2",
+    "original_table_name": "Match",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          4769,
+          4770,
+          4771,
+          4772,
+          4773
+        ]
+      },
+      {
+        "col": "country id",
+        "type": "integer",
+        "original_column_name": "country_id",
+        "sample_values": [
+          1,
+          1729,
+          4769,
+          7809,
+          10257
+        ]
+      },
+      {
+        "col": "league id",
+        "type": "integer",
+        "original_column_name": "league_id",
+        "sample_values": [
+          1,
+          1729,
+          4769,
+          7809,
+          10257
+        ]
+      },
+      {
+        "col": "season",
+        "type": "text",
+        "original_column_name": "season",
+        "sample_values": [
+          "2008/2009",
+          "2009/2010",
+          "2010/2011",
+          "2011/2012",
+          "2012/2013"
+        ]
+      },
+      {
+        "col": "stage",
+        "type": "integer",
+        "original_column_name": "stage",
+        "sample_values": [
+          1,
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      {
+        "col": "date",
+        "type": "text",
+        "original_column_name": "date",
+        "sample_values": [
+          "2008-08-17 00:00:00",
+          "2008-08-16 00:00:00",
+          "2008-09-24 00:00:00",
+          "2008-11-01 00:00:00",
+          "2008-10-31 00:00:00"
+        ]
+      },
+      {
+        "col": "match api id",
+        "type": "integer",
+        "original_column_name": "match_api_id",
+        "sample_values": [
+          483129,
+          483130,
+          483131,
+          483132,
+          483133
+        ]
+      },
+      {
+        "col": "home team api id",
+        "type": "integer",
+        "original_column_name": "home_team_api_id",
+        "sample_values": [
+          9987,
+          10000,
+          9984,
+          9991,
+          7947
+        ]
+      },
+      {
+        "col": "away team api id",
+        "type": "integer",
+        "original_column_name": "away_team_api_id",
+        "sample_values": [
+          9993,
+          9994,
+          8635,
+          9998,
+          9985
+        ]
+      },
+      {
+        "col": "home team goal",
+        "type": "integer",
+        "original_column_name": "home_team_goal",
+        "sample_values": [
+          1,
+          0,
+          5,
+          2,
+          4
+        ]
+      },
+      {
+        "col": "away team goal",
+        "type": "integer",
+        "original_column_name": "away_team_goal",
+        "sample_values": [
+          1,
+          0,
+          3,
+          2,
+          4
+        ]
+      },
+      {
+        "col": "home_player_X1",
+        "type": "integer",
+        "original_column_name": "home_player_X1",
+        "sample_values": [
+          1,
+          2,
+          0
+        ]
+      },
+      {
+        "col": "home_player_X2",
+        "type": "integer",
+        "original_column_name": "home_player_X2",
+        "sample_values": [
+          2,
+          4,
+          3,
+          1,
+          5
+        ]
+      },
+      {
+        "col": "home_player_X3",
+        "type": "integer",
+        "original_column_name": "home_player_X3",
+        "sample_values": [
+          4,
+          6,
+          8,
+          5,
+          3
+        ]
+      },
+      {
+        "col": "home_player_X4",
+        "type": "integer",
+        "original_column_name": "home_player_X4",
+        "sample_values": [
+          6,
+          8,
+          4,
+          7,
+          5
+        ]
+      },
+      {
+        "col": "home_player_X5",
+        "type": "integer",
+        "original_column_name": "home_player_X5",
+        "sample_values": [
+          8,
+          6,
+          2,
+          7,
+          1
+        ]
+      },
+      {
+        "col": "home_player_X6",
+        "type": "integer",
+        "original_column_name": "home_player_X6",
+        "sample_values": [
+          2,
+          6,
+          4,
+          1,
+          3
+        ]
+      },
+      {
+        "col": "home_player_X7",
+        "type": "integer",
+        "original_column_name": "home_player_X7",
+        "sample_values": [
+          4,
+          8,
+          6,
+          5,
+          3
+        ]
+      },
+      {
+        "col": "home_player_X8",
+        "type": "integer",
+        "original_column_name": "home_player_X8",
+        "sample_values": [
+          6,
+          2,
+          8,
+          3,
+          7
+        ]
+      },
+      {
+        "col": "home_player_X9",
+        "type": "integer",
+        "original_column_name": "home_player_X9",
+        "sample_values": [
+          8,
+          4,
+          2,
+          6,
+          7
+        ]
+      },
+      {
+        "col": "home_player_X10",
+        "type": "integer",
+        "original_column_name": "home_player_X10",
+        "sample_values": [
+          4,
+          6,
+          9,
+          5,
+          7
+        ]
+      },
+      {
+        "col": "home_player_X11",
+        "type": "integer",
+        "original_column_name": "home_player_X11",
+        "sample_values": [
+          6,
+          4,
+          5,
+          7,
+          3
+        ]
+      },
+      {
+        "col": "away_player_X1",
+        "type": "integer",
+        "original_column_name": "away_player_X1",
+        "sample_values": [
+          1,
+          2,
+          6
+        ]
+      },
+      {
+        "col": "away_player_X2",
+        "type": "integer",
+        "original_column_name": "away_player_X2",
+        "sample_values": [
+          2,
+          4,
+          3,
+          1,
+          6
+        ]
+      },
+      {
+        "col": "away_player_X3",
+        "type": "integer",
+        "original_column_name": "away_player_X3",
+        "sample_values": [
+          4,
+          6,
+          5,
+          3,
+          8
+        ]
+      },
+      {
+        "col": "away_player_X4",
+        "type": "integer",
+        "original_column_name": "away_player_X4",
+        "sample_values": [
+          6,
+          8,
+          2,
+          7,
+          5
+        ]
+      },
+      {
+        "col": "away_player_X5",
+        "type": "integer",
+        "original_column_name": "away_player_X5",
+        "sample_values": [
+          8,
+          6,
+          4,
+          2,
+          7
+        ]
+      },
+      {
+        "col": "away_player_X6",
+        "type": "integer",
+        "original_column_name": "away_player_X6",
+        "sample_values": [
+          2,
+          4,
+          3,
+          9,
+          1
+        ]
+      },
+      {
+        "col": "away_player_X7",
+        "type": "integer",
+        "original_column_name": "away_player_X7",
+        "sample_values": [
+          4,
+          6,
+          5,
+          3,
+          7
+        ]
+      },
+      {
+        "col": "away_player_X8",
+        "type": "integer",
+        "original_column_name": "away_player_X8",
+        "sample_values": [
+          6,
+          8,
+          7,
+          5,
+          4
+        ]
+      },
+      {
+        "col": "away_player_X9",
+        "type": "integer",
+        "original_column_name": "away_player_X9",
+        "sample_values": [
+          8,
+          2,
+          6,
+          4,
+          3
+        ]
+      },
+      {
+        "col": "away_player_X10",
+        "type": "integer",
+        "original_column_name": "away_player_X10",
+        "sample_values": [
+          4,
+          6,
+          7,
+          5,
+          9
+        ]
+      },
+      {
+        "col": "away_player_X11",
+        "type": "integer",
+        "original_column_name": "away_player_X11",
+        "sample_values": [
+          6,
+          4,
+          3,
+          7,
+          5
+        ]
+      },
+      {
+        "col": "home_player_Y1",
+        "type": "integer",
+        "original_column_name": "home_player_Y1",
+        "sample_values": [
+          1,
+          3,
+          0
+        ]
+      },
+      {
+        "col": "home_player_Y2",
+        "type": "integer",
+        "original_column_name": "home_player_Y2",
+        "sample_values": [
+          3,
+          0
+        ]
+      },
+      {
+        "col": "home_player_Y3",
+        "type": "integer",
+        "original_column_name": "home_player_Y3",
+        "sample_values": [
+          3,
+          5
+        ]
+      },
+      {
+        "col": "home_player_Y4",
+        "type": "integer",
+        "original_column_name": "home_player_Y4",
+        "sample_values": [
+          3,
+          5
+        ]
+      },
+      {
+        "col": "home_player_Y5",
+        "type": "integer",
+        "original_column_name": "home_player_Y5",
+        "sample_values": [
+          3,
+          7,
+          6,
+          5,
+          8
+        ]
+      },
+      {
+        "col": "home_player_Y6",
+        "type": "integer",
+        "original_column_name": "home_player_Y6",
+        "sample_values": [
+          7,
+          3,
+          6,
+          5,
+          8
+        ]
+      },
+      {
+        "col": "home_player_Y7",
+        "type": "integer",
+        "original_column_name": "home_player_Y7",
+        "sample_values": [
+          7,
+          6,
+          8,
+          5,
+          3
+        ]
+      },
+      {
+        "col": "home_player_Y8",
+        "type": "integer",
+        "original_column_name": "home_player_Y8",
+        "sample_values": [
+          7,
+          8,
+          6,
+          5,
+          3
+        ]
+      },
+      {
+        "col": "home_player_Y9",
+        "type": "integer",
+        "original_column_name": "home_player_Y9",
+        "sample_values": [
+          7,
+          10,
+          8,
+          6,
+          9
+        ]
+      },
+      {
+        "col": "home_player_Y10",
+        "type": "integer",
+        "original_column_name": "home_player_Y10",
+        "sample_values": [
+          10,
+          7,
+          8,
+          9,
+          6
+        ]
+      },
+      {
+        "col": "home_player_Y11",
+        "type": "integer",
+        "original_column_name": "home_player_Y11",
+        "sample_values": [
+          10,
+          11,
+          1,
+          3
+        ]
+      },
+      {
+        "col": "away_player_Y1",
+        "type": "integer",
+        "original_column_name": "away_player_Y1",
+        "sample_values": [
+          1,
+          3
+        ]
+      },
+      {
+        "col": "away_player_Y2",
+        "type": "integer",
+        "original_column_name": "away_player_Y2",
+        "sample_values": [
+          3
+        ]
+      },
+      {
+        "col": "away_player_Y3",
+        "type": "integer",
+        "original_column_name": "away_player_Y3",
+        "sample_values": [
+          3,
+          7
+        ]
+      },
+      {
+        "col": "away_player_Y4",
+        "type": "integer",
+        "original_column_name": "away_player_Y4",
+        "sample_values": [
+          3,
+          5,
+          7
+        ]
+      },
+      {
+        "col": "away_player_Y5",
+        "type": "integer",
+        "original_column_name": "away_player_Y5",
+        "sample_values": [
+          3,
+          7,
+          6,
+          5,
+          9
+        ]
+      },
+      {
+        "col": "away_player_Y6",
+        "type": "integer",
+        "original_column_name": "away_player_Y6",
+        "sample_values": [
+          7,
+          3,
+          6,
+          8,
+          5
+        ]
+      },
+      {
+        "col": "away_player_Y7",
+        "type": "integer",
+        "original_column_name": "away_player_Y7",
+        "sample_values": [
+          7,
+          6,
+          8,
+          5,
+          3
+        ]
+      },
+      {
+        "col": "away_player_Y8",
+        "type": "integer",
+        "original_column_name": "away_player_Y8",
+        "sample_values": [
+          7,
+          8,
+          6,
+          5,
+          9
+        ]
+      },
+      {
+        "col": "away_player_Y9",
+        "type": "integer",
+        "original_column_name": "away_player_Y9",
+        "sample_values": [
+          7,
+          10,
+          8,
+          9,
+          6
+        ]
+      },
+      {
+        "col": "away_player_Y10",
+        "type": "integer",
+        "original_column_name": "away_player_Y10",
+        "sample_values": [
+          10,
+          7,
+          8,
+          9,
+          11
+        ]
+      },
+      {
+        "col": "away_player_Y11",
+        "type": "integer",
+        "original_column_name": "away_player_Y11",
+        "sample_values": [
+          10,
+          11,
+          8,
+          7
+        ]
+      },
+      {
+        "col": "home_player_1",
+        "type": "integer",
+        "original_column_name": "home_player_1",
+        "sample_values": [
+          39890,
+          38327,
+          95597,
+          30934,
+          37990
+        ]
+      },
+      {
+        "col": "home_player_2",
+        "type": "integer",
+        "original_column_name": "home_player_2",
+        "sample_values": [
+          67950,
+          39580,
+          38292,
+          37983,
+          36849
+        ]
+      },
+      {
+        "col": "home_player_3",
+        "type": "integer",
+        "original_column_name": "home_player_3",
+        "sample_values": [
+          38788,
+          67958,
+          30692,
+          11569,
+          21812
+        ]
+      },
+      {
+        "col": "home_player_4",
+        "type": "integer",
+        "original_column_name": "home_player_4",
+        "sample_values": [
+          38312,
+          67959,
+          38435,
+          37861,
+          38273
+        ]
+      },
+      {
+        "col": "home_player_5",
+        "type": "integer",
+        "original_column_name": "home_player_5",
+        "sample_values": [
+          26235,
+          37112,
+          94462,
+          47411,
+          14642
+        ]
+      },
+      {
+        "col": "home_player_6",
+        "type": "integer",
+        "original_column_name": "home_player_6",
+        "sample_values": [
+          36393,
+          46004,
+          119117,
+          38945,
+          39578
+        ]
+      },
+      {
+        "col": "home_player_7",
+        "type": "integer",
+        "original_column_name": "home_player_7",
+        "sample_values": [
+          148286,
+          164732,
+          35412,
+          38290,
+          38336
+        ]
+      },
+      {
+        "col": "home_player_8",
+        "type": "integer",
+        "original_column_name": "home_player_8",
+        "sample_values": [
+          67898,
+          39631,
+          95609,
+          38366,
+          38784
+        ]
+      },
+      {
+        "col": "home_player_9",
+        "type": "integer",
+        "original_column_name": "home_player_9",
+        "sample_values": [
+          26916,
+          164352,
+          38246,
+          39591,
+          38257
+        ]
+      },
+      {
+        "col": "home_player_10",
+        "type": "integer",
+        "original_column_name": "home_player_10",
+        "sample_values": [
+          38801,
+          38423,
+          25957,
+          27423,
+          30910
+        ]
+      },
+      {
+        "col": "home_player_11",
+        "type": "integer",
+        "original_column_name": "home_player_11",
+        "sample_values": [
+          94289,
+          26502,
+          38419,
+          38369,
+          121639
+        ]
+      },
+      {
+        "col": "away_player_1",
+        "type": "integer",
+        "original_column_name": "away_player_1",
+        "sample_values": [
+          34480,
+          37937,
+          38252,
+          36835,
+          104378
+        ]
+      },
+      {
+        "col": "away_player_2",
+        "type": "integer",
+        "original_column_name": "away_player_2",
+        "sample_values": [
+          38388,
+          38293,
+          39156,
+          37047,
+          27838
+        ]
+      },
+      {
+        "col": "away_player_3",
+        "type": "integer",
+        "original_column_name": "away_player_3",
+        "sample_values": [
+          26458,
+          148313,
+          39151,
+          37021,
+          36841
+        ]
+      },
+      {
+        "col": "away_player_4",
+        "type": "integer",
+        "original_column_name": "away_player_4",
+        "sample_values": [
+          13423,
+          104411,
+          166554,
+          38186,
+          38337
+        ]
+      },
+      {
+        "col": "away_player_5",
+        "type": "integer",
+        "original_column_name": "away_player_5",
+        "sample_values": [
+          38389,
+          148314,
+          15652,
+          27110,
+          94284
+        ]
+      },
+      {
+        "col": "away_player_6",
+        "type": "integer",
+        "original_column_name": "away_player_6",
+        "sample_values": [
+          38798,
+          37202,
+          39145,
+          32863,
+          33662
+        ]
+      },
+      {
+        "col": "away_player_7",
+        "type": "integer",
+        "original_column_name": "away_player_7",
+        "sample_values": [
+          30949,
+          43158,
+          46890,
+          37957,
+          37044
+        ]
+      },
+      {
+        "col": "away_player_8",
+        "type": "integer",
+        "original_column_name": "away_player_8",
+        "sample_values": [
+          38253,
+          9307,
+          38947,
+          37909,
+          32760
+        ]
+      },
+      {
+        "col": "away_player_9",
+        "type": "integer",
+        "original_column_name": "away_player_9",
+        "sample_values": [
+          106013,
+          42153,
+          46881,
+          104386,
+          38229
+        ]
+      },
+      {
+        "col": "away_player_10",
+        "type": "integer",
+        "original_column_name": "away_player_10",
+        "sample_values": [
+          38383,
+          32690,
+          39158,
+          38251,
+          12574
+        ]
+      },
+      {
+        "col": "away_player_11",
+        "type": "integer",
+        "original_column_name": "away_player_11",
+        "sample_values": [
+          46552,
+          38782,
+          119118,
+          37065,
+          46335
+        ]
+      },
+      {
+        "col": "goal",
+        "type": "text",
+        "original_column_name": "goal",
+        "sample_values": [
+          "<goal><value><comment>n</comment><stats><goals>1</goals><shoton>1</shoton></stats><event_incident_typefk>406</event_incident_typefk><elapsed>22</elapsed><player2>38807</player2><subtype>header</subtype><player1>37799</player1><sortorder>5</sortorder><team>10261</team><id>378998</id><n>295</n><type>goal</type><goal_type>n</goal_type></value><value><comment>n</comment><stats><goals>1</goals><shoton>1</shoton></stats><event_incident_typefk>393</event_incident_typefk><elapsed>24</elapsed><player2>24154</player2><subtype>shot</subtype><player1>24148</player1><sortorder>4</sortorder><team>10260</team><id>379019</id><n>298</n><type>goal</type><goal_type>n</goal_type></value></goal>",
+          "<goal><value><comment>n</comment><stats><goals>1</goals><shoton>1</shoton></stats><event_incident_typefk>393</event_incident_typefk><elapsed>4</elapsed><player2>39297</player2><subtype>shot</subtype><player1>26181</player1><sortorder>2</sortorder><team>9825</team><id>375546</id><n>231</n><type>goal</type><goal_type>n</goal_type></value></goal>",
+          "<goal><value><comment>n</comment><stats><goals>1</goals><shoton>1</shoton></stats><event_incident_typefk>407</event_incident_typefk><elapsed>83</elapsed><player2>30889</player2><subtype>distance</subtype><player1>30853</player1><sortorder>0</sortorder><team>8650</team><id>378041</id><n>344</n><type>goal</type><goal_type>n</goal_type></value></goal>",
+          "<goal><value><comment>n</comment><stats><goals>1</goals><shoton>1</shoton></stats><event_incident_typefk>393</event_incident_typefk><elapsed>4</elapsed><player2>36394</player2><subtype>shot</subtype><player1>23139</player1><sortorder>2</sortorder><team>8654</team><id>376060</id><n>244</n><type>goal</type><goal_type>n</goal_type></value><value><comment>n</comment><stats><goals>1</goals><shoton>1</shoton></stats><event_incident_typefk>393</event_incident_typefk><elapsed>10</elapsed><player2>37277</player2><subtype>shot</subtype><player1>23139</player1><sortorder>1</sortorder><team>8654</team><id>376165</id><n>251</n><type>goal</type><goal_type>n</goal_type></value><value><comment>n</comment><stats><goals>1</goals><shoton>1</shoton></stats><event_incident_typefk>411</event_incident_typefk><elapsed>47</elapsed><player2>34466</player2><subtype>volley</subtype><player1>127857</player1><sortorder>3</sortorder><team>8528</team><id>376929</id><n>294</n><type>goal</type><goal_type>n</goal_type></value></goal>",
+          "<goal><value><comment>n</comment><stats><goals>1</goals><shoton>1</shoton></stats><event_incident_typefk>406</event_incident_typefk><elapsed>47</elapsed><player2>23354</player2><subtype>header</subtype><player1>26165</player1><sortorder>2</sortorder><team>10252</team><id>378837</id><n>251</n><type>goal</type><goal_type>n</goal_type></value><value><comment>p</comment><stats><penalties>1</penalties></stats><event_incident_typefk>20</event_incident_typefk><elapsed>64</elapsed><player1>40198</player1><sortorder>0</sortorder><team>8456</team><id>378981</id><n>266</n><type>goal</type><goal_type>p</goal_type></value><value><comment>n</comment><stats><goals>1</goals><shoton>1</shoton></stats><event_incident_typefk>393</event_incident_typefk><elapsed>69</elapsed><player2>24658</player2><subtype>shot</subtype><player1>23264</player1><sortorder>1</sortorder><team>10252</team><id>379030</id><n>270</n><type>goal</type><goal_type>n</goal_type></value><value><comment>n</comment><stats><goals>1</goals><shoton>1</shoton></stats><event_incident_typefk>406</event_incident_typefk><elapsed>74</elapsed><player2>23782</player2><subtype>header</subtype><player1>23264</player1><sortorder>1</sortorder><team>10252</team><id>379074</id><n>283</n><type>goal</type><goal_type>n</goal_type></value><value><comment>n</comment><stats><goals>1</goals><shoton>1</shoton></stats><event_incident_typefk>393</event_incident_typefk><elapsed>76</elapsed><player2>23782</player2><subtype>shot</subtype><player1>23264</player1><sortorder>1</sortorder><team>10252</team><id>379095</id><n>277</n><type>goal</type><goal_type>n</goal_type></value><value><comment>n</comment><stats><goals>1</goals><shoton>1</shoton></stats><event_incident_typefk>393</event_incident_typefk><elapsed>90</elapsed><player2>45431</player2><subtype>shot</subtype><player1>46403</player1><sortorder>1</sortorder><team>8456</team><id>379250</id><n>281</n><type>goal</type><goal_type>n</goal_type></value></goal>"
+        ]
+      },
+      {
+        "col": "shot on",
+        "type": "text",
+        "original_column_name": "shoton",
+        "sample_values": [
+          "<shoton><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>3</elapsed><subtype>blocked_shot</subtype><player1>24154</player1><sortorder>0</sortorder><team>10260</team><n>253</n><type>shoton</type><id>378828</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>154</event_incident_typefk><elapsed>7</elapsed><subtype>header</subtype><player1>24157</player1><sortorder>2</sortorder><team>10260</team><n>258</n><type>shoton</type><id>378866</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>153</event_incident_typefk><elapsed>14</elapsed><subtype>shot</subtype><player1>30829</player1><sortorder>1</sortorder><team>10260</team><n>274</n><type>shoton</type><id>378922</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>153</event_incident_typefk><elapsed>14</elapsed><subtype>shot</subtype><player1>30373</player1><sortorder>2</sortorder><team>10260</team><n>279</n><type>shoton</type><id>378923</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>137</event_incident_typefk><elapsed>17</elapsed><subtype>distance</subtype><player1>30373</player1><sortorder>3</sortorder><team>10260</team><n>272</n><type>shoton</type><id>378951</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>43</elapsed><subtype>blocked_shot</subtype><player1>24154</player1><sortorder>0</sortorder><team>10260</team><n>296</n><type>shoton</type><id>379204</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>137</event_incident_typefk><elapsed>50</elapsed><subtype>distance</subtype><player1>37799</player1><sortorder>0</sortorder><team>10261</team><n>302</n><type>shoton</type><id>379363</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>149</event_incident_typefk><elapsed>58</elapsed><subtype>distance</subtype><player1>24157</player1><sortorder>0</sortorder><team>10260</team><n>310</n><type>shoton</type><id>379401</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>58</elapsed><subtype>blocked_shot</subtype><player1>24157</player1><sortorder>4</sortorder><team>10260</team><n>311</n><type>shoton</type><id>379406</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>60</elapsed><subtype>blocked_shot</subtype><player1>30829</player1><sortorder>0</sortorder><team>10260</team><n>314</n><type>shoton</type><id>379414</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>136</event_incident_typefk><elapsed>64</elapsed><subtype>header</subtype><player1>24157</player1><sortorder>0</sortorder><team>10260</team><n>319</n><type>shoton</type><id>379426</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>75</elapsed><subtype>blocked_shot</subtype><player1>30829</player1><sortorder>5</sortorder><team>10260</team><n>338</n><type>shoton</type><id>379466</id></value></shoton>",
+          "<shoton><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>7</elapsed><subtype>blocked_shot</subtype><player1>31013</player1><sortorder>1</sortorder><team>9825</team><n>235</n><type>shoton</type><id>375556</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>137</event_incident_typefk><elapsed>7</elapsed><subtype>distance</subtype><player1>30960</player1><sortorder>2</sortorder><team>9825</team><n>236</n><type>shoton</type><id>375557</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>9</elapsed><subtype>blocked_shot</subtype><player1>26111</player1><sortorder>3</sortorder><team>9825</team><n>240</n><type>shoton</type><id>375563</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>135</event_incident_typefk><elapsed>23</elapsed><subtype>shot</subtype><player1>36410</player1><sortorder>1</sortorder><team>9825</team><n>253</n><type>shoton</type><id>375596</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>136</event_incident_typefk><elapsed>32</elapsed><subtype>header</subtype><player1>26111</player1><sortorder>0</sortorder><team>9825</team><n>267</n><type>shoton</type><id>375628</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>137</event_incident_typefk><elapsed>42</elapsed><subtype>distance</subtype><player1>26181</player1><sortorder>1</sortorder><team>9825</team><n>273</n><type>shoton</type><id>375651</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>44</elapsed><subtype>blocked_shot</subtype><player1>30960</player1><sortorder>0</sortorder><team>9825</team><n>279</n><type>shoton</type><id>375654</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>153</event_incident_typefk><elapsed>50</elapsed><subtype>shot</subtype><player1>27267</player1><sortorder>2</sortorder><team>8659</team><n>282</n><type>shoton</type><id>375680</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>59</elapsed><subtype>blocked_shot</subtype><player1>36410</player1><sortorder>3</sortorder><team>9825</team><n>296</n><type>shoton</type><id>375717</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>66</elapsed><subtype>blocked_shot</subtype><player1>31013</player1><sortorder>1</sortorder><team>9825</team><n>297</n><type>shoton</type><id>375740</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>76</elapsed><subtype>blocked_shot</subtype><player1>31088</player1><sortorder>0</sortorder><team>8659</team><n>305</n><type>shoton</type><id>375795</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>79</elapsed><subtype>blocked_shot</subtype><player1>30935</player1><sortorder>0</sortorder><team>9825</team><n>310</n><type>shoton</type><id>375816</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>136</event_incident_typefk><elapsed>82</elapsed><subtype>header</subtype><player1>30843</player1><sortorder>1</sortorder><team>9825</team><n>314</n><type>shoton</type><id>375831</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>89</elapsed><subtype>blocked_shot</subtype><player1>26181</player1><sortorder>1</sortorder><team>9825</team><n>321</n><type>shoton</type><id>375880</id></value></shoton>",
+          "<shoton><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>5</elapsed><subtype>blocked_shot</subtype><player1>23927</player1><sortorder>0</sortorder><team>8472</team><n>269</n><type>shoton</type><id>377771</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>136</event_incident_typefk><elapsed>13</elapsed><subtype>header</subtype><player1>24410</player1><sortorder>0</sortorder><team>8472</team><n>278</n><type>shoton</type><id>377823</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>18</elapsed><subtype>blocked_shot</subtype><player1>30618</player1><sortorder>0</sortorder><team>8650</team><n>282</n><type>shoton</type><id>377845</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>34</elapsed><subtype>blocked_shot</subtype><player1>30618</player1><sortorder>1</sortorder><team>8650</team><n>297</n><type>shoton</type><id>377901</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>37</elapsed><subtype>blocked_shot</subtype><player1>37139</player1><sortorder>2</sortorder><team>8650</team><n>305</n><type>shoton</type><id>377918</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>40</elapsed><subtype>blocked_shot</subtype><player1>37139</player1><sortorder>0</sortorder><team>8650</team><n>307</n><type>shoton</type><id>377924</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>135</event_incident_typefk><elapsed>54</elapsed><subtype>shot</subtype><player1>23927</player1><sortorder>2</sortorder><team>8472</team><n>322</n><type>shoton</type><id>377967</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>155</event_incident_typefk><elapsed>55</elapsed><subtype>distance</subtype><player1>24800</player1><sortorder>2</sortorder><team>8650</team><n>323</n><type>shoton</type><id>377970</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>59</elapsed><subtype>blocked_shot</subtype><player1>30618</player1><sortorder>1</sortorder><team>8650</team><n>328</n><type>shoton</type><id>377980</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>135</event_incident_typefk><elapsed>59</elapsed><subtype>shot</subtype><player1>24410</player1><sortorder>3</sortorder><team>8472</team><n>329</n><type>shoton</type><id>377982</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>72</elapsed><subtype>blocked_shot</subtype><player1>30618</player1><sortorder>0</sortorder><team>8650</team><n>339</n><type>shoton</type><id>378013</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>155</event_incident_typefk><elapsed>73</elapsed><subtype>distance</subtype><player1>37139</player1><sortorder>0</sortorder><team>8650</team><n>336</n><type>shoton</type><id>378014</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>73</elapsed><subtype>blocked_shot</subtype><player1>30853</player1><sortorder>1</sortorder><team>8650</team><n>337</n><type>shoton</type><id>378015</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>88</elapsed><subtype>blocked_shot</subtype><player1>37139</player1><sortorder>3</sortorder><team>8650</team><n>349</n><type>shoton</type><id>378053</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>90</elapsed><subtype>blocked_shot</subtype><player1>30853</player1><sortorder>1</sortorder><team>8650</team><n>351</n><type>shoton</type><id>378058</id></value></shoton>",
+          "<shoton><value><stats><shoton>1</shoton></stats><event_incident_typefk>148</event_incident_typefk><elapsed>15</elapsed><subtype>header</subtype><player1>34543</player1><sortorder>0</sortorder><team>8654</team><n>257</n><type>shoton</type><id>376231</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>135</event_incident_typefk><elapsed>27</elapsed><subtype>shot</subtype><player1>34543</player1><sortorder>0</sortorder><team>8654</team><n>269</n><type>shoton</type><id>376427</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>30</elapsed><subtype>blocked_shot</subtype><player1>97988</player1><sortorder>0</sortorder><team>8528</team><n>273</n><type>shoton</type><id>376476</id></value><value><stats><shoton>1</shoton></stats><elapsed_plus>2</elapsed_plus><event_incident_typefk>154</event_incident_typefk><elapsed>45</elapsed><subtype>header</subtype><player1>37277</player1><sortorder>1</sortorder><team>8654</team><n>286</n><type>shoton</type><id>376801</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>54</elapsed><subtype>blocked_shot</subtype><player1>97988</player1><sortorder>2</sortorder><team>8528</team><n>302</n><type>shoton</type><id>377038</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>137</event_incident_typefk><elapsed>56</elapsed><subtype>distance</subtype><player1>36394</player1><sortorder>1</sortorder><team>8654</team><n>307</n><type>shoton</type><id>377095</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>61</elapsed><subtype>blocked_shot</subtype><player1>25150</player1><sortorder>1</sortorder><team>8528</team><n>313</n><type>shoton</type><id>377175</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>65</elapsed><subtype>blocked_shot</subtype><player1>35327</player1><sortorder>1</sortorder><team>8528</team><n>317</n><type>shoton</type><id>377236</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>149</event_incident_typefk><elapsed>76</elapsed><subtype>distance</subtype><player1>97988</player1><sortorder>1</sortorder><team>8528</team><n>326</n><type>shoton</type><id>377411</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>135</event_incident_typefk><elapsed>79</elapsed><subtype>shot</subtype><player1>35327</player1><sortorder>1</sortorder><team>8528</team><n>330</n><type>shoton</type><id>377459</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>82</elapsed><subtype>blocked_shot</subtype><player1>118390</player1><sortorder>3</sortorder><team>8654</team><n>334</n><type>shoton</type><id>377506</id></value><value><stats><blocked>1</blocked></stats><elapsed_plus>3</elapsed_plus><event_incident_typefk>61</event_incident_typefk><elapsed>90</elapsed><subtype>blocked_shot</subtype><player1>24663</player1><sortorder>1</sortorder><team>8528</team><n>347</n><type>shoton</type><id>377645</id></value></shoton>",
+          "<shoton><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>8</elapsed><subtype>blocked_shot</subtype><player1>23354</player1><sortorder>1</sortorder><team>10252</team><n>203</n><type>shoton</type><id>378524</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>136</event_incident_typefk><elapsed>10</elapsed><subtype>header</subtype><player1>26165</player1><sortorder>1</sortorder><team>10252</team><n>205</n><type>shoton</type><id>378542</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>135</event_incident_typefk><elapsed>12</elapsed><subtype>shot</subtype><player1>26165</player1><sortorder>1</sortorder><team>10252</team><n>210</n><type>shoton</type><id>378563</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>135</event_incident_typefk><elapsed>30</elapsed><subtype>shot</subtype><player1>23782</player1><sortorder>1</sortorder><team>10252</team><n>228</n><type>shoton</type><id>378695</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>135</event_incident_typefk><elapsed>30</elapsed><subtype>shot</subtype><player1>33633</player1><sortorder>4</sortorder><team>8456</team><n>229</n><type>shoton</type><id>378699</id></value><value><stats><shoton>1</shoton></stats><elapsed_plus>1</elapsed_plus><event_incident_typefk>147</event_incident_typefk><elapsed>45</elapsed><subtype>shot</subtype><player1>47413</player1><sortorder>1</sortorder><team>8456</team><n>247</n><type>shoton</type><id>378787</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>50</elapsed><subtype>blocked_shot</subtype><player1>40198</player1><sortorder>0</sortorder><team>8456</team><n>252</n><type>shoton</type><id>378852</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>149</event_incident_typefk><elapsed>51</elapsed><subtype>distance</subtype><player1>33963</player1><sortorder>0</sortorder><team>8456</team><n>253</n><type>shoton</type><id>378865</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>67</elapsed><subtype>blocked_shot</subtype><player1>23782</player1><sortorder>2</sortorder><team>10252</team><n>274</n><type>shoton</type><id>379010</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>155</event_incident_typefk><elapsed>82</elapsed><subtype>distance</subtype><player1>24213</player1><sortorder>0</sortorder><team>8456</team><n>273</n><type>shoton</type><id>379157</id></value><value><stats><shoton>1</shoton></stats><event_incident_typefk>155</event_incident_typefk><elapsed>83</elapsed><subtype>distance</subtype><player1>51553</player1><sortorder>0</sortorder><team>8456</team><n>280</n><type>shoton</type><id>379167</id></value><value><event_incident_typefk>139</event_incident_typefk><elapsed>86</elapsed><subtype>direct_freekick</subtype><player1>33633</player1><sortorder>0</sortorder><team>8456</team><n>195</n><type>shoton</type><id>379199</id></value><value><stats><blocked>1</blocked></stats><event_incident_typefk>61</event_incident_typefk><elapsed>89</elapsed><subtype>blocked_shot</subtype><player1>51553</player1><sortorder>0</sortorder><team>8456</team><n>279</n><type>shoton</type><id>379233</id></value><value><stats><shoton>1</shoton></stats><elapsed_plus>3</elapsed_plus><event_incident_typefk>153</event_incident_typefk><elapsed>90</elapsed><subtype>shot</subtype><player1>47413</player1><sortorder>0</sortorder><team>8456</team><n>289</n><type>shoton</type><id>379273</id></value></shoton>"
+        ]
+      },
+      {
+        "col": "shot off",
+        "type": "text",
+        "original_column_name": "shotoff",
+        "sample_values": [
+          "<shotoff><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>4</elapsed><subtype>distance</subtype><player1>30373</player1><sortorder>1</sortorder><team>10260</team><n>264</n><type>shotoff</type><id>378835</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>5</elapsed><subtype>distance</subtype><player1>37799</player1><sortorder>2</sortorder><team>10261</team><n>257</n><type>shotoff</type><id>378845</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>317</event_incident_typefk><elapsed>22</elapsed><subtype>deflected</subtype><player1>24228</player1><sortorder>3</sortorder><team>10261</team><n>269</n><type>shotoff</type><id>378995</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>31</elapsed><subtype>distance</subtype><player1>38807</player1><sortorder>0</sortorder><team>10261</team><n>278</n><type>shotoff</type><id>379075</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>47</event_incident_typefk><elapsed>34</elapsed><subtype>header</subtype><player1>24154</player1><sortorder>2</sortorder><team>10260</team><n>281</n><type>shotoff</type><id>379111</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>37</elapsed><subtype>distance</subtype><player1>30373</player1><sortorder>2</sortorder><team>10260</team><n>291</n><type>shotoff</type><id>379140</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>53</elapsed><subtype>distance</subtype><player1>40565</player1><sortorder>1</sortorder><team>10261</team><n>320</n><type>shotoff</type><id>379378</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>60</elapsed><subtype>distance</subtype><player1>37799</player1><sortorder>1</sortorder><team>10261</team><n>315</n><type>shotoff</type><id>379415</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>317</event_incident_typefk><elapsed>62</elapsed><subtype>deflected</subtype><player1>38807</player1><sortorder>1</sortorder><team>10261</team><n>316</n><type>shotoff</type><id>379419</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>47</event_incident_typefk><elapsed>62</elapsed><subtype>header</subtype><player1>37799</player1><sortorder>3</sortorder><team>10261</team><n>318</n><type>shotoff</type><id>379421</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>66</elapsed><subtype>distance</subtype><player1>33852</player1><sortorder>3</sortorder><team>10261</team><n>323</n><type>shotoff</type><id>379431</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>67</elapsed><subtype>distance</subtype><player1>30373</player1><sortorder>3</sortorder><team>10260</team><n>327</n><type>shotoff</type><id>379438</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>317</event_incident_typefk><elapsed>73</elapsed><subtype>deflected</subtype><player1>30829</player1><sortorder>1</sortorder><team>10260</team><n>332</n><type>shotoff</type><id>379451</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>55</event_incident_typefk><elapsed>74</elapsed><subtype>crossbar</subtype><player1>30865</player1><sortorder>0</sortorder><team>10260</team><n>334</n><type>shotoff</type><id>379453</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>317</event_incident_typefk><elapsed>74</elapsed><subtype>deflected</subtype><player1>32569</player1><sortorder>1</sortorder><team>10260</team><n>335</n><type>shotoff</type><id>379454</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>81</event_incident_typefk><elapsed>82</elapsed><subtype>direct_freekick</subtype><player1>38807</player1><sortorder>2</sortorder><team>10261</team><n>347</n><type>shotoff</type><id>379504</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>84</elapsed><subtype>distance</subtype><player1>30829</player1><sortorder>0</sortorder><team>10260</team><n>349</n><type>shotoff</type><id>379515</id></value><value><stats><shotoff>1</shotoff></stats><elapsed_plus>1</elapsed_plus><event_incident_typefk>46</event_incident_typefk><elapsed>90</elapsed><subtype>shot</subtype><player1>32569</player1><sortorder>5</sortorder><team>10260</team><n>354</n><type>shotoff</type><id>379560</id></value><value><stats><shotoff>1</shotoff></stats><elapsed_plus>4</elapsed_plus><event_incident_typefk>81</event_incident_typefk><elapsed>90</elapsed><subtype>direct_freekick</subtype><player1>30829</player1><sortorder>1</sortorder><team>10260</team><n>356</n><type>shotoff</type><id>379573</id></value></shotoff>",
+          "<shotoff><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>81</event_incident_typefk><elapsed>6</elapsed><subtype>direct_freekick</subtype><player1>23257</player1><sortorder>0</sortorder><team>8659</team><n>234</n><type>shotoff</type><id>375553</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>317</event_incident_typefk><elapsed>9</elapsed><subtype>deflected</subtype><player1>26181</player1><sortorder>1</sortorder><team>9825</team><n>237</n><type>shotoff</type><id>375561</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>11</elapsed><subtype>distance</subtype><player1>38835</player1><sortorder>4</sortorder><team>9825</team><n>245</n><type>shotoff</type><id>375572</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>317</event_incident_typefk><elapsed>19</elapsed><subtype>deflected</subtype><player1>26111</player1><sortorder>0</sortorder><team>9825</team><n>247</n><type>shotoff</type><id>375585</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>47</event_incident_typefk><elapsed>25</elapsed><subtype>header</subtype><player1>36410</player1><sortorder>1</sortorder><team>9825</team><n>255</n><type>shotoff</type><id>375603</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>317</event_incident_typefk><elapsed>30</elapsed><subtype>deflected</subtype><player1>31088</player1><sortorder>2</sortorder><team>8659</team><n>262</n><type>shotoff</type><id>375620</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>35</elapsed><subtype>distance</subtype><player1>30935</player1><sortorder>0</sortorder><team>9825</team><n>268</n><type>shotoff</type><id>375633</id></value><value><stats><shotoff>1</shotoff></stats><elapsed_plus>1</elapsed_plus><event_incident_typefk>9</event_incident_typefk><elapsed>45</elapsed><subtype>distance</subtype><player1>39297</player1><sortorder>1</sortorder><team>9825</team><n>277</n><type>shotoff</type><id>375660</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>46</event_incident_typefk><elapsed>49</elapsed><subtype>shot</subtype><player1>30960</player1><sortorder>1</sortorder><team>9825</team><n>285</n><type>shotoff</type><id>375674</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>317</event_incident_typefk><elapsed>50</elapsed><subtype>deflected</subtype><player1>23257</player1><sortorder>3</sortorder><team>8659</team><n>283</n><type>shotoff</type><id>375681</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>46</event_incident_typefk><elapsed>52</elapsed><subtype>shot</subtype><player1>30960</player1><sortorder>1</sortorder><team>9825</team><n>284</n><type>shotoff</type><id>375685</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>53</elapsed><subtype>distance</subtype><player1>30935</player1><sortorder>3</sortorder><team>9825</team><n>289</n><type>shotoff</type><id>375690</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>65</elapsed><subtype>distance</subtype><player1>30935</player1><sortorder>1</sortorder><team>9825</team><n>298</n><type>shotoff</type><id>375735</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>46</event_incident_typefk><elapsed>80</elapsed><subtype>shot</subtype><player1>38835</player1><sortorder>0</sortorder><team>9825</team><n>312</n><type>shotoff</type><id>375820</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>85</elapsed><subtype>distance</subtype><player1>30843</player1><sortorder>3</sortorder><team>9825</team><n>318</n><type>shotoff</type><id>375857</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>46</event_incident_typefk><elapsed>87</elapsed><subtype>shot</subtype><player1>30843</player1><sortorder>1</sortorder><team>9825</team><n>320</n><type>shotoff</type><id>375870</id></value></shotoff>",
+          "<shotoff><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>10</elapsed><subtype>distance</subtype><player1>30352</player1><sortorder>3</sortorder><team>8472</team><n>274</n><type>shotoff</type><id>377805</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>46</event_incident_typefk><elapsed>27</elapsed><subtype>shot</subtype><player1>23927</player1><sortorder>1</sortorder><team>8472</team><n>291</n><type>shotoff</type><id>377884</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>317</event_incident_typefk><elapsed>35</elapsed><subtype>deflected</subtype><player1>30618</player1><sortorder>1</sortorder><team>8650</team><n>298</n><type>shotoff</type><id>377905</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>43</elapsed><subtype>distance</subtype><player1>24635</player1><sortorder>1</sortorder><team>8650</team><n>313</n><type>shotoff</type><id>377935</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>53</elapsed><subtype>distance</subtype><player1>30618</player1><sortorder>0</sortorder><team>8650</team><n>320</n><type>shotoff</type><id>377963</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>317</event_incident_typefk><elapsed>56</elapsed><subtype>deflected</subtype><player1>24635</player1><sortorder>0</sortorder><team>8650</team><n>324</n><type>shotoff</type><id>377971</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>81</elapsed><subtype>distance</subtype><player1>30889</player1><sortorder>0</sortorder><team>8650</team><n>343</n><type>shotoff</type><id>378034</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>89</elapsed><subtype>distance</subtype><player1>30352</player1><sortorder>0</sortorder><team>8472</team><n>350</n><type>shotoff</type><id>378055</id></value></shotoff>",
+          "<shotoff><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>46</event_incident_typefk><elapsed>7</elapsed><subtype>shot</subtype><player1>127857</player1><sortorder>1</sortorder><team>8528</team><n>249</n><type>shotoff</type><id>376107</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>14</elapsed><subtype>distance</subtype><player1>41877</player1><sortorder>0</sortorder><team>8528</team><n>255</n><type>shotoff</type><id>376213</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>46</event_incident_typefk><elapsed>17</elapsed><subtype>shot</subtype><player1>111865</player1><sortorder>1</sortorder><team>8528</team><n>259</n><type>shotoff</type><id>376267</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>18</elapsed><subtype>distance</subtype><player1>111865</player1><sortorder>1</sortorder><team>8528</team><n>261</n><type>shotoff</type><id>376278</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>28</elapsed><subtype>distance</subtype><player1>111865</player1><sortorder>1</sortorder><team>8528</team><n>272</n><type>shotoff</type><id>376456</id></value><value><stats><shotoff>1</shotoff></stats><elapsed_plus>3</elapsed_plus><event_incident_typefk>9</event_incident_typefk><elapsed>45</elapsed><subtype>distance</subtype><player1>37169</player1><sortorder>1</sortorder><team>8654</team><n>288</n><type>shotoff</type><id>376813</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>53</event_incident_typefk><elapsed>46</elapsed><subtype>volley</subtype><player1>23139</player1><sortorder>2</sortorder><team>8654</team><n>292</n><type>shotoff</type><id>376902</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>317</event_incident_typefk><elapsed>50</elapsed><subtype>deflected</subtype><player1>41877</player1><sortorder>0</sortorder><team>8528</team><n>296</n><type>shotoff</type><id>376953</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>47</event_incident_typefk><elapsed>53</elapsed><subtype>header</subtype><player1>34543</player1><sortorder>0</sortorder><team>8654</team><n>301</n><type>shotoff</type><id>377015</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>54</elapsed><subtype>distance</subtype><player1>111865</player1><sortorder>4</sortorder><team>8528</team><n>305</n><type>shotoff</type><id>377049</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>46</event_incident_typefk><elapsed>57</elapsed><subtype>shot</subtype><player1>36394</player1><sortorder>1</sortorder><team>8654</team><n>309</n><type>shotoff</type><id>377106</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>46</event_incident_typefk><elapsed>60</elapsed><subtype>shot</subtype><player1>97988</player1><sortorder>1</sortorder><team>8528</team><n>311</n><type>shotoff</type><id>377155</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>62</elapsed><subtype>distance</subtype><player1>35327</player1><sortorder>1</sortorder><team>8528</team><n>314</n><type>shotoff</type><id>377185</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>47</event_incident_typefk><elapsed>66</elapsed><subtype>header</subtype><player1>127857</player1><sortorder>1</sortorder><team>8528</team><n>320</n><type>shotoff</type><id>377251</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>46</event_incident_typefk><elapsed>67</elapsed><subtype>shot</subtype><player1>127857</player1><sortorder>1</sortorder><team>8528</team><n>321</n><type>shotoff</type><id>377268</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>81</event_incident_typefk><elapsed>69</elapsed><subtype>direct_freekick</subtype><player1>23139</player1><sortorder>0</sortorder><team>8654</team><n>324</n><type>shotoff</type><id>377294</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>77</elapsed><subtype>distance</subtype><player1>111865</player1><sortorder>1</sortorder><team>8528</team><n>328</n><type>shotoff</type><id>377421</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>46</event_incident_typefk><elapsed>78</elapsed><subtype>shot</subtype><player1>36394</player1><sortorder>0</sortorder><team>8654</team><n>329</n><type>shotoff</type><id>377433</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>47</event_incident_typefk><elapsed>87</elapsed><subtype>header</subtype><player1>37277</player1><sortorder>2</sortorder><team>8654</team><n>338</n><type>shotoff</type><id>377566</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>317</event_incident_typefk><elapsed>88</elapsed><subtype>deflected</subtype><player1>127857</player1><sortorder>2</sortorder><team>8528</team><n>339</n><type>shotoff</type><id>377575</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>90</elapsed><subtype>distance</subtype><player1>24663</player1><sortorder>2</sortorder><team>8528</team><n>343</n><type>shotoff</type><id>377603</id></value><value><stats><shotoff>1</shotoff></stats><elapsed_plus>3</elapsed_plus><event_incident_typefk>46</event_incident_typefk><elapsed>90</elapsed><subtype>shot</subtype><player1>127857</player1><sortorder>3</sortorder><team>8528</team><n>348</n><type>shotoff</type><id>377651</id></value></shotoff>",
+          "<shotoff><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>47</event_incident_typefk><elapsed>6</elapsed><subtype>header</subtype><player1>26165</player1><sortorder>1</sortorder><team>10252</team><n>200</n><type>shotoff</type><id>378506</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>46</event_incident_typefk><elapsed>20</elapsed><subtype>shot</subtype><player1>47413</player1><sortorder>0</sortorder><team>8456</team><n>217</n><type>shotoff</type><id>378631</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>46</event_incident_typefk><elapsed>26</elapsed><subtype>shot</subtype><player1>23782</player1><sortorder>1</sortorder><team>10252</team><n>224</n><type>shotoff</type><id>378673</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>46</event_incident_typefk><elapsed>31</elapsed><subtype>shot</subtype><player1>23264</player1><sortorder>0</sortorder><team>10252</team><n>230</n><type>shotoff</type><id>378700</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>31</elapsed><subtype>distance</subtype><player1>40198</player1><sortorder>3</sortorder><team>8456</team><n>231</n><type>shotoff</type><id>378707</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>53</event_incident_typefk><elapsed>39</elapsed><subtype>volley</subtype><player1>107216</player1><sortorder>1</sortorder><team>8456</team><n>236</n><type>shotoff</type><id>378747</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>9</event_incident_typefk><elapsed>52</elapsed><subtype>distance</subtype><player1>33633</player1><sortorder>2</sortorder><team>8456</team><n>258</n><type>shotoff</type><id>378883</id></value><value><stats><shotoff>1</shotoff></stats><event_incident_typefk>317</event_incident_typefk><elapsed>59</elapsed><subtype>deflected</subtype><player1>23354</player1><sortorder>1</sortorder><team>10252</team><n>261</n><type>shotoff</type><id>378937</id></value><value><stats><shotoff>1</shotoff></stats><elapsed_plus>4</elapsed_plus><event_incident_typefk>47</event_incident_typefk><elapsed>90</elapsed><subtype>header</subtype><player1>46403</player1><sortorder>0</sortorder><team>8456</team><n>288</n><type>shotoff</type><id>379280</id></value></shotoff>"
+        ]
+      },
+      {
+        "col": "foul commit",
+        "type": "text",
+        "original_column_name": "foulcommit",
+        "sample_values": [
+          "<foulcommit><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>1</elapsed><player2>32569</player2><player1>25518</player1><sortorder>1</sortorder><team>10261</team><n>267</n><type>foulcommit</type><id>378824</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>2</elapsed><player2>24157</player2><player1>30929</player1><sortorder>0</sortorder><team>10261</team><n>277</n><type>foulcommit</type><id>378826</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>3</elapsed><player2>24148</player2><player1>29581</player1><sortorder>1</sortorder><team>10261</team><n>254</n><type>foulcommit</type><id>378830</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>5</elapsed><player2>40565</player2><player1>30373</player1><sortorder>0</sortorder><team>10260</team><n>256</n><type>foulcommit</type><id>378841</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>320</event_incident_typefk><elapsed>10</elapsed><player2>30829</player2><subtype>pushing</subtype><player1>29581</player1><sortorder>0</sortorder><team>10261</team><n>275</n><type>foulcommit</type><id>378894</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>13</elapsed><player2>25518</player2><player1>24157</player1><sortorder>0</sortorder><team>10260</team><n>261</n><type>foulcommit</type><id>378913</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>19</elapsed><player2>30362</player2><player1>24228</player1><sortorder>6</sortorder><team>10261</team><n>260</n><type>foulcommit</type><id>378974</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>27</elapsed><player2>30360</player2><player1>24157</player1><sortorder>0</sortorder><team>10260</team><n>268</n><type>foulcommit</type><id>379035</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>27</elapsed><player2>38807</player2><player1>24154</player1><sortorder>2</sortorder><team>10260</team><n>282</n><type>foulcommit</type><id>379044</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>18</event_incident_typefk><elapsed>33</elapsed><player2>32569</player2><subtype>shirt_pull</subtype><player1>34574</player1><sortorder>1</sortorder><team>10261</team><n>283</n><type>foulcommit</type><id>379100</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>320</event_incident_typefk><elapsed>36</elapsed><player2>32569</player2><subtype>pushing</subtype><player1>37799</player1><sortorder>0</sortorder><team>10261</team><n>286</n><type>foulcommit</type><id>379126</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>19</event_incident_typefk><elapsed>38</elapsed><player2>33852</player2><subtype>from_behind</subtype><player1>30620</player1><sortorder>0</sortorder><team>10260</team><n>287</n><type>foulcommit</type><id>379154</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>19</event_incident_typefk><elapsed>39</elapsed><player2>34574</player2><subtype>from_behind</subtype><player1>32569</player1><sortorder>2</sortorder><team>10260</team><n>290</n><type>foulcommit</type><id>379171</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>42</elapsed><player2>24157</player2><player1>30929</player1><sortorder>0</sortorder><team>10261</team><n>308</n><type>foulcommit</type><id>379195</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>320</event_incident_typefk><elapsed>53</elapsed><player2>33852</player2><subtype>pushing</subtype><player1>24157</player1><sortorder>0</sortorder><team>10260</team><n>304</n><type>foulcommit</type><id>379377</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>19</event_incident_typefk><elapsed>56</elapsed><player2>34574</player2><subtype>from_behind</subtype><player1>30865</player1><sortorder>0</sortorder><team>10260</team><n>321</n><type>foulcommit</type><id>379390</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>19</event_incident_typefk><elapsed>59</elapsed><player2>37799</player2><subtype>from_behind</subtype><player1>30865</player1><sortorder>3</sortorder><team>10260</team><n>313</n><type>foulcommit</type><id>379413</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>3</event_incident_typefk><elapsed>68</elapsed><subtype>hands</subtype><player1>24157</player1><sortorder>1</sortorder><team>10260</team><n>328</n><type>foulcommit</type><id>379440</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>70</elapsed><player2>29581</player2><player1>30362</player1><sortorder>1</sortorder><team>10260</team><n>329</n><type>foulcommit</type><id>379444</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>72</elapsed><player2>24148</player2><player1>29581</player1><sortorder>0</sortorder><team>10261</team><n>331</n><type>foulcommit</type><id>379449</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>320</event_incident_typefk><elapsed>76</elapsed><player2>32569</player2><subtype>pushing</subtype><player1>29581</player1><sortorder>0</sortorder><team>10261</team><n>339</n><type>foulcommit</type><id>379468</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>5</event_incident_typefk><elapsed>78</elapsed><player2>30929</player2><subtype>serious_foul</subtype><player1>24157</player1><sortorder>0</sortorder><team>10260</team><n>341</n><type>foulcommit</type><id>379479</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>80</elapsed><player2>38807</player2><player1>24150</player1><sortorder>0</sortorder><team>10260</team><n>343</n><type>foulcommit</type><id>379488</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>5</event_incident_typefk><elapsed>82</elapsed><player2>29581</player2><subtype>serious_foul</subtype><player1>30362</player1><sortorder>0</sortorder><team>10260</team><n>345</n><type>foulcommit</type><id>379502</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>83</elapsed><player2>30929</player2><player1>30829</player1><sortorder>0</sortorder><team>10260</team><n>348</n><type>foulcommit</type><id>379509</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>89</elapsed><player2>24228</player2><player1>30829</player1><sortorder>2</sortorder><team>10260</team><n>352</n><type>foulcommit</type><id>379542</id></value><value><stats><foulscommitted>1</foulscommitted></stats><elapsed_plus>4</elapsed_plus><event_incident_typefk>37</event_incident_typefk><elapsed>90</elapsed><player2>38994</player2><player1>30360</player1><sortorder>0</sortorder><team>10261</team><n>355</n><type>foulcommit</type><id>379571</id></value></foulcommit>",
+          "<foulcommit><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>2</elapsed><player2>26181</player2><player1>36832</player1><sortorder>0</sortorder><team>8659</team><n>227</n><type>foulcommit</type><id>375531</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>3</elapsed><player2>23257</player2><player1>31291</player1><sortorder>5</sortorder><team>9825</team><n>230</n><type>foulcommit</type><id>375541</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>320</event_incident_typefk><elapsed>5</elapsed><player2>31088</player2><subtype>pushing</subtype><player1>30935</player1><sortorder>0</sortorder><team>9825</team><n>232</n><type>foulcommit</type><id>375551</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>18</event_incident_typefk><elapsed>10</elapsed><player2>24171</player2><subtype>shirt_pull</subtype><player1>30960</player1><sortorder>0</sortorder><team>9825</team><n>239</n><type>foulcommit</type><id>375564</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>18</event_incident_typefk><elapsed>17</elapsed><player2>23115</player2><subtype>shirt_pull</subtype><player1>30960</player1><sortorder>1</sortorder><team>9825</team><n>251</n><type>foulcommit</type><id>375581</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>22</elapsed><player2>31088</player2><player1>39297</player1><sortorder>1</sortorder><team>9825</team><n>252</n><type>foulcommit</type><id>375593</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>320</event_incident_typefk><elapsed>33</elapsed><player2>30986</player2><subtype>pushing</subtype><player1>27267</player1><sortorder>0</sortorder><team>8659</team><n>266</n><type>foulcommit</type><id>375631</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>39</elapsed><player2>31291</player2><player1>25922</player1><sortorder>0</sortorder><team>8659</team><n>272</n><type>foulcommit</type><id>375643</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>40</elapsed><player2>30935</player2><player1>31088</player1><sortorder>0</sortorder><team>8659</team><n>270</n><type>foulcommit</type><id>375648</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>320</event_incident_typefk><elapsed>48</elapsed><player2>24664</player2><subtype>pushing</subtype><player1>31013</player1><sortorder>0</sortorder><team>9825</team><n>286</n><type>foulcommit</type><id>375672</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>53</elapsed><player2>26181</player2><player1>24171</player1><sortorder>1</sortorder><team>8659</team><n>287</n><type>foulcommit</type><id>375688</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>320</event_incident_typefk><elapsed>54</elapsed><player2>26111</player2><subtype>pushing</subtype><player1>27267</player1><sortorder>1</sortorder><team>8659</team><n>291</n><type>foulcommit</type><id>375692</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>56</elapsed><player2>31088</player2><player1>31291</player1><sortorder>1</sortorder><team>9825</team><n>293</n><type>foulcommit</type><id>375704</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>18</event_incident_typefk><elapsed>57</elapsed><player2>26181</player2><subtype>shirt_pull</subtype><player1>25922</player1><sortorder>0</sortorder><team>8659</team><n>292</n><type>foulcommit</type><id>375709</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>320</event_incident_typefk><elapsed>73</elapsed><player2>31088</player2><subtype>pushing</subtype><player1>30843</player1><sortorder>2</sortorder><team>9825</team><n>303</n><type>foulcommit</type><id>375782</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>320</event_incident_typefk><elapsed>76</elapsed><player2>24728</player2><subtype>pushing</subtype><player1>30843</player1><sortorder>1</sortorder><team>9825</team><n>306</n><type>foulcommit</type><id>375796</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>320</event_incident_typefk><elapsed>77</elapsed><player2>23115</player2><subtype>pushing</subtype><player1>30960</player1><sortorder>0</sortorder><team>9825</team><n>307</n><type>foulcommit</type><id>375799</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>82</elapsed><player2>26181</player2><player1>31088</player1><sortorder>2</sortorder><team>8659</team><n>315</n><type>foulcommit</type><id>375832</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>19</event_incident_typefk><elapsed>90</elapsed><player2>30935</player2><subtype>from_behind</subtype><player1>24728</player1><sortorder>2</sortorder><team>8659</team><n>322</n><type>foulcommit</type><id>375889</id></value><value><stats><foulscommitted>1</foulscommitted></stats><elapsed_plus>1</elapsed_plus><event_incident_typefk>320</event_incident_typefk><elapsed>90</elapsed><player2>24171</player2><subtype>pushing</subtype><player1>30935</player1><sortorder>1</sortorder><team>9825</team><n>323</n><type>foulcommit</type><id>375898</id></value></foulcommit>",
+          "<foulcommit><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>12</elapsed><player2>38802</player2><player1>39647</player1><sortorder>0</sortorder><team>8650</team><n>275</n><type>foulcommit</type><id>377817</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>15</elapsed><player2>24134</player2><player1>23927</player1><sortorder>1</sortorder><team>8472</team><n>280</n><type>foulcommit</type><id>377834</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>16</elapsed><player2>24408</player2><player1>30853</player1><sortorder>0</sortorder><team>8650</team><n>281</n><type>foulcommit</type><id>377837</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>19</elapsed><player2>30617</player2><player1>23927</player1><sortorder>1</sortorder><team>8472</team><n>283</n><type>foulcommit</type><id>377853</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>18</event_incident_typefk><elapsed>24</elapsed><player2>36786</player2><subtype>shirt_pull</subtype><player1>37442</player1><sortorder>0</sortorder><team>8650</team><n>286</n><type>foulcommit</type><id>377872</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>24</elapsed><player2>24134</player2><player1>30352</player1><sortorder>3</sortorder><team>8472</team><n>288</n><type>foulcommit</type><id>377875</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>320</event_incident_typefk><elapsed>28</elapsed><player2>30853</player2><subtype>pushing</subtype><player1>36786</player1><sortorder>0</sortorder><team>8472</team><n>292</n><type>foulcommit</type><id>377887</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>33</elapsed><player2>30618</player2><player1>24446</player1><sortorder>2</sortorder><team>8472</team><n>296</n><type>foulcommit</type><id>377899</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>38</elapsed><player2>24446</player2><player1>24635</player1><sortorder>1</sortorder><team>8650</team><n>306</n><type>foulcommit</type><id>377921</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>19</event_incident_typefk><elapsed>40</elapsed><player2>24635</player2><subtype>from_behind</subtype><player1>24446</player1><sortorder>2</sortorder><team>8472</team><n>309</n><type>foulcommit</type><id>377926</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>41</elapsed><player2>23927</player2><player1>24134</player1><sortorder>0</sortorder><team>8650</team><n>311</n><type>foulcommit</type><id>377927</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>48</elapsed><player2>23927</player2><player1>37442</player1><sortorder>0</sortorder><team>8650</team><n>317</n><type>foulcommit</type><id>377952</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>19</event_incident_typefk><elapsed>51</elapsed><player2>38836</player2><subtype>from_behind</subtype><player1>30853</player1><sortorder>0</sortorder><team>8650</team><n>318</n><type>foulcommit</type><id>377958</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>5</event_incident_typefk><elapsed>56</elapsed><player2>30352</player2><subtype>serious_foul</subtype><player1>37442</player1><sortorder>4</sortorder><team>8650</team><n>326</n><type>foulcommit</type><id>377975</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>60</elapsed><player2>38836</player2><player1>30853</player1><sortorder>0</sortorder><team>8650</team><n>330</n><type>foulcommit</type><id>377983</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>62</elapsed><player2>30889</player2><player1>17866</player1><sortorder>1</sortorder><team>8472</team><n>331</n><type>foulcommit</type><id>377990</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>64</elapsed><player2>24410</player2><player1>39647</player1><sortorder>1</sortorder><team>8650</team><n>332</n><type>foulcommit</type><id>377993</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>68</elapsed><player2>30618</player2><player1>23927</player1><sortorder>0</sortorder><team>8472</team><n>334</n><type>foulcommit</type><id>378006</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>19</event_incident_typefk><elapsed>71</elapsed><player2>24800</player2><subtype>from_behind</subtype><player1>38836</player1><sortorder>0</sortorder><team>8472</team><n>335</n><type>foulcommit</type><id>378012</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>80</elapsed><player2>30889</player2><player1>17866</player1><sortorder>0</sortorder><team>8472</team><n>342</n><type>foulcommit</type><id>378031</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>85</elapsed><player2>30954</player2><player1>39647</player1><sortorder>0</sortorder><team>8650</team><n>345</n><type>foulcommit</type><id>378044</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>88</elapsed><player2>30660</player2><player1>33316</player1><sortorder>0</sortorder><team>8472</team><n>348</n><type>foulcommit</type><id>378050</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>320</event_incident_typefk><elapsed>90</elapsed><player2>36786</player2><subtype>pushing</subtype><player1>46621</player1><sortorder>2</sortorder><team>8650</team><n>352</n><type>foulcommit</type><id>378059</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>90</elapsed><player2>30889</player2><player1>17866</player1><sortorder>4</sortorder><team>8472</team><n>354</n><type>foulcommit</type><id>378061</id></value><value><stats><foulscommitted>1</foulscommitted></stats><elapsed_plus>4</elapsed_plus><event_incident_typefk>37</event_incident_typefk><elapsed>90</elapsed><player2>46621</player2><player1>17866</player1><sortorder>0</sortorder><team>8472</team><n>357</n><type>foulcommit</type><id>378068</id></value></foulcommit>",
+          "<foulcommit><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>1</elapsed><player2>25005</player2><player1>23139</player1><sortorder>1</sortorder><team>8654</team><n>241</n><type>foulcommit</type><id>376007</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>43</event_incident_typefk><elapsed>2</elapsed><player1>25150</player1><sortorder>0</sortorder><team>8528</team><n>242</n><type>foulcommit</type><id>376023</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>5</elapsed><player2>97988</player2><player1>24223</player1><sortorder>0</sortorder><team>8654</team><n>245</n><type>foulcommit</type><id>376070</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>6</elapsed><player2>36374</player2><player1>127857</player1><sortorder>0</sortorder><team>8528</team><n>247</n><type>foulcommit</type><id>376081</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>43</event_incident_typefk><elapsed>11</elapsed><player1>97988</player1><sortorder>0</sortorder><team>8528</team><n>252</n><type>foulcommit</type><id>376170</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>11</elapsed><player2>35327</player2><player1>23818</player1><sortorder>1</sortorder><team>8654</team><n>253</n><type>foulcommit</type><id>376178</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>43</event_incident_typefk><elapsed>21</elapsed><player1>37169</player1><sortorder>1</sortorder><team>8654</team><n>263</n><type>foulcommit</type><id>376336</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>23</elapsed><player2>30966</player2><player1>127857</player1><sortorder>4</sortorder><team>8528</team><n>267</n><type>foulcommit</type><id>376378</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>27</elapsed><player2>97988</player2><player1>24223</player1><sortorder>1</sortorder><team>8654</team><n>270</n><type>foulcommit</type><id>376437</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>36</elapsed><player2>25150</player2><player1>37169</player1><sortorder>0</sortorder><team>8654</team><n>275</n><type>foulcommit</type><id>376582</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>37</elapsed><player2>23139</player2><player1>25150</player1><sortorder>1</sortorder><team>8528</team><n>276</n><type>foulcommit</type><id>376612</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>5</event_incident_typefk><elapsed>39</elapsed><player2>97988</player2><subtype>serious_foul</subtype><player1>24223</player1><sortorder>0</sortorder><team>8654</team><n>277</n><type>foulcommit</type><id>376640</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>42</elapsed><player2>127857</player2><player1>24223</player1><sortorder>0</sortorder><team>8654</team><n>281</n><type>foulcommit</type><id>376688</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>44</elapsed><player2>30966</player2><player1>41877</player1><sortorder>0</sortorder><team>8528</team><n>282</n><type>foulcommit</type><id>376719</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>18</event_incident_typefk><elapsed>45</elapsed><player2>34987</player2><subtype>shirt_pull</subtype><player1>34543</player1><sortorder>2</sortorder><team>8654</team><n>284</n><type>foulcommit</type><id>376754</id></value><value><stats><foulscommitted>1</foulscommitted></stats><elapsed_plus>1</elapsed_plus><event_incident_typefk>19</event_incident_typefk><elapsed>45</elapsed><player2>24773</player2><subtype>from_behind</subtype><player1>35327</player1><sortorder>1</sortorder><team>8528</team><n>285</n><type>foulcommit</type><id>376778</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>26</elapsed><player2>30966</player2><player1>111865</player1><sortorder>3</sortorder><team>8528</team><n>291</n><type>foulcommit</type><id>376842</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>18</event_incident_typefk><elapsed>49</elapsed><player2>127857</player2><subtype>shirt_pull</subtype><player1>37277</player1><sortorder>0</sortorder><team>8654</team><n>295</n><type>foulcommit</type><id>376947</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>54</elapsed><player2>25005</player2><player1>23139</player1><sortorder>1</sortorder><team>8654</team><n>303</n><type>foulcommit</type><id>377033</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>55</elapsed><player2>34987</player2><player1>24773</player1><sortorder>0</sortorder><team>8654</team><n>304</n><type>foulcommit</type><id>377064</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>3</event_incident_typefk><elapsed>56</elapsed><subtype>hands</subtype><player1>127857</player1><sortorder>0</sortorder><team>8528</team><n>306</n><type>foulcommit</type><id>377088</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>320</event_incident_typefk><elapsed>61</elapsed><player2>127857</player2><subtype>pushing</subtype><player1>36394</player1><sortorder>0</sortorder><team>8654</team><n>312</n><type>foulcommit</type><id>377170</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>19</event_incident_typefk><elapsed>68</elapsed><player2>34543</player2><subtype>from_behind</subtype><player1>97988</player1><sortorder>1</sortorder><team>8528</team><n>322</n><type>foulcommit</type><id>377286</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>82</elapsed><player2>118390</player2><player1>111865</player1><sortorder>0</sortorder><team>8528</team><n>333</n><type>foulcommit</type><id>377493</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>85</elapsed><player2>118390</player2><player1>97988</player1><sortorder>0</sortorder><team>8528</team><n>336</n><type>foulcommit</type><id>377536</id></value><value><stats><foulscommitted>1</foulscommitted></stats><elapsed_plus>1</elapsed_plus><event_incident_typefk>37</event_incident_typefk><elapsed>90</elapsed><player2>118390</player2><player1>97988</player1><sortorder>3</sortorder><team>8528</team><n>344</n><type>foulcommit</type><id>377631</id></value><value><stats><foulscommitted>1</foulscommitted></stats><elapsed_plus>4</elapsed_plus><event_incident_typefk>37</event_incident_typefk><elapsed>90</elapsed><player2>111865</player2><player1>34543</player1><sortorder>0</sortorder><team>8654</team><n>349</n><type>foulcommit</type><id>377657</id></value></foulcommit>",
+          "<foulcommit><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>5</elapsed><player2>33963</player2><player1>30357</player1><sortorder>1</sortorder><team>10252</team><n>198</n><type>foulcommit</type><id>378496</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>18</event_incident_typefk><elapsed>7</elapsed><player2>38609</player2><subtype>shirt_pull</subtype><player1>42119</player1><sortorder>0</sortorder><team>8456</team><n>201</n><type>foulcommit</type><id>378514</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>10</elapsed><player2>33633</player2><player1>30357</player1><sortorder>2</sortorder><team>10252</team><n>206</n><type>foulcommit</type><id>378544</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>12</elapsed><player2>23354</player2><player1>47413</player1><sortorder>3</sortorder><team>8456</team><n>213</n><type>foulcommit</type><id>378570</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>14</elapsed><player2>46403</player2><player1>23354</player1><sortorder>0</sortorder><team>10252</team><n>212</n><type>foulcommit</type><id>378579</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>18</elapsed><player2>23354</player2><player1>46403</player1><sortorder>0</sortorder><team>8456</team><n>215</n><type>foulcommit</type><id>378616</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>320</event_incident_typefk><elapsed>21</elapsed><player2>26165</player2><subtype>pushing</subtype><player1>23939</player1><sortorder>0</sortorder><team>8456</team><n>218</n><type>foulcommit</type><id>378636</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>22</elapsed><player2>26165</player2><player1>24208</player1><sortorder>0</sortorder><team>8456</team><n>220</n><type>foulcommit</type><id>378648</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>43</event_incident_typefk><elapsed>23</elapsed><player1>23939</player1><sortorder>0</sortorder><team>8456</team><n>221</n><type>foulcommit</type><id>378656</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>19</event_incident_typefk><elapsed>24</elapsed><player2>26165</player2><subtype>from_behind</subtype><player1>46403</player1><sortorder>1</sortorder><team>8456</team><n>222</n><type>foulcommit</type><id>378662</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>27</elapsed><player2>38609</player2><player1>42119</player1><sortorder>2</sortorder><team>8456</team><n>226</n><type>foulcommit</type><id>378683</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>5</event_incident_typefk><elapsed>33</elapsed><player2>23782</player2><subtype>serious_foul</subtype><player1>23939</player1><sortorder>0</sortorder><team>8456</team><n>232</n><type>foulcommit</type><id>378717</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>40</elapsed><player2>24208</player2><player1>26165</player1><sortorder>0</sortorder><team>10252</team><n>237</n><type>foulcommit</type><id>378752</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>40</elapsed><player2>23939</player2><player1>23354</player1><sortorder>2</sortorder><team>10252</team><n>239</n><type>foulcommit</type><id>378758</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>43</event_incident_typefk><elapsed>42</elapsed><player1>107216</player1><sortorder>1</sortorder><team>8456</team><n>242</n><type>foulcommit</type><id>378766</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>43</elapsed><player2>24780</player2><player1>33963</player1><sortorder>2</sortorder><team>8456</team><n>243</n><type>foulcommit</type><id>378775</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>18</event_incident_typefk><elapsed>47</elapsed><player2>33963</player2><subtype>shirt_pull</subtype><player1>24780</player1><sortorder>0</sortorder><team>10252</team><n>249</n><type>foulcommit</type><id>378831</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>52</elapsed><player2>23939</player2><player1>24780</player1><sortorder>1</sortorder><team>10252</team><n>257</n><type>foulcommit</type><id>378878</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>18</event_incident_typefk><elapsed>53</elapsed><player2>45431</player2><subtype>shirt_pull</subtype><player1>23782</player1><sortorder>0</sortorder><team>10252</team><n>259</n><type>foulcommit</type><id>378893</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>56</elapsed><player2>40198</player2><player1>38609</player1><sortorder>0</sortorder><team>10252</team><n>260</n><type>foulcommit</type><id>378909</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>38</event_incident_typefk><elapsed>63</elapsed><player2>45431</player2><subtype>penalty</subtype><player1>30357</player1><sortorder>1</sortorder><team>10252</team><n>267</n><type>foulcommit</type><id>378975</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>43</event_incident_typefk><elapsed>71</elapsed><player1>107216</player1><sortorder>0</sortorder><team>8456</team><n>271</n><type>foulcommit</type><id>379043</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>81</elapsed><player2>24658</player2><player1>40198</player1><sortorder>0</sortorder><team>8456</team><n>284</n><type>foulcommit</type><id>379144</id></value><value><stats><foulscommitted>1</foulscommitted></stats><event_incident_typefk>37</event_incident_typefk><elapsed>85</elapsed><player2>40198</player2><player1>24780</player1><sortorder>0</sortorder><team>10252</team><n>282</n><type>foulcommit</type><id>379190</id></value></foulcommit>"
+        ]
+      },
+      {
+        "col": "card",
+        "type": "text",
+        "original_column_name": "card",
+        "sample_values": [
+          "<card><value><comment>y</comment><stats><ycards>1</ycards></stats><event_incident_typefk>73</event_incident_typefk><elapsed>78</elapsed><card_type>y</card_type><subtype>serious_fouls</subtype><player1>24157</player1><sortorder>1</sortorder><team>10260</team><n>342</n><type>card</type><id>379481</id></value><value><comment>y</comment><stats><ycards>1</ycards></stats><event_incident_typefk>73</event_incident_typefk><elapsed>82</elapsed><card_type>y</card_type><subtype>serious_fouls</subtype><player1>30362</player1><sortorder>1</sortorder><team>10260</team><n>346</n><type>card</type><id>379503</id></value><value><comment>y</comment><stats><ycards>1</ycards></stats><event_incident_typefk>70</event_incident_typefk><elapsed>90</elapsed><card_type>y</card_type><player1>30829</player1><sortorder>1</sortorder><team>10260</team><n>353</n><type>card</type><id>379547</id></value></card>",
+          "<card />",
+          "<card><value><comment>y</comment><stats><ycards>1</ycards></stats><event_incident_typefk>73</event_incident_typefk><elapsed>56</elapsed><card_type>y</card_type><subtype>serious_fouls</subtype><player1>37442</player1><sortorder>5</sortorder><team>8650</team><n>327</n><type>card</type><id>377978</id></value><value><comment>y</comment><stats><ycards>1</ycards></stats><event_incident_typefk>25</event_incident_typefk><elapsed>90</elapsed><card_type>y</card_type><subtype>stall_time</subtype><player1>46621</player1><sortorder>3</sortorder><team>8650</team><n>353</n><type>card</type><id>378060</id></value></card>",
+          "<card><value><comment>y</comment><stats><ycards>1</ycards></stats><event_incident_typefk>73</event_incident_typefk><elapsed>39</elapsed><card_type>y</card_type><subtype>serious_fouls</subtype><player1>24223</player1><sortorder>1</sortorder><team>8654</team><n>278</n><type>card</type><id>376643</id></value><value><comment>y</comment><stats><ycards>1</ycards></stats><event_incident_typefk>77</event_incident_typefk><elapsed>49</elapsed><card_type>y</card_type><subtype>shirt_pull</subtype><player1>37277</player1><sortorder>1</sortorder><team>8654</team><n>298</n><type>card</type><id>376951</id></value><value><comment>y</comment><stats><ycards>1</ycards></stats><event_incident_typefk>70</event_incident_typefk><elapsed>68</elapsed><card_type>y</card_type><player1>97988</player1><sortorder>2</sortorder><team>8528</team><n>323</n><type>card</type><id>377290</id></value></card>",
+          "<card><value><comment>y</comment><stats><ycards>1</ycards></stats><event_incident_typefk>73</event_incident_typefk><elapsed>34</elapsed><card_type>y</card_type><subtype>serious_fouls</subtype><player1>23939</player1><sortorder>0</sortorder><team>8456</team><n>233</n><type>card</type><id>378719</id></value></card>"
+        ]
+      },
+      {
+        "col": "cross",
+        "type": "text",
+        "original_column_name": "cross",
+        "sample_values": [
+          "<cross><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>7</elapsed><subtype>cross</subtype><player1>30829</player1><sortorder>1</sortorder><team>10260</team><n>265</n><type>cross</type><id>378863</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>14</elapsed><subtype>cross</subtype><player1>24148</player1><sortorder>0</sortorder><team>10260</team><n>255</n><type>cross</type><id>378921</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>19</elapsed><subtype>cross</subtype><player1>38807</player1><sortorder>0</sortorder><team>10261</team><n>280</n><type>corner</type><id>378960</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>19</elapsed><subtype>cross</subtype><player1>30929</player1><sortorder>5</sortorder><team>10261</team><n>292</n><type>cross</type><id>378970</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>20</elapsed><subtype>cross</subtype><player1>24148</player1><sortorder>0</sortorder><team>10260</team><n>259</n><type>cross</type><id>378978</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>22</elapsed><subtype>cross</subtype><player1>38807</player1><sortorder>1</sortorder><team>10261</team><n>262</n><type>cross</type><id>378993</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>22</elapsed><subtype>cross</subtype><player1>38807</player1><sortorder>4</sortorder><team>10261</team><n>293</n><type>corner</type><id>378996</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>24</elapsed><subtype>cross</subtype><player1>24154</player1><sortorder>0</sortorder><team>10260</team><n>273</n><type>cross</type><id>379012</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>24</elapsed><subtype>cross</subtype><player1>24154</player1><sortorder>3</sortorder><team>10260</team><n>266</n><type>cross</type><id>379018</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>28</elapsed><subtype>cross</subtype><player1>38807</player1><sortorder>2</sortorder><team>10261</team><n>288</n><type>cross</type><id>379068</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>30</elapsed><subtype>cross</subtype><player1>33852</player1><sortorder>0</sortorder><team>10261</team><n>276</n><type>cross</type><id>379072</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>34</elapsed><subtype>cross</subtype><player1>24148</player1><sortorder>1</sortorder><team>10260</team><n>284</n><type>cross</type><id>379109</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>36</elapsed><subtype>cross</subtype><player1>24154</player1><sortorder>1</sortorder><team>10260</team><n>305</n><type>cross</type><id>379128</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>37</elapsed><subtype>cross</subtype><player1>32569</player1><sortorder>0</sortorder><team>10260</team><n>285</n><type>cross</type><id>379138</id></value><value><stats><crosses>1</crosses></stats><elapsed_plus>1</elapsed_plus><event_incident_typefk>7</event_incident_typefk><elapsed>45</elapsed><subtype>cross</subtype><player1>30362</player1><sortorder>2</sortorder><team>10260</team><n>297</n><type>cross</type><id>379247</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>48</elapsed><subtype>cross</subtype><player1>24154</player1><sortorder>0</sortorder><team>10260</team><n>299</n><type>cross</type><id>379350</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>48</elapsed><subtype>cross</subtype><player1>24154</player1><sortorder>2</sortorder><team>10260</team><n>300</n><type>corner</type><id>379352</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>49</elapsed><subtype>cross</subtype><player1>24148</player1><sortorder>0</sortorder><team>10260</team><n>303</n><type>cross</type><id>379358</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>51</elapsed><subtype>cross</subtype><player1>38807</player1><sortorder>0</sortorder><team>10261</team><n>301</n><type>corner</type><id>379366</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>55</elapsed><subtype>cross</subtype><player1>24154</player1><sortorder>1</sortorder><team>10260</team><n>312</n><type>cross</type><id>379385</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>58</elapsed><subtype>cross</subtype><player1>24148</player1><sortorder>1</sortorder><team>10260</team><n>307</n><type>corner</type><id>379403</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>58</elapsed><subtype>cross</subtype><player1>30362</player1><sortorder>3</sortorder><team>10260</team><n>306</n><type>cross</type><id>379405</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>62</elapsed><subtype>cross</subtype><player1>40565</player1><sortorder>2</sortorder><team>10261</team><n>317</n><type>corner</type><id>379420</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>63</elapsed><subtype>cross</subtype><player1>32569</player1><sortorder>2</sortorder><team>10260</team><n>324</n><type>cross</type><id>379425</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>66</elapsed><subtype>cross</subtype><player1>38807</player1><sortorder>1</sortorder><team>10261</team><n>322</n><type>corner</type><id>379429</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>67</elapsed><subtype>cross</subtype><player1>30362</player1><sortorder>0</sortorder><team>10260</team><n>325</n><type>cross</type><id>379434</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>67</elapsed><subtype>cross</subtype><player1>24148</player1><sortorder>1</sortorder><team>10260</team><n>326</n><type>corner</type><id>379435</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>71</elapsed><subtype>cross</subtype><player1>24148</player1><sortorder>1</sortorder><team>10260</team><n>330</n><type>cross</type><id>379447</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>73</elapsed><subtype>cross</subtype><player1>24148</player1><sortorder>2</sortorder><team>10260</team><n>333</n><type>corner</type><id>379452</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>75</elapsed><subtype>cross</subtype><player1>30829</player1><sortorder>1</sortorder><team>10260</team><n>336</n><type>corner</type><id>379460</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>75</elapsed><subtype>cross</subtype><player1>24148</player1><sortorder>4</sortorder><team>10260</team><n>337</n><type>cross</type><id>379464</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>88</elapsed><subtype>cross</subtype><player1>30362</player1><sortorder>0</sortorder><team>10260</team><n>350</n><type>cross</type><id>379529</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>89</elapsed><subtype>cross</subtype><player1>30362</player1><sortorder>1</sortorder><team>10260</team><n>351</n><type>cross</type><id>379540</id></value></cross>",
+          "<cross><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>3</elapsed><subtype>cross</subtype><player1>39297</player1><sortorder>1</sortorder><team>9825</team><n>233</n><type>cross</type><id>375536</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>3</elapsed><subtype>cross</subtype><player1>39297</player1><sortorder>3</sortorder><team>9825</team><n>229</n><type>corner</type><id>375538</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>10</elapsed><subtype>cross</subtype><player1>31291</player1><sortorder>2</sortorder><team>9825</team><n>243</n><type>cross</type><id>375566</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>11</elapsed><subtype>cross</subtype><player1>26111</player1><sortorder>0</sortorder><team>9825</team><n>242</n><type>cross</type><id>375568</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>11</elapsed><subtype>cross</subtype><player1>31291</player1><sortorder>2</sortorder><team>9825</team><n>244</n><type>cross</type><id>375570</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>18</elapsed><subtype>cross</subtype><player1>31291</player1><sortorder>1</sortorder><team>9825</team><n>250</n><type>cross</type><id>375583</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>19</elapsed><subtype>cross</subtype><player1>39297</player1><sortorder>1</sortorder><team>9825</team><n>248</n><type>corner</type><id>375586</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>24</elapsed><subtype>cross</subtype><player1>26111</player1><sortorder>1</sortorder><team>9825</team><n>254</n><type>cross</type><id>375600</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>25</elapsed><subtype>cross</subtype><player1>39297</player1><sortorder>0</sortorder><team>9825</team><n>256</n><type>corner</type><id>375602</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>26</elapsed><subtype>cross</subtype><player1>31013</player1><sortorder>0</sortorder><team>9825</team><n>258</n><type>cross</type><id>375606</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>28</elapsed><subtype>cross</subtype><player1>23257</player1><sortorder>0</sortorder><team>8659</team><n>259</n><type>corner</type><id>375609</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>28</elapsed><subtype>cross</subtype><player1>23257</player1><sortorder>2</sortorder><team>8659</team><n>260</n><type>cross</type><id>375612</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>29</elapsed><subtype>cross</subtype><player1>36410</player1><sortorder>0</sortorder><team>9825</team><n>261</n><type>cross</type><id>375614</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>31</elapsed><subtype>cross</subtype><player1>23257</player1><sortorder>0</sortorder><team>8659</team><n>263</n><type>corner</type><id>375621</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>31</elapsed><subtype>cross</subtype><player1>26111</player1><sortorder>3</sortorder><team>9825</team><n>265</n><type>cross</type><id>375624</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>31</elapsed><subtype>cross</subtype><player1>26181</player1><sortorder>5</sortorder><team>9825</team><n>264</n><type>corner</type><id>375626</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>39</elapsed><subtype>cross</subtype><player1>26111</player1><sortorder>3</sortorder><team>9825</team><n>271</n><type>cross</type><id>375646</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>41</elapsed><subtype>cross</subtype><player1>31013</player1><sortorder>0</sortorder><team>9825</team><n>274</n><type>cross</type><id>375649</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>45</elapsed><subtype>cross</subtype><player1>31088</player1><sortorder>0</sortorder><team>8659</team><n>278</n><type>corner</type><id>375657</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>47</elapsed><subtype>cross</subtype><player1>26181</player1><sortorder>0</sortorder><team>9825</team><n>280</n><type>cross</type><id>375668</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>51</elapsed><subtype>cross</subtype><player1>23257</player1><sortorder>0</sortorder><team>8659</team><n>288</n><type>corner</type><id>375682</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>67</elapsed><subtype>cross</subtype><player1>26111</player1><sortorder>0</sortorder><team>9825</team><n>299</n><type>cross</type><id>375746</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>72</elapsed><subtype>cross</subtype><player1>31291</player1><sortorder>0</sortorder><team>9825</team><n>302</n><type>cross</type><id>375771</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>74</elapsed><subtype>cross</subtype><player1>36832</player1><sortorder>0</sortorder><team>8659</team><n>304</n><type>cross</type><id>375783</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>79</elapsed><subtype>cross</subtype><player1>30843</player1><sortorder>2</sortorder><team>9825</team><n>311</n><type>corner</type><id>375818</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>82</elapsed><subtype>cross</subtype><player1>30960</player1><sortorder>0</sortorder><team>9825</team><n>313</n><type>cross</type><id>375828</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>85</elapsed><subtype>cross</subtype><player1>24664</player1><sortorder>0</sortorder><team>8659</team><n>317</n><type>corner</type><id>375853</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>86</elapsed><subtype>cross</subtype><player1>30960</player1><sortorder>1</sortorder><team>9825</team><n>319</n><type>cross</type><id>375863</id></value></cross>",
+          "<cross><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>7</elapsed><subtype>cross</subtype><player1>24410</player1><sortorder>0</sortorder><team>8472</team><n>270</n><type>cross</type><id>377780</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>7</elapsed><subtype>cross</subtype><player1>23927</player1><sortorder>2</sortorder><team>8472</team><n>271</n><type>cross</type><id>377784</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>9</elapsed><subtype>cross</subtype><player1>37139</player1><sortorder>1</sortorder><team>8650</team><n>272</n><type>cross</type><id>377798</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>10</elapsed><subtype>cross</subtype><player1>30618</player1><sortorder>0</sortorder><team>8650</team><n>273</n><type>cross</type><id>377802</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>12</elapsed><subtype>cross</subtype><player1>30352</player1><sortorder>1</sortorder><team>8472</team><n>276</n><type>cross</type><id>377818</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>12</elapsed><subtype>cross</subtype><player1>23927</player1><sortorder>3</sortorder><team>8472</team><n>277</n><type>cross</type><id>377821</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>14</elapsed><subtype>cross</subtype><player1>23927</player1><sortorder>2</sortorder><team>8472</team><n>279</n><type>cross</type><id>377832</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>23</elapsed><subtype>cross</subtype><player1>17866</player1><sortorder>0</sortorder><team>8472</team><n>284</n><type>cross</type><id>377867</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>23</elapsed><subtype>cross</subtype><player1>37442</player1><sortorder>2</sortorder><team>8650</team><n>285</n><type>cross</type><id>377870</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>25</elapsed><subtype>cross</subtype><player1>24635</player1><sortorder>1</sortorder><team>8650</team><n>289</n><type>cross</type><id>377877</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>26</elapsed><subtype>cross</subtype><player1>30618</player1><sortorder>0</sortorder><team>8650</team><n>290</n><type>corner</type><id>377879</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>30</elapsed><subtype>cross</subtype><player1>38802</player1><sortorder>2</sortorder><team>8472</team><n>293</n><type>corner</type><id>377892</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>33</elapsed><subtype>cross</subtype><player1>30853</player1><sortorder>0</sortorder><team>8650</team><n>295</n><type>cross</type><id>377897</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>35</elapsed><subtype>cross</subtype><player1>30618</player1><sortorder>2</sortorder><team>8650</team><n>299</n><type>corner</type><id>377906</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>35</elapsed><subtype>cross</subtype><player1>37139</player1><sortorder>4</sortorder><team>8650</team><n>300</n><type>cross</type><id>377908</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>36</elapsed><subtype>cross</subtype><player1>30618</player1><sortorder>0</sortorder><team>8650</team><n>301</n><type>corner</type><id>377910</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>36</elapsed><subtype>cross</subtype><player1>30618</player1><sortorder>2</sortorder><team>8650</team><n>303</n><type>cross</type><id>377912</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>36</elapsed><subtype>cross</subtype><player1>30618</player1><sortorder>4</sortorder><team>8650</team><n>302</n><type>corner</type><id>377914</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>37</elapsed><subtype>cross</subtype><player1>30618</player1><sortorder>0</sortorder><team>8650</team><n>304</n><type>cross</type><id>377916</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>39</elapsed><subtype>cross</subtype><player1>36786</player1><sortorder>0</sortorder><team>8472</team><n>308</n><type>cross</type><id>377922</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>42</elapsed><subtype>cross</subtype><player1>39647</player1><sortorder>0</sortorder><team>8650</team><n>310</n><type>cross</type><id>377929</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>42</elapsed><subtype>cross</subtype><player1>30618</player1><sortorder>2</sortorder><team>8650</team><n>312</n><type>corner</type><id>377931</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>44</elapsed><subtype>cross</subtype><player1>23927</player1><sortorder>0</sortorder><team>8472</team><n>314</n><type>cross</type><id>377937</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>46</elapsed><subtype>cross</subtype><player1>23927</player1><sortorder>3</sortorder><team>8472</team><n>316</n><type>cross</type><id>377949</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>52</elapsed><subtype>cross</subtype><player1>39647</player1><sortorder>1</sortorder><team>8650</team><n>319</n><type>cross</type><id>377961</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>54</elapsed><subtype>cross</subtype><player1>24410</player1><sortorder>1</sortorder><team>8472</team><n>321</n><type>cross</type><id>377966</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>56</elapsed><subtype>cross</subtype><player1>30889</player1><sortorder>1</sortorder><team>8650</team><n>325</n><type>corner</type><id>377972</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>66</elapsed><subtype>cross</subtype><player1>30618</player1><sortorder>2</sortorder><team>8650</team><n>333</n><type>corner</type><id>378001</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>75</elapsed><subtype>cross</subtype><player1>30618</player1><sortorder>0</sortorder><team>8650</team><n>338</n><type>corner</type><id>378019</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>76</elapsed><subtype>cross</subtype><player1>36786</player1><sortorder>1</sortorder><team>8472</team><n>340</n><type>cross</type><id>378023</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>78</elapsed><subtype>cross</subtype><player1>46621</player1><sortorder>0</sortorder><team>8650</team><n>341</n><type>cross</type><id>378027</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>87</elapsed><subtype>cross</subtype><player1>24410</player1><sortorder>1</sortorder><team>8472</team><n>347</n><type>cross</type><id>378048</id></value><value><stats><crosses>1</crosses></stats><elapsed_plus>1</elapsed_plus><event_incident_typefk>7</event_incident_typefk><elapsed>90</elapsed><subtype>cross</subtype><player1>30352</player1><sortorder>1</sortorder><team>8472</team><n>355</n><type>cross</type><id>378063</id></value><value><stats><crosses>1</crosses></stats><elapsed_plus>2</elapsed_plus><event_incident_typefk>7</event_incident_typefk><elapsed>90</elapsed><subtype>cross</subtype><player1>30954</player1><sortorder>2</sortorder><team>8472</team><n>356</n><type>cross</type><id>378066</id></value></cross>",
+          "<cross><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>4</elapsed><subtype>cross</subtype><player1>36394</player1><sortorder>1</sortorder><team>8654</team><n>243</n><type>cross</type><id>376055</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>7</elapsed><subtype>cross</subtype><player1>41877</player1><sortorder>0</sortorder><team>8528</team><n>248</n><type>cross</type><id>376102</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>9</elapsed><subtype>cross</subtype><player1>36394</player1><sortorder>0</sortorder><team>8654</team><n>250</n><type>corner</type><id>376147</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>14</elapsed><subtype>cross</subtype><player1>36394</player1><sortorder>2</sortorder><team>8654</team><n>256</n><type>corner</type><id>376227</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>15</elapsed><subtype>cross</subtype><player1>36394</player1><sortorder>1</sortorder><team>8654</team><n>258</n><type>corner</type><id>376235</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>16</elapsed><subtype>cross</subtype><player1>35327</player1><sortorder>1</sortorder><team>8528</team><n>260</n><type>corner</type><id>376259</id></value><value><event_incident_typefk>123</event_incident_typefk><elapsed>19</elapsed><subtype>cross</subtype><sortorder>0</sortorder><team>8654</team><n>25</n><type>throwin</type><id>376293</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>20</elapsed><subtype>cross</subtype><player1>35327</player1><sortorder>0</sortorder><team>8528</team><n>262</n><type>corner</type><id>376320</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>22</elapsed><subtype>cross</subtype><player1>111865</player1><sortorder>1</sortorder><team>8528</team><n>264</n><type>cross</type><id>376347</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>22</elapsed><subtype>cross</subtype><player1>35327</player1><sortorder>3</sortorder><team>8528</team><n>265</n><type>corner</type><id>376355</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>23</elapsed><subtype>cross</subtype><player1>24773</player1><sortorder>0</sortorder><team>8654</team><n>266</n><type>cross</type><id>376364</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>32</elapsed><subtype>cross</subtype><player1>35327</player1><sortorder>0</sortorder><team>8528</team><n>274</n><type>cross</type><id>376517</id></value><value><event_incident_typefk>123</event_incident_typefk><elapsed>40</elapsed><subtype>cross</subtype><sortorder>2</sortorder><team>8528</team><n>29</n><type>throwin</type><id>376660</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>44</elapsed><subtype>cross</subtype><player1>24773</player1><sortorder>1</sortorder><team>8654</team><n>283</n><type>cross</type><id>376728</id></value><value><stats><crosses>1</crosses></stats><elapsed_plus>2</elapsed_plus><event_incident_typefk>7</event_incident_typefk><elapsed>45</elapsed><subtype>cross</subtype><player1>24223</player1><sortorder>2</sortorder><team>8654</team><n>287</n><type>cross</type><id>376806</id></value><value><stats><corners>1</corners></stats><elapsed_plus>3</elapsed_plus><event_incident_typefk>329</event_incident_typefk><elapsed>45</elapsed><subtype>cross</subtype><player1>36394</player1><sortorder>0</sortorder><team>8654</team><n>290</n><type>corner</type><id>376811</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>46</elapsed><subtype>cross</subtype><player1>24773</player1><sortorder>1</sortorder><team>8654</team><n>293</n><type>cross</type><id>376898</id></value><value><event_incident_typefk>123</event_incident_typefk><elapsed>47</elapsed><subtype>cross</subtype><sortorder>0</sortorder><team>8528</team><n>85</n><type>throwin</type><id>376916</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>50</elapsed><subtype>cross</subtype><player1>35327</player1><sortorder>1</sortorder><team>8528</team><n>297</n><type>corner</type><id>376957</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>52</elapsed><subtype>cross</subtype><player1>36394</player1><sortorder>0</sortorder><team>8654</team><n>299</n><type>corner</type><id>377005</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>52</elapsed><subtype>cross</subtype><player1>24773</player1><sortorder>1</sortorder><team>8654</team><n>300</n><type>cross</type><id>377012</id></value><value><event_incident_typefk>123</event_incident_typefk><elapsed>53</elapsed><subtype>cross</subtype><sortorder>2</sortorder><team>8528</team><n>70</n><type>throwin</type><id>377027</id></value><value><event_incident_typefk>123</event_incident_typefk><elapsed>54</elapsed><subtype>cross</subtype><sortorder>3</sortorder><team>8528</team><n>103</n><type>throwin</type><id>377044</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>59</elapsed><subtype>cross</subtype><player1>36394</player1><sortorder>1</sortorder><team>8654</team><n>310</n><type>cross</type><id>377145</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>64</elapsed><subtype>cross</subtype><player1>35327</player1><sortorder>0</sortorder><team>8528</team><n>315</n><type>corner</type><id>377224</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>65</elapsed><subtype>cross</subtype><player1>111865</player1><sortorder>0</sortorder><team>8528</team><n>316</n><type>cross</type><id>377233</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>66</elapsed><subtype>cross</subtype><player1>41877</player1><sortorder>0</sortorder><team>8528</team><n>319</n><type>cross</type><id>377246</id></value><value><event_incident_typefk>123</event_incident_typefk><elapsed>67</elapsed><subtype>cross</subtype><sortorder>0</sortorder><team>8528</team><n>124</n><type>throwin</type><id>377265</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>70</elapsed><subtype>cross</subtype><player1>127857</player1><sortorder>0</sortorder><team>8528</team><n>325</n><type>cross</type><id>377323</id></value><value><event_incident_typefk>123</event_incident_typefk><elapsed>76</elapsed><subtype>cross</subtype><sortorder>0</sortorder><team>8528</team><n>161</n><type>throwin</type><id>377398</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>76</elapsed><subtype>cross</subtype><player1>35327</player1><sortorder>2</sortorder><team>8528</team><n>327</n><type>corner</type><id>377414</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>80</elapsed><subtype>cross</subtype><player1>41877</player1><sortorder>1</sortorder><team>8528</team><n>331</n><type>cross</type><id>377471</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>81</elapsed><subtype>cross</subtype><player1>127857</player1><sortorder>1</sortorder><team>8528</team><n>332</n><type>cross</type><id>377488</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>82</elapsed><subtype>cross</subtype><player1>97988</player1><sortorder>1</sortorder><team>8528</team><n>335</n><type>cross</type><id>377498</id></value><value><event_incident_typefk>123</event_incident_typefk><elapsed>83</elapsed><subtype>cross</subtype><sortorder>2</sortorder><team>8654</team><n>225</n><type>throwin</type><id>377519</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>87</elapsed><subtype>cross</subtype><player1>24773</player1><sortorder>1</sortorder><team>8654</team><n>337</n><type>corner</type><id>377565</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>89</elapsed><subtype>cross</subtype><player1>37684</player1><sortorder>0</sortorder><team>8528</team><n>340</n><type>corner</type><id>377577</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>89</elapsed><subtype>cross</subtype><player1>37684</player1><sortorder>2</sortorder><team>8528</team><n>341</n><type>corner</type><id>377582</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>90</elapsed><subtype>cross</subtype><player1>37684</player1><sortorder>0</sortorder><team>8528</team><n>342</n><type>corner</type><id>377593</id></value><value><event_incident_typefk>123</event_incident_typefk><elapsed>90</elapsed><subtype>cross</subtype><sortorder>1</sortorder><team>8528</team><n>180</n><type>throwin</type><id>377599</id></value><value><stats><crosses>1</crosses></stats><elapsed_plus>3</elapsed_plus><event_incident_typefk>7</event_incident_typefk><elapsed>90</elapsed><subtype>cross</subtype><player1>35327</player1><sortorder>0</sortorder><team>8528</team><n>345</n><type>cross</type><id>377643</id></value><value><stats><crosses>1</crosses></stats><elapsed_plus>3</elapsed_plus><event_incident_typefk>7</event_incident_typefk><elapsed>90</elapsed><subtype>cross</subtype><player1>37684</player1><sortorder>2</sortorder><team>8528</team><n>346</n><type>cross</type><id>377650</id></value></cross>",
+          "<cross><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>2</elapsed><subtype>cross</subtype><player1>23354</player1><sortorder>0</sortorder><team>10252</team><n>196</n><type>corner</type><id>378471</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>3</elapsed><subtype>cross</subtype><player1>33633</player1><sortorder>0</sortorder><team>8456</team><n>197</n><type>corner</type><id>378479</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>6</elapsed><subtype>cross</subtype><player1>23354</player1><sortorder>0</sortorder><team>10252</team><n>199</n><type>corner</type><id>378505</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>10</elapsed><subtype>cross</subtype><player1>23782</player1><sortorder>0</sortorder><team>10252</team><n>204</n><type>corner</type><id>378539</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>10</elapsed><subtype>cross</subtype><player1>107216</player1><sortorder>3</sortorder><team>8456</team><n>207</n><type>cross</type><id>378548</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>11</elapsed><subtype>cross</subtype><player1>40198</player1><sortorder>0</sortorder><team>8456</team><n>208</n><type>corner</type><id>378557</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>12</elapsed><subtype>cross</subtype><player1>23264</player1><sortorder>0</sortorder><team>10252</team><n>209</n><type>cross</type><id>378562</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>16</elapsed><subtype>cross</subtype><player1>23282</player1><sortorder>2</sortorder><team>10252</team><n>214</n><type>cross</type><id>378603</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>26</elapsed><subtype>cross</subtype><player1>24780</player1><sortorder>0</sortorder><team>10252</team><n>223</n><type>cross</type><id>378671</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>27</elapsed><subtype>cross</subtype><player1>47413</player1><sortorder>0</sortorder><team>8456</team><n>225</n><type>cross</type><id>378677</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>39</elapsed><subtype>cross</subtype><player1>46403</player1><sortorder>0</sortorder><team>8456</team><n>238</n><type>cross</type><id>378745</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>43</elapsed><subtype>cross</subtype><player1>23782</player1><sortorder>0</sortorder><team>10252</team><n>241</n><type>cross</type><id>378769</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>44</elapsed><subtype>cross</subtype><player1>23354</player1><sortorder>1</sortorder><team>10252</team><n>244</n><type>cross</type><id>378779</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>45</elapsed><subtype>cross</subtype><player1>33633</player1><sortorder>2</sortorder><team>8456</team><n>246</n><type>corner</type><id>378782</id></value><value><stats><corners>1</corners></stats><elapsed_plus>2</elapsed_plus><event_incident_typefk>329</event_incident_typefk><elapsed>45</elapsed><subtype>cross</subtype><player1>33633</player1><sortorder>0</sortorder><team>8456</team><n>248</n><type>corner</type><id>378790</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>47</elapsed><subtype>cross</subtype><player1>23354</player1><sortorder>1</sortorder><team>10252</team><n>250</n><type>cross</type><id>378834</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>50</elapsed><subtype>cross</subtype><player1>33633</player1><sortorder>1</sortorder><team>8456</team><n>254</n><type>corner</type><id>378854</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>51</elapsed><subtype>cross</subtype><player1>33633</player1><sortorder>1</sortorder><team>8456</team><n>255</n><type>corner</type><id>378869</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>51</elapsed><subtype>cross</subtype><player1>33633</player1><sortorder>3</sortorder><team>8456</team><n>256</n><type>cross</type><id>378874</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>60</elapsed><subtype>cross</subtype><player1>23354</player1><sortorder>3</sortorder><team>10252</team><n>262</n><type>corner</type><id>378946</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>61</elapsed><subtype>cross</subtype><player1>46403</player1><sortorder>1</sortorder><team>8456</team><n>263</n><type>cross</type><id>378955</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>62</elapsed><subtype>cross</subtype><player1>23354</player1><sortorder>0</sortorder><team>10252</team><n>264</n><type>corner</type><id>378964</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>66</elapsed><subtype>cross</subtype><player1>33633</player1><sortorder>0</sortorder><team>8456</team><n>269</n><type>cross</type><id>379000</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>67</elapsed><subtype>cross</subtype><player1>24780</player1><sortorder>0</sortorder><team>10252</team><n>265</n><type>cross</type><id>379004</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>68</elapsed><subtype>cross</subtype><player1>24780</player1><sortorder>0</sortorder><team>10252</team><n>268</n><type>cross</type><id>379020</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>68</elapsed><subtype>cross</subtype><player1>23354</player1><sortorder>2</sortorder><team>10252</team><n>272</n><type>corner</type><id>379023</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>71</elapsed><subtype>cross</subtype><player1>33633</player1><sortorder>1</sortorder><team>8456</team><n>275</n><type>cross</type><id>379047</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>73</elapsed><subtype>cross</subtype><player1>47413</player1><sortorder>0</sortorder><team>8456</team><n>278</n><type>cross</type><id>379060</id></value><value><stats><crosses>1</crosses></stats><event_incident_typefk>7</event_incident_typefk><elapsed>74</elapsed><subtype>cross</subtype><player1>23782</player1><sortorder>0</sortorder><team>10252</team><n>276</n><type>cross</type><id>379070</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>87</elapsed><subtype>cross</subtype><player1>23354</player1><sortorder>0</sortorder><team>10252</team><n>287</n><type>corner</type><id>379212</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>89</elapsed><subtype>cross</subtype><player1>33633</player1><sortorder>2</sortorder><team>8456</team><n>285</n><type>corner</type><id>379239</id></value><value><stats><corners>1</corners></stats><elapsed_plus>3</elapsed_plus><event_incident_typefk>329</event_incident_typefk><elapsed>90</elapsed><subtype>cross</subtype><player1>33633</player1><sortorder>2</sortorder><team>8456</team><n>286</n><type>corner</type><id>379278</id></value></cross>"
+        ]
+      },
+      {
+        "col": "corner",
+        "type": "text",
+        "original_column_name": "corner",
+        "sample_values": [
+          "<corner><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>19</elapsed><subtype>cross</subtype><player1>38807</player1><sortorder>0</sortorder><team>10261</team><n>280</n><type>corner</type><id>378960</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>330</event_incident_typefk><elapsed>22</elapsed><subtype>short</subtype><player1>40565</player1><sortorder>0</sortorder><team>10261</team><n>263</n><type>corner</type><id>378992</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>22</elapsed><subtype>cross</subtype><player1>38807</player1><sortorder>4</sortorder><team>10261</team><n>293</n><type>corner</type><id>378996</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>48</elapsed><subtype>cross</subtype><player1>24154</player1><sortorder>2</sortorder><team>10260</team><n>300</n><type>corner</type><id>379352</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>51</elapsed><subtype>cross</subtype><player1>38807</player1><sortorder>0</sortorder><team>10261</team><n>301</n><type>corner</type><id>379366</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>58</elapsed><subtype>cross</subtype><player1>24148</player1><sortorder>1</sortorder><team>10260</team><n>307</n><type>corner</type><id>379403</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>330</event_incident_typefk><elapsed>59</elapsed><subtype>short</subtype><player1>24148</player1><sortorder>2</sortorder><team>10260</team><n>309</n><type>corner</type><id>379411</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>62</elapsed><subtype>cross</subtype><player1>40565</player1><sortorder>2</sortorder><team>10261</team><n>317</n><type>corner</type><id>379420</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>66</elapsed><subtype>cross</subtype><player1>38807</player1><sortorder>1</sortorder><team>10261</team><n>322</n><type>corner</type><id>379429</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>67</elapsed><subtype>cross</subtype><player1>24148</player1><sortorder>1</sortorder><team>10260</team><n>326</n><type>corner</type><id>379435</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>73</elapsed><subtype>cross</subtype><player1>24148</player1><sortorder>2</sortorder><team>10260</team><n>333</n><type>corner</type><id>379452</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>75</elapsed><subtype>cross</subtype><player1>30829</player1><sortorder>1</sortorder><team>10260</team><n>336</n><type>corner</type><id>379460</id></value></corner>",
+          "<corner><value><stats><corners>1</corners></stats><event_incident_typefk>330</event_incident_typefk><elapsed>3</elapsed><subtype>short</subtype><player1>39297</player1><sortorder>0</sortorder><team>9825</team><n>228</n><type>corner</type><id>375535</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>3</elapsed><subtype>cross</subtype><player1>39297</player1><sortorder>3</sortorder><team>9825</team><n>229</n><type>corner</type><id>375538</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>330</event_incident_typefk><elapsed>9</elapsed><subtype>short</subtype><player1>30960</player1><sortorder>2</sortorder><team>9825</team><n>238</n><type>corner</type><id>375562</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>19</elapsed><subtype>cross</subtype><player1>39297</player1><sortorder>1</sortorder><team>9825</team><n>248</n><type>corner</type><id>375586</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>25</elapsed><subtype>cross</subtype><player1>39297</player1><sortorder>0</sortorder><team>9825</team><n>256</n><type>corner</type><id>375602</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>28</elapsed><subtype>cross</subtype><player1>23257</player1><sortorder>0</sortorder><team>8659</team><n>259</n><type>corner</type><id>375609</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>31</elapsed><subtype>cross</subtype><player1>23257</player1><sortorder>0</sortorder><team>8659</team><n>263</n><type>corner</type><id>375621</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>31</elapsed><subtype>cross</subtype><player1>26181</player1><sortorder>5</sortorder><team>9825</team><n>264</n><type>corner</type><id>375626</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>45</elapsed><subtype>cross</subtype><player1>31088</player1><sortorder>0</sortorder><team>8659</team><n>278</n><type>corner</type><id>375657</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>51</elapsed><subtype>cross</subtype><player1>23257</player1><sortorder>0</sortorder><team>8659</team><n>288</n><type>corner</type><id>375682</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>79</elapsed><subtype>cross</subtype><player1>30843</player1><sortorder>2</sortorder><team>9825</team><n>311</n><type>corner</type><id>375818</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>85</elapsed><subtype>cross</subtype><player1>24664</player1><sortorder>0</sortorder><team>8659</team><n>317</n><type>corner</type><id>375853</id></value></corner>",
+          "<corner><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>26</elapsed><subtype>cross</subtype><player1>30618</player1><sortorder>0</sortorder><team>8650</team><n>290</n><type>corner</type><id>377879</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>30</elapsed><subtype>cross</subtype><player1>38802</player1><sortorder>2</sortorder><team>8472</team><n>293</n><type>corner</type><id>377892</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>35</elapsed><subtype>cross</subtype><player1>30618</player1><sortorder>2</sortorder><team>8650</team><n>299</n><type>corner</type><id>377906</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>36</elapsed><subtype>cross</subtype><player1>30618</player1><sortorder>0</sortorder><team>8650</team><n>301</n><type>corner</type><id>377910</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>36</elapsed><subtype>cross</subtype><player1>30618</player1><sortorder>4</sortorder><team>8650</team><n>302</n><type>corner</type><id>377914</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>42</elapsed><subtype>cross</subtype><player1>30618</player1><sortorder>2</sortorder><team>8650</team><n>312</n><type>corner</type><id>377931</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>56</elapsed><subtype>cross</subtype><player1>30889</player1><sortorder>1</sortorder><team>8650</team><n>325</n><type>corner</type><id>377972</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>66</elapsed><subtype>cross</subtype><player1>30618</player1><sortorder>2</sortorder><team>8650</team><n>333</n><type>corner</type><id>378001</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>75</elapsed><subtype>cross</subtype><player1>30618</player1><sortorder>0</sortorder><team>8650</team><n>338</n><type>corner</type><id>378019</id></value></corner>",
+          "<corner><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>9</elapsed><subtype>cross</subtype><player1>36394</player1><sortorder>0</sortorder><team>8654</team><n>250</n><type>corner</type><id>376147</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>14</elapsed><subtype>cross</subtype><player1>36394</player1><sortorder>2</sortorder><team>8654</team><n>256</n><type>corner</type><id>376227</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>15</elapsed><subtype>cross</subtype><player1>36394</player1><sortorder>1</sortorder><team>8654</team><n>258</n><type>corner</type><id>376235</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>16</elapsed><subtype>cross</subtype><player1>35327</player1><sortorder>1</sortorder><team>8528</team><n>260</n><type>corner</type><id>376259</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>20</elapsed><subtype>cross</subtype><player1>35327</player1><sortorder>0</sortorder><team>8528</team><n>262</n><type>corner</type><id>376320</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>22</elapsed><subtype>cross</subtype><player1>35327</player1><sortorder>3</sortorder><team>8528</team><n>265</n><type>corner</type><id>376355</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>330</event_incident_typefk><elapsed>40</elapsed><subtype>short</subtype><player1>35327</player1><sortorder>1</sortorder><team>8528</team><n>280</n><type>corner</type><id>376655</id></value><value><stats><corners>1</corners></stats><elapsed_plus>3</elapsed_plus><event_incident_typefk>329</event_incident_typefk><elapsed>45</elapsed><subtype>cross</subtype><player1>36394</player1><sortorder>0</sortorder><team>8654</team><n>290</n><type>corner</type><id>376811</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>50</elapsed><subtype>cross</subtype><player1>35327</player1><sortorder>1</sortorder><team>8528</team><n>297</n><type>corner</type><id>376957</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>52</elapsed><subtype>cross</subtype><player1>36394</player1><sortorder>0</sortorder><team>8654</team><n>299</n><type>corner</type><id>377005</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>64</elapsed><subtype>cross</subtype><player1>35327</player1><sortorder>0</sortorder><team>8528</team><n>315</n><type>corner</type><id>377224</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>76</elapsed><subtype>cross</subtype><player1>35327</player1><sortorder>2</sortorder><team>8528</team><n>327</n><type>corner</type><id>377414</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>87</elapsed><subtype>cross</subtype><player1>24773</player1><sortorder>1</sortorder><team>8654</team><n>337</n><type>corner</type><id>377565</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>89</elapsed><subtype>cross</subtype><player1>37684</player1><sortorder>0</sortorder><team>8528</team><n>340</n><type>corner</type><id>377577</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>89</elapsed><subtype>cross</subtype><player1>37684</player1><sortorder>2</sortorder><team>8528</team><n>341</n><type>corner</type><id>377582</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>90</elapsed><subtype>cross</subtype><player1>37684</player1><sortorder>0</sortorder><team>8528</team><n>342</n><type>corner</type><id>377593</id></value></corner>",
+          "<corner><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>2</elapsed><subtype>cross</subtype><player1>23354</player1><sortorder>0</sortorder><team>10252</team><n>196</n><type>corner</type><id>378471</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>3</elapsed><subtype>cross</subtype><player1>33633</player1><sortorder>0</sortorder><team>8456</team><n>197</n><type>corner</type><id>378479</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>6</elapsed><subtype>cross</subtype><player1>23354</player1><sortorder>0</sortorder><team>10252</team><n>199</n><type>corner</type><id>378505</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>10</elapsed><subtype>cross</subtype><player1>23782</player1><sortorder>0</sortorder><team>10252</team><n>204</n><type>corner</type><id>378539</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>11</elapsed><subtype>cross</subtype><player1>40198</player1><sortorder>0</sortorder><team>8456</team><n>208</n><type>corner</type><id>378557</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>45</elapsed><subtype>cross</subtype><player1>33633</player1><sortorder>2</sortorder><team>8456</team><n>246</n><type>corner</type><id>378782</id></value><value><stats><corners>1</corners></stats><elapsed_plus>2</elapsed_plus><event_incident_typefk>329</event_incident_typefk><elapsed>45</elapsed><subtype>cross</subtype><player1>33633</player1><sortorder>0</sortorder><team>8456</team><n>248</n><type>corner</type><id>378790</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>50</elapsed><subtype>cross</subtype><player1>33633</player1><sortorder>1</sortorder><team>8456</team><n>254</n><type>corner</type><id>378854</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>51</elapsed><subtype>cross</subtype><player1>33633</player1><sortorder>1</sortorder><team>8456</team><n>255</n><type>corner</type><id>378869</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>60</elapsed><subtype>cross</subtype><player1>23354</player1><sortorder>3</sortorder><team>10252</team><n>262</n><type>corner</type><id>378946</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>62</elapsed><subtype>cross</subtype><player1>23354</player1><sortorder>0</sortorder><team>10252</team><n>264</n><type>corner</type><id>378964</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>68</elapsed><subtype>cross</subtype><player1>23354</player1><sortorder>2</sortorder><team>10252</team><n>272</n><type>corner</type><id>379023</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>87</elapsed><subtype>cross</subtype><player1>23354</player1><sortorder>0</sortorder><team>10252</team><n>287</n><type>corner</type><id>379212</id></value><value><stats><corners>1</corners></stats><event_incident_typefk>329</event_incident_typefk><elapsed>89</elapsed><subtype>cross</subtype><player1>33633</player1><sortorder>2</sortorder><team>8456</team><n>285</n><type>corner</type><id>379239</id></value><value><stats><corners>1</corners></stats><elapsed_plus>3</elapsed_plus><event_incident_typefk>329</event_incident_typefk><elapsed>90</elapsed><subtype>cross</subtype><player1>33633</player1><sortorder>2</sortorder><team>8456</team><n>286</n><type>corner</type><id>379278</id></value></corner>"
+        ]
+      },
+      {
+        "col": "possession",
+        "type": "text",
+        "original_column_name": "possession",
+        "sample_values": [
+          "<possession><value><comment>56</comment><event_incident_typefk>352</event_incident_typefk><elapsed>25</elapsed><subtype>possession</subtype><sortorder>1</sortorder><awaypos>44</awaypos><homepos>56</homepos><n>68</n><type>special</type><id>379029</id></value><value><comment>54</comment><elapsed_plus>1</elapsed_plus><event_incident_typefk>352</event_incident_typefk><elapsed>45</elapsed><subtype>possession</subtype><sortorder>4</sortorder><awaypos>46</awaypos><homepos>54</homepos><n>117</n><type>special</type><id>379251</id></value><value><comment>54</comment><event_incident_typefk>352</event_incident_typefk><elapsed>70</elapsed><subtype>possession</subtype><sortorder>0</sortorder><awaypos>46</awaypos><homepos>54</homepos><n>190</n><type>special</type><id>379443</id></value><value><comment>55</comment><elapsed_plus>5</elapsed_plus><event_incident_typefk>352</event_incident_typefk><elapsed>90</elapsed><subtype>possession</subtype><sortorder>1</sortorder><awaypos>45</awaypos><homepos>55</homepos><n>252</n><type>special</type><id>379575</id></value></possession>",
+          "<possession><value><comment>65</comment><event_incident_typefk>352</event_incident_typefk><elapsed>27</elapsed><subtype>possession</subtype><sortorder>0</sortorder><awaypos>35</awaypos><homepos>65</homepos><n>67</n><type>special</type><id>375608</id></value><value><comment>61</comment><elapsed_plus>2</elapsed_plus><event_incident_typefk>352</event_incident_typefk><elapsed>45</elapsed><subtype>possession</subtype><sortorder>1</sortorder><awaypos>39</awaypos><homepos>61</homepos><n>114</n><type>special</type><id>375663</id></value><value><comment>65</comment><event_incident_typefk>352</event_incident_typefk><elapsed>74</elapsed><subtype>possession</subtype><sortorder>3</sortorder><awaypos>35</awaypos><homepos>65</homepos><n>177</n><type>special</type><id>375787</id></value><value><comment>66</comment><elapsed_plus>3</elapsed_plus><event_incident_typefk>352</event_incident_typefk><elapsed>90</elapsed><subtype>possession</subtype><sortorder>2</sortorder><awaypos>34</awaypos><homepos>66</homepos><n>199</n><type>special</type><id>375909</id></value></possession>",
+          "<possession><value><comment>45</comment><event_incident_typefk>352</event_incident_typefk><elapsed>25</elapsed><subtype>possession</subtype><sortorder>0</sortorder><awaypos>55</awaypos><homepos>45</homepos><n>85</n><type>special</type><id>377876</id></value><value><comment>43</comment><elapsed_plus>1</elapsed_plus><event_incident_typefk>352</event_incident_typefk><elapsed>45</elapsed><subtype>possession</subtype><sortorder>1</sortorder><awaypos>57</awaypos><homepos>43</homepos><n>144</n><type>special</type><id>377944</id></value><value><comment>48</comment><event_incident_typefk>352</event_incident_typefk><elapsed>70</elapsed><subtype>possession</subtype><sortorder>1</sortorder><awaypos>52</awaypos><homepos>48</homepos><n>196</n><type>special</type><id>378011</id></value><value><comment>46</comment><elapsed_plus>4</elapsed_plus><event_incident_typefk>352</event_incident_typefk><elapsed>90</elapsed><subtype>possession</subtype><sortorder>1</sortorder><awaypos>54</awaypos><homepos>46</homepos><n>264</n><type>special</type><id>378069</id></value></possession>",
+          "<possession><value><comment>50</comment><event_incident_typefk>352</event_incident_typefk><elapsed>25</elapsed><subtype>possession</subtype><sortorder>0</sortorder><awaypos>50</awaypos><homepos>50</homepos><n>74</n><type>special</type><id>376411</id></value><value><comment>56</comment><event_incident_typefk>352</event_incident_typefk><elapsed>45</elapsed><subtype>possession</subtype><sortorder>0</sortorder><awaypos>44</awaypos><homepos>56</homepos><n>108</n><type>special</type><id>376739</id></value><value><comment>41</comment><event_incident_typefk>352</event_incident_typefk><elapsed>69</elapsed><subtype>possession</subtype><sortorder>2</sortorder><awaypos>59</awaypos><homepos>41</homepos><n>106</n><type>special</type><id>377303</id></value><value><comment>52</comment><elapsed_plus>1</elapsed_plus><event_incident_typefk>352</event_incident_typefk><elapsed>90</elapsed><subtype>possession</subtype><sortorder>1</sortorder><awaypos>48</awaypos><homepos>52</homepos><n>212</n><type>special</type><id>377621</id></value></possession>",
+          "<possession><value><comment>51</comment><event_incident_typefk>352</event_incident_typefk><elapsed>25</elapsed><subtype>possession</subtype><sortorder>0</sortorder><awaypos>49</awaypos><homepos>51</homepos><n>122</n><type>special</type><id>378668</id></value><value><comment>54</comment><event_incident_typefk>352</event_incident_typefk><elapsed>45</elapsed><subtype>possession</subtype><sortorder>1</sortorder><awaypos>46</awaypos><homepos>54</homepos><n>33</n><type>special</type><id>378781</id></value><value><comment>49</comment><event_incident_typefk>352</event_incident_typefk><elapsed>70</elapsed><subtype>possession</subtype><sortorder>0</sortorder><awaypos>51</awaypos><homepos>49</homepos><n>58</n><type>special</type><id>379034</id></value><value><comment>52</comment><event_incident_typefk>352</event_incident_typefk><elapsed>90</elapsed><subtype>possession</subtype><sortorder>2</sortorder><awaypos>48</awaypos><homepos>52</homepos><n>96</n><type>special</type><id>379254</id></value></possession>"
+        ]
+      },
+      {
+        "col": "B365H",
+        "type": "real",
+        "original_column_name": "B365H",
+        "sample_values": [
+          1.73,
+          1.95,
+          2.38,
+          1.44,
+          5.0
+        ]
+      },
+      {
+        "col": "B365D",
+        "type": "real",
+        "original_column_name": "B365D",
+        "sample_values": [
+          3.4,
+          3.2,
+          3.3,
+          3.75,
+          3.5
+        ]
+      },
+      {
+        "col": "B365A",
+        "type": "real",
+        "original_column_name": "B365A",
+        "sample_values": [
+          5.0,
+          3.6,
+          2.75,
+          7.5,
+          1.65
+        ]
+      },
+      {
+        "col": "BWH",
+        "type": "real",
+        "original_column_name": "BWH",
+        "sample_values": [
+          1.75,
+          1.8,
+          2.4,
+          1.4,
+          5.0
+        ]
+      },
+      {
+        "col": "BWD",
+        "type": "real",
+        "original_column_name": "BWD",
+        "sample_values": [
+          3.35,
+          3.3,
+          4.0,
+          3.5,
+          3.4
+        ]
+      },
+      {
+        "col": "BWA",
+        "type": "real",
+        "original_column_name": "BWA",
+        "sample_values": [
+          4.2,
+          3.95,
+          2.55,
+          6.8,
+          1.6
+        ]
+      },
+      {
+        "col": "IWH",
+        "type": "real",
+        "original_column_name": "IWH",
+        "sample_values": [
+          1.85,
+          1.9,
+          2.6,
+          1.4,
+          4.0
+        ]
+      },
+      {
+        "col": "IWD",
+        "type": "real",
+        "original_column_name": "IWD",
+        "sample_values": [
+          3.2,
+          3.1,
+          3.9,
+          3.3,
+          4.2
+        ]
+      },
+      {
+        "col": "IWA",
+        "type": "real",
+        "original_column_name": "IWA",
+        "sample_values": [
+          3.5,
+          2.3,
+          6.0,
+          1.7,
+          1.8
+        ]
+      },
+      {
+        "col": "LBH",
+        "type": "real",
+        "original_column_name": "LBH",
+        "sample_values": [
+          1.8,
+          1.9,
+          2.5,
+          1.44,
+          4.0
+        ]
+      },
+      {
+        "col": "LBD",
+        "type": "real",
+        "original_column_name": "LBD",
+        "sample_values": [
+          3.3,
+          3.2,
+          3.6,
+          3.4,
+          3.25
+        ]
+      },
+      {
+        "col": "LBA",
+        "type": "real",
+        "original_column_name": "LBA",
+        "sample_values": [
+          3.75,
+          3.5,
+          2.5,
+          6.5,
+          1.72
+        ]
+      },
+      {
+        "col": "PSH",
+        "type": "real",
+        "original_column_name": "PSH",
+        "sample_values": [
+          5.1,
+          2.48,
+          1.83,
+          1.74,
+          1.58
+        ]
+      },
+      {
+        "col": "PSD",
+        "type": "real",
+        "original_column_name": "PSD",
+        "sample_values": [
+          3.82,
+          3.52,
+          3.79,
+          4.27,
+          5.74
+        ]
+      },
+      {
+        "col": "PSA",
+        "type": "real",
+        "original_column_name": "PSA",
+        "sample_values": [
+          1.76,
+          2.96,
+          4.63,
+          5.2,
+          6.25
+        ]
+      },
+      {
+        "col": "WHH",
+        "type": "real",
+        "original_column_name": "WHH",
+        "sample_values": [
+          1.7,
+          1.83,
+          2.5,
+          1.44,
+          4.2
+        ]
+      },
+      {
+        "col": "WHD",
+        "type": "real",
+        "original_column_name": "WHD",
+        "sample_values": [
+          3.3,
+          3.25,
+          3.75,
+          3.4,
+          4.2
+        ]
+      },
+      {
+        "col": "WHA",
+        "type": "real",
+        "original_column_name": "WHA",
+        "sample_values": [
+          4.33,
+          3.6,
+          2.4,
+          6.0,
+          1.7
+        ]
+      },
+      {
+        "col": "SJH",
+        "type": "real",
+        "original_column_name": "SJH",
+        "sample_values": [
+          1.9,
+          1.95,
+          2.63,
+          1.44,
+          4.5
+        ]
+      },
+      {
+        "col": "SJD",
+        "type": "real",
+        "original_column_name": "SJD",
+        "sample_values": [
+          3.3,
+          4.0,
+          3.5,
+          3.75,
+          3.4
+        ]
+      },
+      {
+        "col": "SJA",
+        "type": "real",
+        "original_column_name": "SJA",
+        "sample_values": [
+          4.0,
+          3.8,
+          2.5,
+          7.5,
+          1.73
+        ]
+      },
+      {
+        "col": "VCH",
+        "type": "real",
+        "original_column_name": "VCH",
+        "sample_values": [
+          1.65,
+          2.0,
+          2.35,
+          1.45,
+          4.5
+        ]
+      },
+      {
+        "col": "VCD",
+        "type": "real",
+        "original_column_name": "VCD",
+        "sample_values": [
+          3.4,
+          3.25,
+          3.75,
+          4.35,
+          4.5
+        ]
+      },
+      {
+        "col": "VCA",
+        "type": "real",
+        "original_column_name": "VCA",
+        "sample_values": [
+          4.5,
+          3.25,
+          2.65,
+          6.5,
+          1.65
+        ]
+      },
+      {
+        "col": "GBH",
+        "type": "real",
+        "original_column_name": "GBH",
+        "sample_values": [
+          1.78,
+          1.85,
+          2.5,
+          1.5,
+          4.5
+        ]
+      },
+      {
+        "col": "GBD",
+        "type": "real",
+        "original_column_name": "GBD",
+        "sample_values": [
+          3.25,
+          3.2,
+          3.75,
+          3.5,
+          3.4
+        ]
+      },
+      {
+        "col": "GBA",
+        "type": "real",
+        "original_column_name": "GBA",
+        "sample_values": [
+          4.0,
+          3.75,
+          2.5,
+          5.5,
+          1.65
+        ]
+      },
+      {
+        "col": "BSH",
+        "type": "real",
+        "original_column_name": "BSH",
+        "sample_values": [
+          1.73,
+          1.91,
+          2.3,
+          1.44,
+          4.75
+        ]
+      },
+      {
+        "col": "BSD",
+        "type": "real",
+        "original_column_name": "BSD",
+        "sample_values": [
+          3.4,
+          3.25,
+          3.2,
+          3.75,
+          3.3
+        ]
+      },
+      {
+        "col": "BSA",
+        "type": "real",
+        "original_column_name": "BSA",
+        "sample_values": [
+          4.2,
+          3.6,
+          2.75,
+          6.5,
+          1.67
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "away_player_11",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "away_player_10",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "away_player_9",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "away_player_8",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "away_player_7",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "away_player_6",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "away_player_5",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "away_player_4",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "away_player_3",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "away_player_2",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "away_player_1",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "home_player_11",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "home_player_10",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "home_player_9",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "home_player_8",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "home_player_7",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "home_player_6",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "home_player_5",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "home_player_4",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "home_player_3",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "home_player_2",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "home_player_1",
+        "referenced_table": "Player",
+        "referenced_column": "player_api_id"
+      },
+      {
+        "column": "away_team_api_id",
+        "referenced_table": "Team",
+        "referenced_column": "team_api_id"
+      },
+      {
+        "column": "home_team_api_id",
+        "referenced_table": "Team",
+        "referenced_column": "team_api_id"
+      }
+    ]
+  }
+]

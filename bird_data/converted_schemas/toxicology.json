@@ -1,0 +1,199 @@
+[
+  {
+    "table_name": "atom",
+    "db_id": "toxicology",
+    "original_table_name": "atom",
+    "columns": [
+      {
+        "col": "atom id",
+        "type": "text",
+        "original_column_name": "atom_id",
+        "sample_values": [
+          "TR000_1",
+          "TR000_2",
+          "TR000_3",
+          "TR000_4",
+          "TR000_5"
+        ]
+      },
+      {
+        "col": "molecule id",
+        "type": "text",
+        "original_column_name": "molecule_id",
+        "sample_values": [
+          "TR000",
+          "TR001",
+          "TR002",
+          "TR003",
+          "TR004"
+        ]
+      },
+      {
+        "col": "element",
+        "type": "text",
+        "original_column_name": "element",
+        "sample_values": [
+          "cl",
+          "c",
+          "h",
+          "o",
+          "s"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "atom_id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "molecule_id",
+        "referenced_table": "molecule",
+        "referenced_column": "molecule_id"
+      }
+    ]
+  },
+  {
+    "table_name": "bond",
+    "db_id": "toxicology",
+    "original_table_name": "bond",
+    "columns": [
+      {
+        "col": "bond_id",
+        "type": "text",
+        "original_column_name": "bond_id",
+        "sample_values": [
+          "TR000_1_2",
+          "TR000_2_3",
+          "TR000_2_4",
+          "TR000_2_5",
+          "TR001_10_11"
+        ]
+      },
+      {
+        "col": "molecule_id",
+        "type": "text",
+        "original_column_name": "molecule_id",
+        "sample_values": [
+          "TR000",
+          "TR001",
+          "TR002",
+          "TR003",
+          "TR004"
+        ]
+      },
+      {
+        "col": "bond_type",
+        "type": "text",
+        "original_column_name": "bond_type",
+        "sample_values": [
+          "-",
+          "=",
+          "#"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "bond_id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "molecule_id",
+        "referenced_table": "molecule",
+        "referenced_column": "molecule_id"
+      }
+    ]
+  },
+  {
+    "table_name": "connected",
+    "db_id": "toxicology",
+    "original_table_name": "connected",
+    "columns": [
+      {
+        "col": "atom id",
+        "type": "text",
+        "original_column_name": "atom_id",
+        "sample_values": [
+          "TR000_1",
+          "TR000_2",
+          "TR000_3",
+          "TR000_4",
+          "TR000_5"
+        ]
+      },
+      {
+        "col": "atom id 2",
+        "type": "text",
+        "original_column_name": "atom_id2",
+        "sample_values": [
+          "TR000_2",
+          "TR000_1",
+          "TR000_3",
+          "TR000_4",
+          "TR000_5"
+        ]
+      },
+      {
+        "col": "bond id",
+        "type": "text",
+        "original_column_name": "bond_id",
+        "sample_values": [
+          "TR000_1_2",
+          "TR000_2_3",
+          "TR000_2_4",
+          "TR000_2_5",
+          "TR001_10_11"
+        ]
+      }
+    ],
+    "primary_keys": [],
+    "foreign_keys": [
+      {
+        "column": "bond_id",
+        "referenced_table": "bond",
+        "referenced_column": "bond_id"
+      },
+      {
+        "column": "atom_id2",
+        "referenced_table": "atom",
+        "referenced_column": "atom_id"
+      },
+      {
+        "column": "atom_id",
+        "referenced_table": "atom",
+        "referenced_column": "atom_id"
+      }
+    ]
+  },
+  {
+    "table_name": "molecule",
+    "db_id": "toxicology",
+    "original_table_name": "molecule",
+    "columns": [
+      {
+        "col": "molecule id",
+        "type": "text",
+        "original_column_name": "molecule_id",
+        "sample_values": [
+          "TR000",
+          "TR001",
+          "TR002",
+          "TR004",
+          "TR006"
+        ]
+      },
+      {
+        "col": "label",
+        "type": "text",
+        "original_column_name": "label",
+        "sample_values": [
+          "+",
+          "-"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "molecule_id"
+    ],
+    "foreign_keys": []
+  }
+]

@@ -1,23 +1,116 @@
-# Python 编译文件
-__pycache__/
-*.py[cod]
-*.so
+# ============================================
+# 排除评估相关的所有代码和文件
+# ============================================
 
-# 环境变量 (包含敏感信息，绝对不要上传)
-.env
+# 评估脚本目录
+evaluate/
+scripts/evaluate/
+scripts/run_evaluate.sh
+
+# 评估报告和可视化结果
+**/evaluation_report_*.html
+**/dinsql_evaluation_report_*.html
+**/comparison_report_*.html
+**/eval_report_*.json
+**/dinsql_retrieval_report_*.json
+**/dinsql_retrieval_results_*.json
+
+# 评估缓存和输出
+**/output/
+**/output_dev*/
+incorrect_executions.json
+
+# ============================================
+# 排除数据文件和缓存
+# ============================================
+
+# BIRD 数据集 (保留结构说明，但排除大文件)
+bird_data/bird/
+bird_data/dev_20251106/
+bird_data/sqlite_db/
+*.sqlite
+*.db
+
+# spider 数据集
+spider2/
 
 
-# 运行时日志
+
+# Golden Link (评估用)
+bird_data/golden_link/
+
+# 缓存目录 (包含 embedding 和分析结果)
+cache/
+src/agent/schema_retrieval_cache/
+src/agent/schema_retrieval_cache_dev/
+
+# ============================================
+# 排除日志和临时文件
+# ============================================
+
 logs/
 *.log
+schema_graph_dump/
 
-# 本地缓存数据
-cache/
+# Python 缓存
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
 
-# IDE 配置 (可选)
+# 虚拟环境
+venv/
+env/
+ENV/
+.venv
+
+# 编辑器配置
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
 
-# 数据文件 (根据需要决定是否上传，通常不上传大型数据集)
-# 如果 bird_data 包含大量数据，建议忽略具体的数据子目录
-bird_data/
+# 操作系统文件
+.DS_Store
+Thumbs.db
+
+# ============================================
+# 排除打包和分发文件
+# ============================================
+
+build/
+dist/
+*.egg-info/
+*.egg
+
+# ============================================
+# 环境变量文件 (建议保留 .env.example)
+# ============================================
+
+.env
+
+# ============================================
+# 保留以下核心代码文件 (显式说明，实际上不需要写 !规则)
+# ============================================
+
+# 核心源代码目录 (这些默认会被保留)
+# src/
+# src/graph/schema_graph_builder.py
+# src/graph/schema_graph_retriever.py
+# src/llm/client.py
+# src/llm/prompts.py
+# src/preprocessing/
+# src/agent/text2sql_agent.py
+# src/agent/run_agent_demo.py
+
+# 核心脚本 (这些默认会被保留)
+# scripts/build_graph.py
+# scripts/run_retrieval.py
+# scripts/run_pipeline.py
+
+# 配置文件 (这些默认会被保留)
+# pyproject.toml
+# README.md
+# .env.example

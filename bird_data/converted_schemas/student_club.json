@@ -1,0 +1,692 @@
+[
+  {
+    "table_name": "Event",
+    "db_id": "student_club",
+    "original_table_name": "event",
+    "columns": [
+      {
+        "col": "event id",
+        "type": "text",
+        "original_column_name": "event_id",
+        "sample_values": [
+          "rec0Si5cQ4rJRVzd6",
+          "rec0akZnLLpGUloLH",
+          "rec0dZPcWXF0QjNnE",
+          "rec180D2MI4EpckHy",
+          "rec2N69DMcrqN9PJC"
+        ]
+      },
+      {
+        "col": "event name",
+        "type": "text",
+        "original_column_name": "event_name",
+        "sample_values": [
+          "March Meeting",
+          "Officers meeting - January",
+          "Spring Elections",
+          "Officers meeting - March",
+          "Women's Soccer"
+        ]
+      },
+      {
+        "col": "event date",
+        "type": "text",
+        "original_column_name": "event_date",
+        "sample_values": [
+          "2020-03-10T12:00:00",
+          "2020-01-14T09:30:00",
+          "2019-11-24T09:00:00",
+          "2020-03-10T09:30:00",
+          "2019-10-05T12:00:00"
+        ]
+      },
+      {
+        "col": "type",
+        "type": "text",
+        "original_column_name": "type",
+        "sample_values": [
+          "Meeting",
+          "Election",
+          "Game",
+          "Guest Speaker",
+          "Social"
+        ]
+      },
+      {
+        "col": "notes",
+        "type": "text",
+        "original_column_name": "notes",
+        "sample_values": [
+          "All active members can vote for new officers between 4pm-8pm.",
+          "Attend Women's soccer game as a group.",
+          "Semester social event. Optional attendance.",
+          "Attend school football game as a group.",
+          "Students can stop by the table to get information on the club and register."
+        ]
+      },
+      {
+        "col": "location",
+        "type": "text",
+        "original_column_name": "location",
+        "sample_values": [
+          "MU 215",
+          "Campus Soccer/Lacrosse stadium",
+          "900 E. Washington St.",
+          "Campus Football stadium",
+          "Campus Common"
+        ]
+      },
+      {
+        "col": "status",
+        "type": "text",
+        "original_column_name": "status",
+        "sample_values": [
+          "Open",
+          "Planning",
+          "Closed"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "event_id"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "Major",
+    "db_id": "student_club",
+    "original_table_name": "major",
+    "columns": [
+      {
+        "col": "major id",
+        "type": "text",
+        "original_column_name": "major_id",
+        "sample_values": [
+          "rec06DF6vZ1CyPKpc",
+          "rec09LedkREyskCNv",
+          "rec0Eanv576RhQllI",
+          "rec0xRZtkzxrg8kj2",
+          "rec1N0upiVLy5esTO"
+        ]
+      },
+      {
+        "col": "major name",
+        "type": "text",
+        "original_column_name": "major_name",
+        "sample_values": [
+          "Outdoor Product Design and Development",
+          "Agricultural Communication",
+          "Fisheries and Aquatic Sciences",
+          "Finance",
+          "Forest Ecology and Management"
+        ]
+      },
+      {
+        "col": "department",
+        "type": "text",
+        "original_column_name": "department",
+        "sample_values": [
+          "School of Applied Sciences, Technology and Education",
+          "Watershed Sciences Department",
+          "Economics and Finance Department",
+          "Wildland Resources Department",
+          "Biological Engineering Department"
+        ]
+      },
+      {
+        "col": "college",
+        "type": "text",
+        "original_column_name": "college",
+        "sample_values": [
+          "College of Agriculture and Applied Sciences",
+          "College of Natural Resources",
+          "School of Business",
+          "College of Engineering",
+          "College of Humanities and Social Sciences"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "major_id"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "Zip Code",
+    "db_id": "student_club",
+    "original_table_name": "zip_code",
+    "columns": [
+      {
+        "col": "zip code",
+        "type": "integer",
+        "original_column_name": "zip_code",
+        "sample_values": [
+          501,
+          544,
+          601,
+          602,
+          603
+        ]
+      },
+      {
+        "col": "type",
+        "type": "text",
+        "original_column_name": "type",
+        "sample_values": [
+          "Unique",
+          "Standard",
+          "PO Box"
+        ]
+      },
+      {
+        "col": "city",
+        "type": "text",
+        "original_column_name": "city",
+        "sample_values": [
+          "Holtsville",
+          "Adjuntas",
+          "Aguada",
+          "Aguadilla",
+          "Maricao"
+        ]
+      },
+      {
+        "col": "county",
+        "type": "text",
+        "original_column_name": "county",
+        "sample_values": [
+          "Suffolk County",
+          "Adjuntas Municipio",
+          "Aguada Municipio",
+          "Aguadilla Municipio",
+          "Maricao Municipio"
+        ]
+      },
+      {
+        "col": "state",
+        "type": "text",
+        "original_column_name": "state",
+        "sample_values": [
+          "New York",
+          "Puerto Rico",
+          "Massachusetts",
+          "Rhode Island",
+          "New Hampshire"
+        ]
+      },
+      {
+        "col": "short state",
+        "type": "text",
+        "original_column_name": "short_state",
+        "sample_values": [
+          "NY",
+          "PR",
+          "MA",
+          "RI",
+          "NH"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "zip_code"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "Attendance",
+    "db_id": "student_club",
+    "original_table_name": "attendance",
+    "columns": [
+      {
+        "col": "link to event",
+        "type": "text",
+        "original_column_name": "link_to_event",
+        "sample_values": [
+          "rec2N69DMcrqN9PJC",
+          "rec5XDvJLyxDsGZWc",
+          "recEVTik3MlqbvLFi",
+          "recGxVCwaLW3mDIa3",
+          "recI43CzsZ0Q625ma"
+        ]
+      },
+      {
+        "col": "link to member",
+        "type": "text",
+        "original_column_name": "link_to_member",
+        "sample_values": [
+          "recD078PnS3x2doBe",
+          "recP6DJPyi5donvXL",
+          "rec28ORZgcm1dtqBZ",
+          "recTjHY5xXhvkCdVT",
+          "recZ4PkGERzl9ziHO"
+        ]
+      }
+    ],
+    "primary_keys": [],
+    "foreign_keys": [
+      {
+        "column": "link_to_member",
+        "referenced_table": "member",
+        "referenced_column": "member_id"
+      },
+      {
+        "column": "link_to_event",
+        "referenced_table": "event",
+        "referenced_column": "event_id"
+      }
+    ]
+  },
+  {
+    "table_name": "Budget",
+    "db_id": "student_club",
+    "original_table_name": "budget",
+    "columns": [
+      {
+        "col": "budget id",
+        "type": "text",
+        "original_column_name": "budget_id",
+        "sample_values": [
+          "rec0QmEc3cSQFQ6V2",
+          "rec1bG6HSft7XIvTP",
+          "rec1z6ISJU2HdIsVm",
+          "rec33PFqxLtnp80RJ",
+          "rec4DYUKBHMPZXWB2"
+        ]
+      },
+      {
+        "col": "category",
+        "type": "text",
+        "original_column_name": "category",
+        "sample_values": [
+          "Advertisement",
+          "Food",
+          "Speaker Gifts",
+          "Parking",
+          "Club T-Shirts"
+        ]
+      },
+      {
+        "col": "spent",
+        "type": "real",
+        "original_column_name": "spent",
+        "sample_values": [
+          67.81,
+          121.14,
+          20.2,
+          0.0,
+          173.06
+        ]
+      },
+      {
+        "col": "remaining",
+        "type": "real",
+        "original_column_name": "remaining",
+        "sample_values": [
+          7.19,
+          28.86,
+          -0.199999999999999,
+          25.0,
+          150.0
+        ]
+      },
+      {
+        "col": "amount",
+        "type": "integer",
+        "original_column_name": "amount",
+        "sample_values": [
+          75,
+          150,
+          20,
+          25,
+          10
+        ]
+      },
+      {
+        "col": "event status",
+        "type": "text",
+        "original_column_name": "event_status",
+        "sample_values": [
+          "Closed",
+          "Open",
+          "Planning"
+        ]
+      },
+      {
+        "col": "link to event",
+        "type": "text",
+        "original_column_name": "link_to_event",
+        "sample_values": [
+          "recI43CzsZ0Q625ma",
+          "recggMW2eyCYceNcy",
+          "recJ4Witp9tpjaugn",
+          "recHaMmaKyfktt5fW",
+          "recs4x1BYWAsU2SKg"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "budget_id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "link_to_event",
+        "referenced_table": "event",
+        "referenced_column": "event_id"
+      }
+    ]
+  },
+  {
+    "table_name": "Expense",
+    "db_id": "student_club",
+    "original_table_name": "expense",
+    "columns": [
+      {
+        "col": "expense id",
+        "type": "text",
+        "original_column_name": "expense_id",
+        "sample_values": [
+          "rec017x6R3hQqkLAo",
+          "rec1nIjoZKTYayqZ6",
+          "rec1oMgNFt7Y0G40x",
+          "rec4Zg7WEmfiHXcnC",
+          "rec7gUiykKKW4RaJS"
+        ]
+      },
+      {
+        "col": "expense description",
+        "type": "text",
+        "original_column_name": "expense_description",
+        "sample_values": [
+          "Post Cards, Posters",
+          "Water, Cookies",
+          "Pizza",
+          "Posters",
+          "Parking"
+        ]
+      },
+      {
+        "col": "expense date",
+        "type": "text",
+        "original_column_name": "expense_date",
+        "sample_values": [
+          "2019-08-20",
+          "2019-10-08",
+          "2019-09-10",
+          "2019-10-10",
+          "2019-11-19"
+        ]
+      },
+      {
+        "col": "cost",
+        "type": "real",
+        "original_column_name": "cost",
+        "sample_values": [
+          122.06,
+          20.2,
+          51.81,
+          67.81,
+          6.0
+        ]
+      },
+      {
+        "col": "approved",
+        "type": "text",
+        "original_column_name": "approved",
+        "sample_values": [
+          "true"
+        ]
+      },
+      {
+        "col": "link to member",
+        "type": "text",
+        "original_column_name": "link_to_member",
+        "sample_values": [
+          "rec4BLdZHS2Blfp4v",
+          "recro8T1MPMwRadVH",
+          "recD078PnS3x2doBe"
+        ]
+      },
+      {
+        "col": "link to budget",
+        "type": "text",
+        "original_column_name": "link_to_budget",
+        "sample_values": [
+          "recvKTAWAFKkVNnXQ",
+          "recy8KY5bUdzF81vv",
+          "recwXIiKoBMjXJsGZ",
+          "recsI0IzpUuxl2bPh",
+          "recTUGXxhTaFZ2qkg"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "expense_id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "link_to_member",
+        "referenced_table": "member",
+        "referenced_column": "member_id"
+      },
+      {
+        "column": "link_to_budget",
+        "referenced_table": "budget",
+        "referenced_column": "budget_id"
+      }
+    ]
+  },
+  {
+    "table_name": "Income",
+    "db_id": "student_club",
+    "original_table_name": "income",
+    "columns": [
+      {
+        "col": "income id",
+        "type": "text",
+        "original_column_name": "income_id",
+        "sample_values": [
+          "rec0s9ZrO15zhzUeE",
+          "rec7f5XMQZexgtQJo",
+          "rec8BUJa8GXUjiglg",
+          "rec8V9BPNIoewWt2z",
+          "recCRWMfFqifuKMc6"
+        ]
+      },
+      {
+        "col": "date received",
+        "type": "text",
+        "original_column_name": "date_received",
+        "sample_values": [
+          "2019-10-17",
+          "2019-09-04",
+          "2019-10-08",
+          "2019-10-02",
+          "2019-09-18"
+        ]
+      },
+      {
+        "col": "amount",
+        "type": "integer",
+        "original_column_name": "amount",
+        "sample_values": [
+          50,
+          200,
+          3000,
+          1000
+        ]
+      },
+      {
+        "col": "source",
+        "type": "text",
+        "original_column_name": "source",
+        "sample_values": [
+          "Dues",
+          "Fundraising",
+          "School Appropration",
+          "Sponsorship"
+        ]
+      },
+      {
+        "col": "notes",
+        "type": "text",
+        "original_column_name": "notes",
+        "sample_values": [
+          "Secured donations to help pay for speaker gifts.",
+          "Annual funding from Student Government.",
+          "Ad revenue for use on flyers used to advertise upcoming events."
+        ]
+      },
+      {
+        "col": "link to member",
+        "type": "text",
+        "original_column_name": "link_to_member",
+        "sample_values": [
+          "reccW7q1KkhSKZsea",
+          "recTjHY5xXhvkCdVT",
+          "recUdRhbhcEO1Hk5r",
+          "rec3pH4DxMcWHMRB7",
+          "rec28ORZgcm1dtqBZ"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "income_id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "link_to_member",
+        "referenced_table": "member",
+        "referenced_column": "member_id"
+      }
+    ]
+  },
+  {
+    "table_name": "Member",
+    "db_id": "student_club",
+    "original_table_name": "member",
+    "columns": [
+      {
+        "col": "member id",
+        "type": "text",
+        "original_column_name": "member_id",
+        "sample_values": [
+          "rec1x5zBFIqoOuPW8",
+          "rec280Sk7o31iG0Tx",
+          "rec28ORZgcm1dtqBZ",
+          "rec2a03QXbFQAUZ7X",
+          "rec3pH4DxMcWHMRB7"
+        ]
+      },
+      {
+        "col": "first name",
+        "type": "text",
+        "original_column_name": "first_name",
+        "sample_values": [
+          "Angela",
+          "Grant",
+          "Luisa",
+          "Randy",
+          "Connor"
+        ]
+      },
+      {
+        "col": "last name",
+        "type": "text",
+        "original_column_name": "last_name",
+        "sample_values": [
+          "Sanders",
+          "Gilmour",
+          "Guidi",
+          "Woodard",
+          "Hilton"
+        ]
+      },
+      {
+        "col": "email",
+        "type": "text",
+        "original_column_name": "email",
+        "sample_values": [
+          "angela.sanders@lpu.edu",
+          "grant.gilmour@lpu.edu",
+          "luisa.guidi@lpu.edu",
+          "randy.woodard@lpu.edu",
+          "connor.hilton@lpu.edu"
+        ]
+      },
+      {
+        "col": "position",
+        "type": "text",
+        "original_column_name": "position",
+        "sample_values": [
+          "Member",
+          "Inactive",
+          "President",
+          "Vice President",
+          "Treasurer"
+        ]
+      },
+      {
+        "col": "t_shirt_size",
+        "type": "text",
+        "original_column_name": "t_shirt_size",
+        "sample_values": [
+          "Medium",
+          "X-Large",
+          "Large",
+          "Small"
+        ]
+      },
+      {
+        "col": "phone",
+        "type": "text",
+        "original_column_name": "phone",
+        "sample_values": [
+          "(651) 928-4507",
+          "403-555-1310",
+          "442-555-5882",
+          "490-555-8460",
+          "454-555-7970"
+        ]
+      },
+      {
+        "col": "zip",
+        "type": "integer",
+        "original_column_name": "zip",
+        "sample_values": [
+          55108,
+          29440,
+          10002,
+          8021,
+          48236
+        ]
+      },
+      {
+        "col": "link to major",
+        "type": "text",
+        "original_column_name": "link_to_major",
+        "sample_values": [
+          "recxK3MHQFbR9J5uO",
+          "rec7BxKpjJ7bNph3O",
+          "recdIBgeU38UbV2sy",
+          "recaJdSK83k6ekRJL",
+          "recCk8lCDOTRp6rKN"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "member_id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "zip",
+        "referenced_table": "zip_code",
+        "referenced_column": "zip_code"
+      },
+      {
+        "column": "link_to_major",
+        "referenced_table": "major",
+        "referenced_column": "major_id"
+      }
+    ]
+  }
+]

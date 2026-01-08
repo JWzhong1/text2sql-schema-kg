@@ -1,0 +1,784 @@
+[
+  {
+    "table_name": "account",
+    "db_id": "financial",
+    "original_table_name": "account",
+    "columns": [
+      {
+        "col": "account id",
+        "type": "integer",
+        "original_column_name": "account_id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "location of branch",
+        "type": "integer",
+        "original_column_name": "district_id",
+        "sample_values": [
+          18,
+          1,
+          5,
+          12,
+          15
+        ]
+      },
+      {
+        "col": "frequency",
+        "type": "text",
+        "original_column_name": "frequency",
+        "sample_values": [
+          "POPLATEK MESICNE",
+          "POPLATEK TYDNE",
+          "POPLATEK PO OBRATU"
+        ]
+      },
+      {
+        "col": "date",
+        "type": "date",
+        "original_column_name": "date",
+        "sample_values": [
+          "1995-03-24",
+          "1993-02-26",
+          "1997-07-07",
+          "1996-02-21",
+          "1997-05-30"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "account_id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "district_id",
+        "referenced_table": "district",
+        "referenced_column": "district_id"
+      }
+    ]
+  },
+  {
+    "table_name": "card",
+    "db_id": "financial",
+    "original_table_name": "card",
+    "columns": [
+      {
+        "col": "credit card id",
+        "type": "integer",
+        "original_column_name": "card_id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "disposition id",
+        "type": "integer",
+        "original_column_name": "disp_id",
+        "sample_values": [
+          9,
+          19,
+          41,
+          42,
+          51
+        ]
+      },
+      {
+        "col": "type",
+        "type": "text",
+        "original_column_name": "type",
+        "sample_values": [
+          "gold",
+          "classic",
+          "junior"
+        ]
+      },
+      {
+        "col": "issued",
+        "type": "date",
+        "original_column_name": "issued",
+        "sample_values": [
+          "1998-10-16",
+          "1998-03-13",
+          "1995-09-03",
+          "1998-11-26",
+          "1995-04-24"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "card_id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "disp_id",
+        "referenced_table": "disp",
+        "referenced_column": "disp_id"
+      }
+    ]
+  },
+  {
+    "table_name": "client",
+    "db_id": "financial",
+    "original_table_name": "client",
+    "columns": [
+      {
+        "col": "client_id",
+        "type": "integer",
+        "original_column_name": "client_id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "gender",
+        "type": "text",
+        "original_column_name": "gender",
+        "sample_values": [
+          "F",
+          "M"
+        ]
+      },
+      {
+        "col": "birth_date",
+        "type": "date",
+        "original_column_name": "birth_date",
+        "sample_values": [
+          "1970-12-13",
+          "1945-02-04",
+          "1940-10-09",
+          "1956-12-01",
+          "1960-07-03"
+        ]
+      },
+      {
+        "col": "location of branch",
+        "type": "integer",
+        "original_column_name": "district_id",
+        "sample_values": [
+          18,
+          1,
+          5,
+          12,
+          15
+        ]
+      }
+    ],
+    "primary_keys": [
+      "client_id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "district_id",
+        "referenced_table": "district",
+        "referenced_column": "district_id"
+      }
+    ]
+  },
+  {
+    "table_name": "disposition",
+    "db_id": "financial",
+    "original_table_name": "disp",
+    "columns": [
+      {
+        "col": "disposition id",
+        "type": "integer",
+        "original_column_name": "disp_id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "client_id",
+        "type": "integer",
+        "original_column_name": "client_id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "account_id",
+        "type": "integer",
+        "original_column_name": "account_id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "type",
+        "type": "text",
+        "original_column_name": "type",
+        "sample_values": [
+          "OWNER",
+          "DISPONENT"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "disp_id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "client_id",
+        "referenced_table": "client",
+        "referenced_column": "client_id"
+      },
+      {
+        "column": "account_id",
+        "referenced_table": "account",
+        "referenced_column": "account_id"
+      }
+    ]
+  },
+  {
+    "table_name": "district",
+    "db_id": "financial",
+    "original_table_name": "district",
+    "columns": [
+      {
+        "col": "location of branch",
+        "type": "integer",
+        "original_column_name": "district_id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "district_name",
+        "type": "text",
+        "original_column_name": "A2",
+        "sample_values": [
+          "Hl.m. Praha",
+          "Benesov",
+          "Beroun",
+          "Kladno",
+          "Kolin"
+        ]
+      },
+      {
+        "col": "region",
+        "type": "text",
+        "original_column_name": "A3",
+        "sample_values": [
+          "Prague",
+          "central Bohemia",
+          "south Bohemia",
+          "west Bohemia",
+          "north Bohemia"
+        ]
+      },
+      {
+        "col": "number of inhabitants",
+        "type": "text",
+        "original_column_name": "A4",
+        "sample_values": [
+          "1204953",
+          "88884",
+          "75232",
+          "149893",
+          "95616"
+        ]
+      },
+      {
+        "col": "no. of municipalities with inhabitants < 499",
+        "type": "text",
+        "original_column_name": "A5",
+        "sample_values": [
+          "0",
+          "80",
+          "55",
+          "63",
+          "65"
+        ]
+      },
+      {
+        "col": "no. of municipalities with inhabitants 500-1999",
+        "type": "text",
+        "original_column_name": "A6",
+        "sample_values": [
+          "0",
+          "26",
+          "29",
+          "30",
+          "23"
+        ]
+      },
+      {
+        "col": "no. of municipalities with inhabitants 2000-9999",
+        "type": "text",
+        "original_column_name": "A7",
+        "sample_values": [
+          "0",
+          "6",
+          "4",
+          "1",
+          "7"
+        ]
+      },
+      {
+        "col": "no. of municipalities with inhabitants > 10000",
+        "type": "integer",
+        "original_column_name": "A8",
+        "sample_values": [
+          1,
+          2,
+          3,
+          0,
+          4
+        ]
+      },
+      {
+        "col": "A9",
+        "type": "integer",
+        "original_column_name": "A9",
+        "sample_values": [
+          1,
+          5,
+          6,
+          4,
+          8
+        ]
+      },
+      {
+        "col": "ratio of urban inhabitants",
+        "type": "real",
+        "original_column_name": "A10",
+        "sample_values": [
+          100.0,
+          46.7,
+          41.7,
+          67.4,
+          51.4
+        ]
+      },
+      {
+        "col": "average salary",
+        "type": "integer",
+        "original_column_name": "A11",
+        "sample_values": [
+          12541,
+          8507,
+          8980,
+          9753,
+          9307
+        ]
+      },
+      {
+        "col": "unemployment rate 1995",
+        "type": "real",
+        "original_column_name": "A12",
+        "sample_values": [
+          0.2,
+          1.6,
+          1.9,
+          4.6,
+          3.8
+        ]
+      },
+      {
+        "col": "unemployment rate 1996",
+        "type": "real",
+        "original_column_name": "A13",
+        "sample_values": [
+          0.43,
+          1.85,
+          2.21,
+          5.05,
+          4.43
+        ]
+      },
+      {
+        "col": "no. of entrepreneurs per 1000 inhabitants",
+        "type": "integer",
+        "original_column_name": "A14",
+        "sample_values": [
+          167,
+          132,
+          111,
+          109,
+          118
+        ]
+      },
+      {
+        "col": "no. of committed crimes 1995",
+        "type": "integer",
+        "original_column_name": "A15",
+        "sample_values": [
+          85677,
+          2159,
+          2824,
+          5244,
+          2616
+        ]
+      },
+      {
+        "col": "no. of committed crimes 1996",
+        "type": "integer",
+        "original_column_name": "A16",
+        "sample_values": [
+          99107,
+          2674,
+          2813,
+          5892,
+          3040
+        ]
+      }
+    ],
+    "primary_keys": [
+      "district_id"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "loan",
+    "db_id": "financial",
+    "original_table_name": "loan",
+    "columns": [
+      {
+        "col": "loan_id",
+        "type": "integer",
+        "original_column_name": "loan_id",
+        "sample_values": [
+          4959,
+          4961,
+          4962,
+          4967,
+          4968
+        ]
+      },
+      {
+        "col": "account_id",
+        "type": "integer",
+        "original_column_name": "account_id",
+        "sample_values": [
+          2,
+          19,
+          25,
+          37,
+          38
+        ]
+      },
+      {
+        "col": "date",
+        "type": "date",
+        "original_column_name": "date",
+        "sample_values": [
+          "1994-01-05",
+          "1996-04-29",
+          "1997-12-08",
+          "1998-10-14",
+          "1998-04-19"
+        ]
+      },
+      {
+        "col": "amount",
+        "type": "integer",
+        "original_column_name": "amount",
+        "sample_values": [
+          80952,
+          30276,
+          318480,
+          110736,
+          165960
+        ]
+      },
+      {
+        "col": "duration",
+        "type": "integer",
+        "original_column_name": "duration",
+        "sample_values": [
+          24,
+          12,
+          60,
+          48,
+          36
+        ]
+      },
+      {
+        "col": "monthly payments",
+        "type": "real",
+        "original_column_name": "payments",
+        "sample_values": [
+          3373.0,
+          2523.0,
+          5308.0,
+          2307.0,
+          6915.0
+        ]
+      },
+      {
+        "col": "status",
+        "type": "text",
+        "original_column_name": "status",
+        "sample_values": [
+          "A",
+          "B",
+          "D",
+          "C"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "loan_id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "account_id",
+        "referenced_table": "account",
+        "referenced_column": "account_id"
+      }
+    ]
+  },
+  {
+    "table_name": "order",
+    "db_id": "financial",
+    "original_table_name": "order",
+    "columns": [
+      {
+        "col": "order_id",
+        "type": "integer",
+        "original_column_name": "order_id",
+        "sample_values": [
+          29401,
+          29402,
+          29403,
+          29404,
+          29405
+        ]
+      },
+      {
+        "col": "account_id",
+        "type": "integer",
+        "original_column_name": "account_id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "bank of the recipient",
+        "type": "text",
+        "original_column_name": "bank_to",
+        "sample_values": [
+          "YZ",
+          "ST",
+          "QR",
+          "WX",
+          "CD"
+        ]
+      },
+      {
+        "col": "account of the recipient",
+        "type": "integer",
+        "original_column_name": "account_to",
+        "sample_values": [
+          87144583,
+          89597016,
+          13943797,
+          83084338,
+          24485939
+        ]
+      },
+      {
+        "col": "debited amount",
+        "type": "real",
+        "original_column_name": "amount",
+        "sample_values": [
+          2452.0,
+          3372.7,
+          7266.0,
+          1135.0,
+          327.0
+        ]
+      },
+      {
+        "col": "characterization of the payment",
+        "type": "text",
+        "original_column_name": "k_symbol",
+        "sample_values": [
+          "SIPO",
+          "UVER",
+          "",
+          "POJISTNE",
+          "LEASING"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "order_id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "account_id",
+        "referenced_table": "account",
+        "referenced_column": "account_id"
+      }
+    ]
+  },
+  {
+    "table_name": "transaction",
+    "db_id": "financial",
+    "original_table_name": "trans",
+    "columns": [
+      {
+        "col": "transaction id",
+        "type": "integer",
+        "original_column_name": "trans_id",
+        "sample_values": [
+          1,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      {
+        "col": "account_id",
+        "type": "integer",
+        "original_column_name": "account_id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "date of transaction",
+        "type": "date",
+        "original_column_name": "date",
+        "sample_values": [
+          "1995-03-24",
+          "1995-04-13",
+          "1995-05-13",
+          "1995-06-13",
+          "1995-07-13"
+        ]
+      },
+      {
+        "col": "+/- transaction",
+        "type": "text",
+        "original_column_name": "type",
+        "sample_values": [
+          "PRIJEM",
+          "VYDAJ",
+          "VYBER"
+        ]
+      },
+      {
+        "col": "mode of transaction",
+        "type": "text",
+        "original_column_name": "operation",
+        "sample_values": [
+          "VKLAD",
+          "PREVOD Z UCTU",
+          "PREVOD NA UCET",
+          "VYBER",
+          "VYBER KARTOU"
+        ]
+      },
+      {
+        "col": "amount of money",
+        "type": "integer",
+        "original_column_name": "amount",
+        "sample_values": [
+          1000,
+          3679,
+          2452,
+          540,
+          180
+        ]
+      },
+      {
+        "col": "balance after transaction",
+        "type": "integer",
+        "original_column_name": "balance",
+        "sample_values": [
+          1000,
+          4679,
+          20977,
+          26835,
+          30415
+        ]
+      },
+      {
+        "col": "characterization of the transaction",
+        "type": "text",
+        "original_column_name": "k_symbol",
+        "sample_values": [
+          "SIPO",
+          "SLUZBY",
+          "UVER",
+          " ",
+          "POJISTNE"
+        ]
+      },
+      {
+        "col": "bank of the partner",
+        "type": "text",
+        "original_column_name": "bank",
+        "sample_values": [
+          "AB",
+          "YZ",
+          "ST",
+          "QR",
+          "WX"
+        ]
+      },
+      {
+        "col": "account of the partner",
+        "type": "integer",
+        "original_column_name": "account",
+        "sample_values": [
+          41403269,
+          87144583,
+          66487163,
+          0,
+          89597016
+        ]
+      }
+    ],
+    "primary_keys": [
+      "trans_id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "account_id",
+        "referenced_table": "account",
+        "referenced_column": "account_id"
+      }
+    ]
+  }
+]

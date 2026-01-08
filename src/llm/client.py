@@ -31,7 +31,7 @@ def get_competition_json(messages: list) -> str:
 
 def get_competition_embedding(text: str) -> list:
     client = openai.OpenAI(
-        api_key=os.getenv("OPENAI_API_KEY"),  
+        api_key=os.getenv("DASHSCOPE_API_KEY"),  
         base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
     )
 

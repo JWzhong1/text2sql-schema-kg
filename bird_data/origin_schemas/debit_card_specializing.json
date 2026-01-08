@@ -1,0 +1,237 @@
+{
+    "db_id": "debit_card_specializing",
+    "table_names_original": [
+        "customers",
+        "gasstations",
+        "products",
+        "transactions_1k",
+        "yearmonth"
+    ],
+    "table_names": [
+        "customers",
+        "gas stations",
+        "products",
+        "transactions",
+        "year and month"
+    ],
+    "column_names_original": [
+        [
+            -1,
+            "*"
+        ],
+        [
+            0,
+            "CustomerID"
+        ],
+        [
+            0,
+            "Segment"
+        ],
+        [
+            0,
+            "Currency"
+        ],
+        [
+            1,
+            "GasStationID"
+        ],
+        [
+            1,
+            "ChainID"
+        ],
+        [
+            1,
+            "Country"
+        ],
+        [
+            1,
+            "Segment"
+        ],
+        [
+            2,
+            "ProductID"
+        ],
+        [
+            2,
+            "Description"
+        ],
+        [
+            3,
+            "TransactionID"
+        ],
+        [
+            3,
+            "Date"
+        ],
+        [
+            3,
+            "Time"
+        ],
+        [
+            3,
+            "CustomerID"
+        ],
+        [
+            3,
+            "CardID"
+        ],
+        [
+            3,
+            "GasStationID"
+        ],
+        [
+            3,
+            "ProductID"
+        ],
+        [
+            3,
+            "Amount"
+        ],
+        [
+            3,
+            "Price"
+        ],
+        [
+            4,
+            "CustomerID"
+        ],
+        [
+            4,
+            "Date"
+        ],
+        [
+            4,
+            "Consumption"
+        ]
+    ],
+    "column_names": [
+        [
+            -1,
+            "*"
+        ],
+        [
+            0,
+            "CustomerID"
+        ],
+        [
+            0,
+            "client segment"
+        ],
+        [
+            0,
+            "Currency"
+        ],
+        [
+            1,
+            "Gas Station ID"
+        ],
+        [
+            1,
+            "Chain ID"
+        ],
+        [
+            1,
+            "Country"
+        ],
+        [
+            1,
+            "chain segment"
+        ],
+        [
+            2,
+            "Product ID"
+        ],
+        [
+            2,
+            "Description"
+        ],
+        [
+            3,
+            "Transaction ID"
+        ],
+        [
+            3,
+            "Date"
+        ],
+        [
+            3,
+            "Time"
+        ],
+        [
+            3,
+            "Customer ID"
+        ],
+        [
+            3,
+            "Card ID"
+        ],
+        [
+            3,
+            "Gas Station ID"
+        ],
+        [
+            3,
+            "Product ID"
+        ],
+        [
+            3,
+            "Amount"
+        ],
+        [
+            3,
+            "Price"
+        ],
+        [
+            4,
+            "Customer ID"
+        ],
+        [
+            4,
+            "Date"
+        ],
+        [
+            4,
+            "Consumption"
+        ]
+    ],
+    "column_types": [
+        "text",
+        "integer",
+        "text",
+        "text",
+        "integer",
+        "integer",
+        "text",
+        "text",
+        "integer",
+        "text",
+        "integer",
+        "date",
+        "text",
+        "integer",
+        "integer",
+        "integer",
+        "integer",
+        "integer",
+        "real",
+        "integer",
+        "text",
+        "real"
+    ],
+    "primary_keys": [
+        1,
+        4,
+        8,
+        10,
+        [
+            19,
+            20
+        ]
+    ],
+    "foreign_keys": [
+        [
+            19,
+            1
+        ]
+    ]
+}

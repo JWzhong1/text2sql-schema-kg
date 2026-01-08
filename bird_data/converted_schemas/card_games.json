@@ -1,0 +1,1406 @@
+[
+  {
+    "table_name": "cards",
+    "db_id": "card_games",
+    "original_table_name": "cards",
+    "columns": [
+      {
+        "col": "unique id number identifying the cards",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          41138,
+          1349,
+          23810,
+          6241,
+          29566
+        ]
+      },
+      {
+        "col": "artist",
+        "type": "text",
+        "original_column_name": "artist",
+        "sample_values": [
+          "Pete Venters",
+          "Volkan Baǵa",
+          "Justin Sweet",
+          "Matthew D. Wilson",
+          "Rebecca Guay"
+        ]
+      },
+      {
+        "col": "ascii Name",
+        "type": "text",
+        "original_column_name": "asciiName",
+        "sample_values": [
+          "El-Hajjaj",
+          "Junun Efreet",
+          "Dandan",
+          "Ghazban Ogre",
+          "Lim-Dul's Vault"
+        ]
+      },
+      {
+        "col": "availability",
+        "type": "text",
+        "original_column_name": "availability",
+        "sample_values": [
+          "mtgo,paper",
+          "paper",
+          "arena",
+          "arena,mtgo,paper",
+          "arena,paper"
+        ]
+      },
+      {
+        "col": "border Color",
+        "type": "text",
+        "original_column_name": "borderColor",
+        "sample_values": [
+          "black",
+          "white",
+          "borderless",
+          "silver",
+          "gold"
+        ]
+      },
+      {
+        "col": "card Kingdom Foil Id",
+        "type": "text",
+        "original_column_name": "cardKingdomFoilId",
+        "sample_values": [
+          "123094",
+          "123095",
+          "123096",
+          "123097",
+          "123098"
+        ]
+      },
+      {
+        "col": "card Kingdom Id",
+        "type": "text",
+        "original_column_name": "cardKingdomId",
+        "sample_values": [
+          "122719",
+          "122720",
+          "122725",
+          "122726",
+          "122727"
+        ]
+      },
+      {
+        "col": "color Identity",
+        "type": "text",
+        "original_column_name": "colorIdentity",
+        "sample_values": [
+          "W",
+          "B",
+          "U",
+          "R",
+          "G"
+        ]
+      },
+      {
+        "col": "color Indicator",
+        "type": "text",
+        "original_column_name": "colorIndicator",
+        "sample_values": [
+          "U",
+          "G",
+          "R",
+          "B",
+          "G,R"
+        ]
+      },
+      {
+        "col": "colors",
+        "type": "text",
+        "original_column_name": "colors",
+        "sample_values": [
+          "W",
+          "B",
+          "U",
+          "R",
+          "G"
+        ]
+      },
+      {
+        "col": "converted Mana Cost",
+        "type": "real",
+        "original_column_name": "convertedManaCost",
+        "sample_values": [
+          7.0,
+          5.0,
+          4.0,
+          1.0,
+          6.0
+        ]
+      },
+      {
+        "col": "duel Deck",
+        "type": "text",
+        "original_column_name": "duelDeck",
+        "sample_values": [
+          "a",
+          "b"
+        ]
+      },
+      {
+        "col": "rec Rank in edh",
+        "type": "integer",
+        "original_column_name": "edhrecRank",
+        "sample_values": [
+          15650,
+          12702,
+          11081,
+          12901,
+          3988
+        ]
+      },
+      {
+        "col": "face Converted Mana Cost",
+        "type": "real",
+        "original_column_name": "faceConvertedManaCost",
+        "sample_values": [
+          4.0,
+          5.0,
+          6.0,
+          3.0,
+          2.0
+        ]
+      },
+      {
+        "col": "face Name",
+        "type": "text",
+        "original_column_name": "faceName",
+        "sample_values": [
+          "Dusk",
+          "Dawn",
+          "Commit",
+          "Memory",
+          "Never"
+        ]
+      },
+      {
+        "col": "flavor Name",
+        "type": "text",
+        "original_column_name": "flavorName",
+        "sample_values": [
+          "Godzilla, King of the Monsters",
+          "King Caesar, Ancient Guardian",
+          "Mothra, Supersonic Queen",
+          "Babygodzilla, Ruin Reborn",
+          "Spacegodzilla, Death Corona"
+        ]
+      },
+      {
+        "col": "flavor Text",
+        "type": "text",
+        "original_column_name": "flavorText",
+        "sample_values": [
+          "Every tear shed is a drop of immortality.",
+          "The perfect antidote for a tightly packed formation.",
+          "Life is measured in inches. To a healer, every one of those inches is precious.",
+          "The cave floods with light. A thousand rays shine forth and meld into one.",
+          "\"We called them 'armored lightning.'\"\n—Gerrard of the *Weatherlight*"
+        ]
+      },
+      {
+        "col": "frame Effects",
+        "type": "text",
+        "original_column_name": "frameEffects",
+        "sample_values": [
+          "legendary",
+          "nyxtouched",
+          "miracle",
+          "devoid",
+          "nyxtouched,legendary"
+        ]
+      },
+      {
+        "col": "frame Version",
+        "type": "text",
+        "original_column_name": "frameVersion",
+        "sample_values": [
+          "2003",
+          "1993",
+          "2015",
+          "1997",
+          "future"
+        ]
+      },
+      {
+        "col": "hand",
+        "type": "text",
+        "original_column_name": "hand",
+        "sample_values": [
+          "1",
+          "0",
+          "-2",
+          "-1",
+          "2"
+        ]
+      },
+      {
+        "col": "has Alternative Deck Limit",
+        "type": "integer",
+        "original_column_name": "hasAlternativeDeckLimit",
+        "sample_values": [
+          0,
+          1
+        ]
+      },
+      {
+        "col": "has Content Warning",
+        "type": "integer",
+        "original_column_name": "hasContentWarning",
+        "sample_values": [
+          0,
+          1
+        ]
+      },
+      {
+        "col": "has Foil",
+        "type": "integer",
+        "original_column_name": "hasFoil",
+        "sample_values": [
+          0,
+          1
+        ]
+      },
+      {
+        "col": "has Non Foil",
+        "type": "integer",
+        "original_column_name": "hasNonFoil",
+        "sample_values": [
+          1,
+          0
+        ]
+      },
+      {
+        "col": "is Alternative",
+        "type": "integer",
+        "original_column_name": "isAlternative",
+        "sample_values": [
+          0,
+          1
+        ]
+      },
+      {
+        "col": "is Full Art",
+        "type": "integer",
+        "original_column_name": "isFullArt",
+        "sample_values": [
+          0,
+          1
+        ]
+      },
+      {
+        "col": "is Online Only",
+        "type": "integer",
+        "original_column_name": "isOnlineOnly",
+        "sample_values": [
+          0,
+          1
+        ]
+      },
+      {
+        "col": "is Oversized",
+        "type": "integer",
+        "original_column_name": "isOversized",
+        "sample_values": [
+          0,
+          1
+        ]
+      },
+      {
+        "col": "is Promotion",
+        "type": "integer",
+        "original_column_name": "isPromo",
+        "sample_values": [
+          0,
+          1
+        ]
+      },
+      {
+        "col": "is Reprint",
+        "type": "integer",
+        "original_column_name": "isReprint",
+        "sample_values": [
+          1,
+          0
+        ]
+      },
+      {
+        "col": "is Reserved",
+        "type": "integer",
+        "original_column_name": "isReserved",
+        "sample_values": [
+          0,
+          1
+        ]
+      },
+      {
+        "col": "is Starter",
+        "type": "integer",
+        "original_column_name": "isStarter",
+        "sample_values": [
+          0,
+          1
+        ]
+      },
+      {
+        "col": "is Story Spotlight",
+        "type": "integer",
+        "original_column_name": "isStorySpotlight",
+        "sample_values": [
+          0,
+          1
+        ]
+      },
+      {
+        "col": "is Text less",
+        "type": "integer",
+        "original_column_name": "isTextless",
+        "sample_values": [
+          0,
+          1
+        ]
+      },
+      {
+        "col": "is Time shifted",
+        "type": "integer",
+        "original_column_name": "isTimeshifted",
+        "sample_values": [
+          0,
+          1
+        ]
+      },
+      {
+        "col": "keywords",
+        "type": "text",
+        "original_column_name": "keywords",
+        "sample_values": [
+          "First strike",
+          "Flying",
+          "First strike,Flash",
+          "Enchant",
+          "Mill"
+        ]
+      },
+      {
+        "col": "layout",
+        "type": "text",
+        "original_column_name": "layout",
+        "sample_values": [
+          "normal",
+          "aftermath",
+          "split",
+          "flip",
+          "leveler"
+        ]
+      },
+      {
+        "col": "leadership Skills",
+        "type": "text",
+        "original_column_name": "leadershipSkills",
+        "sample_values": [
+          "{'brawl': False, 'commander': True, 'oathbreaker': False}",
+          "{'brawl': False, 'commander': False, 'oathbreaker': True}",
+          "{'brawl': False, 'commander': True, 'oathbreaker': True}",
+          "{'brawl': True, 'commander': True, 'oathbreaker': False}",
+          "{'brawl': True, 'commander': False, 'oathbreaker': True}"
+        ]
+      },
+      {
+        "col": "life",
+        "type": "text",
+        "original_column_name": "life",
+        "sample_values": [
+          "-5",
+          "-1",
+          "2",
+          "5",
+          "-4"
+        ]
+      },
+      {
+        "col": "loyalty",
+        "type": "text",
+        "original_column_name": "loyalty",
+        "sample_values": [
+          "6",
+          "3",
+          "4",
+          "5",
+          "X"
+        ]
+      },
+      {
+        "col": "mana Cost",
+        "type": "text",
+        "original_column_name": "manaCost",
+        "sample_values": [
+          "{5}{W}{W}",
+          "{4}{W}",
+          "{3}{W}",
+          "{W}",
+          "{5}{W}"
+        ]
+      },
+      {
+        "col": "mcmId",
+        "type": "text",
+        "original_column_name": "mcmId",
+        "sample_values": [
+          "16165",
+          "16166",
+          "16171",
+          "16172",
+          "16173"
+        ]
+      },
+      {
+        "col": "mcmMetaId",
+        "type": "text",
+        "original_column_name": "mcmMetaId",
+        "sample_values": [
+          "156",
+          "176",
+          "368",
+          "423",
+          "432"
+        ]
+      },
+      {
+        "col": "mtgArenaId",
+        "type": "text",
+        "original_column_name": "mtgArenaId",
+        "sample_values": [
+          "74983",
+          "74986",
+          "74987",
+          "74993",
+          "74989"
+        ]
+      },
+      {
+        "col": "mtgjsonV4Id",
+        "type": "text",
+        "original_column_name": "mtgjsonV4Id",
+        "sample_values": [
+          "ad41be73-582f-58ed-abd4-a88c1f616ac3",
+          "9eb2e54c-a12b-5e88-a9c0-d8c84c52d59c",
+          "c0de6fd8-367a-50fb-b2f4-2b8fa5aeb7d9",
+          "bfbb65b1-f1bb-5355-9495-fb094f9b0782",
+          "a634f6df-fd74-54d9-a56c-3fdd2ad3e9bf"
+        ]
+      },
+      {
+        "col": "mtgoFoilId",
+        "type": "text",
+        "original_column_name": "mtgoFoilId",
+        "sample_values": [
+          "27501",
+          "26993",
+          "27473",
+          "27327",
+          "27095"
+        ]
+      },
+      {
+        "col": "mtgoId",
+        "type": "text",
+        "original_column_name": "mtgoId",
+        "sample_values": [
+          "27500",
+          "26992",
+          "27472",
+          "27326",
+          "27094"
+        ]
+      },
+      {
+        "col": "multiverseId",
+        "type": "text",
+        "original_column_name": "multiverseId",
+        "sample_values": [
+          "130550",
+          "129465",
+          "129470",
+          "129477",
+          "132106"
+        ]
+      },
+      {
+        "col": "name",
+        "type": "text",
+        "original_column_name": "name",
+        "sample_values": [
+          "Ancestor's Chosen",
+          "Angel of Mercy",
+          "Aven Cloudchaser",
+          "Ballista Squad",
+          "Bandage"
+        ]
+      },
+      {
+        "col": "number",
+        "type": "text",
+        "original_column_name": "number",
+        "sample_values": [
+          "1",
+          "2",
+          "7",
+          "8",
+          "9"
+        ]
+      },
+      {
+        "col": "originalReleaseDate",
+        "type": "text",
+        "original_column_name": "originalReleaseDate",
+        "sample_values": [
+          "2012/12/1",
+          "2006/12/1",
+          "2007/12/1",
+          "2009/12/1",
+          "2010/12/1"
+        ]
+      },
+      {
+        "col": "originalText",
+        "type": "text",
+        "original_column_name": "originalText",
+        "sample_values": [
+          "First strike (This creature deals combat damage before creatures without first strike.)\nWhen Ancestor's Chosen comes into play, you gain 1 life for each card in your graveyard.",
+          "Flying (This creature can't be blocked except by creatures with flying or reach.)\nWhen Angel of Mercy comes into play, you gain 3 life.",
+          "Flying (This creature can't be blocked except by creatures with flying or reach.)\nWhen Aven Cloudchaser comes into play, destroy target enchantment.",
+          "{X}{W}, {T}: Ballista Squad deals X damage to target attacking or blocking creature.",
+          "Prevent the next 1 damage that would be dealt to target creature or player this turn.\nDraw a card."
+        ]
+      },
+      {
+        "col": "originalType",
+        "type": "text",
+        "original_column_name": "originalType",
+        "sample_values": [
+          "Creature - Human Cleric",
+          "Creature - Angel",
+          "Creature - Bird Soldier",
+          "Creature - Human Rebel",
+          "Instant"
+        ]
+      },
+      {
+        "col": "otherFaceIds",
+        "type": "text",
+        "original_column_name": "otherFaceIds",
+        "sample_values": [
+          "87f0062a-8321-5c16-960e-a12ce1df5839",
+          "f9f10d34-071c-57a6-b58c-7553abad5c20",
+          "95a37a67-eac8-5ae2-9a50-31f81f810f18",
+          "71a0621f-32a6-5450-8ad8-6cdae505cf59",
+          "6acc8501-aa59-5777-a7d0-e3ef66a609ea"
+        ]
+      },
+      {
+        "col": "power",
+        "type": "text",
+        "original_column_name": "power",
+        "sample_values": [
+          "4",
+          "3",
+          "2",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "col": "printings",
+        "type": "text",
+        "original_column_name": "printings",
+        "sample_values": [
+          "10E,JUD,UMA",
+          "10E,8ED,9ED,DDC,DVD,IMA,INV,JMP,MB1,P02,PS11,PSAL,S99",
+          "10E,8ED,9ED,ODY",
+          "10E,9ED,MMQ",
+          "10E,STH,TPR"
+        ]
+      },
+      {
+        "col": "promo Types",
+        "type": "text",
+        "original_column_name": "promoTypes",
+        "sample_values": [
+          "boxtopper,boosterfun",
+          "boosterfun",
+          "release,buyabox",
+          "intropack",
+          "buyabox"
+        ]
+      },
+      {
+        "col": "purchase Urls",
+        "type": "text",
+        "original_column_name": "purchaseUrls",
+        "sample_values": [
+          "{'cardKingdom': 'https://mtgjson.com/links/9fb51af0ad6f0736', 'cardmarket': 'https://mtgjson.com/links/ace8861194ee0b6a', 'tcgplayer': 'https://mtgjson.com/links/4843cea124a0d515'}",
+          "{'cardKingdom': 'https://mtgjson.com/links/027095d094e58f5b', 'cardmarket': 'https://mtgjson.com/links/f6fb5098e1cd1b1e', 'tcgplayer': 'https://mtgjson.com/links/56c4b57293f350ef'}",
+          "{'cardKingdom': 'https://mtgjson.com/links/9246105d88032a9f', 'cardmarket': 'https://mtgjson.com/links/dcdfe48e6a8f9e1e', 'tcgplayer': 'https://mtgjson.com/links/3ce595aabe276f80'}",
+          "{'cardKingdom': 'https://mtgjson.com/links/d702da7661073a13', 'cardKingdomFoil': 'https://mtgjson.com/links/fbb773ed07f117ac', 'cardmarket': 'https://mtgjson.com/links/f04d4a0c97f986fe', 'tcgplayer': 'https://mtgjson.com/links/1e6874adc6cbd28f'}",
+          "{'cardKingdom': 'https://mtgjson.com/links/a072a876146b29bc', 'cardKingdomFoil': 'https://mtgjson.com/links/30995197ba8fc8c1', 'cardmarket': 'https://mtgjson.com/links/35a66170a09a59c7', 'tcgplayer': 'https://mtgjson.com/links/d091fd8b400df945'}"
+        ]
+      },
+      {
+        "col": "rarity",
+        "type": "text",
+        "original_column_name": "rarity",
+        "sample_values": [
+          "uncommon",
+          "common",
+          "rare",
+          "mythic"
+        ]
+      },
+      {
+        "col": "scryfallId",
+        "type": "text",
+        "original_column_name": "scryfallId",
+        "sample_values": [
+          "7a5cd03c-4227-4551-aa4b-7d119f0468b5",
+          "8f7980d4-da43-4d6d-ad16-14b8a34ae91d",
+          "407110e9-19af-4ff5-97b2-c03225031a73",
+          "a4d17394-b9c4-43f6-9a6d-2c7c7ecb1d74",
+          "c9c17e3b-4d7f-4472-afe1-8e9358b82f2c"
+        ]
+      },
+      {
+        "col": "scryfallIllustrationId",
+        "type": "text",
+        "original_column_name": "scryfallIllustrationId",
+        "sample_values": [
+          "be2f7173-c8b7-4172-a388-9b2c6b3c16e5",
+          "e4d6c53f-e936-4be8-8b70-47c2be863b20",
+          "2eb663cd-020a-46d8-a6d9-bb63d4b5c848",
+          "8464353d-099c-47ba-a0eb-e08b7b76b464",
+          "af3d1d9e-8a04-4ba5-aa96-9ea678daaa2b"
+        ]
+      },
+      {
+        "col": "scryfallOracleId",
+        "type": "text",
+        "original_column_name": "scryfallOracleId",
+        "sample_values": [
+          "fc2ccab7-cab1-4463-b73d-898070136d74",
+          "a2daaf32-dbfe-4618-892e-0da24f63a44a",
+          "48bda7dd-d023-41e8-8c28-e0cfda0d07ca",
+          "5973725c-6e1f-4d7e-bcef-3d867ea4c244",
+          "c664df64-0103-462b-a0f8-c483b152974a"
+        ]
+      },
+      {
+        "col": "Set Code",
+        "type": "text",
+        "original_column_name": "setCode",
+        "sample_values": [
+          "10E",
+          "2ED",
+          "2XM",
+          "3ED",
+          "4BB"
+        ]
+      },
+      {
+        "col": "side",
+        "type": "text",
+        "original_column_name": "side",
+        "sample_values": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ]
+      },
+      {
+        "col": "subtypes",
+        "type": "text",
+        "original_column_name": "subtypes",
+        "sample_values": [
+          "Human,Cleric",
+          "Angel",
+          "Bird,Soldier",
+          "Human,Rebel",
+          "Human,Knight"
+        ]
+      },
+      {
+        "col": "super types",
+        "type": "text",
+        "original_column_name": "supertypes",
+        "sample_values": [
+          "Legendary",
+          "Basic",
+          "Legendary,Snow",
+          "World",
+          "Snow"
+        ]
+      },
+      {
+        "col": "tcg player ProductId",
+        "type": "text",
+        "original_column_name": "tcgplayerProductId",
+        "sample_values": [
+          "15032",
+          "15033",
+          "15045",
+          "15048",
+          "15049"
+        ]
+      },
+      {
+        "col": "text",
+        "type": "text",
+        "original_column_name": "text",
+        "sample_values": [
+          "First strike (This creature deals combat damage before creatures without first strike.)\nWhen Ancestor's Chosen enters the battlefield, you gain 1 life for each card in your graveyard.",
+          "Flying\nWhen Angel of Mercy enters the battlefield, you gain 3 life.",
+          "Flying (This creature can't be blocked except by creatures with flying or reach.)\nWhen Aven Cloudchaser enters the battlefield, destroy target enchantment.",
+          "{X}{W}, {T}: Ballista Squad deals X damage to target attacking or blocking creature.",
+          "Prevent the next 1 damage that would be dealt to any target this turn.\nDraw a card."
+        ]
+      },
+      {
+        "col": "toughness",
+        "type": "text",
+        "original_column_name": "toughness",
+        "sample_values": [
+          "4",
+          "3",
+          "2",
+          "1",
+          "6"
+        ]
+      },
+      {
+        "col": "type",
+        "type": "text",
+        "original_column_name": "type",
+        "sample_values": [
+          "Creature — Human Cleric",
+          "Creature — Angel",
+          "Creature — Bird Soldier",
+          "Creature — Human Rebel",
+          "Instant"
+        ]
+      },
+      {
+        "col": "types",
+        "type": "text",
+        "original_column_name": "types",
+        "sample_values": [
+          "Creature",
+          "Instant",
+          "Enchantment",
+          "Sorcery",
+          "Artifact"
+        ]
+      },
+      {
+        "col": "uuid",
+        "type": "text",
+        "original_column_name": "uuid",
+        "sample_values": [
+          "00010d56-fe38-5e35-8aed-518019aa36a5",
+          "0001e0d0-2dcd-5640-aadc-a84765cf5fc9",
+          "0003caab-9ff5-5d1a-bc06-976dd0457f19",
+          "0003d249-25d9-5223-af1e-1130f09622a7",
+          "0004a4fb-92c6-59b2-bdbe-ceb584a9e401"
+        ]
+      },
+      {
+        "col": "variations",
+        "type": "text",
+        "original_column_name": "variations",
+        "sample_values": [
+          "b7c19924-b4bf-56fc-aa73-f586e940bd42",
+          "8fd4e2eb-3eb4-50ea-856b-ef638fa47f8a",
+          "6adaf14d-43e3-521a-adf1-960c808e5b1a",
+          "0d2a4e1d-cc12-5675-8044-9a7bc7d60050",
+          "62365fbb-af07-5c2a-976d-e3092bdfc317"
+        ]
+      },
+      {
+        "col": "watermark",
+        "type": "text",
+        "original_column_name": "watermark",
+        "sample_values": [
+          "set (HOU)",
+          "set (LGN)",
+          "set (ONS)",
+          "set (USG)",
+          "set (LEA)"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "foreign data",
+    "db_id": "card_games",
+    "original_table_name": "foreign_data",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "flavor Text",
+        "type": "text",
+        "original_column_name": "flavorText",
+        "sample_values": [
+          "„Es ist der Wille aller, und meine Hand, die ihn ausführt.\"",
+          "\"La voluntad de todos, realizada por mi mano.\"",
+          "« La volonté de tous passe par ma main. »",
+          "\"La volontà di tutti, eseguita per mano mia.\"",
+          "すべての意思を、この手で成そう。"
+        ]
+      },
+      {
+        "col": "language",
+        "type": "text",
+        "original_column_name": "language",
+        "sample_values": [
+          "German",
+          "Spanish",
+          "French",
+          "Italian",
+          "Japanese"
+        ]
+      },
+      {
+        "col": "multiverseid",
+        "type": "integer",
+        "original_column_name": "multiverseid",
+        "sample_values": [
+          148411,
+          150317,
+          149934,
+          148794,
+          148028
+        ]
+      },
+      {
+        "col": "name",
+        "type": "text",
+        "original_column_name": "name",
+        "sample_values": [
+          "Ausgewählter der Ahnfrau",
+          "Elegido de la Antepasada",
+          "Élu de l'Ancêtre",
+          "Prescelto dell'Antenata",
+          "祖神に選ばれし者"
+        ]
+      },
+      {
+        "col": "text",
+        "type": "text",
+        "original_column_name": "text",
+        "sample_values": [
+          "Erstschlag (Diese Kreatur fügt Kampfschaden vor Kreaturen ohne Erstschlag zu.)\nWenn der Ausgewählte der Ahnfrau ins Spiel kommt, erhältst du 1 Lebenspunkt für jede Karte in deinem Friedhof dazu.",
+          "Daña primero. (Esta criatura hace daño de combate antes que las criaturas sin la habilidad de dañar primero.)\nCuando el Elegido de la Antepasada entre en juego, ganas 1 vida por cada carta en tu cementerio.",
+          "Initiative (Cette créature inflige des blessures de combat avant les créatures sans l'initiative.)\nQuand l'Élu de l'Ancêtre arrive en jeu, vous gagnez 1 point de vie pour chaque carte dans votre cimetière.",
+          "Attacco improvviso (Questa creatura infligge danno da combattimento prima delle creature senza attacco improvviso.)\nQuando il Prescelto dell'Antenata entra in gioco, guadagni 1 punto vita per ogni carta nel tuo cimitero.",
+          "先制攻撃 （このクリーチャーは先制攻撃を持たないクリーチャーよりも先に戦闘ダメージを与える。）\n祖神に選ばれし者が場に出たとき、あなたはあなたの墓地にあるカード１枚につき１点のライフを得る。"
+        ]
+      },
+      {
+        "col": "type",
+        "type": "text",
+        "original_column_name": "type",
+        "sample_values": [
+          "Kreatur — Mensch, Kleriker",
+          "Criatura — Clérigo humano",
+          "Créature : humain et clerc",
+          "Creatura — Chierico Umano",
+          "クリーチャー — 人間・クレリック"
+        ]
+      },
+      {
+        "col": "uuid",
+        "type": "text",
+        "original_column_name": "uuid",
+        "sample_values": [
+          "5f8287b1-5bb6-5f4c-ad17-316a40d5bb0c",
+          "57aaebc1-850c-503d-9f6e-bb8d00d8bf7c",
+          "8ac972b5-9f6e-5cc8-91c3-b9a40a98232e",
+          "a69b404f-144a-5317-b10e-7d9dce135b24",
+          "6d268c95-c176-5766-9a46-c14f739aba1c"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "uuid",
+        "referenced_table": "cards",
+        "referenced_column": "uuid"
+      }
+    ]
+  },
+  {
+    "table_name": "legalities",
+    "db_id": "card_games",
+    "original_table_name": "legalities",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "format",
+        "type": "text",
+        "original_column_name": "format",
+        "sample_values": [
+          "commander",
+          "duel",
+          "legacy",
+          "modern",
+          "penny"
+        ]
+      },
+      {
+        "col": "status",
+        "type": "text",
+        "original_column_name": "status",
+        "sample_values": [
+          "Legal",
+          "Banned",
+          "Restricted"
+        ]
+      },
+      {
+        "col": "uuid",
+        "type": "text",
+        "original_column_name": "uuid",
+        "sample_values": [
+          "5f8287b1-5bb6-5f4c-ad17-316a40d5bb0c",
+          "57aaebc1-850c-503d-9f6e-bb8d00d8bf7c",
+          "8ac972b5-9f6e-5cc8-91c3-b9a40a98232e",
+          "a69b404f-144a-5317-b10e-7d9dce135b24",
+          "6d268c95-c176-5766-9a46-c14f739aba1c"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "uuid",
+        "referenced_table": "cards",
+        "referenced_column": "uuid"
+      }
+    ]
+  },
+  {
+    "table_name": "sets",
+    "db_id": "card_games",
+    "original_table_name": "sets",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "base Set Size",
+        "type": "integer",
+        "original_column_name": "baseSetSize",
+        "sample_values": [
+          383,
+          302,
+          332,
+          306,
+          378
+        ]
+      },
+      {
+        "col": "block",
+        "type": "text",
+        "original_column_name": "block",
+        "sample_values": [
+          "Core Set",
+          "Mirrodin",
+          "Kaladesh",
+          "Amonkhet",
+          "Alara"
+        ]
+      },
+      {
+        "col": "booster",
+        "type": "text",
+        "original_column_name": "booster",
+        "sample_values": [
+          "{'default': {'boosters': [{'contents': {'basic': 1, 'common': 10, 'rare': 1, 'uncommon': 3}, 'weight': 1913922}, {'contents': {'basic': 1, 'common': 9, 'foilCommon': 1, 'rare': 1, 'uncommon': 3}, 'weight': 318987}, {'contents': {'basic': 1, 'common': 10, ",
+          "{'default': {'boosters': [{'contents': {'common': 11, 'rare': 1, 'uncommon': 3}, 'weight': 1}], 'boostersTotalWeight': 1, 'sheets': {'common': {'cards': {'0ab4e3e6-f9fe-5fdc-9697-fd20690a0e15': 1, '0b326a61-0389-54e2-ac58-7bb47ca88202': 1, '0f099574-e9f7-",
+          "{'default': {'boosters': [{'contents': {'common': 8, 'dedicatedFoil2xm': 2, 'rareMythic': 2, 'uncommon': 3}, 'weight': 1}], 'boostersTotalWeight': 1, 'sheets': {'common': {'balanceColors': True, 'cards': {'01df4e32-7fe4-5b8d-9460-0f08fa29153e': 1, '032c60",
+          "{'default': {'boosters': [{'contents': {'common': 11, 'rare': 1, 'uncommon': 3}, 'weight': 1}], 'boostersTotalWeight': 1, 'sheets': {'common': {'cards': {'06ab1cc7-cc5e-55aa-a1d6-0c174ef0af7d': 1, '08313acd-3e35-59b0-b018-c197d67bb74b': 1, '08c502ff-65f8-",
+          "{'default': {'boosters': [{'contents': {'common': 11, 'rare': 1, 'uncommon': 3}, 'weight': 1}], 'boostersTotalWeight': 1, 'sheets': {'common': {'balanceColors': True, 'cards': {'01cc31a8-e1da-5dde-bec1-b656a32cc866': 1, '05bc686b-4f13-50a8-9357-d973bec32e"
+        ]
+      },
+      {
+        "col": "code",
+        "type": "text",
+        "original_column_name": "code",
+        "sample_values": [
+          "10E",
+          "2ED",
+          "2XM",
+          "3ED",
+          "4BB"
+        ]
+      },
+      {
+        "col": "is Foil Only",
+        "type": "integer",
+        "original_column_name": "isFoilOnly",
+        "sample_values": [
+          0,
+          1
+        ]
+      },
+      {
+        "col": "is Foreign Only",
+        "type": "integer",
+        "original_column_name": "isForeignOnly",
+        "sample_values": [
+          0,
+          1
+        ]
+      },
+      {
+        "col": "is Non Foil Only",
+        "type": "integer",
+        "original_column_name": "isNonFoilOnly",
+        "sample_values": [
+          0,
+          1
+        ]
+      },
+      {
+        "col": "is Online Only",
+        "type": "integer",
+        "original_column_name": "isOnlineOnly",
+        "sample_values": [
+          0,
+          1
+        ]
+      },
+      {
+        "col": "is Partial Preview",
+        "type": "integer",
+        "original_column_name": "isPartialPreview",
+        "sample_values": [
+          0,
+          1
+        ]
+      },
+      {
+        "col": "keyrune Code",
+        "type": "text",
+        "original_column_name": "keyruneCode",
+        "sample_values": [
+          "10E",
+          "2ED",
+          "2XM",
+          "3ED",
+          "4ED"
+        ]
+      },
+      {
+        "col": "magic card market id",
+        "type": "integer",
+        "original_column_name": "mcmId",
+        "sample_values": [
+          74,
+          3204,
+          10,
+          47,
+          23
+        ]
+      },
+      {
+        "col": "magic card market ID Extras",
+        "type": "integer",
+        "original_column_name": "mcmIdExtras",
+        "sample_values": [
+          3209,
+          3459,
+          2587,
+          2371,
+          3113
+        ]
+      },
+      {
+        "col": "magic card market name",
+        "type": "text",
+        "original_column_name": "mcmName",
+        "sample_values": [
+          "Tenth Edition",
+          "Double Masters",
+          "Fourth Edition",
+          "Fifth Dawn",
+          "Fifth Edition"
+        ]
+      },
+      {
+        "col": "magic the gathering online code",
+        "type": "text",
+        "original_column_name": "mtgoCode",
+        "sample_values": [
+          "10E",
+          "2XM",
+          "5DN",
+          "7E",
+          "8ED"
+        ]
+      },
+      {
+        "col": "name",
+        "type": "text",
+        "original_column_name": "name",
+        "sample_values": [
+          "Tenth Edition",
+          "Unlimited Edition",
+          "Double Masters",
+          "Revised Edition",
+          "Fourth Edition Foreign Black Border"
+        ]
+      },
+      {
+        "col": "parent Code",
+        "type": "text",
+        "original_column_name": "parentCode",
+        "sample_values": [
+          "JMP",
+          "MH1",
+          "ZNR",
+          "MB1",
+          "M15"
+        ]
+      },
+      {
+        "col": "release Date",
+        "type": "date",
+        "original_column_name": "releaseDate",
+        "sample_values": [
+          "2007-07-13",
+          "1993-12-01",
+          "2020-08-07",
+          "1994-04-01",
+          "1995-04-01"
+        ]
+      },
+      {
+        "col": "tcg player Group Id",
+        "type": "integer",
+        "original_column_name": "tcgplayerGroupId",
+        "sample_values": [
+          1,
+          115,
+          2655,
+          97,
+          46
+        ]
+      },
+      {
+        "col": "total Set Size",
+        "type": "integer",
+        "original_column_name": "totalSetSize",
+        "sample_values": [
+          508,
+          302,
+          384,
+          306,
+          378
+        ]
+      },
+      {
+        "col": "type",
+        "type": "text",
+        "original_column_name": "type",
+        "sample_values": [
+          "core",
+          "masters",
+          "expansion",
+          "starter",
+          "memorabilia"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "set translations",
+    "db_id": "card_games",
+    "original_table_name": "set_translations",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "language",
+        "type": "text",
+        "original_column_name": "language",
+        "sample_values": [
+          "Chinese Simplified",
+          "Chinese Traditional",
+          "French",
+          "German",
+          "Italian"
+        ]
+      },
+      {
+        "col": "set code",
+        "type": "text",
+        "original_column_name": "setCode",
+        "sample_values": [
+          "10E",
+          "4ED",
+          "5DN",
+          "5ED",
+          "6ED"
+        ]
+      },
+      {
+        "col": "translation",
+        "type": "text",
+        "original_column_name": "translation",
+        "sample_values": [
+          "核心系列第十版",
+          "Dixième édition",
+          "Hauptset Zehnte Edition",
+          "Set Base Decima Edizione",
+          "第10版基本セット"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "setCode",
+        "referenced_table": "sets",
+        "referenced_column": "code"
+      }
+    ]
+  },
+  {
+    "table_name": "ruling",
+    "db_id": "card_games",
+    "original_table_name": "rulings",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "date",
+        "type": "date",
+        "original_column_name": "date",
+        "sample_values": [
+          "2007-07-15",
+          "2007-02-01",
+          "2010-08-15",
+          "2008-08-01",
+          "2005-06-01"
+        ]
+      },
+      {
+        "col": "text",
+        "type": "text",
+        "original_column_name": "text",
+        "sample_values": [
+          "You draw the card when Bandage resolves, not when the damage is actually prevented.",
+          "If you double a negative life total, you do the real math. A life total of -10 becomes -20.",
+          "Beacon of Immortality’s effect counts as life gain (or life loss, if the life total was negative) for effects that trigger on or replace life gain (or life loss).",
+          "If a Beacon is countered or doesn’t resolve, it’s put into its owner’s graveyard, not shuffled into the library.",
+          "The affected creature’s last known existence on the battlefield is checked to determine its toughness."
+        ]
+      },
+      {
+        "col": "uuid",
+        "type": "text",
+        "original_column_name": "uuid",
+        "sample_values": [
+          "6d268c95-c176-5766-9a46-c14f739aba1c",
+          "56f4935b-f6c5-59b9-88bf-9bcce20247ce",
+          "7fef665c-36a1-5f7a-9299-cf8938708710",
+          "f39b4446-0ca6-5446-8507-4b1ba37bb3e7",
+          "c19bcfc2-fc10-5040-8239-1c193098df47"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "uuid",
+        "referenced_table": "cards",
+        "referenced_column": "uuid"
+      }
+    ]
+  }
+]

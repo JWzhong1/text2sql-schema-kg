@@ -7,7 +7,7 @@ from typing import Dict, Any, List, Optional, Tuple
 
 from src.graph.schema_graph_retriever import GraphRAGRetriever
 from src.llm.client import get_competition_json, get_competition, get_competition_from_coder
-from src.llm.prompts import get_sql_generation_prompt, get_value_exploration_prompt
+from src.llm.prompts import get_sql_generation_prompt, get_value_exploration_prompt, get_self_correction_prompt
 
 # 添加日志配置，设置级别为 INFO
 # 修改：添加 force=True 强制覆盖其他模块可能已设置的日志配置
@@ -23,6 +23,7 @@ logger.setLevel(logging.INFO)
 class Text2SQLAgent:
     def __init__(self, db_name: str, db_path: str, neo4j_config: Tuple[str, str, str], 
                  max_retries: int = 3, enable_value_exploration: bool = True,
+                 enable_self_correction: bool = True,
                  cache_dir: Optional[str] = None, use_cache: bool = True):
         """
         初始化 Agent
@@ -31,6 +32,7 @@ class Text2SQLAgent:
         :param neo4j_config: (uri, user, password) 用于初始化检索器
         :param max_retries: SQL 执行失败后的最大重试次数
         :param enable_value_exploration: 是否启用值探索模块
+        :param enable_self_correction: 是否启用自纠正模块，默认 True
         :param cache_dir: 缓存目录路径，默认为 cache/{db_name}/retrieval
         :param use_cache: 是否启用缓存，默认 True
         """
@@ -38,6 +40,7 @@ class Text2SQLAgent:
         self.db_path = db_path
         self.max_retries = max_retries
         self.enable_value_exploration = enable_value_exploration
+        self.enable_self_correction = enable_self_correction
         self.use_cache = use_cache
         
         # 初始化缓存目录
@@ -463,6 +466,82 @@ class Text2SQLAgent:
         except sqlite3.Error as e:
             return [], str(e)
 
+    def self_correct_sql(self, question: str, evidence: str, schema_context: str, 
+                         generated_sql: str, exploration_context_str: str = "") -> Dict[str, Any]:
+        """
+        Self-Correction 模块：对生成的 SQL 进行逻辑层面的验证和纠错
+        
+        :param question: 原始自然语言问题
+        :param evidence: 背景知识/证据
+        :param schema_context: Schema 上下文信息
+        :param generated_sql: 生成的 SQL 查询
+        :param exploration_context_str: 值探索结果上下文（可选）
+        :return: 包含验证结果和可能的修正 SQL 的字典
+        """
+        logger.info("Starting Self-Correction validation...")
+        
+        try:
+            system_prompt, user_prompt = get_self_correction_prompt(
+                question, 
+                evidence, 
+                schema_context, 
+                generated_sql,
+                exploration_context_str if exploration_context_str else None
+            )
+            
+            messages = [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ]
+            
+            response = get_competition_json(messages)
+            correction_result = json.loads(response)
+            
+            # 验证返回格式
+            required_keys = ["is_correct", "confidence", "error_analysis"]
+            if not all(key in correction_result for key in required_keys):
+                logger.warning(f"Self-correction response missing required keys: {correction_result.keys()}")
+                return {
+                    "validation_performed": False,
+                    "error": "Invalid response format from LLM"
+                }
+            
+            # 记录验证结果
+            if correction_result.get("is_correct", False):
+                logger.info(f"✓ SQL validated as correct (confidence: {correction_result.get('confidence', 0):.2f})")
+            else:
+                logger.warning(f"✗ SQL validation failed. Error patterns detected: "
+                              f"{len(correction_result.get('error_analysis', {}).get('error_patterns', []))}")
+                
+                # 详细记录错误模式
+                error_patterns = correction_result.get('error_analysis', {}).get('error_patterns', [])
+                for i, pattern in enumerate(error_patterns, 1):
+                    logger.warning(f"  Error {i}: [{pattern.get('severity', 'UNKNOWN')}] {pattern.get('type', 'UNKNOWN')} - "
+                                  f"{pattern.get('description', 'No description')}")
+            
+            return {
+                "validation_performed": True,
+                "is_correct": correction_result.get("is_correct", False),
+                "confidence": correction_result.get("confidence", 0.0),
+                "error_analysis": correction_result.get("error_analysis", {}),
+                "corrected_sql": correction_result.get("corrected_sql", ""),
+                "correction_reasoning": correction_result.get("correction_reasoning", ""),
+                "original_sql": generated_sql
+            }
+            
+        except json.JSONDecodeError as e:
+            logger.error(f"Failed to parse self-correction response: {e}")
+            return {
+                "validation_performed": False,
+                "error": f"JSON parse error: {str(e)}"
+            }
+        except Exception as e:
+            logger.error(f"Self-correction failed with exception: {e}")
+            return {
+                "validation_performed": False,
+                "error": str(e)
+            }
+
     def solve(self, question: str, evidence: str, force_refresh: bool = False) -> Dict[str, Any]:
         """
         Agent 主流程
@@ -489,13 +568,14 @@ class Text2SQLAgent:
         logger.info(f"Retrieved Schema Map: {schema_map}")
         logger.info(f"exploration_context_str: {exploration_context_str}")
 
-        # 3. Generate & Execute Loop with enhanced error handling
+        # 3. Generate & Execute Loop with simplified empty result handling
         execution_history = []  # 记录执行历史
+        empty_result_count = 0  # 跟踪空结果次数
         
         for attempt in range(self.max_retries + 1):
             logger.info(f"Generating SQL (Attempt {attempt + 1}/{self.max_retries + 1})...")
             
-            # 分析错误模式，决定是否需要特殊处理
+            # 分析错误模式,决定是否需要特殊处理
             error_analysis = self._analyze_error_pattern(execution_history) if execution_history else None
             
             current_sql = self.generate_sql(
@@ -513,47 +593,113 @@ class Text2SQLAgent:
                     "attempt": attempt + 1,
                     "sql": None,
                     "error": "Failed to generate SQL",
-                    "result": None
+                    "result": None,
+                    "self_correction": None
                 })
                 continue
 
-            results, error_msg = self.execute_sql(current_sql)
+            # Self-Correction: 对生成的 SQL 进行逻辑验证（可选功能）
+            self_correction_result = {}
+            sql_to_execute = current_sql
+            
+            # 修改：仅在第一次尝试时执行 Self-Correction，重试时跳过
+            if self.enable_self_correction and attempt == 0:
+                self_correction_result = self.self_correct_sql(
+                    question, 
+                    evidence, 
+                    schema_context, 
+                    current_sql,
+                    exploration_context_str
+                )
+                
+                # 如果 Self-Correction 发现错误并提供了修正 SQL,使用修正后的 SQL
+                if (self_correction_result.get("validation_performed", False) and 
+                    not self_correction_result.get("is_correct", True) and 
+                    self_correction_result.get("corrected_sql", "")):
+                    
+                    corrected_sql = self_correction_result.get("corrected_sql", "")
+                    logger.info(f"Self-Correction provided corrected SQL: {corrected_sql}")
+                    logger.info(f"Correction reasoning: {self_correction_result.get('correction_reasoning', 'N/A')}")
+                    
+                    # 使用修正后的 SQL
+                    sql_to_execute = corrected_sql
+            elif self.enable_self_correction and attempt > 0:
+                logger.info(f"Skipping Self-Correction for retry attempt {attempt + 1}")
+            else:
+                logger.debug("Self-Correction is disabled, using generated SQL directly")
+
+            results, error_msg = self.execute_sql(sql_to_execute)
+            
+            # 检查是否为空结果
+            is_empty = error_msg is None and (results is None or len(results) == 0)
             
             # 记录执行历史
             execution_history.append({
                 "attempt": attempt + 1,
-                "sql": current_sql,
+                "sql": current_sql,  # 记录原始生成的 SQL
+                "executed_sql": sql_to_execute,  # 记录实际执行的 SQL
+                "self_correction": self_correction_result,  # 记录 Self-Correction 结果
                 "error": error_msg,
                 "result": results if error_msg is None else None,
-                "is_empty": (error_msg is None and (results is None or len(results) == 0))
+                "is_empty": is_empty
             })
 
             if error_msg is None:
-                # 检查结果是否为空
-                if results is None or (isinstance(results, list) and len(results) == 0):
-                    logger.warning(f"Execution returned empty results (Attempt {attempt + 1})")
-                    continue  # 继续重试
+                # 简化空结果处理逻辑
+                if is_empty:
+                    empty_result_count += 1
+                    logger.warning(f"Execution returned empty results (Empty count: {empty_result_count}/2)")
+                    
+                    # 如果已经连续两次空结果,直接结束
+                    if empty_result_count >= 2:
+                        logger.warning("Two consecutive empty results, stopping retry.")
+                        return {
+                            "question": question,
+                            "sql": execution_history[-1]["executed_sql"],
+                            "original_sql": execution_history[-1]["sql"],
+                            "result": [],
+                            "retrieved_schema": schema_map,
+                            "reasoning_context": reasoning_ctx,
+                            "value_exploration": exploration_result,
+                            "self_correction": execution_history[-1].get("self_correction", {}),
+                            "execution_history": execution_history,
+                            "status": "empty_result",
+                            "message": "Query executed successfully but returned no results after 2 attempts"
+                        }
+                    
+                    continue  # 第一次空结果,继续重试
                 
-                logger.info("Execution Successful.")
+                # 有结果,执行成功
+                logger.info("Execution Successful with results.")
+                last_correction = execution_history[-1].get("self_correction", {})
                 return {
                     "question": question,
-                    "sql": current_sql,
+                    "sql": execution_history[-1]["executed_sql"],
+                    "original_sql": execution_history[-1]["sql"],
                     "result": results,
                     "retrieved_schema": schema_map,
                     "reasoning_context": reasoning_ctx,
                     "value_exploration": exploration_result,
+                    "self_correction": last_correction,
                     "execution_history": execution_history,
                     "status": "success"
                 }
             else:
+                # 有执行错误,重置空结果计数器
+                empty_result_count = 0
                 logger.warning(f"Execution Failed: {error_msg}")
 
-        # 所有尝试失败
+        # 所有尝试失败(非空结果导致的失败)
+        last_history = execution_history[-1] if execution_history else {}
         return {
             "question": question,
-            "sql": execution_history[-1]["sql"] if execution_history else None,
-            "error": execution_history[-1]["error"] if execution_history else "Unknown error",
+            "sql": last_history.get("executed_sql") or last_history.get("sql"),
+            "original_sql": last_history.get("sql"),
+            "error": last_history.get("error", "Unknown error"),
+            "retrieved_schema": schema_map,
+            "reasoning_context": reasoning_ctx,
             "value_exploration": exploration_result,
+            "self_correction": last_history.get("self_correction", {}),
             "execution_history": execution_history,
             "status": "failed"
         }

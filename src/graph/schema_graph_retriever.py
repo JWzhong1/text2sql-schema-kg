@@ -13,7 +13,7 @@ from src.llm import prompts
 dotenv.load_dotenv()
 
 logging.basicConfig(
-    level=logging.ERROR,
+    level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S'
 )
@@ -106,16 +106,14 @@ class GraphRAGRetriever:
         rewrite_query["evidence"] = query.get("evidence", "")
         rewritten_question = rewrite_query.get("rewritten_question", query.get("question", ""))
         keywords = list(set([k.strip().lower() for k in rewrite_query.get("keywords", [])]))
-        reasoning_trace = rewrite_query.get("reasoning_trace", [])
         
         # 保存重写结果
         reasoning_context["rewrite_result"] = {
             "rewritten_question": rewritten_question,
             "keywords": keywords,
-            # "reasoning_trace": reasoning_trace
         }
         
-        logger.info(f"Rewritten Query: {rewritten_question} \n Keywords: {keywords} \n reasoning_trace: {reasoning_trace}")
+        logger.info(f"Rewritten Query: {rewritten_question} \n Keywords: {keywords}")
         
         # Phase 1: Embedding & PPR
         candidate_nodes = self._embeddings_retrieve(rewrite_query)
@@ -346,7 +344,6 @@ class GraphRAGRetriever:
         # 2. Neo4j 路径查询 (原有的路径扩展逻辑保持不变)
         with self.driver.session() as session:
             # 查询路径上的所有节点
-            # 这里的逻辑是：在锚点集合内部寻找两两连通路径
             # 修改：查找表节点之间的全部路径（限制跳数），而不仅仅是最短路径
             res = session.run("""
                 MATCH (n), (m)

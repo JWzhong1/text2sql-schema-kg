@@ -1,0 +1,1362 @@
+[
+  {
+    "table_name": "circuits",
+    "db_id": "formula_1",
+    "original_table_name": "circuits",
+    "columns": [
+      {
+        "col": "circuit Id",
+        "type": "integer",
+        "original_column_name": "circuitId",
+        "sample_values": [
+          23,
+          61,
+          29,
+          64,
+          58
+        ]
+      },
+      {
+        "col": "circuit reference name",
+        "type": "text",
+        "original_column_name": "circuitRef",
+        "sample_values": [
+          "sepang",
+          "bahrain",
+          "catalunya",
+          "istanbul",
+          "monaco"
+        ]
+      },
+      {
+        "col": "name",
+        "type": "text",
+        "original_column_name": "name",
+        "sample_values": [
+          "Sepang International Circuit",
+          "Bahrain International Circuit",
+          "Circuit de Barcelona-Catalunya",
+          "Istanbul Park",
+          "Circuit de Monaco"
+        ]
+      },
+      {
+        "col": "location",
+        "type": "text",
+        "original_column_name": "location",
+        "sample_values": [
+          "Kuala Lumpur",
+          "Sakhir",
+          "Montmeló",
+          "Istanbul",
+          "Monte-Carlo"
+        ]
+      },
+      {
+        "col": "country",
+        "type": "text",
+        "original_column_name": "country",
+        "sample_values": [
+          "Malaysia",
+          "Bahrain",
+          "Spain",
+          "Turkey",
+          "Monaco"
+        ]
+      },
+      {
+        "col": "latitude",
+        "type": "real",
+        "original_column_name": "lat",
+        "sample_values": [
+          2.76083,
+          26.0325,
+          41.57,
+          40.9517,
+          43.7347
+        ]
+      },
+      {
+        "col": "longitude",
+        "type": "real",
+        "original_column_name": "lng",
+        "sample_values": [
+          101.738,
+          50.5106,
+          2.26111,
+          29.405,
+          7.42056
+        ]
+      },
+      {
+        "col": "alt",
+        "type": "integer",
+        "original_column_name": "alt",
+        "sample_values": []
+      },
+      {
+        "col": "url",
+        "type": "text",
+        "original_column_name": "url",
+        "sample_values": [
+          "http://en.wikipedia.org/wiki/A1-Ring",
+          "http://en.wikipedia.org/wiki/AVUS",
+          "http://en.wikipedia.org/wiki/Adelaide_Street_Circuit",
+          "http://en.wikipedia.org/wiki/Ain-Diab_Circuit",
+          "http://en.wikipedia.org/wiki/Aintree_Motor_Racing_Circuit"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "circuitId"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "constructors",
+    "db_id": "formula_1",
+    "original_table_name": "constructors",
+    "columns": [
+      {
+        "col": "constructor Id",
+        "type": "integer",
+        "original_column_name": "constructorId",
+        "sample_values": [
+          147,
+          39,
+          54,
+          161,
+          51
+        ]
+      },
+      {
+        "col": "Constructor Reference name",
+        "type": "text",
+        "original_column_name": "constructorRef",
+        "sample_values": [
+          "mclaren",
+          "bmw_sauber",
+          "williams",
+          "renault",
+          "toro_rosso"
+        ]
+      },
+      {
+        "col": "name",
+        "type": "text",
+        "original_column_name": "name",
+        "sample_values": [
+          "AFM",
+          "AGS",
+          "ATS",
+          "Adams",
+          "Alfa Romeo"
+        ]
+      },
+      {
+        "col": "nationality",
+        "type": "text",
+        "original_column_name": "nationality",
+        "sample_values": [
+          "British",
+          "German",
+          "French",
+          "Italian",
+          "Japanese"
+        ]
+      },
+      {
+        "col": "url",
+        "type": "text",
+        "original_column_name": "url",
+        "sample_values": [
+          "http://en.wikipedia.org/wiki/McLaren",
+          "http://en.wikipedia.org/wiki/BMW_Sauber",
+          "http://en.wikipedia.org/wiki/Williams_Grand_Prix_Engineering",
+          "http://en.wikipedia.org/wiki/Renault_F1",
+          "http://en.wikipedia.org/wiki/Scuderia_Toro_Rosso"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "constructorId"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "drivers",
+    "db_id": "formula_1",
+    "original_table_name": "drivers",
+    "columns": [
+      {
+        "col": "driver ID",
+        "type": "integer",
+        "original_column_name": "driverId",
+        "sample_values": [
+          452,
+          625,
+          103,
+          100,
+          695
+        ]
+      },
+      {
+        "col": "driver reference name",
+        "type": "text",
+        "original_column_name": "driverRef",
+        "sample_values": [
+          "hamilton",
+          "heidfeld",
+          "rosberg",
+          "alonso",
+          "kovalainen"
+        ]
+      },
+      {
+        "col": "number",
+        "type": "integer",
+        "original_column_name": "number",
+        "sample_values": [
+          44,
+          6,
+          14,
+          7,
+          19
+        ]
+      },
+      {
+        "col": "code",
+        "type": "text",
+        "original_column_name": "code",
+        "sample_values": [
+          "HAM",
+          "HEI",
+          "ROS",
+          "ALO",
+          "KOV"
+        ]
+      },
+      {
+        "col": "forename",
+        "type": "text",
+        "original_column_name": "forename",
+        "sample_values": [
+          "Lewis",
+          "Nick",
+          "Nico",
+          "Fernando",
+          "Heikki"
+        ]
+      },
+      {
+        "col": "surname",
+        "type": "text",
+        "original_column_name": "surname",
+        "sample_values": [
+          "Hamilton",
+          "Heidfeld",
+          "Rosberg",
+          "Alonso",
+          "Kovalainen"
+        ]
+      },
+      {
+        "col": "date of birth",
+        "type": "date",
+        "original_column_name": "dob",
+        "sample_values": [
+          "1985-01-07",
+          "1977-05-10",
+          "1985-06-27",
+          "1981-07-29",
+          "1981-10-19"
+        ]
+      },
+      {
+        "col": "nationality",
+        "type": "text",
+        "original_column_name": "nationality",
+        "sample_values": [
+          "British",
+          "German",
+          "Spanish",
+          "Finnish",
+          "Japanese"
+        ]
+      },
+      {
+        "col": "url",
+        "type": "text",
+        "original_column_name": "url",
+        "sample_values": [
+          "",
+          "http://en.wikipedia.org/wiki/%C3%89lie_Bayol",
+          "http://en.wikipedia.org/wiki/%C3%89ric_Bernard",
+          "http://en.wikipedia.org/wiki/%C3%89rik_Comas",
+          "http://en.wikipedia.org/wiki/%C3%93scar_Alfredo_G%C3%A1lvez"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "driverId"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "seasons",
+    "db_id": "formula_1",
+    "original_table_name": "seasons",
+    "columns": [
+      {
+        "col": "race ID",
+        "type": "integer",
+        "original_column_name": "year",
+        "sample_values": [
+          1950,
+          1951,
+          1952,
+          1953,
+          1954
+        ]
+      },
+      {
+        "col": "url",
+        "type": "text",
+        "original_column_name": "url",
+        "sample_values": [
+          "http://en.wikipedia.org/wiki/1950_Formula_One_season",
+          "http://en.wikipedia.org/wiki/1951_Formula_One_season",
+          "http://en.wikipedia.org/wiki/1952_Formula_One_season",
+          "http://en.wikipedia.org/wiki/1953_Formula_One_season",
+          "http://en.wikipedia.org/wiki/1954_Formula_One_season"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "year"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "races",
+    "db_id": "formula_1",
+    "original_table_name": "races",
+    "columns": [
+      {
+        "col": "race ID",
+        "type": "integer",
+        "original_column_name": "raceId",
+        "sample_values": [
+          837,
+          833,
+          838,
+          835,
+          839
+        ]
+      },
+      {
+        "col": "year",
+        "type": "integer",
+        "original_column_name": "year",
+        "sample_values": [
+          2009,
+          2008,
+          2007,
+          2006,
+          2005
+        ]
+      },
+      {
+        "col": "round",
+        "type": "integer",
+        "original_column_name": "round",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "Circuit Id",
+        "type": "integer",
+        "original_column_name": "circuitId",
+        "sample_values": [
+          1,
+          2,
+          17,
+          3,
+          4
+        ]
+      },
+      {
+        "col": "name",
+        "type": "text",
+        "original_column_name": "name",
+        "sample_values": [
+          "Australian Grand Prix",
+          "Malaysian Grand Prix",
+          "Chinese Grand Prix",
+          "Bahrain Grand Prix",
+          "Spanish Grand Prix"
+        ]
+      },
+      {
+        "col": "date",
+        "type": "date",
+        "original_column_name": "date",
+        "sample_values": [
+          "2009-03-29",
+          "2009-04-05",
+          "2009-04-19",
+          "2009-04-26",
+          "2009-05-10"
+        ]
+      },
+      {
+        "col": "time",
+        "type": "text",
+        "original_column_name": "time",
+        "sample_values": [
+          "06:00:00",
+          "09:00:00",
+          "07:00:00",
+          "12:00:00",
+          "05:00:00"
+        ]
+      },
+      {
+        "col": "url",
+        "type": "text",
+        "original_column_name": "url",
+        "sample_values": [
+          "http://en.wikipedia.org/wiki/1950_Belgian_Grand_Prix",
+          "http://en.wikipedia.org/wiki/1950_British_Grand_Prix",
+          "http://en.wikipedia.org/wiki/1950_French_Grand_Prix",
+          "http://en.wikipedia.org/wiki/1950_Indianapolis_500",
+          "http://en.wikipedia.org/wiki/1950_Italian_Grand_Prix"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "raceId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "circuitId",
+        "referenced_table": "circuits",
+        "referenced_column": "circuitId"
+      },
+      {
+        "column": "year",
+        "referenced_table": "seasons",
+        "referenced_column": "year"
+      }
+    ]
+  },
+  {
+    "table_name": "constructor results",
+    "db_id": "formula_1",
+    "original_table_name": "constructorResults",
+    "columns": [
+      {
+        "col": "constructor Results Id",
+        "type": "integer",
+        "original_column_name": "constructorResultsId",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "race Id",
+        "type": "integer",
+        "original_column_name": "raceId",
+        "sample_values": [
+          18,
+          19,
+          20,
+          21,
+          22
+        ]
+      },
+      {
+        "col": "constructor Id",
+        "type": "integer",
+        "original_column_name": "constructorId",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "points",
+        "type": "real",
+        "original_column_name": "points",
+        "sample_values": [
+          14.0,
+          8.0,
+          9.0,
+          5.0,
+          2.0
+        ]
+      },
+      {
+        "col": "status",
+        "type": "text",
+        "original_column_name": "status",
+        "sample_values": [
+          "D"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "constructorResultsId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "constructorId",
+        "referenced_table": "constructors",
+        "referenced_column": "constructorId"
+      },
+      {
+        "column": "raceId",
+        "referenced_table": "races",
+        "referenced_column": "raceId"
+      }
+    ]
+  },
+  {
+    "table_name": "constructor standings",
+    "db_id": "formula_1",
+    "original_table_name": "constructorStandings",
+    "columns": [
+      {
+        "col": "constructor Standings Id",
+        "type": "integer",
+        "original_column_name": "constructorStandingsId",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "race id",
+        "type": "integer",
+        "original_column_name": "raceId",
+        "sample_values": [
+          18,
+          19,
+          20,
+          21,
+          22
+        ]
+      },
+      {
+        "col": "constructor id",
+        "type": "integer",
+        "original_column_name": "constructorId",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "points",
+        "type": "real",
+        "original_column_name": "points",
+        "sample_values": [
+          14.0,
+          8.0,
+          9.0,
+          5.0,
+          2.0
+        ]
+      },
+      {
+        "col": "position",
+        "type": "integer",
+        "original_column_name": "position",
+        "sample_values": [
+          1,
+          3,
+          2,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "position text",
+        "type": "text",
+        "original_column_name": "positionText",
+        "sample_values": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "col": "wins",
+        "type": "integer",
+        "original_column_name": "wins",
+        "sample_values": [
+          1,
+          0,
+          2,
+          3,
+          4
+        ]
+      }
+    ],
+    "primary_keys": [
+      "constructorStandingsId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "constructorId",
+        "referenced_table": "constructors",
+        "referenced_column": "constructorId"
+      },
+      {
+        "column": "raceId",
+        "referenced_table": "races",
+        "referenced_column": "raceId"
+      }
+    ]
+  },
+  {
+    "table_name": "driver standings",
+    "db_id": "formula_1",
+    "original_table_name": "driverStandings",
+    "columns": [
+      {
+        "col": "driver Standings Id",
+        "type": "integer",
+        "original_column_name": "driverStandingsId",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "constructor Reference name",
+        "type": "integer",
+        "original_column_name": "raceId",
+        "sample_values": [
+          18,
+          19,
+          20,
+          21,
+          22
+        ]
+      },
+      {
+        "col": "driverId",
+        "type": "integer",
+        "original_column_name": "driverId",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "points",
+        "type": "real",
+        "original_column_name": "points",
+        "sample_values": [
+          10.0,
+          8.0,
+          6.0,
+          5.0,
+          4.0
+        ]
+      },
+      {
+        "col": "position",
+        "type": "integer",
+        "original_column_name": "position",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "position text",
+        "type": "text",
+        "original_column_name": "positionText",
+        "sample_values": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "col": "wins",
+        "type": "integer",
+        "original_column_name": "wins",
+        "sample_values": [
+          1,
+          0,
+          2,
+          3,
+          4
+        ]
+      }
+    ],
+    "primary_keys": [
+      "driverStandingsId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "driverId",
+        "referenced_table": "drivers",
+        "referenced_column": "driverId"
+      },
+      {
+        "column": "raceId",
+        "referenced_table": "races",
+        "referenced_column": "raceId"
+      }
+    ]
+  },
+  {
+    "table_name": "lap times",
+    "db_id": "formula_1",
+    "original_table_name": "lapTimes",
+    "columns": [
+      {
+        "col": "race ID",
+        "type": "integer",
+        "original_column_name": "raceId",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "driver ID",
+        "type": "integer",
+        "original_column_name": "driverId",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ]
+      },
+      {
+        "col": "lap",
+        "type": "integer",
+        "original_column_name": "lap",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "position",
+        "type": "integer",
+        "original_column_name": "position",
+        "sample_values": [
+          13,
+          12,
+          11,
+          10,
+          9
+        ]
+      },
+      {
+        "col": "time",
+        "type": "text",
+        "original_column_name": "time",
+        "sample_values": [
+          "1:49.088",
+          "1:33.740",
+          "1:31.600",
+          "1:31.067",
+          "1:32.129"
+        ]
+      },
+      {
+        "col": "milliseconds",
+        "type": "integer",
+        "original_column_name": "milliseconds",
+        "sample_values": [
+          109088,
+          93740,
+          91600,
+          91067,
+          92129
+        ]
+      }
+    ],
+    "primary_keys": [],
+    "foreign_keys": [
+      {
+        "column": "driverId",
+        "referenced_table": "drivers",
+        "referenced_column": "driverId"
+      },
+      {
+        "column": "raceId",
+        "referenced_table": "races",
+        "referenced_column": "raceId"
+      }
+    ]
+  },
+  {
+    "table_name": "pit stops",
+    "db_id": "formula_1",
+    "original_table_name": "pitStops",
+    "columns": [
+      {
+        "col": "race ID",
+        "type": "integer",
+        "original_column_name": "raceId",
+        "sample_values": [
+          841,
+          842,
+          843,
+          844,
+          845
+        ]
+      },
+      {
+        "col": "driver ID",
+        "type": "integer",
+        "original_column_name": "driverId",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "stop",
+        "type": "integer",
+        "original_column_name": "stop",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "lap",
+        "type": "integer",
+        "original_column_name": "lap",
+        "sample_values": [
+          16,
+          36,
+          15,
+          30,
+          12
+        ]
+      },
+      {
+        "col": "time",
+        "type": "text",
+        "original_column_name": "time",
+        "sample_values": [
+          "17:28:24",
+          "17:59:29",
+          "17:27:41",
+          "17:51:32",
+          "17:29:00"
+        ]
+      },
+      {
+        "col": "duration",
+        "type": "text",
+        "original_column_name": "duration",
+        "sample_values": [
+          "23.227",
+          "23.199",
+          "22.994",
+          "25.098",
+          "23.716"
+        ]
+      },
+      {
+        "col": "milliseconds",
+        "type": "integer",
+        "original_column_name": "milliseconds",
+        "sample_values": [
+          23227,
+          23199,
+          22994,
+          25098,
+          23716
+        ]
+      }
+    ],
+    "primary_keys": [],
+    "foreign_keys": [
+      {
+        "column": "driverId",
+        "referenced_table": "drivers",
+        "referenced_column": "driverId"
+      },
+      {
+        "column": "raceId",
+        "referenced_table": "races",
+        "referenced_column": "raceId"
+      }
+    ]
+  },
+  {
+    "table_name": "qualifying",
+    "db_id": "formula_1",
+    "original_table_name": "qualifying",
+    "columns": [
+      {
+        "col": "qualify Id",
+        "type": "integer",
+        "original_column_name": "qualifyId",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "race Id",
+        "type": "integer",
+        "original_column_name": "raceId",
+        "sample_values": [
+          18,
+          19,
+          20,
+          21,
+          22
+        ]
+      },
+      {
+        "col": "driver Id",
+        "type": "integer",
+        "original_column_name": "driverId",
+        "sample_values": [
+          1,
+          9,
+          5,
+          13,
+          2
+        ]
+      },
+      {
+        "col": "constructor id",
+        "type": "integer",
+        "original_column_name": "constructorId",
+        "sample_values": [
+          1,
+          2,
+          6,
+          7,
+          3
+        ]
+      },
+      {
+        "col": "number",
+        "type": "integer",
+        "original_column_name": "number",
+        "sample_values": [
+          22,
+          4,
+          23,
+          2,
+          3
+        ]
+      },
+      {
+        "col": "position",
+        "type": "integer",
+        "original_column_name": "position",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "qualifying 1",
+        "type": "text",
+        "original_column_name": "q1",
+        "sample_values": [
+          "1:26.572",
+          "1:26.103",
+          "1:25.664",
+          "1:25.994",
+          "1:25.960"
+        ]
+      },
+      {
+        "col": "qualifying 2",
+        "type": "text",
+        "original_column_name": "q2",
+        "sample_values": [
+          "1:25.187",
+          "1:25.315",
+          "1:25.452",
+          "1:25.691",
+          "1:25.518"
+        ]
+      },
+      {
+        "col": "qualifying 3",
+        "type": "text",
+        "original_column_name": "q3",
+        "sample_values": [
+          "1:26.714",
+          "1:26.869",
+          "1:27.079",
+          "1:27.178",
+          "1:27.236"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "qualifyId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "constructorId",
+        "referenced_table": "constructors",
+        "referenced_column": "constructorId"
+      },
+      {
+        "column": "driverId",
+        "referenced_table": "drivers",
+        "referenced_column": "driverId"
+      },
+      {
+        "column": "raceId",
+        "referenced_table": "races",
+        "referenced_column": "raceId"
+      }
+    ]
+  },
+  {
+    "table_name": "status",
+    "db_id": "formula_1",
+    "original_table_name": "status",
+    "columns": [
+      {
+        "col": "status ID",
+        "type": "integer",
+        "original_column_name": "statusId",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "status",
+        "type": "text",
+        "original_column_name": "status",
+        "sample_values": [
+          "Finished",
+          "Disqualified",
+          "Accident",
+          "Collision",
+          "Engine"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "statusId"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "results",
+    "db_id": "formula_1",
+    "original_table_name": "results",
+    "columns": [
+      {
+        "col": "Result ID",
+        "type": "integer",
+        "original_column_name": "resultId",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "race ID",
+        "type": "integer",
+        "original_column_name": "raceId",
+        "sample_values": [
+          18,
+          19,
+          20,
+          21,
+          22
+        ]
+      },
+      {
+        "col": "driver ID",
+        "type": "integer",
+        "original_column_name": "driverId",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "constructor Id",
+        "type": "integer",
+        "original_column_name": "constructorId",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "number",
+        "type": "integer",
+        "original_column_name": "number",
+        "sample_values": [
+          22,
+          3,
+          7,
+          5,
+          23
+        ]
+      },
+      {
+        "col": "grid",
+        "type": "integer",
+        "original_column_name": "grid",
+        "sample_values": [
+          1,
+          5,
+          7,
+          11,
+          3
+        ]
+      },
+      {
+        "col": "position",
+        "type": "integer",
+        "original_column_name": "position",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "position text",
+        "type": "text",
+        "original_column_name": "positionText",
+        "sample_values": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "col": "position order",
+        "type": "integer",
+        "original_column_name": "positionOrder",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "points",
+        "type": "real",
+        "original_column_name": "points",
+        "sample_values": [
+          10.0,
+          8.0,
+          6.0,
+          5.0,
+          4.0
+        ]
+      },
+      {
+        "col": "laps",
+        "type": "integer",
+        "original_column_name": "laps",
+        "sample_values": [
+          58,
+          57,
+          55,
+          53,
+          47
+        ]
+      },
+      {
+        "col": "time",
+        "type": "text",
+        "original_column_name": "time",
+        "sample_values": [
+          "1:34:50.616",
+          "+5.478",
+          "+8.163",
+          "+17.181",
+          "+18.014"
+        ]
+      },
+      {
+        "col": "milliseconds",
+        "type": "integer",
+        "original_column_name": "milliseconds",
+        "sample_values": [
+          5690616,
+          5696094,
+          5698779,
+          5707797,
+          5708630
+        ]
+      },
+      {
+        "col": "fastest lap",
+        "type": "integer",
+        "original_column_name": "fastestLap",
+        "sample_values": [
+          39,
+          41,
+          58,
+          43,
+          50
+        ]
+      },
+      {
+        "col": "rank",
+        "type": "integer",
+        "original_column_name": "rank",
+        "sample_values": [
+          2,
+          3,
+          5,
+          7,
+          1
+        ]
+      },
+      {
+        "col": "fastest Lap Time",
+        "type": "text",
+        "original_column_name": "fastestLapTime",
+        "sample_values": [
+          "1:27.452",
+          "1:27.739",
+          "1:28.090",
+          "1:28.603",
+          "1:27.418"
+        ]
+      },
+      {
+        "col": "fastest Lap Speed",
+        "type": "text",
+        "original_column_name": "fastestLapSpeed",
+        "sample_values": [
+          "218.300",
+          "217.586",
+          "216.719",
+          "215.464",
+          "218.385"
+        ]
+      },
+      {
+        "col": "status Id",
+        "type": "integer",
+        "original_column_name": "statusId",
+        "sample_values": [
+          1,
+          11,
+          5,
+          4,
+          3
+        ]
+      }
+    ],
+    "primary_keys": [
+      "resultId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "statusId",
+        "referenced_table": "status",
+        "referenced_column": "statusId"
+      },
+      {
+        "column": "constructorId",
+        "referenced_table": "constructors",
+        "referenced_column": "constructorId"
+      },
+      {
+        "column": "driverId",
+        "referenced_table": "drivers",
+        "referenced_column": "driverId"
+      },
+      {
+        "column": "raceId",
+        "referenced_table": "races",
+        "referenced_column": "raceId"
+      }
+    ]
+  }
+]

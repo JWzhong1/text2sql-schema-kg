@@ -5,6 +5,7 @@ import dotenv
 from pathlib import Path
 import json
 import datetime
+import sqlite3
 
 # 添加项目根目录到 sys.path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -29,11 +30,11 @@ def main():
 
     # 设定测试参数
     # 这里以 california_schools 为例，你可以修改为你 workspace 中存在的其他 DB
-    db_name = "california_schools" 
+    db_name = "financial" 
     
     # 构造 SQLite 路径 (根据你的 workspace 结构)
     project_root = Path(__file__).parent.parent
-    db_path = f"bird_data/bird/llm/data/dev_databases/{db_name}/{db_name}.sqlite"
+    db_path = f"bird_data/dev_databases/{db_name}/{db_name}.sqlite"
     
     if not Path(db_path).exists():
         logging.error(f"Database file not found at {db_path}")
@@ -41,8 +42,8 @@ def main():
 
     # 初始化 Agent
     agent = Text2SQLAgent(
-        db_name="california_schools",
-        db_path=f"bird_data/bird/llm/data/dev_databases/{db_name}/{db_name}.sqlite",
+        db_name=db_name,
+        db_path=db_path,
         cache_dir="src/agent/schema_retrieval_cache",
         neo4j_config=(neo4j_uri, neo4j_user, neo4j_password)
     )
@@ -57,19 +58,21 @@ def main():
 
     try:
         # 测试问题
-        jsonl_path = "test.jsonl"
-        if not os.path.exists(jsonl_path):
-             logging.error(f"JSONL file not found at {jsonl_path}")
+        json_path = "bird_data/dev_20251106/financial.json"
+        if not os.path.exists(json_path):
+             logging.error(f"JSONL file not found at {json_path}")
              return
 
-        with open(jsonl_path, "r", encoding="utf-8") as f:
-            dev_jsonl = [json.loads(line) for line in f.readlines()]
+        with open(json_path, "r", encoding="utf-8") as f:
+            dev_jsonl = json.load(f)
 
         # 只测试前5个题目
         test_cases = dev_jsonl
         
         for idx, case in enumerate(test_cases):
             question = case["question"]
+            if case["question_id"] != 103:
+                continue
             evidence = case.get("evidence", "")
             golden_sql = case.get("SQL", "")    
             golden_result = case.get("execution_result", [])  
@@ -86,16 +89,42 @@ def main():
             end_time = datetime.datetime.now()
             duration = (end_time - start_time).total_seconds()
 
-            # 简单的结果比较逻辑 (转为字符串比较，忽略顺序)
+            # --- 修改开始: 参照 evaluation.py 执行 Golden SQL 并使用集合比较 ---
             generated_result = result.get("result", [])
-            is_correct = str(sorted(str(r) for r in generated_result)) == str(sorted(str(r) for r in golden_result))
+
+            # 1. 执行 Golden SQL 获取真实结果 (Evaluation 逻辑)
+            golden_result_executed = []
+            try:
+                # 使用 sqlite3 连接执行
+                with sqlite3.connect(db_path) as conn:
+                    cursor = conn.cursor()
+                    cursor.execute(golden_sql)
+                    golden_result_executed = cursor.fetchall()
+            except Exception as e:
+                logging.warning(f"Golden SQL executon failed: {e}")
+                golden_result_executed = f"Error: {str(e)}"
+
+            # 2. 比较逻辑: 转为集合比较 (忽略顺序)
+            def normalize_to_set(rows):
+                if not isinstance(rows, list):
+                    return set()
+                # 确保行转为 tuple (可哈希)，单值转为单元素 tuple
+                return set(tuple(row) if isinstance(row, (list, tuple)) else (row,) for row in rows)
+
+            # 仅当两者均为列表结果时进行比较
+            if isinstance(generated_result, list) and isinstance(golden_result_executed, list):
+                is_correct = normalize_to_set(generated_result) == normalize_to_set(golden_result_executed)
+            else:
+                is_correct = False
+            # --- 修改结束 ---
 
             case_record = {
                 "id": idx,
                 "question": question,
                 "evidence": evidence,
                 "golden_sql": golden_sql,
-                "golden_result": golden_result,
+                "golden_result_original": golden_result, # 保留原 JSON 中的参考值
+                "golden_result_executed": golden_result_executed, # 新增: 实际 Golden SQL 执行结果
                 "generated_sql": result.get("sql"),
                 "generated_result": generated_result,
                 "status": result.get("status"),

@@ -256,7 +256,6 @@ Evidence: "订单表包含 order_date 和 amount；产品表包含 product_name�
 ```json
 { 
     "original_question": "用户的原始查询 string",
-    "reasoning_trace": ["步骤1...", "步骤2..."], 
     "rewritten_question": "结构化重写后的查询 string", 
     "keywords": ["关键实体", "操作符", "值"] 
 } 
@@ -296,7 +295,7 @@ def get_graph_traversal_prompt(question: str, evidence: str, subgraph_context: s
 
 def get_subgraph_pruning_prompt(query: dict, subgraph_context: str) -> tuple[str, str]:
     sys_prompt = (
-        "你是一个数据分析助手，你的任务是根据用户的问题和背景知识，从当前schema子图中选择最相关的表和列，确保查询的可执行性和连接完整性。\n"
+        "你是一个数据分析助手，你的任务是根据用户的问题和背景知识，从当前schema子图中选择相关的表和列，确保查询的可执行性和连接完整性，为后续sql生成任务提供可靠的上下文。\n"
         "- 1.保持可连接性，当查询涉及多个表时，保留必要的主键/外键列\n"
         "- 2.确保语义完整性，当查询存在多条路径时，保留全部查询路径可能涉及的字段\n"
         "- 3.严格遵循原始查询和背景知识中的条件、约束和计算公式等，优先级高于schema中字段的说明。\n"
@@ -305,15 +304,7 @@ def get_subgraph_pruning_prompt(query: dict, subgraph_context: str) -> tuple[str
 
     user_prompt = f"""## 原始查询: {query.get('original_question', '')}
 ## 背景知识: {query.get('evidence', '')}
-## subgraph_nodes: {subgraph_context}
-
-### EXECUTION STEPS:
-
-1. **DECOMPOSE THE QUERY**
-
-2. **PRUNE THE SUBGRAPH**
-
-3. **SUFFICIENCY CHECK**
+## 候选的schema子图信息: {subgraph_context}
 
 ### OUTPUT FORMAT (STRICT JSON):
 
@@ -502,4 +493,135 @@ Generate exploratory SQL queries to:
 
 Return only the JSON object with exploratory_sql array.
 """
+    return system_prompt, user_prompt
+
+def get_self_correction_prompt(
+    question: str,
+    evidence: str,
+    schema_context: str,
+    generated_sql: str,
+    exploration_context: Optional[str] = None
+) -> tuple[str, str]:
+    """
+    生成 Self-Correction 的 Prompt，用于逻辑层面的 SQL 验证和纠错
+    """
+    system_prompt = """You are an expert SQL Validator and Debugger. Your task is to perform a comprehensive logical review of a generated SQL query to ensure it accurately answers the user's question.
+
+### Your Review Process:
+
+#### 1. SEMANTIC ALIGNMENT CHECK
+- Does the SQL correctly interpret the natural language question?
+- Are all conditions from the question properly translated?
+- Are there any implicit requirements that were missed?
+
+#### 2. EVIDENCE COMPLIANCE CHECK
+- Does the SQL strictly follow the evidence/hint provided?
+- Are there any contradictions between the SQL and the evidence?
+- Are domain-specific definitions correctly applied?
+
+#### 3. SCHEMA CORRECTNESS CHECK
+- Are all table and column names valid according to the schema?
+- Are JOIN conditions correct and necessary?
+- Are the right tables being used for the required data?
+
+#### 4. SQL ERROR PATTERN DETECTION
+Identify common error patterns:
+
+**A. Value Matching Errors**
+- Incorrect literal values in WHERE clauses (e.g., wrong city/county names)
+- Using fuzzy LIKE when exact match is needed
+- Using exact match when fuzzy LIKE is needed
+
+**B. Field Confusion Errors**
+- Using wrong columns (e.g., City vs County, Name vs Type)
+- Missing distinction between similar column names
+
+**C. Missing SQL Constructs**
+- Missing window functions (RANK(), ROW_NUMBER(), etc.) when ranking is needed
+- Missing aggregation when counting/summing is needed
+- Missing DISTINCT when unique values are required
+
+**D. Logical Operator Errors**
+- Incorrect use of AND/OR logic
+- Missing or wrong parentheses affecting logic priority
+
+**E. NULL Handling Issues**
+- Not filtering NULL values before ORDER BY/MAX/MIN
+- Incorrect NULL checks
+
+**F. Join Path Errors**
+- Missing intermediate tables in multi-hop joins
+- Incorrect foreign key relationships
+- Cartesian products from missing join conditions
+
+**G. Temporal Logic Errors**
+- Incorrect date/time comparisons
+- Wrong date format or extraction functions
+
+**H. Aggregation Scope Errors**
+- Wrong GROUP BY columns
+- Aggregating at wrong granularity level
+
+#### 5. OUTPUT REQUIREMENTS
+
+Return a JSON object with the following structure:
+{
+  "is_correct": boolean,
+  "confidence": float (0.0-1.0),
+  "error_analysis": {
+    "semantic_issues": ["issue1", "issue2"],
+    "evidence_violations": ["violation1"],
+    "schema_issues": ["issue1"],
+    "error_patterns": [
+      {
+        "type": "VALUE_MATCHING_ERROR|FIELD_CONFUSION|MISSING_CONSTRUCT|LOGIC_ERROR|NULL_HANDLING|JOIN_PATH|TEMPORAL_LOGIC|AGGREGATION_SCOPE",
+        "description": "Detailed explanation",
+        "location": "WHERE clause / SELECT clause / JOIN condition / etc.",
+        "severity": "HIGH|MEDIUM|LOW"
+      }
+    ]
+  },
+  "corrected_sql": "SELECT ... (only if is_correct=false)",
+  "correction_reasoning": "Step-by-step explanation of corrections made"
+}
+
+If is_correct=true, set corrected_sql to empty string and provide brief confirmation in correction_reasoning.
+"""
+
+    exploration_section = ""
+    if exploration_context:
+        exploration_section = f"""
+### Value Exploration Results
+{exploration_context}
+
+These exploration results show actual data values in the database. Use them to validate filter conditions.
+"""
+
+    user_prompt = f"""### Original Question
+{question}
+
+### Evidence / Hint
+{evidence}
+
+### Retrieved Schema
+{schema_context}
+{exploration_section}
+### Generated SQL (To Review)
+```sql
+{generated_sql}
+```
+
+### Your Task
+Perform a thorough logical review of the generated SQL:
+1. Check if it accurately answers the question
+2. Verify compliance with evidence/hints
+3. Identify any error patterns from the list above
+4. If errors found, provide corrected SQL with reasoning
+5. If correct, confirm with high confidence
+
+Focus on LOGICAL correctness, not just syntactic validity. The SQL may execute without errors but still produce wrong results due to logical flaws.
+
+Return ONLY the JSON object specified in the output format.
+"""
+    
     return system_prompt, user_prompt

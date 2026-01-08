@@ -93,6 +93,8 @@ def normalize_link(link, table_map, col_map):
     
     for tbl, cols in link.items():
         # Normalize table name
+        if not isinstance(tbl, str):
+            continue
         t_key = tbl.lower().strip()
         norm_tbl = table_map.get(t_key, tbl) # Fallback to original if not found
         
@@ -101,11 +103,15 @@ def normalize_link(link, table_map, col_map):
         
         current_cols = normalized[norm_tbl]
         
+        if not isinstance(cols, list):
+            continue
+
         for c in cols:
-            c_key = c.lower().strip()
-            # Normalize column name
-            norm_col = t_col_map.get(c_key, c)
-            current_cols.add(norm_col)
+            if isinstance(c, str):
+                c_key = c.lower().strip()
+                # Normalize column name
+                norm_col = t_col_map.get(c_key, c)
+                current_cols.add(norm_col)
             
     # Convert sets back to lists
     return {k: list(v) for k, v in normalized.items()}
@@ -224,6 +230,13 @@ def process_single_db(db_id, cases, saved_results, output_file, eval_results, ev
                 with progress_lock:
                     progress_bar.update(1)
                 continue
+
+        # Extract selected_schema if retrieved_link_raw is the full response object
+        if isinstance(retrieved_link_raw, dict) and "reasoning_context" in retrieved_link_raw:
+            try:
+                retrieved_link_raw = retrieved_link_raw.get("reasoning_context", {}).get("pruning_decision", {}).get("llm_decision", {}).get("selected_schema", {})
+            except Exception:
+                pass
 
         # Normalize retrieved link
         retrieved_link = normalize_link(retrieved_link_raw, table_map, col_map)
@@ -431,13 +444,13 @@ if __name__ == "__main__":
     default_test_file = f"bird_data/golden_link/golden_schema_link_{db_name}.json"
     test_file = args.test_file or default_test_file
 
-    default_cache_file = f"scripts/evaluate/cache/retrieval_results_{db_name}.json"
+    default_cache_file = f"evaluate/cache/retrieval_results_{db_name}.json"
     retrieval_cache_dir = args.cache_file or default_cache_file
     cache_parent = os.path.dirname(retrieval_cache_dir)
     if cache_parent:
         os.makedirs(cache_parent, exist_ok=True)
 
-    default_report_dir = f"scripts/evaluate/result/{db_name}"
+    default_report_dir = f"evaluate/sl_evaluate/{db_name}"
     default_report_path = os.path.join(
         default_report_dir,
         f"eval_report_{db_name}_{time.strftime('%Y%m%d_%H%M%S')}.json"

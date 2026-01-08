@@ -1,0 +1,528 @@
+[
+  {
+    "table_name": "alignment",
+    "db_id": "superhero",
+    "original_table_name": "alignment",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "col": "alignment",
+        "type": "text",
+        "original_column_name": "alignment",
+        "sample_values": [
+          "Good",
+          "Bad",
+          "Neutral",
+          "N/A"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "attribute",
+    "db_id": "superhero",
+    "original_table_name": "attribute",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "attribute name",
+        "type": "text",
+        "original_column_name": "attribute_name",
+        "sample_values": [
+          "Intelligence",
+          "Strength",
+          "Speed",
+          "Durability",
+          "Power"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "colour",
+    "db_id": "superhero",
+    "original_table_name": "colour",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "colour",
+        "type": "text",
+        "original_column_name": "colour",
+        "sample_values": [
+          "No Colour",
+          "Amber",
+          "Auburn",
+          "Black",
+          "Black/Blue"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "gender",
+    "db_id": "superhero",
+    "original_table_name": "gender",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "col": "gender",
+        "type": "text",
+        "original_column_name": "gender",
+        "sample_values": [
+          "Male",
+          "Female",
+          "N/A"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "publisher",
+    "db_id": "superhero",
+    "original_table_name": "publisher",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "publisher_name",
+        "type": "text",
+        "original_column_name": "publisher_name",
+        "sample_values": [
+          "",
+          "ABC Studios",
+          "Dark Horse Comics",
+          "DC Comics",
+          "George Lucas"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "race",
+    "db_id": "superhero",
+    "original_table_name": "race",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "race",
+        "type": "text",
+        "original_column_name": "race",
+        "sample_values": [
+          "-",
+          "Alien",
+          "Alpha",
+          "Amazon",
+          "Android"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "superhero",
+    "db_id": "superhero",
+    "original_table_name": "superhero",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "superhero name",
+        "type": "text",
+        "original_column_name": "superhero_name",
+        "sample_values": [
+          "3-D Man",
+          "A-Bomb",
+          "Abe Sapien",
+          "Abin Sur",
+          "Abomination"
+        ]
+      },
+      {
+        "col": "full name",
+        "type": "text",
+        "original_column_name": "full_name",
+        "sample_values": [
+          "Charles Chandler",
+          "Richard Milhouse Jones",
+          "Abraham Sapien",
+          "-",
+          "Emil Blonsky"
+        ]
+      },
+      {
+        "col": "gender id",
+        "type": "integer",
+        "original_column_name": "gender_id",
+        "sample_values": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "col": "eye colour id",
+        "type": "integer",
+        "original_column_name": "eye_colour_id",
+        "sample_values": [
+          9,
+          33,
+          7,
+          14,
+          1
+        ]
+      },
+      {
+        "col": "hair colour id",
+        "type": "integer",
+        "original_column_name": "hair_colour_id",
+        "sample_values": [
+          13,
+          1,
+          4,
+          6,
+          9
+        ]
+      },
+      {
+        "col": "skin colour id",
+        "type": "integer",
+        "original_column_name": "skin_colour_id",
+        "sample_values": [
+          1,
+          7,
+          23,
+          4,
+          13
+        ]
+      },
+      {
+        "col": "race id",
+        "type": "integer",
+        "original_column_name": "race_id",
+        "sample_values": [
+          1,
+          24,
+          33,
+          55,
+          28
+        ]
+      },
+      {
+        "col": "publisher id",
+        "type": "integer",
+        "original_column_name": "publisher_id",
+        "sample_values": [
+          13,
+          3,
+          4,
+          15,
+          25
+        ]
+      },
+      {
+        "col": "alignment id",
+        "type": "integer",
+        "original_column_name": "alignment_id",
+        "sample_values": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "col": "height cm",
+        "type": "integer",
+        "original_column_name": "height_cm",
+        "sample_values": [
+          188,
+          203,
+          191,
+          185,
+          0
+        ]
+      },
+      {
+        "col": "weight kg",
+        "type": "integer",
+        "original_column_name": "weight_kg",
+        "sample_values": [
+          90,
+          441,
+          65,
+          0,
+          122
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "skin_colour_id",
+        "referenced_table": "colour",
+        "referenced_column": "id"
+      },
+      {
+        "column": "race_id",
+        "referenced_table": "race",
+        "referenced_column": "id"
+      },
+      {
+        "column": "publisher_id",
+        "referenced_table": "publisher",
+        "referenced_column": "id"
+      },
+      {
+        "column": "hair_colour_id",
+        "referenced_table": "colour",
+        "referenced_column": "id"
+      },
+      {
+        "column": "gender_id",
+        "referenced_table": "gender",
+        "referenced_column": "id"
+      },
+      {
+        "column": "eye_colour_id",
+        "referenced_table": "colour",
+        "referenced_column": "id"
+      },
+      {
+        "column": "alignment_id",
+        "referenced_table": "alignment",
+        "referenced_column": "id"
+      }
+    ]
+  },
+  {
+    "table_name": "hero attribute",
+    "db_id": "superhero",
+    "original_table_name": "hero_attribute",
+    "columns": [
+      {
+        "col": "hero id",
+        "type": "integer",
+        "original_column_name": "hero_id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "attribute id",
+        "type": "integer",
+        "original_column_name": "attribute_id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "attribute value",
+        "type": "integer",
+        "original_column_name": "attribute_value",
+        "sample_values": [
+          80,
+          75,
+          95,
+          85,
+          100
+        ]
+      }
+    ],
+    "primary_keys": [],
+    "foreign_keys": [
+      {
+        "column": "hero_id",
+        "referenced_table": "superhero",
+        "referenced_column": "id"
+      },
+      {
+        "column": "attribute_id",
+        "referenced_table": "attribute",
+        "referenced_column": "id"
+      }
+    ]
+  },
+  {
+    "table_name": "superpower",
+    "db_id": "superhero",
+    "original_table_name": "superpower",
+    "columns": [
+      {
+        "col": "id",
+        "type": "integer",
+        "original_column_name": "id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "power name",
+        "type": "text",
+        "original_column_name": "power_name",
+        "sample_values": [
+          "Agility",
+          "Accelerated Healing",
+          "Lantern Power Ring",
+          "Dimensional Awareness",
+          "Cold Resistance"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "id"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "hero power",
+    "db_id": "superhero",
+    "original_table_name": "hero_power",
+    "columns": [
+      {
+        "col": "hero id",
+        "type": "integer",
+        "original_column_name": "hero_id",
+        "sample_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "col": "power id",
+        "type": "integer",
+        "original_column_name": "power_id",
+        "sample_values": [
+          1,
+          18,
+          26,
+          31,
+          2
+        ]
+      }
+    ],
+    "primary_keys": [],
+    "foreign_keys": [
+      {
+        "column": "power_id",
+        "referenced_table": "superpower",
+        "referenced_column": "id"
+      },
+      {
+        "column": "hero_id",
+        "referenced_table": "superhero",
+        "referenced_column": "id"
+      }
+    ]
+  }
+]

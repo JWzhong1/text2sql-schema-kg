@@ -1,0 +1,160 @@
+{
+    "db_id": "toxicology",
+    "table_names_original": [
+        "atom",
+        "bond",
+        "connected",
+        "molecule"
+    ],
+    "table_names": [
+        "atom",
+        "bond",
+        "connected",
+        "molecule"
+    ],
+    "column_names_original": [
+        [
+            -1,
+            "*"
+        ],
+        [
+            0,
+            "atom_id"
+        ],
+        [
+            0,
+            "molecule_id"
+        ],
+        [
+            0,
+            "element"
+        ],
+        [
+            1,
+            "bond_id"
+        ],
+        [
+            1,
+            "molecule_id"
+        ],
+        [
+            1,
+            "bond_type"
+        ],
+        [
+            2,
+            "atom_id"
+        ],
+        [
+            2,
+            "atom_id2"
+        ],
+        [
+            2,
+            "bond_id"
+        ],
+        [
+            3,
+            "molecule_id"
+        ],
+        [
+            3,
+            "label"
+        ]
+    ],
+    "column_names": [
+        [
+            -1,
+            "*"
+        ],
+        [
+            0,
+            "atom id"
+        ],
+        [
+            0,
+            "molecule id"
+        ],
+        [
+            0,
+            "element"
+        ],
+        [
+            1,
+            "bond_id"
+        ],
+        [
+            1,
+            "molecule_id"
+        ],
+        [
+            1,
+            "bond_type"
+        ],
+        [
+            2,
+            "atom id"
+        ],
+        [
+            2,
+            "atom id 2"
+        ],
+        [
+            2,
+            "bond id"
+        ],
+        [
+            3,
+            "molecule id"
+        ],
+        [
+            3,
+            "label"
+        ]
+    ],
+    "column_types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+    ],
+    "primary_keys": [
+        1,
+        4,
+        [
+            7,
+            8
+        ],
+        10
+    ],
+    "foreign_keys": [
+        [
+            2,
+            10
+        ],
+        [
+            5,
+            10
+        ],
+        [
+            9,
+            4
+        ],
+        [
+            8,
+            1
+        ],
+        [
+            7,
+            1
+        ]
+    ]
+}

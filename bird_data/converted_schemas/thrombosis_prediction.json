@@ -1,0 +1,789 @@
+[
+  {
+    "table_name": "Examination",
+    "db_id": "thrombosis_prediction",
+    "original_table_name": "Examination",
+    "columns": [
+      {
+        "col": "ID",
+        "type": "integer",
+        "original_column_name": "ID",
+        "sample_values": [
+          14872,
+          48473,
+          102490,
+          108788,
+          122405
+        ]
+      },
+      {
+        "col": "Examination Date",
+        "type": "date",
+        "original_column_name": "Examination Date",
+        "sample_values": [
+          "1997-05-27",
+          "1992-12-21",
+          "1995-04-20",
+          "1997-05-06",
+          "1998-04-02"
+        ]
+      },
+      {
+        "col": "anti-Cardiolipin antibody (IgG)",
+        "type": "real",
+        "original_column_name": "aCL IgG",
+        "sample_values": [
+          1.3,
+          4.3,
+          2.3,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "col": "anti-Cardiolipin antibody (IgM)",
+        "type": "real",
+        "original_column_name": "aCL IgM",
+        "sample_values": [
+          1.6,
+          4.6,
+          2.5,
+          0.0,
+          4.0
+        ]
+      },
+      {
+        "col": "anti-nucleus antibody",
+        "type": "integer",
+        "original_column_name": "ANA",
+        "sample_values": [
+          256,
+          0,
+          16,
+          4,
+          1024
+        ]
+      },
+      {
+        "col": "pattern observed in the sheet of ANA examination",
+        "type": "text",
+        "original_column_name": "ANA Pattern",
+        "sample_values": [
+          "P",
+          "P,S",
+          "S",
+          "D,P,S",
+          "P.S"
+        ]
+      },
+      {
+        "col": "anti-Cardiolipin antibody (IgA) concentration",
+        "type": "integer",
+        "original_column_name": "aCL IgA",
+        "sample_values": [
+          0,
+          3,
+          4,
+          9,
+          12
+        ]
+      },
+      {
+        "col": "Diagnosis",
+        "type": "text",
+        "original_column_name": "Diagnosis",
+        "sample_values": [
+          "MCTD, AMI",
+          "SLE",
+          "PSS",
+          "SLE, SjS, vertigo",
+          "SLE, AIHA"
+        ]
+      },
+      {
+        "col": "measure of degree of coagulation",
+        "type": "text",
+        "original_column_name": "KCT",
+        "sample_values": [
+          "-",
+          "+"
+        ]
+      },
+      {
+        "col": "measure of degree of coagulation",
+        "type": "text",
+        "original_column_name": "RVVT",
+        "sample_values": [
+          "-",
+          "+"
+        ]
+      },
+      {
+        "col": "measure of degree of coagulation",
+        "type": "text",
+        "original_column_name": "LAC",
+        "sample_values": [
+          "-",
+          "+"
+        ]
+      },
+      {
+        "col": "Symptoms",
+        "type": "text",
+        "original_column_name": "Symptoms",
+        "sample_values": [
+          "AMI",
+          "CNS lupus",
+          "Apo",
+          "AP",
+          "thrombocytepenia"
+        ]
+      },
+      {
+        "col": "Thrombosis",
+        "type": "integer",
+        "original_column_name": "Thrombosis",
+        "sample_values": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    ],
+    "primary_keys": [],
+    "foreign_keys": [
+      {
+        "column": "ID",
+        "referenced_table": "Patient",
+        "referenced_column": "ID"
+      }
+    ]
+  },
+  {
+    "table_name": "Patient",
+    "db_id": "thrombosis_prediction",
+    "original_table_name": "Patient",
+    "columns": [
+      {
+        "col": "ID",
+        "type": "integer",
+        "original_column_name": "ID",
+        "sample_values": [
+          2110,
+          11408,
+          12052,
+          14872,
+          27654
+        ]
+      },
+      {
+        "col": "SEX",
+        "type": "text",
+        "original_column_name": "SEX",
+        "sample_values": [
+          "F",
+          "M",
+          ""
+        ]
+      },
+      {
+        "col": "Birthday",
+        "type": "date",
+        "original_column_name": "Birthday",
+        "sample_values": [
+          "1934-02-13",
+          "1937-05-02",
+          "1956-04-14",
+          "1953-09-21",
+          "1936-03-25"
+        ]
+      },
+      {
+        "col": "Description",
+        "type": "date",
+        "original_column_name": "Description",
+        "sample_values": [
+          "1994-02-14",
+          "1996-12-01",
+          "1991-08-13",
+          "1997-08-13",
+          "1994-03-08"
+        ]
+      },
+      {
+        "col": "First Date",
+        "type": "date",
+        "original_column_name": "First Date",
+        "sample_values": [
+          "1993-02-10",
+          "1973-01-01",
+          "1992-02-03",
+          "1994-03-08",
+          "1993-02-05"
+        ]
+      },
+      {
+        "col": "Admission",
+        "type": "text",
+        "original_column_name": "Admission",
+        "sample_values": [
+          "+",
+          "-",
+          "",
+          "+("
+        ]
+      },
+      {
+        "col": "Diagnosis",
+        "type": "text",
+        "original_column_name": "Diagnosis",
+        "sample_values": [
+          "RA susp.",
+          "PSS",
+          "SLE",
+          "MCTD",
+          "RA, SLE susp"
+        ]
+      }
+    ],
+    "primary_keys": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  {
+    "table_name": "Laboratory",
+    "db_id": "thrombosis_prediction",
+    "original_table_name": "Laboratory",
+    "columns": [
+      {
+        "col": "ID",
+        "type": "integer",
+        "original_column_name": "ID",
+        "sample_values": [
+          27654,
+          30609,
+          43003,
+          48473,
+          52199
+        ]
+      },
+      {
+        "col": "Date",
+        "type": "date",
+        "original_column_name": "Date",
+        "sample_values": [
+          "1991-09-11",
+          "1991-09-17",
+          "1991-09-19",
+          "1991-09-20",
+          "1991-09-21"
+        ]
+      },
+      {
+        "col": "AST glutamic oxaloacetic transaminase",
+        "type": "integer",
+        "original_column_name": "GOT",
+        "sample_values": [
+          34,
+          29,
+          26,
+          23,
+          24
+        ]
+      },
+      {
+        "col": "ALT glutamic pyruvic transaminase",
+        "type": "integer",
+        "original_column_name": "GPT",
+        "sample_values": [
+          36,
+          31,
+          22,
+          18,
+          4
+        ]
+      },
+      {
+        "col": "lactate dehydrogenase",
+        "type": "integer",
+        "original_column_name": "LDH",
+        "sample_values": [
+          567,
+          579,
+          684,
+          552,
+          701
+        ]
+      },
+      {
+        "col": "alkaliphophatase",
+        "type": "integer",
+        "original_column_name": "ALP",
+        "sample_values": [
+          166,
+          154,
+          138,
+          131,
+          108
+        ]
+      },
+      {
+        "col": "total protein",
+        "type": "real",
+        "original_column_name": "TP",
+        "sample_values": [
+          4.5,
+          5.1,
+          5.5,
+          4.2,
+          4.7
+        ]
+      },
+      {
+        "col": "albumin",
+        "type": "real",
+        "original_column_name": "ALB",
+        "sample_values": [
+          3.3,
+          3.4,
+          3.6,
+          2.9,
+          3.2
+        ]
+      },
+      {
+        "col": "uric acid",
+        "type": "real",
+        "original_column_name": "UA",
+        "sample_values": [
+          3.8,
+          4.2,
+          4.9,
+          4.8,
+          5.2
+        ]
+      },
+      {
+        "col": "urea nitrogen",
+        "type": "integer",
+        "original_column_name": "UN",
+        "sample_values": [
+          29,
+          36,
+          34,
+          22,
+          8
+        ]
+      },
+      {
+        "col": "creatinine",
+        "type": "real",
+        "original_column_name": "CRE",
+        "sample_values": [
+          0.8,
+          0.9,
+          0.7,
+          0.6,
+          1.0
+        ]
+      },
+      {
+        "col": "total bilirubin",
+        "type": "real",
+        "original_column_name": "T-BIL",
+        "sample_values": [
+          0.3,
+          0.2,
+          0.4,
+          0.5,
+          0.6
+        ]
+      },
+      {
+        "col": "total cholesterol",
+        "type": "integer",
+        "original_column_name": "T-CHO",
+        "sample_values": [
+          165,
+          134,
+          140,
+          123,
+          107
+        ]
+      },
+      {
+        "col": "triglyceride",
+        "type": "integer",
+        "original_column_name": "TG",
+        "sample_values": [
+          185,
+          205,
+          254,
+          125,
+          131
+        ]
+      },
+      {
+        "col": "creatinine phosphokinase",
+        "type": "integer",
+        "original_column_name": "CPK",
+        "sample_values": [
+          9,
+          10,
+          11,
+          26,
+          31
+        ]
+      },
+      {
+        "col": "blood glucose",
+        "type": "integer",
+        "original_column_name": "GLU",
+        "sample_values": [
+          88,
+          134,
+          161,
+          93,
+          101
+        ]
+      },
+      {
+        "col": "White blood cell",
+        "type": "real",
+        "original_column_name": "WBC",
+        "sample_values": [
+          5.0,
+          10.4,
+          10.5,
+          10.3,
+          14.3
+        ]
+      },
+      {
+        "col": "Red blood cell",
+        "type": "real",
+        "original_column_name": "RBC",
+        "sample_values": [
+          2.6,
+          2.9,
+          3.4,
+          3.2,
+          3.3
+        ]
+      },
+      {
+        "col": "Hemoglobin",
+        "type": "real",
+        "original_column_name": "HGB",
+        "sample_values": [
+          6.4,
+          6.7,
+          7.9,
+          6.1,
+          7.2
+        ]
+      },
+      {
+        "col": "Hematoclit",
+        "type": "real",
+        "original_column_name": "HCT",
+        "sample_values": [
+          20.3,
+          21.6,
+          24.7,
+          19.3,
+          23.4
+        ]
+      },
+      {
+        "col": "platelet",
+        "type": "integer",
+        "original_column_name": "PLT",
+        "sample_values": [
+          227,
+          242,
+          233,
+          201,
+          215
+        ]
+      },
+      {
+        "col": "prothrombin time",
+        "type": "real",
+        "original_column_name": "PT",
+        "sample_values": [
+          11.3,
+          12.0,
+          11.8,
+          12.6,
+          12.2
+        ]
+      },
+      {
+        "col": "activated partial prothrombin time",
+        "type": "integer",
+        "original_column_name": "APTT",
+        "sample_values": [
+          108,
+          84,
+          76,
+          90,
+          120
+        ]
+      },
+      {
+        "col": "fibrinogen",
+        "type": "real",
+        "original_column_name": "FG",
+        "sample_values": [
+          27.0,
+          38.6,
+          27.6,
+          29.8,
+          27.7
+        ]
+      },
+      {
+        "col": "PIC",
+        "type": "integer",
+        "original_column_name": "PIC",
+        "sample_values": [
+          320,
+          513,
+          284,
+          529,
+          430
+        ]
+      },
+      {
+        "col": "TAT",
+        "type": "integer",
+        "original_column_name": "TAT",
+        "sample_values": [
+          77,
+          108,
+          115,
+          107,
+          86
+        ]
+      },
+      {
+        "col": "TAT2",
+        "type": "integer",
+        "original_column_name": "TAT2",
+        "sample_values": [
+          113,
+          88,
+          104,
+          101,
+          109
+        ]
+      },
+      {
+        "col": "proteinuria",
+        "type": "text",
+        "original_column_name": "U-PRO",
+        "sample_values": [
+          "-",
+          "0",
+          "TR",
+          "1",
+          "2"
+        ]
+      },
+      {
+        "col": "Ig G",
+        "type": "integer",
+        "original_column_name": "IGG",
+        "sample_values": [
+          339,
+          771,
+          430,
+          562,
+          625
+        ]
+      },
+      {
+        "col": "Ig A",
+        "type": "integer",
+        "original_column_name": "IGA",
+        "sample_values": [
+          145,
+          188,
+          118,
+          152,
+          195
+        ]
+      },
+      {
+        "col": "Ig M",
+        "type": "integer",
+        "original_column_name": "IGM",
+        "sample_values": [
+          46,
+          132,
+          56,
+          124,
+          142
+        ]
+      },
+      {
+        "col": "C-reactive protein",
+        "type": "text",
+        "original_column_name": "CRP",
+        "sample_values": [
+          "0.6",
+          "2.7",
+          "1.2",
+          "3.9",
+          "2.8"
+        ]
+      },
+      {
+        "col": "Rhuematoid Factor",
+        "type": "text",
+        "original_column_name": "RA",
+        "sample_values": [
+          "-",
+          "+",
+          "+-",
+          "2+",
+          "7-"
+        ]
+      },
+      {
+        "col": "RAHA",
+        "type": "text",
+        "original_column_name": "RF",
+        "sample_values": [
+          "<20.5",
+          "<20.8",
+          "<40",
+          "<17.0",
+          "<21.3"
+        ]
+      },
+      {
+        "col": "complement 3",
+        "type": "integer",
+        "original_column_name": "C3",
+        "sample_values": [
+          30,
+          82,
+          103,
+          63,
+          53
+        ]
+      },
+      {
+        "col": "complement 4",
+        "type": "integer",
+        "original_column_name": "C4",
+        "sample_values": [
+          14,
+          26,
+          35,
+          31,
+          34
+        ]
+      },
+      {
+        "col": "anti-ribonuclear protein",
+        "type": "text",
+        "original_column_name": "RNP",
+        "sample_values": [
+          "0",
+          "1",
+          "256",
+          "negative",
+          "16"
+        ]
+      },
+      {
+        "col": "anti-SM",
+        "type": "text",
+        "original_column_name": "SM",
+        "sample_values": [
+          "0",
+          "1",
+          "negative",
+          "2",
+          "8"
+        ]
+      },
+      {
+        "col": "anti-scl70",
+        "type": "text",
+        "original_column_name": "SC170",
+        "sample_values": [
+          "16",
+          "1",
+          "0",
+          "negative",
+          "4"
+        ]
+      },
+      {
+        "col": "anti-SSA",
+        "type": "text",
+        "original_column_name": "SSA",
+        "sample_values": [
+          "0",
+          "negative",
+          "16",
+          "4",
+          "256"
+        ]
+      },
+      {
+        "col": "anti-SSB",
+        "type": "text",
+        "original_column_name": "SSB",
+        "sample_values": [
+          "0",
+          "negative",
+          "1",
+          "32",
+          "8"
+        ]
+      },
+      {
+        "col": "anti-centromere",
+        "type": "text",
+        "original_column_name": "CENTROMEA",
+        "sample_values": [
+          "0",
+          "negative"
+        ]
+      },
+      {
+        "col": "anti-DNA",
+        "type": "text",
+        "original_column_name": "DNA",
+        "sample_values": [
+          "41.9",
+          "18",
+          "4.3",
+          "5.56",
+          "9.88"
+        ]
+      },
+      {
+        "col": "anti-DNA",
+        "type": "integer",
+        "original_column_name": "DNA-II",
+        "sample_values": []
+      }
+    ],
+    "primary_keys": [],
+    "foreign_keys": [
+      {
+        "column": "ID",
+        "referenced_table": "Patient",
+        "referenced_column": "ID"
+      }
+    ]
+  }
+]
